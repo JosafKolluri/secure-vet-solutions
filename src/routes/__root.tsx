@@ -11,6 +11,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Header } from "../components/layout/Header";
+import { Footer } from "../components/layout/Footer";
+import { Toaster } from "../components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -77,19 +80,52 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "CyberCloudInfra | SDVOSB Cloud, Cybersecurity & IT Infrastructure" },
+      {
+        name: "description",
+        content:
+          "CyberCloudInfra is a Service-Disabled Veteran-Owned Small Business (SDVOSB) delivering secure cloud, cybersecurity, and IT infrastructure solutions for government and enterprise.",
+      },
+      { name: "author", content: "CyberCloudInfra" },
+      { property: "og:title", content: "CyberCloudInfra | SDVOSB Technology Solutions" },
+      {
+        property: "og:description",
+        content:
+          "Mission-driven cloud, cybersecurity, and infrastructure solutions for government and enterprise.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:site_name", content: "CyberCloudInfra" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "CyberCloudInfra",
+          description:
+            "Service-Disabled Veteran-Owned Small Business delivering cloud, cybersecurity, and IT infrastructure solutions.",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "1750 Tysons Blvd, Suite 1500",
+            addressLocality: "McLean",
+            addressRegion: "VA",
+            postalCode: "22102",
+            addressCountry: "US",
+          },
+          email: "contracts@cybercloudinfra.com",
+          telephone: "+1-703-555-0142",
+        }),
       },
     ],
   }),
@@ -118,8 +154,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+      <Toaster />
     </QueryClientProvider>
   );
 }
