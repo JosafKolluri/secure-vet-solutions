@@ -9,38 +9,215 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CertificationsRouteImport } from './routes/certifications'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as CapabilitiesRouteImport } from './routes/capabilities'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogSlugRouteImport } from './routes/blog_.$slug'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificationsRoute = CertificationsRouteImport.update({
+  id: '/certifications',
+  path: '/certifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CapabilitiesRoute = CapabilitiesRouteImport.update({
+  id: '/capabilities',
+  path: '/capabilities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog_/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
+  '/capabilities': typeof CapabilitiesRoute
+  '/careers': typeof CareersRoute
+  '/certifications': typeof CertificationsRoute
+  '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
+  '/capabilities': typeof CapabilitiesRoute
+  '/careers': typeof CareersRoute
+  '/certifications': typeof CertificationsRoute
+  '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
+  '/capabilities': typeof CapabilitiesRoute
+  '/careers': typeof CareersRoute
+  '/certifications': typeof CertificationsRoute
+  '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog_/$slug': typeof BlogSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/capabilities'
+    | '/careers'
+    | '/certifications'
+    | '/contact'
+    | '/industries'
+    | '/sitemap.xml'
+    | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/capabilities'
+    | '/careers'
+    | '/certifications'
+    | '/contact'
+    | '/industries'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/capabilities'
+    | '/careers'
+    | '/certifications'
+    | '/contact'
+    | '/industries'
+    | '/sitemap.xml'
+    | '/blog_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRoute
+  CapabilitiesRoute: typeof CapabilitiesRoute
+  CareersRoute: typeof CareersRoute
+  CertificationsRoute: typeof CertificationsRoute
+  ContactRoute: typeof ContactRoute
+  IndustriesRoute: typeof IndustriesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  BlogSlugRoute: typeof BlogSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/certifications': {
+      id: '/certifications'
+      path: '/certifications'
+      fullPath: '/certifications'
+      preLoaderRoute: typeof CertificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/capabilities': {
+      id: '/capabilities'
+      path: '/capabilities'
+      fullPath: '/capabilities'
+      preLoaderRoute: typeof CapabilitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +225,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog_/$slug': {
+      id: '/blog_/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BlogRoute: BlogRoute,
+  CapabilitiesRoute: CapabilitiesRoute,
+  CareersRoute: CareersRoute,
+  CertificationsRoute: CertificationsRoute,
+  ContactRoute: ContactRoute,
+  IndustriesRoute: IndustriesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  BlogSlugRoute: BlogSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
