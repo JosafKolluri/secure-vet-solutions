@@ -19,7 +19,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { services, capabilities } from "@/data/site";
+import { services } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
