@@ -66,7 +66,8 @@ function Home() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
               CyberCloudInfra is a Service-Disabled Veteran-Owned Small Business (SDVOSB)
-              delivering secure cloud, cybersecurity, and infrastructure solutions.
+              specializing in Azure-first cloud migration, data center modernization, AI-driven
+              cybersecurity, and disaster recovery for private and government missions.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button asChild variant="hero" size="xl">
