@@ -29,45 +29,45 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    slug: "cloud-solutions",
-    title: "Cloud Solutions",
+    slug: "cloud-migration",
+    title: "Cloud Migration",
     description:
-      "Secure, scalable AWS and Azure architectures, migrations, and FedRAMP-aligned cloud operations.",
+      "Azure-first migrations (plus AWS & GCP) that move workloads from the data center to secure, scalable cloud — with zero-trust controls built in.",
     icon: Cloud,
   },
   {
-    slug: "cybersecurity",
-    title: "Cybersecurity",
+    slug: "data-center",
+    title: "Data Center Expertise",
     description:
-      "Zero Trust, continuous monitoring, and compliance hardening to defend mission-critical systems.",
-    icon: Shield,
-  },
-  {
-    slug: "managed-it",
-    title: "Managed IT Services",
-    description:
-      "24/7 proactive support, helpdesk, and lifecycle management that keeps operations running.",
+      "Deep data center engineering — design, consolidation, virtualization, and modernization for private and government environments.",
     icon: Server,
   },
   {
-    slug: "infrastructure-modernization",
-    title: "Infrastructure Modernization",
+    slug: "cybersecurity-ai",
+    title: "AI-Driven Cybersecurity",
     description:
-      "Re-platforming legacy systems into resilient, automated, high-availability environments.",
-    icon: Cpu,
+      "Threat detection and response powered by AI and best-in-class tools: Prisma Cloud, Splunk, CrowdStrike, and Wiz.",
+    icon: Shield,
   },
   {
-    slug: "devsecops",
-    title: "DevSecOps",
+    slug: "disaster-recovery",
+    title: "Disaster Recovery",
     description:
-      "CI/CD pipelines with security baked in — from code commit to compliant deployment.",
-    icon: GitBranch,
+      "Resilient backup, replication, and DR strategies that keep mission-critical systems available through any disruption.",
+    icon: HeartPulse,
+  },
+  {
+    slug: "managed-secops",
+    title: "Managed Security Operations",
+    description:
+      "24/7 monitoring, SIEM, and continuous compliance hardening to defend private and government missions around the clock.",
+    icon: Eye,
   },
   {
     slug: "government-consulting",
     title: "Government Consulting",
     description:
-      "Acquisition strategy, program management, and IT advisory tailored for federal missions.",
+      "Acquisition strategy, program management, and IT advisory tailored for federal and public-sector missions.",
     icon: Landmark,
   },
 ];
@@ -80,33 +80,35 @@ export interface Capability {
 
 export const capabilities: Capability[] = [
   {
-    category: "Cloud Services",
+    category: "Cloud & Migration",
     icon: Cloud,
     items: [
-      { name: "AWS", icon: Cloud },
-      { name: "Azure", icon: Cloud },
-      { name: "Hybrid Cloud", icon: Boxes },
-      { name: "Migration Services", icon: GitBranch },
+      { name: "Microsoft Azure (Primary)", icon: Cloud },
+      { name: "AWS & Google Cloud", icon: Cloud },
+      { name: "Data Center to Cloud Migration", icon: GitBranch },
+      { name: "Hybrid & Multi-Cloud", icon: Boxes },
     ],
   },
   {
-    category: "Cybersecurity",
+    category: "Cybersecurity & AI",
     icon: Shield,
     items: [
+      { name: "Prisma Cloud", icon: ShieldCheck },
+      { name: "Splunk SIEM", icon: Eye },
+      { name: "CrowdStrike EDR", icon: AlertTriangle },
+      { name: "Wiz Cloud Security", icon: FileSearch },
+      { name: "AI-Driven Threat Detection", icon: Cpu },
       { name: "Zero Trust Architecture", icon: ShieldCheck },
-      { name: "Security Operations", icon: Eye },
-      { name: "Vulnerability Management", icon: AlertTriangle },
-      { name: "Risk Assessment", icon: FileSearch },
     ],
   },
   {
-    category: "Infrastructure",
+    category: "Data Center & Infrastructure",
     icon: Server,
     items: [
-      { name: "Servers", icon: Server },
+      { name: "Data Center Design", icon: Server },
       { name: "Networking", icon: Network },
-      { name: "Storage", icon: HardDrive },
-      { name: "Virtualization", icon: Boxes },
+      { name: "Storage & Virtualization", icon: HardDrive },
+      { name: "Disaster Recovery", icon: HeartPulse },
     ],
   },
   {
@@ -114,6 +116,7 @@ export const capabilities: Capability[] = [
     icon: Landmark,
     items: [
       { name: "Federal IT Services", icon: Landmark },
+      { name: "Private & Public Sector", icon: Building2 },
       { name: "Contract Support", icon: FileSearch },
       { name: "Program Management", icon: Cpu },
     ],
