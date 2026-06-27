@@ -79,6 +79,7 @@ function Blog() {
                   <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:text-accent">
                     Read article <ArrowRight className="h-4 w-4" />
                   </span>
+                  </div>
                 </Link>
               </Reveal>
             ))}
