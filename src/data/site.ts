@@ -20,6 +20,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+import blogZeroTrust from "@/assets/blog-zero-trust.jpg";
+import blogCloudMigration from "@/assets/blog-cloud-migration.jpg";
+import blogDevsecops from "@/assets/blog-devsecops.jpg";
+
 export interface Service {
   slug: string;
   title: string;
@@ -229,6 +233,7 @@ export interface BlogPost {
   category: string;
   date: string;
   readTime: string;
+  cover: string;
   body: string[];
 }
 
