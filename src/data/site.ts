@@ -246,6 +246,7 @@ export const blogPosts: BlogPost[] = [
     category: "Cybersecurity",
     date: "2026-05-18",
     readTime: "6 min",
+    cover: blogZeroTrust,
     body: [
       "Zero Trust has shifted from buzzword to mandate. Federal agencies are now required to architect systems that never implicitly trust any user or device.",
       "The journey starts with identity. Strong authentication, least-privilege access, and continuous verification form the backbone of any Zero Trust rollout.",
@@ -260,6 +261,7 @@ export const blogPosts: BlogPost[] = [
     category: "Cloud",
     date: "2026-04-02",
     readTime: "5 min",
+    cover: blogCloudMigration,
     body: [
       "Government cloud migration is as much about governance as it is about technology. Compliance frameworks like FedRAMP shape every architectural decision.",
       "A phased approach — assess, re-platform, optimize — reduces risk while delivering early wins to stakeholders.",
@@ -274,6 +276,7 @@ export const blogPosts: BlogPost[] = [
     category: "DevSecOps",
     date: "2026-03-11",
     readTime: "4 min",
+    cover: blogDevsecops,
     body: [
       "Traditional compliance happens at the end of a project. DevSecOps moves it to the beginning, embedding controls directly into CI/CD pipelines.",
       "Automated scanning, policy-as-code, and continuous authorization let teams ship faster while staying audit-ready.",
