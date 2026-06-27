@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, ShieldCheck, Award, Cloud, Mouse, Download } from "lucide-react";
+import { ArrowRight, ShieldCheck, Mouse, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal, SectionHeading } from "@/components/sections/Primitives";
 import { Testimonials } from "@/components/sections/Testimonials";
