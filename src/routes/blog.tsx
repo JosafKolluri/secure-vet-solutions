@@ -41,8 +41,19 @@ function Blog() {
                 <Link
                   to="/blog/$slug"
                   params={{ slug: post.slug }}
-                  className="group flex h-full flex-col rounded-2xl border bg-card p-7 shadow-card transition-all hover:-translate-y-1 hover:shadow-elegant"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border bg-card shadow-card transition-all hover:-translate-y-1 hover:shadow-elegant"
                 >
+                  <div className="aspect-[16/9] w-full overflow-hidden">
+                    <img
+                      src={post.cover}
+                      alt={post.title}
+                      loading="lazy"
+                      width={1280}
+                      height={800}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-7">
                   <span className="self-start rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
                     {post.category}
                   </span>
