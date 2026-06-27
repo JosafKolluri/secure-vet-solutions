@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, ShieldCheck, Award, Building2, Users, Download } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { ArrowRight, ShieldCheck, Award, Cloud, Mouse, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal, SectionHeading } from "@/components/sections/Primitives";
 import { Testimonials } from "@/components/sections/Testimonials";
