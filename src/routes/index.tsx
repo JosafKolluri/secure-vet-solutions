@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, ShieldCheck, Award, Building2, Users, Download } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { ArrowRight, ShieldCheck, Mouse, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal, SectionHeading } from "@/components/sections/Primitives";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -29,75 +28,94 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const stats = [
-  { icon: ShieldCheck, label: "SDVOSB Certified" },
-  { icon: Award, label: "Veteran Owned" },
-  { icon: Building2, label: "Federal Contract Ready" },
-  { icon: Users, label: "100% Client Focused" },
+const heroBadges = ["SDVOSB Certified", "Veteran-Owned", "Azure-Led"];
+
+const credentials = [
+  { value: "SDVOSB", label: "SBA-Certified" },
+  { value: "Azure", label: "Cloud-First Architecture" },
+  { value: "24/7", label: "Managed SecOps" },
+  { value: "CAGE 9K3W4", label: "UEI CL49NFRAQC9N" },
 ];
 
 function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[92vh] items-center overflow-hidden">
-        <img
-          src={heroBg}
-          alt=""
-          aria-hidden="true"
-          width={1920}
-          height={1280}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-hero opacity-90" />
-        <div className="absolute inset-0 [background:radial-gradient(70%_60%_at_70%_20%,oklch(0.62_0.16_250/0.4),transparent)]" />
-        <div className="relative mx-auto w-full max-w-7xl px-4 pt-24 sm:px-6 lg:px-8">
+      <section className="relative flex min-h-[94vh] items-center justify-center overflow-hidden bg-gradient-hero text-white">
+        <div className="absolute inset-0 opacity-[0.18] [background-image:radial-gradient(oklch(1_0_0)_1px,transparent_1px)] [background-size:26px_26px]" />
+        <div className="absolute inset-0 [background:radial-gradient(60%_50%_at_50%_15%,oklch(0.62_0.16_250/0.45),transparent)]" />
+        <div className="relative mx-auto w-full max-w-5xl px-4 pt-28 pb-20 text-center sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="max-w-3xl text-white"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
-              <ShieldCheck className="h-4 w-4 text-accent" /> Service-Disabled Veteran-Owned Small Business
-            </span>
-            <h1 className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-              Mission-Driven Technology Solutions for Government and Enterprise
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              {heroBadges.map((b, i) => (
+                <span
+                  key={b}
+                  className={`inline-flex items-center gap-1.5 rounded-full border px-4 py-1.5 text-xs font-semibold backdrop-blur-sm ${
+                    i === 0
+                      ? "border-transparent bg-[oklch(0.72_0.13_215)] text-navy"
+                      : "border-white/20 bg-white/10 text-white"
+                  }`}
+                >
+                  {i === 0 && <ShieldCheck className="h-3.5 w-3.5" />}
+                  {b}
+                </span>
+              ))}
+            </div>
+
+            <h1 className="mx-auto mt-7 max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+              Secure Cloud &amp; Cyber Modernization{" "}
+              <span className="text-[oklch(0.78_0.13_215)]">Built by Veterans</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-              CyberCloudInfra is a Service-Disabled Veteran-Owned Small Business (SDVOSB)
-              specializing in Azure-first cloud migration, data center modernization, AI-driven
-              cybersecurity, and disaster recovery for private and government missions.
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
+              CyberCloudInfra is a Service-Disabled Veteran-Owned Small Business delivering
+              Azure-first cloud migration, data center modernization, AI-driven cybersecurity, and
+              disaster recovery for private and government missions.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+
+            <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+              {credentials.map((c, i) => (
+                <motion.div
+                  key={c.value}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.25 + i * 0.08 }}
+                  className="rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-6 backdrop-blur-sm"
+                >
+                  <p className="font-display text-2xl font-bold text-[oklch(0.78_0.13_215)] sm:text-3xl">
+                    {c.value}
+                  </p>
+                  <p className="mt-1.5 text-xs text-white/70">{c.label}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button asChild variant="hero" size="xl">
-                <Link to="/capabilities">
-                  Explore Services <ArrowRight className="h-5 w-5" />
+                <Link to="/contact">
+                  Team With Us <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>
               <Button asChild variant="heroOutline" size="xl">
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/capabilities">View Capabilities</Link>
               </Button>
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 8, 0] }}
+          transition={{ delay: 1, duration: 1.8, repeat: Infinity }}
+          className="absolute bottom-7 left-1/2 -translate-x-1/2 text-white/50"
+        >
+          <Mouse className="h-6 w-6" />
+        </motion.div>
       </section>
 
-      {/* Stats */}
-      <section className="border-b bg-card">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px overflow-hidden px-0 lg:grid-cols-4">
-          {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.08}>
-              <div className="flex flex-col items-center gap-3 border-border px-6 py-10 text-center">
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-secondary text-primary">
-                  <s.icon className="h-6 w-6" />
-                </span>
-                <p className="font-display text-lg font-semibold">{s.label}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
 
       {/* Services */}
       <section className="bg-gradient-subtle py-24">
