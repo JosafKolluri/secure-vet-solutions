@@ -77,10 +77,14 @@ function BlogPost() {
             <Clock className="h-4 w-4" /> {post.readTime} read
           </span>
         </div>
-        <div className="mt-10 space-y-6 text-lg leading-relaxed text-foreground/90">
-          {post.body.map((para: string, i: number) => (
-            <p key={i}>{para}</p>
-          ))}
+        <div className="mt-8 aspect-[16/9] w-full overflow-hidden rounded-2xl border shadow-card">
+          <img
+            src={post.cover}
+            alt={post.title}
+            width={1280}
+            height={800}
+            className="h-full w-full object-cover"
+          />
         </div>
       </div>
     </article>
