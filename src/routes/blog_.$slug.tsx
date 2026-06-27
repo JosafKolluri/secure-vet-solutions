@@ -86,6 +86,11 @@ function BlogPost() {
             className="h-full w-full object-cover"
           />
         </div>
+        <div className="mt-10 space-y-6 text-lg leading-relaxed text-foreground/90">
+          {post.body.map((para: string, i: number) => (
+            <p key={i}>{para}</p>
+          ))}
+        </div>
       </div>
     </article>
   );
