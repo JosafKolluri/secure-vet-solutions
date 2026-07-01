@@ -1,9 +1,21 @@
 import { Link } from "@tanstack/react-router";
-import { ShieldCheck, Mail, Phone, MapPin } from "lucide-react";
+import {
+  ShieldCheck,
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Github,
+  ArrowUp,
+  Send,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const footerNav = [
   {
-    heading: "Company",
+    heading: "Quick Links",
     links: [
       { to: "/about", label: "About Us" },
       { to: "/capabilities", label: "Capabilities" },
@@ -30,7 +42,16 @@ const footerNav = [
   },
 ] as const;
 
+const socials = [
+  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+  { icon: Twitter, label: "X / Twitter", href: "https://twitter.com" },
+  { icon: Github, label: "GitHub", href: "https://github.com" },
+];
+
 export function Footer() {
+  const scrollTop = () =>
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
     <footer className="bg-navy text-navy-foreground">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -59,6 +80,20 @@ export function Footer() {
                 <Phone className="h-4 w-4 shrink-0 text-accent" /> (703) 555-0142
               </li>
             </ul>
+            <div className="mt-6 flex gap-3">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/5 text-navy-foreground/80 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent"
+                >
+                  <s.icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
           {footerNav.map((col) => (
@@ -82,9 +117,49 @@ export function Footer() {
           ))}
         </div>
 
+        {/* Newsletter */}
+        <div className="mt-12 grid gap-6 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+          <div>
+            <h3 className="font-display text-lg font-bold text-white">Stay Mission-Ready</h3>
+            <p className="mt-1 text-sm text-navy-foreground/70">
+              Get insights on government IT, cloud, and cybersecurity in your inbox.
+            </p>
+          </div>
+          <form
+            className="flex gap-2"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <label htmlFor="newsletter-email" className="sr-only">
+              Email address
+            </label>
+            <Input
+              id="newsletter-email"
+              type="email"
+              required
+              placeholder="you@agency.gov"
+              className="border-white/20 bg-white/10 text-white placeholder:text-navy-foreground/50"
+            />
+            <Button type="submit" variant="hero" aria-label="Subscribe">
+              <Send className="h-4 w-4" /> Subscribe
+            </Button>
+          </form>
+        </div>
+
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-navy-foreground/60 sm:flex-row">
           <p>© {new Date().getFullYear()} CyberCloudInfra LLC. All rights reserved.</p>
-          <p>SDVOSB • SAM Registered • CAGE Code on file</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <Link to="/" className="transition-colors hover:text-accent">Privacy Policy</Link>
+            <Link to="/" className="transition-colors hover:text-accent">Accessibility</Link>
+            <Link to="/" className="transition-colors hover:text-accent">Terms</Link>
+            <Link to="/capabilities" className="transition-colors hover:text-accent">Capability Statement</Link>
+            <button
+              onClick={scrollTop}
+              className="inline-flex items-center gap-1 font-medium text-navy-foreground/80 transition-colors hover:text-accent"
+              aria-label="Back to top"
+            >
+              <ArrowUp className="h-3.5 w-3.5" /> Back to Top
+            </button>
+          </div>
         </div>
       </div>
     </footer>

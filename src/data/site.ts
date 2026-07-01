@@ -17,8 +17,22 @@ import {
   Banknote,
   GraduationCap,
   Crosshair,
+  Zap,
+  Award,
+  Target,
+  Rocket,
+  Lock,
+  LifeBuoy,
+  Bot,
+  Search,
+  ClipboardCheck,
+  PenTool,
+  DatabaseBackup,
+  Gauge,
   type LucideIcon,
 } from "lucide-react";
+
+
 
 import blogZeroTrust from "@/assets/blog-zero-trust.jpg";
 import blogCloudMigration from "@/assets/blog-cloud-migration.jpg";
@@ -169,6 +183,8 @@ export interface Testimonial {
   quote: string;
   name: string;
   role: string;
+  rating: number;
+  company: string;
 }
 
 export const testimonials: Testimonial[] = [
@@ -177,20 +193,27 @@ export const testimonials: Testimonial[] = [
       "CyberCloudInfra modernized our agency cloud while keeping us fully compliant. Their team operates with true mission focus.",
     name: "Program Director",
     role: "Federal Civilian Agency",
+    rating: 5,
+    company: "FEDERAL",
   },
   {
     quote:
       "Their Zero Trust rollout was seamless. The veteran leadership brings a discipline and reliability we rarely see.",
     name: "CISO",
     role: "Defense Contractor",
+    rating: 5,
+    company: "DEFENSE",
   },
   {
     quote:
       "From migration to managed services, they have been a dependable partner that consistently delivers ahead of schedule.",
     name: "IT Director",
     role: "Healthcare System",
+    rating: 5,
+    company: "HEALTH+",
   },
 ];
+
 
 export const clientLogos = [
   "DEFENSE",
@@ -284,3 +307,153 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 ];
+
+/* ---------- Homepage content ---------- */
+
+export interface HomeStat {
+  value: number;
+  suffix?: string;
+  decimals?: number;
+  label: string;
+}
+
+export const homeStats: HomeStat[] = [
+  { value: 15, suffix: "+", label: "Years Experience" },
+  { value: 250, suffix: "+", label: "Projects Delivered" },
+  { value: 99.9, suffix: "%", decimals: 1, label: "Service Availability" },
+  { value: 100, suffix: "%", label: "Mission Focused" },
+  { value: 24, suffix: "/7", label: "Support" },
+];
+
+export interface HomeCert {
+  title: string;
+  icon: LucideIcon;
+}
+
+export const homeCerts: HomeCert[] = [
+  { title: "SDVOSB Certified", icon: ShieldCheck },
+  { title: "Veteran Owned", icon: Award },
+  { title: "Federal Contract Ready", icon: Landmark },
+  { title: "NIST Security Framework", icon: Lock },
+  { title: "SAM Registered", icon: FileSearch },
+  { title: "CAGE Code", icon: Building2 },
+  { title: "Azure Expertise", icon: Cloud },
+  { title: "Compliance Focus", icon: ClipboardCheck },
+];
+
+export interface HomeService {
+  slug: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  points: string[];
+}
+
+export const homeServices: HomeService[] = [
+  {
+    slug: "cloud-modernization",
+    title: "Cloud Modernization",
+    description: "Azure-first cloud adoption, migration, and hybrid infrastructure engineered for scale and security.",
+    icon: Cloud,
+    points: ["Azure Cloud", "AWS Migration", "Hybrid Infrastructure"],
+  },
+  {
+    slug: "cybersecurity",
+    title: "Cybersecurity",
+    description: "Zero Trust architecture, identity protection, and managed SOC services defending mission systems.",
+    icon: Shield,
+    points: ["Zero Trust", "Identity Protection", "SOC Services"],
+  },
+  {
+    slug: "managed-it",
+    title: "Managed IT",
+    description: "24x7 monitoring, responsive help desk, and infrastructure management that keeps operations running.",
+    icon: Gauge,
+    points: ["24x7 Monitoring", "Help Desk", "Infrastructure"],
+  },
+  {
+    slug: "ai-automation",
+    title: "AI & Automation",
+    description: "Generative AI, workflow automation, and AI assistants that accelerate mission outcomes.",
+    icon: Bot,
+    points: ["Generative AI", "Workflow Automation", "AI Assistants"],
+  },
+  {
+    slug: "disaster-recovery",
+    title: "Disaster Recovery",
+    description: "Business continuity, backup, and resiliency strategies that protect critical systems and data.",
+    icon: DatabaseBackup,
+    points: ["Business Continuity", "Backup", "Resiliency"],
+  },
+  {
+    slug: "data-center",
+    title: "Data Center",
+    description: "Virtualization, storage, and networking expertise for modern, efficient data center operations.",
+    icon: Server,
+    points: ["Virtualization", "Storage", "Networking"],
+  },
+];
+
+export interface WhyReason {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+export const whyChooseUs: WhyReason[] = [
+  { title: "Veteran Leadership", description: "Founded and led by U.S. military veterans with mission discipline.", icon: Award },
+  { title: "Federal Experience", description: "Deep track record delivering for government and regulated industries.", icon: Landmark },
+  { title: "Cloud Specialists", description: "Azure-first engineers certified across cloud platforms.", icon: Cloud },
+  { title: "Cybersecurity Experts", description: "Zero Trust and AI-driven defense from top security tools.", icon: Shield },
+  { title: "Rapid Delivery", description: "Agile teams that consistently deliver ahead of schedule.", icon: Rocket },
+  { title: "Mission Focused", description: "100% committed to the outcomes that matter to your mission.", icon: Target },
+];
+
+export interface ProcessStep {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+export const processSteps: ProcessStep[] = [
+  { title: "Discover", description: "Understand mission goals and current state.", icon: Search },
+  { title: "Assess", description: "Evaluate risks, gaps, and opportunities.", icon: ClipboardCheck },
+  { title: "Design", description: "Architect secure, scalable solutions.", icon: PenTool },
+  { title: "Implement", description: "Deploy with agile precision.", icon: Rocket },
+  { title: "Secure", description: "Harden with Zero Trust controls.", icon: Lock },
+  { title: "Support", description: "24/7 monitoring and optimization.", icon: LifeBuoy },
+];
+
+export const homeIndustries: Industry[] = [
+  { title: "Federal Government", description: "Modern, compliant IT for civilian and federal agencies.", icon: Landmark },
+  { title: "Defense", description: "Mission-assured infrastructure for defense programs.", icon: Crosshair },
+  { title: "Healthcare", description: "HIPAA-ready cloud and security for patient data.", icon: HeartPulse },
+  { title: "Education", description: "Scalable, secure platforms for institutions.", icon: GraduationCap },
+  { title: "Energy", description: "Resilient systems for critical energy infrastructure.", icon: Zap },
+  { title: "Commercial", description: "Enterprise-grade solutions for private sector.", icon: Building2 },
+  { title: "Government Agencies", description: "Tailored IT for state and local agencies.", icon: Building2 },
+  { title: "Financial Services", description: "Regulated, resilient environments for financial data.", icon: Banknote },
+];
+
+export const techPartners = [
+  "Microsoft Azure",
+  "AWS",
+  "Cisco",
+  "VMware",
+  "CrowdStrike",
+  "Palo Alto",
+  "Microsoft Defender",
+  "Red Hat",
+];
+
+export const coreCompetencies = [
+  "Azure-First Cloud Migration",
+  "Zero Trust Cybersecurity",
+  "Data Center Modernization",
+  "Disaster Recovery & Continuity",
+  "Managed Security Operations",
+  "AI & Workflow Automation",
+];
+
+export const naicsCodes = ["541512", "541519", "518210", "541513", "541611"];
+
