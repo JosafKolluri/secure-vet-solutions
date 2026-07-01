@@ -50,7 +50,26 @@ function Home() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-hero opacity-90" />
+        {/* Layered azure glows */}
         <div className="absolute inset-0 [background:radial-gradient(70%_60%_at_70%_20%,oklch(0.62_0.16_250/0.4),transparent)]" />
+        <motion.div
+          aria-hidden="true"
+          className="absolute -left-32 top-1/3 h-[32rem] w-[32rem] rounded-full bg-accent/25 blur-[130px]"
+          animate={{ opacity: [0.4, 0.7, 0.4] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          aria-hidden="true"
+          className="absolute -right-24 bottom-0 h-[28rem] w-[28rem] rounded-full bg-primary/30 blur-[130px]"
+          animate={{ opacity: [0.5, 0.25, 0.5] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        {/* Technical grid overlay */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.15] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:42px_42px] [mask-image:radial-gradient(70%_70%_at_30%_40%,black,transparent)]"
+        />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pt-24 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -59,10 +78,17 @@ function Home() {
             className="max-w-3xl text-white"
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
-              <ShieldCheck className="h-4 w-4 text-accent" /> Service-Disabled Veteran-Owned Small Business
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              </span>
+              Service-Disabled Veteran-Owned Small Business
             </span>
             <h1 className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-              Mission-Driven Technology Solutions for Government and Enterprise
+              Mission-Driven Technology Solutions for{" "}
+              <span className="bg-gradient-to-r from-sky-300 via-sky-200 to-white bg-clip-text text-transparent">
+                Government and Enterprise
+              </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
               CyberCloudInfra is a Service-Disabled Veteran-Owned Small Business (SDVOSB)
