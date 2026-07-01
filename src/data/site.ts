@@ -184,6 +184,8 @@ export interface Testimonial {
   quote: string;
   name: string;
   role: string;
+  rating: number;
+  company: string;
 }
 
 export const testimonials: Testimonial[] = [
@@ -192,20 +194,27 @@ export const testimonials: Testimonial[] = [
       "CyberCloudInfra modernized our agency cloud while keeping us fully compliant. Their team operates with true mission focus.",
     name: "Program Director",
     role: "Federal Civilian Agency",
+    rating: 5,
+    company: "FEDERAL",
   },
   {
     quote:
       "Their Zero Trust rollout was seamless. The veteran leadership brings a discipline and reliability we rarely see.",
     name: "CISO",
     role: "Defense Contractor",
+    rating: 5,
+    company: "DEFENSE",
   },
   {
     quote:
       "From migration to managed services, they have been a dependable partner that consistently delivers ahead of schedule.",
     name: "IT Director",
     role: "Healthcare System",
+    rating: 5,
+    company: "HEALTH+",
   },
 ];
+
 
 export const clientLogos = [
   "DEFENSE",
