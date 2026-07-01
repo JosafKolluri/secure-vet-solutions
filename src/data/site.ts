@@ -18,7 +18,6 @@ import {
   GraduationCap,
   Crosshair,
   Zap,
-  Users,
   Award,
   Target,
   Rocket,
@@ -30,9 +29,9 @@ import {
   PenTool,
   DatabaseBackup,
   Gauge,
-  Layers,
   type LucideIcon,
 } from "lucide-react";
+
 
 
 import blogZeroTrust from "@/assets/blog-zero-trust.jpg";
