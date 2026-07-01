@@ -17,8 +17,23 @@ import {
   Banknote,
   GraduationCap,
   Crosshair,
+  Zap,
+  Users,
+  Award,
+  Target,
+  Rocket,
+  Lock,
+  LifeBuoy,
+  Bot,
+  Search,
+  ClipboardCheck,
+  PenTool,
+  DatabaseBackup,
+  Gauge,
+  Layers,
   type LucideIcon,
 } from "lucide-react";
+
 
 import blogZeroTrust from "@/assets/blog-zero-trust.jpg";
 import blogCloudMigration from "@/assets/blog-cloud-migration.jpg";
