@@ -262,11 +262,12 @@ export function Header() {
             <Button
               asChild
               variant="hero"
-              size="sm"
+              size="lg"
               className="hidden sm:inline-flex"
             >
               <Link to="/contact">Get in Touch</Link>
             </Button>
+
             <Button
               variant="ghost"
               size="icon"
