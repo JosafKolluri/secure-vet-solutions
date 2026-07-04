@@ -331,7 +331,7 @@ function Home() {
       </section>
 
       {/* Technology partners */}
-      <section className="border-y bg-card py-16">
+      <section className="border-y bg-surface-blue py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-center text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             Technology Partners & Platforms
