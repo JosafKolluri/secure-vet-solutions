@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://secure-vet-solutions.lovable.app/sitemap.xml
