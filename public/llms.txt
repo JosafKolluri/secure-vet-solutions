@@ -1,0 +1,14 @@
+# CyberCloudInfra
+
+> Service-Disabled Veteran-Owned Small Business (SDVOSB) delivering secure Azure-first cloud modernization, cybersecurity, disaster recovery, and IT infrastructure solutions for government and enterprise missions.
+
+## Pages
+
+- [Home](/): Overview of CyberCloudInfra's SDVOSB cloud, cybersecurity, and IT modernization services.
+- [About](/about): Company background, mission, and veteran-owned leadership.
+- [Capabilities](/capabilities): Core competencies across cloud, cybersecurity, infrastructure, and government solutions.
+- [Certifications](/certifications): SDVOSB, SBA, SAM, and related federal registrations.
+- [Industries](/industries): Sectors served, including federal, defense, healthcare, financial services, and education.
+- [Careers](/careers): Open roles and how to join the team.
+- [Blog](/blog): Insights on cloud migration, DevSecOps, and Zero Trust security.
+- [Contact](/contact): Ways to reach the team and start a conversation.
