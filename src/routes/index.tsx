@@ -223,7 +223,7 @@ function Home() {
                     to="/capabilities"
                     className="relative mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors group-hover:text-accent"
                   >
-                    Learn More <ArrowRight className="h-4 w-4" />
+                    Explore {s.title} capabilities <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </Reveal>

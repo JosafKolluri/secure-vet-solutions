@@ -7,7 +7,7 @@ import { capabilities } from "@/data/site";
 export const Route = createFileRoute("/capabilities")({
   head: () => ({
     meta: [
-      { title: "Capabilities | CyberCloudInfra — Cloud, Cyber, Infrastructure" },
+      { title: "Capabilities | CyberCloudInfra" },
       {
         name: "description",
         content:

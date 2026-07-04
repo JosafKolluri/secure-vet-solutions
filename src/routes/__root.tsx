@@ -80,14 +80,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "CyberCloudInfra | SDVOSB Cloud, Cybersecurity & IT Infrastructure" },
+      { title: "CyberCloudInfra | SDVOSB Cloud & Cybersecurity" },
       {
         name: "description",
         content:
-          "CyberCloudInfra is a Service-Disabled Veteran-Owned Small Business (SDVOSB) delivering secure cloud, cybersecurity, and IT infrastructure solutions for government and enterprise.",
+          "SDVOSB delivering secure cloud, cybersecurity, and IT infrastructure solutions for government and enterprise missions.",
       },
       { name: "author", content: "CyberCloudInfra" },
-      { property: "og:title", content: "CyberCloudInfra | SDVOSB Cloud, Cybersecurity & IT Infrastructure" },
+      { property: "og:title", content: "CyberCloudInfra | SDVOSB Cloud & Cybersecurity" },
       {
         property: "og:description",
         content:
@@ -96,10 +96,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "CyberCloudInfra" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "CyberCloudInfra | SDVOSB Cloud, Cybersecurity & IT Infrastructure" },
-      { name: "description", content: "CyberCloudInfra Solutions Hub is a corporate website for an SDVOSB offering cloud, cybersecurity, and IT infrastructure services." },
-      { property: "og:description", content: "CyberCloudInfra Solutions Hub is a corporate website for an SDVOSB offering cloud, cybersecurity, and IT infrastructure services." },
-      { name: "twitter:description", content: "CyberCloudInfra Solutions Hub is a corporate website for an SDVOSB offering cloud, cybersecurity, and IT infrastructure services." },
+      { name: "twitter:title", content: "CyberCloudInfra | SDVOSB Cloud & Cybersecurity" },
+      { name: "twitter:description", content: "Mission-driven cloud, cybersecurity, and infrastructure solutions for government and enterprise." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4670dae6-3b36-4a6e-83ed-ff3f24792e14/id-preview-20ac24a9--f33ea567-314e-482f-9b5f-4834b35ab57f.lovable.app-1782396161258.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4670dae6-3b36-4a6e-83ed-ff3f24792e14/id-preview-20ac24a9--f33ea567-314e-482f-9b5f-4834b35ab57f.lovable.app-1782396161258.png" },
     ],
