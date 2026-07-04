@@ -145,7 +145,7 @@ function Home() {
       </section>
 
       {/* Trust indicators */}
-      <section className="border-b bg-card py-14">
+      <section className="border-b bg-surface-blue py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
             {homeStats.map((s, i) => (
@@ -331,7 +331,7 @@ function Home() {
       </section>
 
       {/* Technology partners */}
-      <section className="border-y bg-card py-16">
+      <section className="border-y bg-surface-blue py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-center text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             Technology Partners & Platforms
