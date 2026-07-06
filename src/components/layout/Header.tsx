@@ -123,23 +123,10 @@ export function Header() {
             <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-accent text-accent-foreground shadow-glow">
               <ShieldCheck className="h-5 w-5" />
             </span>
-            <span className="flex flex-col -space-y-1">
-              <span
-                className={cn(
-                  "font-display text-lg font-bold leading-none tracking-tight",
-                  solid ? "text-foreground" : "text-white",
-                )}
-              >
-                CyberCloud<span className="text-gradient">Infra</span>
-              </span>
-              <span
-                className={cn(
-                  "text-[10px] font-semibold uppercase tracking-[0.2em]",
-                  solid ? "text-muted-foreground" : "text-white/60",
-                )}
-              >
-                Infrastructure
-              </span>
+            <span className="font-display text-lg font-bold leading-none tracking-tight" className={cn(
+                   solid ? "text-foreground" : "text-white",
+                 )}>
+              CyberCloud<span className="text-gradient">Infra</span>
             </span>
           </Link>
 
@@ -194,7 +181,7 @@ export function Header() {
                                 to="/capabilities"
                                 className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-secondary"
                               >
-                                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-secondary text-accent transition-colors group-hover:bg-gradient-accent group-hover:text-accent-foreground">
+                                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-secondary text-accent transition-colors group-hover:bg-gradient-accent group-hover:text-a[...]
                                   <s.icon className="h-5 w-5" />
                                 </span>
                                 <span className="min-w-0">
