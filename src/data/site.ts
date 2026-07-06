@@ -457,3 +457,37 @@ export const coreCompetencies = [
 
 export const naicsCodes = ["541512", "541519", "518210", "541513", "541611"];
 
+export interface Faq {
+  question: string;
+  answer: string;
+}
+
+export const homeFaqs: Faq[] = [
+  {
+    question: "What cybersecurity services do you offer?",
+    answer:
+      "We deliver end-to-end protection — Zero Trust architecture, 24/7 managed SOC monitoring, AI-driven threat detection, cloud security, and continuous compliance hardening — engineered for federal and enterprise missions.",
+  },
+  {
+    question: "How quickly can you respond to a security incident?",
+    answer:
+      "Our managed security operations run around the clock. Critical incidents are triaged and contained on a defined SLA, with rapid escalation, forensic analysis, and remediation to keep mission systems available.",
+  },
+  {
+    question: "Do you work with small businesses and agencies alike?",
+    answer:
+      "Yes. As an SDVOSB we support federal, defense, and regulated commercial clients of every size — from a single cloud migration to enterprise-wide security transformation.",
+  },
+  {
+    question: "How do you monitor systems for threats?",
+    answer:
+      "We combine best-in-class tooling — Prisma Cloud, Splunk, CrowdStrike, and Wiz — with AI analytics and human expertise for continuous visibility across cloud, endpoint, and network layers.",
+  },
+  {
+    question: "Why is proactive protection important?",
+    answer:
+      "Waiting until a breach happens is costly. Our proactive approach identifies vulnerabilities early, hardens systems with Zero Trust controls, and resolves risks before they disrupt your mission.",
+  },
+];
+
+
