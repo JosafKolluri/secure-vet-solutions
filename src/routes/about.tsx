@@ -224,7 +224,7 @@ function About() {
       </section>
 
       {/* Stats */}
-      <section className="bg-navy py-20 text-white">
+      <section className="border-y bg-surface-blue py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
             {homeStats.map((s, i) => (
