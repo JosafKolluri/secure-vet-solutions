@@ -123,10 +123,13 @@ export function Header() {
             <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-accent text-accent-foreground shadow-glow">
               <ShieldCheck className="h-5 w-5" />
             </span>
-            <span className="font-display text-lg font-bold leading-none tracking-tight" className={cn(
-                   solid ? "text-foreground" : "text-white",
-                 )}>
-              CyberCloud<span className="text-gradient">Infra</span>
+            <span
+              className={cn(
+                "font-display text-lg font-bold leading-none tracking-tight",
+                solid ? "text-foreground" : "text-white",
+              )}
+            >
+              CyberCloudInfra<span className="text-gradient">LLC</span>
             </span>
           </Link>
 
