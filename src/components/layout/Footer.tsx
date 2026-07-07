@@ -3,7 +3,6 @@ import {
   ShieldCheck,
   Mail,
   Phone,
-  MapPin,
   Linkedin,
   Twitter,
   Github,
