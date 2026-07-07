@@ -184,7 +184,7 @@ export function Header() {
                                 to="/capabilities"
                                 className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-secondary"
                               >
-                                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-secondary text-accent transition-colors group-hover:bg-gradient-accent group-hover:text-a[...]
+                                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-secondary text-accent transition-colors group-hover:bg-gradient-accent group-hover:text-accent-foreground">
                                   <s.icon className="h-5 w-5" />
                                 </span>
                                 <span className="min-w-0">
