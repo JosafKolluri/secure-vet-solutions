@@ -96,8 +96,6 @@ export function Header() {
             </span>
           </div>
           <div className="flex items-center gap-5 text-navy-foreground/70">
-            <span className="hidden lg:inline">CAGE: 9K3W4</span>
-            <span className="hidden lg:inline">UEI: CL49NFRAQC9N</span>
             <a
               href="tel:+18002923700"
               className="flex items-center gap-1.5 font-medium text-navy-foreground transition-colors hover:text-accent"
@@ -184,7 +182,7 @@ export function Header() {
                                 to="/capabilities"
                                 className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-secondary"
                               >
-                                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-secondary text-accent transition-colors group-hover:bg-gradient-accent group-hover:text-a[...]
+                                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-secondary text-accent transition-colors group-hover:bg-gradient-accent group-hover:text-accent-foreground">
                                   <s.icon className="h-5 w-5" />
                                 </span>
                                 <span className="min-w-0">

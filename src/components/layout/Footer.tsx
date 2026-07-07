@@ -3,7 +3,6 @@ import {
   ShieldCheck,
   Mail,
   Phone,
-  MapPin,
   Linkedin,
   Twitter,
   Github,
@@ -70,9 +69,6 @@ export function Footer() {
               cybersecurity, and infrastructure solutions for government and enterprise.
             </p>
             <ul className="mt-6 space-y-2 text-sm text-navy-foreground/80">
-              <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 shrink-0 text-accent" /> 1750 Tysons Blvd, Suite 1500, McLean, VA 22102
-              </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0 text-accent" /> contracts@cybercloudinfra.com
               </li>
