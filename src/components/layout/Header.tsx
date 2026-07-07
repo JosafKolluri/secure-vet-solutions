@@ -96,8 +96,6 @@ export function Header() {
             </span>
           </div>
           <div className="flex items-center gap-5 text-navy-foreground/70">
-            <span className="hidden lg:inline">CAGE: 9K3W4</span>
-            <span className="hidden lg:inline">UEI: CL49NFRAQC9N</span>
             <a
               href="tel:+18002923700"
               className="flex items-center gap-1.5 font-medium text-navy-foreground transition-colors hover:text-accent"
