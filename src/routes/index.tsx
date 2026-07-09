@@ -144,9 +144,9 @@ function Home() {
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
               <span className="flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-accent" /> SDVOSB</span>
-              <span className="flex items-center gap-1.5"><Lock className="h-4 w-4 text-accent" /> CMMC Ready</span>
-              <span className="flex items-center gap-1.5"><FileCheck2 className="h-4 w-4 text-accent" /> NIST</span>
-              <span className="flex items-center gap-1.5"><Landmark className="h-4 w-4 text-accent" /> FedRAMP</span>
+              <span className="flex items-center gap-1.5"><Lock className="h-4 w-4 text-accent" /> CMMC 2.0 Aligned</span>
+              <span className="flex items-center gap-1.5"><FileCheck2 className="h-4 w-4 text-accent" /> NIST Aligned</span>
+              <span className="flex items-center gap-1.5"><Landmark className="h-4 w-4 text-accent" /> SAM Registered</span>
             </div>
           </motion.div>
           <HeroDashboard />
