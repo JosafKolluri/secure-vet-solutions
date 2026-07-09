@@ -377,30 +377,11 @@ function Home() {
       </section>
 
       {/* ============ BIG STATS ============ */}
-      <section className="relative overflow-hidden bg-navy py-20">
-        <CyberBackground />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-5">
-            {bigStats.map((s, i) => (
-              <StatBlock key={s.label} value={s.value} suffix={s.suffix} decimals={s.decimals} label={s.label} delay={i * 0.08} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Stat blocks removed until verified metrics are available. Do not display zeroed-out or placeholder numbers. */}
 
       {/* ============ TESTIMONIALS ============ */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Testimonials"
-              title="Trusted by Mission Leaders"
-              description="What federal, defense, and enterprise partners say about working with us."
-            />
-          </Reveal>
-          <Testimonials />
-        </div>
-      </section>
+      {/* [Add real client testimonial once available] — testimonial block removed to avoid shipping fabricated attribution. */}
+
 
       {/* ============ BLOG ============ */}
       <section className="bg-surface-blue py-24">
