@@ -41,10 +41,8 @@ const footerNav = [
   },
 ] as const;
 
-const socials = [
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
-  { icon: Twitter, label: "X / Twitter", href: "https://twitter.com" },
-  { icon: Github, label: "GitHub", href: "https://github.com" },
+const socials: { icon: typeof Linkedin; label: string; href: string }[] = [
+  // Add real profile URLs before re-enabling social links.
 ];
 
 export function Footer() {
