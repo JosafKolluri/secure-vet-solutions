@@ -104,13 +104,7 @@ function About() {
                 height={912}
                 className="absolute -bottom-8 -right-4 w-1/2 rounded-2xl border-4 border-background shadow-elegant"
               />
-              <div className="absolute -left-4 bottom-8 flex items-center gap-3 rounded-2xl bg-gradient-accent px-5 py-4 text-accent-foreground shadow-glow">
-                <Award className="h-8 w-8" />
-                <div>
-                  <p className="font-display text-2xl font-bold leading-none">15+</p>
-                  <p className="text-xs">Years of Experience</p>
-                </div>
-              </div>
+              {/* Experience badge removed until a verified figure is available. */}
             </div>
           </Reveal>
           <Reveal delay={0.1}>
