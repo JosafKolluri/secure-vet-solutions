@@ -158,11 +158,11 @@ function Home() {
       <section className="border-y border-border bg-surface-blue py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            Trusted by Federal Agencies, DoD & Fortune 500 Enterprises
+            Trusted by Federal Agencies, DoD & Enterprise and Government Organizations
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {trustBadges.map((b, i) => (
-              <Reveal key={b.label} delay={(i % 8) * 0.05}>
+              <Reveal key={b.label} delay={(i % 6) * 0.05}>
                 <div className="group flex flex-col items-center gap-2 rounded-2xl border border-border bg-white/5 p-4 text-center transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-glow">
                   <b.icon className="h-6 w-6 text-accent transition-transform group-hover:scale-110" />
                   <span className="text-[11px] font-semibold text-foreground">{b.label}</span>
@@ -170,11 +170,15 @@ function Home() {
               </Reveal>
             ))}
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-8 lg:grid-cols-4">
-            {counters.map((c, i) => (
-              <StatBlock key={c.label} value={c.value} suffix={c.suffix} decimals={c.decimals} label={c.label} delay={i * 0.08} />
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+            {federalIdentifiers.map((f) => (
+              <div key={f.label} className="flex items-center gap-2 rounded-full border border-border bg-white/5 px-4 py-2">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{f.label}:</span>
+                <span className="text-xs font-bold text-foreground">{f.value}</span>
+              </div>
             ))}
           </div>
+
         </div>
       </section>
 
