@@ -97,11 +97,11 @@ export function Header() {
           </div>
           <div className="flex items-center gap-5 text-navy-foreground/70">
             <a
-              href="tel:+18002923700"
+              href="tel:"
               className="flex items-center gap-1.5 font-medium text-navy-foreground transition-colors hover:text-accent"
             >
               <Phone className="h-3.5 w-3.5" />
-              (800) 292-3700
+              [INSERT REAL NUMBER]
             </a>
           </div>
         </div>
