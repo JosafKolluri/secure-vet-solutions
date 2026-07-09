@@ -15,7 +15,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Contact CyberCloudInfra for cloud, cybersecurity, and IT infrastructure solutions. Office in McLean, VA. Call (703) 555-0142.",
+          "Contact CyberCloudInfra for cloud, cybersecurity, and IT infrastructure solutions serving government and enterprise organizations.",
       },
       { property: "og:title", content: "Contact CyberCloudInfra" },
       { property: "og:description", content: "Get in touch with our team." },
