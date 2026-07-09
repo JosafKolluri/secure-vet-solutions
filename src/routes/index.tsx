@@ -40,28 +40,18 @@ import {
 
 const trustBadges = [
   { label: "SDVOSB Certified", icon: ShieldCheck },
-  { label: "CMMC Ready", icon: Lock },
-  { label: "NIST Framework", icon: FileCheck2 },
+  { label: "CMMC 2.0 Aligned", icon: Lock },
+  { label: "NIST Aligned", icon: FileCheck2 },
   { label: "Zero Trust", icon: Fingerprint },
-  { label: "FedRAMP", icon: Landmark },
-  { label: "DoD Ready", icon: Award },
-  { label: "ISO 27001", icon: Building2 },
-  { label: "SOC 2", icon: CheckCircle2 },
+  { label: "SAM Registered", icon: Landmark },
+  { label: "Veteran Owned", icon: Award },
 ];
 
-const counters = [
-  { value: 250, suffix: "+", label: "Enterprise Clients" },
-  { value: 99.99, suffix: "%", decimals: 2, label: "Threat Detection" },
-  { value: 24, suffix: "/7", label: "Security Operations" },
-  { value: 15, suffix: "+", label: "Years Experience" },
-];
-
-const bigStats = [
-  { value: 10, suffix: "M+", label: "Threats Blocked" },
-  { value: 500, suffix: "+", label: "Projects Delivered" },
-  { value: 99.98, suffix: "%", decimals: 2, label: "Customer Satisfaction" },
-  { value: 24, suffix: "/7", label: "SOC Operations" },
-  { value: 50, suffix: "+", label: "Security Experts" },
+// Federal identifiers displayed near certification badges — contracting officers
+// verify these first. Replace placeholders with real values once confirmed.
+const federalIdentifiers = [
+  { label: "SAM.gov UEI", value: "[INSERT SAM.gov UEI]" },
+  { label: "SDVOSB Certification #", value: "[INSERT SDVOSB CERT #]" },
 ];
 
 const featuredSolutions = [
