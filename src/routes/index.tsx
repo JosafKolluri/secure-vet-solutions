@@ -467,8 +467,8 @@ function Home() {
                 Ready to Secure Your Organization?
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-white/90">
-                Partner with a veteran-led team trusted by federal agencies and Fortune 500
-                enterprises to defend what matters most.
+                Partner with a veteran-led team trusted by enterprise and government
+                organizations to defend what matters most.
               </p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Button asChild size="xl" className="bg-white text-primary hover:bg-white/90">
