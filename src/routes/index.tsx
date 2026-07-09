@@ -70,7 +70,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "SDVOSB delivering Zero Trust architecture, managed SOC, cloud security, AI threat detection, and compliance for U.S. federal agencies, DoD, and Fortune 500 enterprises.",
+          "SDVOSB delivering Zero Trust architecture, managed SOC, cloud security, AI threat detection, and compliance for U.S. federal agencies, DoD, and enterprise and government organizations.",
       },
       { property: "og:title", content: "CyberCloudInfra | Enterprise Cybersecurity" },
       {
