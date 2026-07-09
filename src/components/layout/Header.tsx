@@ -358,11 +358,11 @@ export function Header() {
               </Button>
 
               <a
-                href="tel:+18002923700"
+                href="tel:"
                 className="mt-3 flex items-center justify-center gap-2 text-sm font-medium text-muted-foreground"
               >
                 <Phone className="h-4 w-4 text-accent" />
-                (800) 292-3700
+                [INSERT REAL NUMBER]
               </a>
             </nav>
           </motion.div>
