@@ -223,23 +223,8 @@ function About() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-y bg-surface-blue py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
-            {homeStats.map((s, i) => (
-              <StatBlock
-                key={s.label}
-                value={s.value}
-                suffix={s.suffix}
-                decimals={s.decimals}
-                label={s.label}
-                delay={i * 0.08}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Stats removed until verified metrics are available. Do not display placeholder numbers. */}
+
 
       {/* Core values */}
       <section className="py-24">
