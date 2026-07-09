@@ -15,7 +15,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Contact CyberCloudInfra for cloud, cybersecurity, and IT infrastructure solutions. Office in McLean, VA. Call (703) 555-0142.",
+          "Contact CyberCloudInfra for cloud, cybersecurity, and IT infrastructure solutions serving government and enterprise organizations.",
       },
       { property: "og:title", content: "Contact CyberCloudInfra" },
       { property: "og:description", content: "Get in touch with our team." },
@@ -37,7 +37,7 @@ const contactSchema = z.object({
 const details = [
   { icon: MapPin, label: "Office", value: "1750 Tysons Blvd, Suite 1500, McLean, VA 22102" },
   { icon: Mail, label: "Email", value: "contracts@cybercloudinfra.com", href: "mailto:contracts@cybercloudinfra.com" },
-  { icon: Phone, label: "Phone", value: "(703) 555-0142", href: "tel:+17035550142" },
+  { icon: Phone, label: "Phone", value: "[INSERT REAL NUMBER]", href: "tel:" },
 ];
 
 function Contact() {

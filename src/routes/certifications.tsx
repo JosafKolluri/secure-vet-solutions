@@ -35,7 +35,24 @@ function Certifications() {
 
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Federal identifiers — the first thing contracting officers verify. */}
+          <div className="mb-12 grid gap-4 rounded-2xl border bg-card p-6 shadow-card sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { label: "SAM.gov UEI", value: "[INSERT SAM.gov UEI]" },
+              { label: "CAGE Code", value: "[INSERT CAGE CODE]" },
+              { label: "SDVOSB Certification #", value: "[INSERT SDVOSB CERT #]" },
+              { label: "Primary NAICS", value: "541512" },
+            ].map((f) => (
+              <div key={f.label} className="flex flex-col gap-1">
+                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  {f.label}
+                </span>
+                <span className="text-base font-bold text-foreground">{f.value}</span>
+              </div>
+            ))}
+          </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
             {certifications.map((c, i) => (
               <Reveal key={c.code} delay={(i % 3) * 0.07}>
                 <div className="group flex h-full flex-col rounded-2xl border bg-card p-7 shadow-card transition-all hover:-translate-y-1 hover:shadow-elegant">

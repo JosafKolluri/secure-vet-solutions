@@ -41,10 +41,8 @@ const footerNav = [
   },
 ] as const;
 
-const socials = [
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
-  { icon: Twitter, label: "X / Twitter", href: "https://twitter.com" },
-  { icon: Github, label: "GitHub", href: "https://github.com" },
+const socials: { icon: typeof Linkedin; label: string; href: string }[] = [
+  // Add real profile URLs before re-enabling social links.
 ];
 
 export function Footer() {
@@ -73,23 +71,25 @@ export function Footer() {
                 <Mail className="h-4 w-4 shrink-0 text-accent" /> contracts@cybercloudinfra.com
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-accent" /> (703) 555-0142
+                <Phone className="h-4 w-4 shrink-0 text-accent" /> [INSERT REAL NUMBER]
               </li>
             </ul>
-            <div className="mt-6 flex gap-3">
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/5 text-navy-foreground/80 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent"
-                >
-                  <s.icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
+            {socials.length > 0 && (
+              <div className="mt-6 flex gap-3">
+                {socials.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/5 text-navy-foreground/80 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent"
+                  >
+                    <s.icon className="h-4 w-4" />
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
           {footerNav.map((col) => (

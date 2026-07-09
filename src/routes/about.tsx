@@ -104,13 +104,7 @@ function About() {
                 height={912}
                 className="absolute -bottom-8 -right-4 w-1/2 rounded-2xl border-4 border-background shadow-elegant"
               />
-              <div className="absolute -left-4 bottom-8 flex items-center gap-3 rounded-2xl bg-gradient-accent px-5 py-4 text-accent-foreground shadow-glow">
-                <Award className="h-8 w-8" />
-                <div>
-                  <p className="font-display text-2xl font-bold leading-none">15+</p>
-                  <p className="text-xs">Years of Experience</p>
-                </div>
-              </div>
+              {/* Experience badge removed until a verified figure is available. */}
             </div>
           </Reveal>
           <Reveal delay={0.1}>
@@ -223,23 +217,8 @@ function About() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-y bg-surface-blue py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
-            {homeStats.map((s, i) => (
-              <StatBlock
-                key={s.label}
-                value={s.value}
-                suffix={s.suffix}
-                decimals={s.decimals}
-                label={s.label}
-                delay={i * 0.08}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Stats removed until verified metrics are available. Do not display placeholder numbers. */}
+
 
       {/* Core values */}
       <section className="py-24">

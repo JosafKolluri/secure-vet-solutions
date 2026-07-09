@@ -40,28 +40,18 @@ import {
 
 const trustBadges = [
   { label: "SDVOSB Certified", icon: ShieldCheck },
-  { label: "CMMC Ready", icon: Lock },
-  { label: "NIST Framework", icon: FileCheck2 },
+  { label: "CMMC 2.0 Aligned", icon: Lock },
+  { label: "NIST Aligned", icon: FileCheck2 },
   { label: "Zero Trust", icon: Fingerprint },
-  { label: "FedRAMP", icon: Landmark },
-  { label: "DoD Ready", icon: Award },
-  { label: "ISO 27001", icon: Building2 },
-  { label: "SOC 2", icon: CheckCircle2 },
+  { label: "SAM Registered", icon: Landmark },
+  { label: "Veteran Owned", icon: Award },
 ];
 
-const counters = [
-  { value: 250, suffix: "+", label: "Enterprise Clients" },
-  { value: 99.99, suffix: "%", decimals: 2, label: "Threat Detection" },
-  { value: 24, suffix: "/7", label: "Security Operations" },
-  { value: 15, suffix: "+", label: "Years Experience" },
-];
-
-const bigStats = [
-  { value: 10, suffix: "M+", label: "Threats Blocked" },
-  { value: 500, suffix: "+", label: "Projects Delivered" },
-  { value: 99.98, suffix: "%", decimals: 2, label: "Customer Satisfaction" },
-  { value: 24, suffix: "/7", label: "SOC Operations" },
-  { value: 50, suffix: "+", label: "Security Experts" },
+// Federal identifiers displayed near certification badges — contracting officers
+// verify these first. Replace placeholders with real values once confirmed.
+const federalIdentifiers = [
+  { label: "SAM.gov UEI", value: "[INSERT SAM.gov UEI]" },
+  { label: "SDVOSB Certification #", value: "[INSERT SDVOSB CERT #]" },
 ];
 
 const featuredSolutions = [
@@ -80,7 +70,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "SDVOSB delivering Zero Trust architecture, managed SOC, cloud security, AI threat detection, and compliance for U.S. federal agencies, DoD, and Fortune 500 enterprises.",
+          "SDVOSB delivering Zero Trust architecture, managed SOC, cloud security, AI threat detection, and compliance for U.S. federal agencies, DoD, and enterprise and government organizations.",
       },
       { property: "og:title", content: "CyberCloudInfra | Enterprise Cybersecurity" },
       {
@@ -154,9 +144,9 @@ function Home() {
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
               <span className="flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-accent" /> SDVOSB</span>
-              <span className="flex items-center gap-1.5"><Lock className="h-4 w-4 text-accent" /> CMMC Ready</span>
-              <span className="flex items-center gap-1.5"><FileCheck2 className="h-4 w-4 text-accent" /> NIST</span>
-              <span className="flex items-center gap-1.5"><Landmark className="h-4 w-4 text-accent" /> FedRAMP</span>
+              <span className="flex items-center gap-1.5"><Lock className="h-4 w-4 text-accent" /> CMMC 2.0 Aligned</span>
+              <span className="flex items-center gap-1.5"><FileCheck2 className="h-4 w-4 text-accent" /> NIST Aligned</span>
+              <span className="flex items-center gap-1.5"><Landmark className="h-4 w-4 text-accent" /> SAM Registered</span>
             </div>
           </motion.div>
           <HeroDashboard />
@@ -168,11 +158,11 @@ function Home() {
       <section className="border-y border-border bg-surface-blue py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            Trusted by Federal Agencies, DoD & Fortune 500 Enterprises
+            Trusted by Federal Agencies, DoD & Enterprise and Government Organizations
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {trustBadges.map((b, i) => (
-              <Reveal key={b.label} delay={(i % 8) * 0.05}>
+              <Reveal key={b.label} delay={(i % 6) * 0.05}>
                 <div className="group flex flex-col items-center gap-2 rounded-2xl border border-border bg-white/5 p-4 text-center transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-glow">
                   <b.icon className="h-6 w-6 text-accent transition-transform group-hover:scale-110" />
                   <span className="text-[11px] font-semibold text-foreground">{b.label}</span>
@@ -180,11 +170,15 @@ function Home() {
               </Reveal>
             ))}
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-8 lg:grid-cols-4">
-            {counters.map((c, i) => (
-              <StatBlock key={c.label} value={c.value} suffix={c.suffix} decimals={c.decimals} label={c.label} delay={i * 0.08} />
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+            {federalIdentifiers.map((f) => (
+              <div key={f.label} className="flex items-center gap-2 rounded-full border border-border bg-white/5 px-4 py-2">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{f.label}:</span>
+                <span className="text-xs font-bold text-foreground">{f.value}</span>
+              </div>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -383,30 +377,11 @@ function Home() {
       </section>
 
       {/* ============ BIG STATS ============ */}
-      <section className="relative overflow-hidden bg-navy py-20">
-        <CyberBackground />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-5">
-            {bigStats.map((s, i) => (
-              <StatBlock key={s.label} value={s.value} suffix={s.suffix} decimals={s.decimals} label={s.label} delay={i * 0.08} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Stat blocks removed until verified metrics are available. Do not display zeroed-out or placeholder numbers. */}
 
       {/* ============ TESTIMONIALS ============ */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Testimonials"
-              title="Trusted by Mission Leaders"
-              description="What federal, defense, and enterprise partners say about working with us."
-            />
-          </Reveal>
-          <Testimonials />
-        </div>
-      </section>
+      {/* [Add real client testimonial once available] — testimonial block removed to avoid shipping fabricated attribution. */}
+
 
       {/* ============ BLOG ============ */}
       <section className="bg-surface-blue py-24">
@@ -492,8 +467,8 @@ function Home() {
                 Ready to Secure Your Organization?
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-white/90">
-                Partner with a veteran-led team trusted by federal agencies and Fortune 500
-                enterprises to defend what matters most.
+                Partner with a veteran-led team trusted by enterprise and government
+                organizations to defend what matters most.
               </p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Button asChild size="xl" className="bg-white text-primary hover:bg-white/90">
