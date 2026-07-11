@@ -135,7 +135,7 @@ export function Footer() {
               placeholder="you@agency.gov"
               className="border-white/20 bg-white/10 text-white placeholder:text-navy-foreground/50"
             />
-            <Button type="submit" variant="hero" aria-label="Subscribe">
+            <Button type="submit" variant="hero" aria-label="Subscribe" className="bg-gold text-navy hover:bg-gold/90">
               <Send className="h-4 w-4" /> Subscribe
             </Button>
           </form>
