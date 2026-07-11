@@ -68,7 +68,7 @@ export function Header() {
   }, [mobileOpen]);
 
   const onHome = pathname === "/";
-  const solid = scrolled || !onHome;
+  const solid = true;
   const isActive = (to: string) =>
     to === "/" ? pathname === "/" : pathname.startsWith(to);
 
