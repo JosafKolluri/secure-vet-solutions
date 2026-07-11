@@ -97,7 +97,7 @@ export function Header() {
           <div className="flex items-center gap-5 text-navy-foreground/70">
             <a
               href="tel:"
-              className="flex items-center gap-1.5 font-medium text-navy-foreground transition-colors hover:text-accent"
+              className="flex items-center gap-1.5 font-medium text-navy-foreground transition-colors hover:text-gold"
             >
               <Phone className="h-3.5 w-3.5" />
               [INSERT REAL NUMBER]
