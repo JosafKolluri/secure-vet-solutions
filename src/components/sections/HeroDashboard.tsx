@@ -12,7 +12,7 @@ export function HeroDashboard() {
       transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
       className="relative"
     >
-      <div className="animate-float glass rounded-3xl p-5 shadow-elegant">
+      <div className="animate-float rounded-3xl border border-border bg-navy p-5 shadow-elegant">
         {/* header */}
         <div className="flex items-center justify-between border-b border-white/10 pb-4">
           <div className="flex items-center gap-2">
