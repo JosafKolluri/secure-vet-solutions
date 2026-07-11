@@ -12,7 +12,7 @@ export function HeroDashboard() {
       transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
       className="relative"
     >
-      <div className="animate-float glass rounded-3xl p-5 shadow-elegant">
+      <div className="animate-float rounded-3xl border border-border bg-navy p-5 shadow-elegant">
         {/* header */}
         <div className="flex items-center justify-between border-b border-white/10 pb-4">
           <div className="flex items-center gap-2">
@@ -34,7 +34,7 @@ export function HeroDashboard() {
           {[
             { icon: ShieldCheck, label: "Threats Blocked", value: "10.2M", tint: "text-accent" },
             { icon: TrendingUp, label: "Risk Score", value: "A+", tint: "text-success" },
-            { icon: Cloud, label: "Cloud Monitors", value: "1,284", tint: "text-cyan" },
+            { icon: Cloud, label: "Cloud Monitors", value: "1,284", tint: "text-gold" },
             { icon: Activity, label: "Detection Rate", value: "99.99%", tint: "text-accent" },
           ].map((m, i) => (
             <motion.div
@@ -55,13 +55,13 @@ export function HeroDashboard() {
         <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4">
           <div className="flex items-center justify-between">
             <p className="text-xs font-semibold text-white">Security Analytics</p>
-            <p className="text-[11px] text-cyan">+18% this week</p>
+            <p className="text-[11px] text-gold">+18% this week</p>
           </div>
           <div className="mt-3 flex h-24 items-end gap-1.5">
             {bars.map((h, i) => (
               <motion.span
                 key={i}
-                className="flex-1 rounded-t bg-gradient-to-t from-primary to-cyan"
+                className="flex-1 rounded-t bg-gradient-to-t from-primary to-gold"
                 initial={{ height: 0 }}
                 animate={{ height: `${h}%` }}
                 transition={{ delay: 0.6 + i * 0.08, duration: 0.5 }}

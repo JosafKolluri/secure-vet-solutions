@@ -55,11 +55,11 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Link to="/" className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-accent text-accent-foreground">
+              <span className="grid h-9 w-9 place-items-center rounded-lg bg-gold text-navy">
                 <ShieldCheck className="h-5 w-5" />
               </span>
               <span className="font-display text-lg font-bold">
-                CyberCloud<span className="text-gradient">Infra</span>
+                CyberCloud<span className="text-gold">Infra</span>
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm text-navy-foreground/70">
@@ -68,10 +68,10 @@ export function Footer() {
             </p>
             <ul className="mt-6 space-y-2 text-sm text-navy-foreground/80">
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0 text-accent" /> contracts@cybercloudinfra.com
+                <Mail className="h-4 w-4 shrink-0 text-gold" /> contracts@cybercloudinfra.com
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-accent" /> [INSERT REAL NUMBER]
+                <Phone className="h-4 w-4 shrink-0 text-gold" /> [INSERT REAL NUMBER]
               </li>
             </ul>
             {socials.length > 0 && (
@@ -83,7 +83,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/5 text-navy-foreground/80 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent"
+                    className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/5 text-navy-foreground/80 transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:text-gold"
                   >
                     <s.icon className="h-4 w-4" />
                   </a>
@@ -102,7 +102,7 @@ export function Footer() {
                   <li key={`${link.to}-${i}`}>
                     <Link
                       to={link.to}
-                      className="text-sm text-navy-foreground/70 transition-colors hover:text-accent"
+                      className="text-sm text-navy-foreground/70 transition-colors hover:text-gold"
                     >
                       {link.label}
                     </Link>
@@ -135,7 +135,7 @@ export function Footer() {
               placeholder="you@agency.gov"
               className="border-white/20 bg-white/10 text-white placeholder:text-navy-foreground/50"
             />
-            <Button type="submit" variant="hero" aria-label="Subscribe">
+            <Button type="submit" variant="hero" aria-label="Subscribe" className="bg-gold text-navy hover:bg-gold/90">
               <Send className="h-4 w-4" /> Subscribe
             </Button>
           </form>
@@ -144,13 +144,13 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-navy-foreground/60 sm:flex-row">
           <p>© {new Date().getFullYear()} CyberCloudInfra LLC. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            <Link to="/" className="transition-colors hover:text-accent">Privacy Policy</Link>
-            <Link to="/" className="transition-colors hover:text-accent">Accessibility</Link>
-            <Link to="/" className="transition-colors hover:text-accent">Terms</Link>
-            <Link to="/capabilities" className="transition-colors hover:text-accent">Capability Statement</Link>
+            <Link to="/" className="transition-colors hover:text-gold">Privacy Policy</Link>
+            <Link to="/" className="transition-colors hover:text-gold">Accessibility</Link>
+            <Link to="/" className="transition-colors hover:text-gold">Terms</Link>
+            <Link to="/capabilities" className="transition-colors hover:text-gold">Capability Statement</Link>
             <button
               onClick={scrollTop}
-              className="inline-flex items-center gap-1 font-medium text-navy-foreground/80 transition-colors hover:text-accent"
+              className="inline-flex items-center gap-1 font-medium text-navy-foreground/80 transition-colors hover:text-gold"
               aria-label="Back to top"
             >
               <ArrowUp className="h-3.5 w-3.5" /> Back to Top

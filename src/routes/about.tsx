@@ -243,7 +243,7 @@ function About() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-gradient-hero py-24 text-white">
+      <section className="relative overflow-hidden bg-navy py-24 text-white">
         <div className="absolute inset-0 opacity-40 [background:radial-gradient(60%_80%_at_50%_0%,oklch(0.62_0.16_250/0.5),transparent)]" />
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <Reveal>
@@ -253,7 +253,7 @@ function About() {
             <p className="mx-auto mt-5 max-w-2xl text-lg text-white/80">
               Partner with a veteran-led team that treats your mission as its own.
             </p>
-            <Button asChild variant="hero" size="xl" className="mt-8">
+            <Button asChild variant="hero" size="xl" className="mt-8 bg-white text-primary hover:bg-white/90">
               <Link to="/contact">
                 Get in Touch <ArrowRight className="h-5 w-5" />
               </Link>
