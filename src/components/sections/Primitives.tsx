@@ -68,7 +68,7 @@ export function PageHero({
   description: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-hero pt-32 pb-20 text-white">
+    <section className="relative overflow-hidden bg-navy pt-32 pb-20 text-white">
       <div className="absolute inset-0 opacity-30 [background:radial-gradient(60%_60%_at_80%_0%,oklch(0.62_0.16_250/0.5),transparent)]" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
