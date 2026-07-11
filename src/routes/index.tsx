@@ -121,7 +121,7 @@ function Home() {
               </span>
               Service-Disabled Veteran-Owned Small Business
             </span>
-            <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               Protecting America's{" "}
               <span className="text-gradient">Digital Infrastructure</span>
             </h1>
