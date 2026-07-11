@@ -163,7 +163,7 @@ function Home() {
           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {trustBadges.map((b, i) => (
               <Reveal key={b.label} delay={(i % 6) * 0.05}>
-                <div className="group flex flex-col items-center gap-2 rounded-2xl border border-border bg-white/5 p-4 text-center transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-glow">
+                <div className="group flex flex-col items-center gap-2 rounded-2xl border border-border bg-card p-4 text-center transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-glow">
                   <b.icon className="h-6 w-6 text-accent transition-transform group-hover:scale-110" />
                   <span className="text-[11px] font-semibold text-foreground">{b.label}</span>
                 </div>
@@ -172,7 +172,7 @@ function Home() {
           </div>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
             {federalIdentifiers.map((f) => (
-              <div key={f.label} className="flex items-center gap-2 rounded-full border border-border bg-white/5 px-4 py-2">
+              <div key={f.label} className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2">
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{f.label}:</span>
                 <span className="text-xs font-bold text-foreground">{f.value}</span>
               </div>
@@ -211,12 +211,12 @@ function Home() {
                   </p>
                   <ul className="relative mt-4 flex flex-wrap gap-2">
                     {s.points.map((p) => (
-                      <li key={p} className="rounded-full border border-border bg-white/5 px-3 py-1 text-xs font-medium text-muted-foreground">
+                      <li key={p} className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
                         {p}
                       </li>
                     ))}
                   </ul>
-                  <Link to="/capabilities" className="relative mt-6 inline-flex items-center gap-1 text-sm font-semibold text-accent transition-colors group-hover:text-cyan">
+                  <Link to="/capabilities" className="relative mt-6 inline-flex items-center gap-1 text-sm font-semibold text-accent transition-colors group-hover:text-gold">
                     Learn more <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -251,7 +251,7 @@ function Home() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ delay: i * 0.08 }}
-                    className="flex items-start gap-4 rounded-2xl border border-border bg-white/5 p-4 backdrop-blur-sm transition-colors hover:border-accent/40"
+                    className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 backdrop-blur-sm transition-colors hover:border-accent/40"
                   >
                     <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-accent text-accent-foreground shadow-glow">
                       <r.icon className="h-5 w-5" />
@@ -274,14 +274,14 @@ function Home() {
                   { v: "24/7/365", l: "SOC Coverage" },
                   { v: "100%", l: "Mission Focused" },
                 ].map((s) => (
-                  <div key={s.l} className="rounded-2xl border border-border bg-white/5 p-5 text-center">
+                  <div key={s.l} className="rounded-2xl border border-border bg-card p-5 text-center">
                     <p className="font-display text-2xl font-bold text-gradient">{s.v}</p>
                     <p className="mt-1 text-xs text-muted-foreground">{s.l}</p>
                   </div>
                 ))}
               </div>
               <div className="mt-6 flex items-center gap-3 rounded-2xl border border-accent/30 bg-accent/10 p-5">
-                <ScanSearch className="h-8 w-8 shrink-0 text-cyan" />
+                <ScanSearch className="h-8 w-8 shrink-0 text-gold" />
                 <p className="text-sm text-foreground">
                   Continuous threat intelligence across cloud, endpoint, and network layers —
                   powered by AI and human expertise.
@@ -361,12 +361,12 @@ function Home() {
               <Reveal key={sol.title} delay={(i % 3) * 0.08}>
                 <div className="group relative h-full overflow-hidden rounded-3xl border border-border bg-navy p-8 shadow-card transition-all hover:-translate-y-1.5 hover:shadow-glow">
                   <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-accent/20 blur-3xl transition-opacity duration-300 group-hover:opacity-100 opacity-0" />
-                  <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-white/10 text-cyan">
+                  <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-white/10 text-gold">
                     <sol.icon className="h-7 w-7" />
                   </span>
                   <h3 className="relative mt-5 text-xl font-semibold text-white">{sol.title}</h3>
                   <p className="relative mt-2 text-sm text-muted-foreground">{sol.description}</p>
-                  <Link to="/capabilities" className="relative mt-5 inline-flex items-center gap-1 text-sm font-semibold text-cyan transition-colors group-hover:text-white">
+                  <Link to="/capabilities" className="relative mt-5 inline-flex items-center gap-1 text-sm font-semibold text-gold transition-colors group-hover:text-white">
                     Discover more <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -408,7 +408,7 @@ function Home() {
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <span className="absolute left-4 top-4 rounded-full bg-navy/80 px-3 py-1 text-xs font-semibold text-cyan backdrop-blur-sm">
+                    <span className="absolute left-4 top-4 rounded-full bg-navy/80 px-3 py-1 text-xs font-semibold text-gold backdrop-blur-sm">
                       {post.category}
                     </span>
                   </div>
@@ -418,7 +418,7 @@ function Home() {
                     </p>
                     <h3 className="mt-2 text-lg font-semibold leading-snug text-foreground">{post.title}</h3>
                     <p className="mt-2 flex-1 text-sm text-muted-foreground">{post.excerpt}</p>
-                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent transition-colors group-hover:text-cyan">
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent transition-colors group-hover:text-gold">
                       Read More <ArrowRight className="h-4 w-4" />
                     </span>
                   </div>
