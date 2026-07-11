@@ -253,7 +253,7 @@ function About() {
             <p className="mx-auto mt-5 max-w-2xl text-lg text-white/80">
               Partner with a veteran-led team that treats your mission as its own.
             </p>
-            <Button asChild variant="hero" size="xl" className="mt-8">
+            <Button asChild variant="hero" size="xl" className="mt-8 bg-white text-primary hover:bg-white/90">
               <Link to="/contact">
                 Get in Touch <ArrowRight className="h-5 w-5" />
               </Link>
