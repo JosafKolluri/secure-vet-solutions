@@ -1,21 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import {
-  ArrowRight,
-  CalendarCheck,
-  ShieldCheck,
-  CheckCircle2,
-  Radar,
-  Cloud,
-  Lock,
-  Fingerprint,
-  Bot,
-  ScanSearch,
-  Award,
-  Landmark,
-  Building2,
-  FileCheck2,
-} from "lucide-react";
+import { ArrowRight, Check, Phone, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -23,202 +8,210 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Reveal, SectionHeading } from "@/components/sections/Primitives";
-import { Testimonials } from "@/components/sections/Testimonials";
+import { Reveal, SectionHeading, CTASection, Eyebrow } from "@/components/sections/Primitives";
 import { StatBlock } from "@/components/sections/AnimatedCounter";
-import { CyberBackground } from "@/components/sections/CyberBackground";
-import { HeroDashboard } from "@/components/sections/HeroDashboard";
-import { BackToTop } from "@/components/sections/BackToTop";
 import {
-  homeServices,
+  services,
+  homeStats,
   whyChooseUs,
   processSteps,
   homeIndustries,
-  homeFaqs,
+  caseStudies,
   blogPosts,
+  homeFaqs,
+  certifications,
+  techPartners,
+  company,
 } from "@/data/site";
-
-const trustBadges = [
-  { label: "SDVOSB Certified", icon: ShieldCheck },
-  { label: "CMMC 2.0 Aligned", icon: Lock },
-  { label: "NIST Aligned", icon: FileCheck2 },
-  { label: "Zero Trust", icon: Fingerprint },
-  { label: "SAM Registered", icon: Landmark },
-  { label: "Veteran Owned", icon: Award },
-];
-
-// Federal identifiers displayed near certification badges — contracting officers
-// verify these first. Replace placeholders with real values once confirmed.
-const federalIdentifiers = [
-  { label: "SAM.gov UEI", value: "[INSERT SAM.gov UEI]" },
-  { label: "SDVOSB Certification #", value: "[INSERT SDVOSB CERT #]" },
-];
-
-const featuredSolutions = [
-  { title: "Cloud Security", description: "End-to-end protection for Azure, AWS & multi-cloud workloads.", icon: Cloud },
-  { title: "Identity Security", description: "Zero Trust identity, access governance, and MFA everywhere.", icon: Fingerprint },
-  { title: "Managed Detection & Response", description: "24/7 SOC monitoring with rapid containment and remediation.", icon: Radar },
-  { title: "Zero Trust Architecture", description: "Never trust, always verify — across users, devices, and data.", icon: Lock },
-  { title: "AI Threat Detection", description: "Machine-learning analytics that surface threats in real time.", icon: Bot },
-  { title: "Compliance Automation", description: "Continuous compliance for NIST, CMMC, FedRAMP & SOC 2.", icon: FileCheck2 },
-];
+import heroTeam from "@/assets/hero-team.jpg";
+import aboutHandshake from "@/assets/about-handshake.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CyberCloudInfra | Enterprise Cybersecurity for Federal & Defense" },
+      { title: "SDVODB Technologies | IT, Infrastructure & Staffing" },
       {
         name: "description",
         content:
-          "SDVOSB delivering Zero Trust architecture, managed SOC, cloud security, AI threat detection, and compliance for U.S. federal agencies, DoD, and enterprise and government organizations.",
+          "SDVODB Technologies is a veteran-owned provider of IT services, infrastructure engineering, and IT, non-IT, and healthcare staffing for government and enterprise.",
       },
-      { property: "og:title", content: "CyberCloudInfra | Enterprise Cybersecurity" },
+      { property: "og:title", content: "SDVODB Technologies | IT, Infrastructure & Staffing" },
       {
         property: "og:description",
         content:
-          "Advanced cybersecurity, Zero Trust, cloud security, AI security, and managed SOC services for federal agencies and enterprise organizations.",
+          "Technology and talent solutions for mission-critical organizations — cloud, cybersecurity, infrastructure, and specialized staffing.",
       },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: "https://secure-vet-solutions.lovable.app/" },
     ],
     links: [{ rel: "canonical", href: "https://secure-vet-solutions.lovable.app/" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "GovernmentService",
-          name: "CyberCloudInfra",
-          serviceType: "Cybersecurity & Cloud Government Contractor",
-          provider: {
-            "@type": "Organization",
-            name: "CyberCloudInfra",
-            url: "https://secure-vet-solutions.lovable.app/",
-          },
-          areaServed: "US",
-        }),
-      },
-    ],
   }),
-  component: Home,
+  component: HomePage,
 });
 
-function Home() {
+function HomePage() {
   return (
     <>
-      {/* ============ HERO ============ */}
-      <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-gradient-hero">
-        <CyberBackground dense />
-        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-12 px-4 pb-16 pt-32 sm:px-6 lg:grid-cols-2 lg:px-8">
+      {/* ---------------- Hero ---------------- */}
+      <section className="relative overflow-hidden bg-gradient-hero pt-36 pb-20 lg:pt-44 lg:pb-28">
+        <div className="pointer-events-none absolute inset-0 grid-pattern opacity-60" />
+        <div className="pointer-events-none absolute -right-24 top-24 h-80 w-80 rounded-full bg-brand/15 blur-3xl animate-pulse-glow" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan" />
-              </span>
-              Service-Disabled Veteran-Owned Small Business
-            </span>
-            <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Protecting America's{" "}
-              <span className="text-gradient">Digital Infrastructure</span>
+            <Eyebrow>Service-Disabled Veteran-Owned Small Business</Eyebrow>
+            <h1 className="mt-6 text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
+              Technology & talent for <span className="text-gradient">mission-critical</span>{" "}
+              organizations
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Advanced Cybersecurity, Zero Trust Architecture, Cloud Security, Compliance,
-              AI Security, and Managed SOC Services for Federal Agencies and Enterprise
-              Organizations.
+              {company.name} delivers IT services, infrastructure engineering, and specialized IT,
+              non-IT, and healthcare staffing — so agencies and enterprises can modernize and staff
+              from one accountable partner.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button asChild variant="hero" size="xl">
-                <Link to="/contact">
-                  <CalendarCheck className="h-5 w-5" /> Request Consultation
+              <Button asChild size="lg" className="bg-brand text-brand-foreground hover:bg-brand/90">
+                <Link to="/get-quote">
+                  Get a Free Quote <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild variant="heroOutline" size="xl">
-                <Link to="/capabilities">
-                  Explore Solutions <ArrowRight className="h-5 w-5" />
+              <Button asChild size="lg" variant="outline">
+                <Link to="/contact">
+                  <Phone className="h-4 w-4" /> Talk to an Expert
                 </Link>
               </Button>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-              <span className="flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-accent" /> SDVOSB</span>
-              <span className="flex items-center gap-1.5"><Lock className="h-4 w-4 text-accent" /> CMMC 2.0 Aligned</span>
-              <span className="flex items-center gap-1.5"><FileCheck2 className="h-4 w-4 text-accent" /> NIST Aligned</span>
-              <span className="flex items-center gap-1.5"><Landmark className="h-4 w-4 text-accent" /> SAM Registered</span>
+            <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-3">
+              {["Government & enterprise clients", "24/7 support", "Certified specialists"].map((t) => (
+                <li key={t} className="flex items-center gap-2 text-sm font-medium text-foreground">
+                  <span className="grid h-5 w-5 place-items-center rounded-full bg-primary/10 text-primary">
+                    <Check className="h-3 w-3" />
+                  </span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
+          >
+            <div className="absolute -inset-5 -z-10 rounded-[2.5rem] bg-gradient-primary opacity-15 blur-3xl" />
+            <img
+              src={heroTeam}
+              alt="Consultants reviewing performance dashboards with a client team"
+              width={1408}
+              height={1104}
+              className="w-full rounded-3xl object-cover shadow-card"
+            />
+            <div className="glass absolute -bottom-6 -left-4 hidden rounded-2xl p-4 shadow-card sm:block lg:-left-10">
+              <p className="font-display text-2xl font-extrabold text-foreground">98%</p>
+              <p className="text-xs font-medium text-muted-foreground">Client retention</p>
+            </div>
+            <div className="glass absolute -top-6 right-4 hidden items-center gap-2 rounded-2xl px-4 py-3 shadow-card sm:flex">
+              <Star className="h-4 w-4 fill-brand text-brand" />
+              <p className="text-xs font-semibold text-foreground">Veteran-owned. Mission first.</p>
             </div>
           </motion.div>
-          <HeroDashboard />
         </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
       </section>
 
-      {/* ============ TRUST BADGES + COUNTERS ============ */}
-      <section className="border-y border-border bg-surface-blue py-14">
+      {/* ---------------- Trust strip ---------------- */}
+      <section className="border-y border-border bg-surface py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            Trusted by Federal Agencies, DoD & Enterprise and Government Organizations
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            Platforms and partners we build on
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-            {trustBadges.map((b, i) => (
-              <Reveal key={b.label} delay={(i % 6) * 0.05}>
-                <div className="group flex flex-col items-center gap-2 rounded-2xl border border-border bg-card p-4 text-center transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-glow">
-                  <b.icon className="h-6 w-6 text-accent transition-transform group-hover:scale-110" />
-                  <span className="text-[11px] font-semibold text-foreground">{b.label}</span>
-                </div>
-              </Reveal>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+            {techPartners.map((p) => (
+              <span key={p} className="font-display text-base font-bold text-muted-foreground/70">
+                {p}
+              </span>
             ))}
           </div>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            {federalIdentifiers.map((f) => (
-              <div key={f.label} className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{f.label}:</span>
-                <span className="text-xs font-bold text-foreground">{f.value}</span>
-              </div>
-            ))}
-          </div>
-
         </div>
       </section>
 
-      {/* ============ SERVICES ============ */}
-      <section className="bg-gradient-subtle py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeading
-              eyebrow="What We Do"
-              title="Comprehensive Security Services"
-              description="A full spectrum of cybersecurity, cloud, and compliance services engineered for mission-critical environments."
-            />
-          </Reveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {homeServices.map((s, i) => (
-              <Reveal key={s.slug} delay={(i % 3) * 0.08}>
-                <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-glow">
-                  <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 [background:radial-gradient(60%_60%_at_80%_0%,rgba(59,130,246,0.18),transparent)]" />
-                  <div className="relative flex items-start justify-between">
-                    <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-accent text-accent-foreground shadow-glow transition-transform duration-300 group-hover:scale-110">
-                      <s.icon className="h-6 w-6" />
-                    </span>
-                    <span className="font-display text-2xl font-bold text-muted-foreground/30">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-                  <h3 className="relative mt-5 text-xl font-semibold text-foreground">{s.title}</h3>
-                  <p className="relative mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+      {/* ---------------- Stats ---------------- */}
+      <section className="section-py px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 rounded-3xl border border-border bg-card p-10 shadow-soft sm:grid-cols-2 lg:grid-cols-4">
+          {homeStats.map((s, i) => (
+            <StatBlock key={s.label} {...s} delay={i * 0.08} />
+          ))}
+        </div>
+      </section>
+
+      {/* ---------------- Services ---------------- */}
+      <section className="section-py bg-surface px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            eyebrow="What we do"
+            title="Four practices. One accountable partner."
+            description="Technology delivery and specialized staffing under a single contract vehicle, single delivery lead, and single standard of quality."
+          />
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((s, i) => (
+              <Reveal key={s.slug} delay={i * 0.07}>
+                <Link
+                  to={s.href}
+                  className="hover-lift group flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-soft"
+                >
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-soft transition-transform duration-300 group-hover:scale-105">
+                    <s.icon className="h-6 w-6" />
+                  </span>
+                  <h3 className="mt-6 text-xl">{s.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {s.description}
                   </p>
-                  <ul className="relative mt-4 flex flex-wrap gap-2">
-                    {s.points.map((p) => (
-                      <li key={p} className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
-                        {p}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link to="/capabilities" className="relative mt-6 inline-flex items-center gap-1 text-sm font-semibold text-accent transition-colors group-hover:text-gold">
-                    Learn more <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                    Explore {s.title}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- Why choose us ---------------- */}
+      <section className="section-py px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl items-start gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+          <Reveal>
+            <SectionHeading
+              align="left"
+              eyebrow="Why SDVODB"
+              title="Built for organizations that cannot afford guesswork"
+              description="We combine engineering discipline with recruiting depth, backed by veteran-owned values of accountability and service."
+            />
+            <div className="relative mt-10">
+              <img
+                src={aboutHandshake}
+                alt="Two professionals shaking hands in a modern office lobby"
+                loading="lazy"
+                width={1408}
+                height={1008}
+                className="w-full rounded-3xl object-cover shadow-card"
+              />
+            </div>
+          </Reveal>
+          <div className="grid gap-5 sm:grid-cols-2">
+            {whyChooseUs.map((r, i) => (
+              <Reveal key={r.title} delay={i * 0.06}>
+                <div className="hover-lift h-full rounded-2xl border border-border bg-card p-6 shadow-soft">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-accent text-accent-foreground">
+                    <r.icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-5 text-lg">{r.title}</h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+                    {r.description}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -226,149 +219,135 @@ function Home() {
         </div>
       </section>
 
-      {/* ============ WHY CHOOSE US ============ */}
-      <section className="relative overflow-hidden py-24">
-        <CyberBackground />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <Reveal>
-            <div>
-              <span className="inline-block rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
-                Why Choose Us
-              </span>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Military precision meets AI-driven defense
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Veteran-led teams combine best-in-class tooling with disciplined execution to
-                keep your systems, networks, and data secure — with resilience and mission
-                continuity at the core.
-              </p>
-              <div className="mt-8 space-y-3">
-                {whyChooseUs.map((r, i) => (
-                  <motion.div
-                    key={r.title}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{ delay: i * 0.08 }}
-                    className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 backdrop-blur-sm transition-colors hover:border-accent/40"
-                  >
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-accent text-accent-foreground shadow-glow">
-                      <r.icon className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <h3 className="font-semibold text-foreground">{r.title}</h3>
-                      <p className="mt-0.5 text-sm text-muted-foreground">{r.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="glass rounded-3xl p-8 shadow-elegant">
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { v: "99.99%", l: "Detection Accuracy" },
-                  { v: "< 15 min", l: "Incident Response" },
-                  { v: "24/7/365", l: "SOC Coverage" },
-                  { v: "100%", l: "Mission Focused" },
-                ].map((s) => (
-                  <div key={s.l} className="rounded-2xl border border-border bg-card p-5 text-center">
-                    <p className="font-display text-2xl font-bold text-gradient">{s.v}</p>
-                    <p className="mt-1 text-xs text-muted-foreground">{s.l}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 flex items-center gap-3 rounded-2xl border border-accent/30 bg-accent/10 p-5">
-                <ScanSearch className="h-8 w-8 shrink-0 text-gold" />
-                <p className="text-sm text-foreground">
-                  Continuous threat intelligence across cloud, endpoint, and network layers —
-                  powered by AI and human expertise.
-                </p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ============ PROCESS TIMELINE ============ */}
-      <section className="bg-surface-blue py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Our Process"
-              title="How We Secure Your Mission"
-              description="A proven, repeatable methodology that turns risk into resilience."
-            />
-          </Reveal>
-          <div className="relative mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-6">
-            <div className="pointer-events-none absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent lg:block" />
+      {/* ---------------- Process ---------------- */}
+      <section className="section-py bg-surface px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            eyebrow="Our process"
+            title="From first conversation to continuous support"
+            description="A predictable four-phase engagement model with named owners and written milestones."
+          />
+          <div className="relative mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="pointer-events-none absolute left-0 right-0 top-16 hidden h-px bg-border lg:block" />
             {processSteps.map((step, i) => (
-              <Reveal key={step.title} delay={i * 0.08} className="relative text-center">
-                <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl border border-accent/30 bg-card text-accent shadow-glow">
-                  <step.icon className="h-6 w-6" />
+              <Reveal key={step.step} delay={i * 0.08}>
+                <div className="relative h-full rounded-2xl border border-border bg-card p-7 shadow-soft">
+                  <div className="flex items-center justify-between">
+                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-primary text-primary-foreground">
+                      <step.icon className="h-5 w-5" />
+                    </span>
+                    <span className="font-display text-3xl font-extrabold text-primary/15">
+                      {step.step}
+                    </span>
+                  </div>
+                  <h3 className="mt-5 text-lg">{step.title}</h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+                    {step.description}
+                  </p>
                 </div>
-                <p className="mt-4 font-display text-sm font-bold text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-1 font-semibold text-foreground">{step.title}</h3>
-                <p className="mt-1 text-xs text-muted-foreground">{step.description}</p>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ============ INDUSTRIES ============ */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Industries"
-              title="Securing Critical Sectors"
-              description="Deep domain expertise across the sectors that keep the nation running."
-            />
-          </Reveal>
-          <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      {/* ---------------- Industries ---------------- */}
+      <section className="section-py px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            eyebrow="Industries"
+            title="Sector expertise that shortens the learning curve"
+            description="We already know the compliance obligations, procurement rhythms, and operational realities of the sectors we serve."
+          />
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {homeIndustries.map((ind, i) => (
-              <Reveal key={ind.title} delay={(i % 4) * 0.06}>
-                <div className="group flex h-full flex-col items-start gap-3 rounded-3xl border border-border bg-card p-6 transition-all hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-glow">
-                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-accent text-accent-foreground shadow-glow transition-transform group-hover:scale-110">
+              <Reveal key={ind.title} delay={i * 0.06}>
+                <div className="hover-lift group h-full rounded-2xl border border-border bg-card p-7 shadow-soft">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand/10 text-brand transition-transform duration-300 group-hover:scale-105">
                     <ind.icon className="h-6 w-6" />
                   </span>
-                  <h3 className="font-semibold text-foreground">{ind.title}</h3>
-                  <p className="text-sm text-muted-foreground">{ind.description}</p>
+                  <h3 className="mt-6 text-lg">{ind.title}</h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+                    {ind.description}
+                  </p>
                 </div>
               </Reveal>
             ))}
           </div>
+          <div className="mt-10 text-center">
+            <Button asChild variant="outline" size="lg">
+              <Link to="/industries">
+                View all industries <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* ============ FEATURED SOLUTIONS ============ */}
-      <section className="relative overflow-hidden bg-gradient-subtle py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Featured Solutions"
-              title="Enterprise-Grade Security Platforms"
-              description="Integrated solutions that scale from a single migration to enterprise-wide transformation."
-            />
-          </Reveal>
+      {/* ---------------- Case studies ---------------- */}
+      <section className="section-py bg-surface px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            eyebrow="Case studies"
+            title="Outcomes, not activity reports"
+            description="A sample of engagements across cloud migration, staffing surges, and security modernization."
+          />
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuredSolutions.map((sol, i) => (
-              <Reveal key={sol.title} delay={(i % 3) * 0.08}>
-                <div className="group relative h-full overflow-hidden rounded-3xl border border-border bg-navy p-8 shadow-card transition-all hover:-translate-y-1.5 hover:shadow-glow">
-                  <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-accent/20 blur-3xl transition-opacity duration-300 group-hover:opacity-100 opacity-0" />
-                  <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-white/10 text-gold">
-                    <sol.icon className="h-7 w-7" />
+            {caseStudies.slice(0, 3).map((cs, i) => (
+              <Reveal key={cs.slug} delay={i * 0.07}>
+                <Link
+                  to="/case-studies"
+                  className="hover-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
+                >
+                  <div className="aspect-16/10 overflow-hidden">
+                    <img
+                      src={cs.image}
+                      alt={cs.title}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <span className="text-xs font-semibold uppercase tracking-[0.12em] text-brand">
+                      {cs.industry}
+                    </span>
+                    <h3 className="mt-3 text-lg leading-snug">{cs.title}</h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                      {cs.challenge}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                      Read the story
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- Certifications ---------------- */}
+      <section className="section-py px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            eyebrow="Credentials"
+            title="Compliance-aligned from day one"
+            description="Our delivery practices map to the federal frameworks our clients are measured against."
+          />
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {certifications.map((c, i) => (
+              <Reveal key={c.label} delay={i * 0.06}>
+                <div className="flex h-full items-start gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent text-accent-foreground">
+                    <c.icon className="h-5 w-5" />
                   </span>
-                  <h3 className="relative mt-5 text-xl font-semibold text-white">{sol.title}</h3>
-                  <p className="relative mt-2 text-sm text-muted-foreground">{sol.description}</p>
-                  <Link to="/capabilities" className="relative mt-5 inline-flex items-center gap-1 text-sm font-semibold text-gold transition-colors group-hover:text-white">
-                    Discover more <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  <span>
+                    <span className="block font-display font-bold text-foreground">{c.label}</span>
+                    <span className="mt-1 block text-sm leading-snug text-muted-foreground">
+                      {c.detail}
+                    </span>
+                  </span>
                 </div>
               </Reveal>
             ))}
@@ -376,51 +355,41 @@ function Home() {
         </div>
       </section>
 
-      {/* ============ BIG STATS ============ */}
-      {/* Stat blocks removed until verified metrics are available. Do not display zeroed-out or placeholder numbers. */}
-
-      {/* ============ TESTIMONIALS ============ */}
-      {/* [Add real client testimonial once available] — testimonial block removed to avoid shipping fabricated attribution. */}
-
-
-      {/* ============ BLOG ============ */}
-      <section className="bg-surface-blue py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Insights"
-              title="Latest Cybersecurity Intelligence"
-              description="Practical guidance from our security architects and cloud engineers."
-            />
-          </Reveal>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+      {/* ---------------- Insights ---------------- */}
+      <section className="section-py bg-surface px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            eyebrow="Insights"
+            title="Perspectives from our delivery teams"
+            description="Practical guidance on modernization, security, and workforce strategy."
+          />
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post, i) => (
-              <Reveal key={post.slug} delay={i * 0.08}>
+              <Reveal key={post.slug} delay={i * 0.07}>
                 <Link
                   to="/blog/$slug"
                   params={{ slug: post.slug }}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-glow"
+                  className="hover-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden">
+                  <div className="aspect-16/10 overflow-hidden">
                     <img
-                      src={post.cover}
+                      src={post.image}
                       alt={post.title}
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <span className="absolute left-4 top-4 rounded-full bg-navy/80 px-3 py-1 text-xs font-semibold text-gold backdrop-blur-sm">
-                      {post.category}
-                    </span>
                   </div>
                   <div className="flex flex-1 flex-col p-6">
-                    <p className="text-xs text-muted-foreground">
-                      {new Date(post.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })} · {post.readTime}
+                    <div className="flex items-center gap-3 text-xs font-medium text-muted-foreground">
+                      <span className="font-semibold uppercase tracking-[0.12em] text-brand">
+                        {post.category}
+                      </span>
+                      <span>{post.readingTime}</span>
+                    </div>
+                    <h3 className="mt-3 text-lg leading-snug">{post.title}</h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                      {post.excerpt}
                     </p>
-                    <h3 className="mt-2 text-lg font-semibold leading-snug text-foreground">{post.title}</h3>
-                    <p className="mt-2 flex-1 text-sm text-muted-foreground">{post.excerpt}</p>
-                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent transition-colors group-hover:text-gold">
-                      Read More <ArrowRight className="h-4 w-4" />
-                    </span>
                   </div>
                 </Link>
               </Reveal>
@@ -429,65 +398,31 @@ function Home() {
         </div>
       </section>
 
-      {/* ============ FAQ ============ */}
-      <section className="py-24">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeading
-              eyebrow="FAQ"
-              title="Frequently Asked Questions"
-              description="Answers to the questions mission leaders ask most."
-            />
-          </Reveal>
-          <Reveal delay={0.1}>
-            <Accordion type="single" collapsible className="mt-10">
-              {homeFaqs.map((faq, i) => (
-                <AccordionItem key={i} value={`faq-${i}`} className="border-border">
-                  <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:text-accent">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </Reveal>
+      {/* ---------------- FAQ ---------------- */}
+      <section className="section-py px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+          <SectionHeading
+            align="left"
+            eyebrow="FAQ"
+            title="Questions we hear before every engagement"
+            description="Still unsure where to start? A short discovery call usually answers it faster than a proposal."
+          />
+          <Accordion type="single" collapsible className="w-full">
+            {homeFaqs.map((faq, i) => (
+              <AccordionItem key={faq.question} value={`faq-${i}`}>
+                <AccordionTrigger className="text-left text-base font-semibold">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
 
-      {/* ============ CTA BANNER ============ */}
-      <section className="relative overflow-hidden py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-cta px-6 py-16 text-center shadow-elegant sm:px-16">
-            <div className="pointer-events-none absolute inset-0 cyber-grid opacity-30" />
-            <div className="pointer-events-none absolute -left-10 -top-10 h-56 w-56 rounded-full bg-white/20 blur-3xl" />
-            <div className="relative">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Ready to Secure Your Organization?
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-white/90">
-                Partner with a veteran-led team trusted by enterprise and government
-                organizations to defend what matters most.
-              </p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <Button asChild size="xl" className="bg-white text-primary hover:bg-white/90">
-                  <Link to="/contact">
-                    <CalendarCheck className="h-5 w-5" /> Schedule Consultation
-                  </Link>
-                </Button>
-                <Button asChild variant="heroOutline" size="xl" className="border-white/60 text-white hover:bg-white/10">
-                  <Link to="/contact">
-                    Talk to an Expert <ArrowRight className="h-5 w-5" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <BackToTop />
+      <CTASection />
     </>
   );
 }

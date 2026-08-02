@@ -6,7 +6,7 @@ export default defineTool({
   name: "list_blog_posts",
   title: "List blog posts",
   description:
-    "List CyberCloudInfra blog posts. Optionally pass a slug to fetch the full body of a single post.",
+    "List SDVODB Technologies blog posts. Optionally pass a slug to fetch the full body of a single post.",
   inputSchema: {
     slug: z
       .string()
@@ -34,7 +34,7 @@ export default defineTool({
       excerpt: p.excerpt,
       category: p.category,
       date: p.date,
-      readTime: p.readTime,
+      readingTime: p.readingTime,
     }));
     return {
       content: [{ type: "text", text: JSON.stringify(summaries, null, 2) }],

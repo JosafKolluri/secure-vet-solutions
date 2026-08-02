@@ -5,14 +5,16 @@ export default defineTool({
   name: "list_capabilities",
   title: "List capabilities",
   description:
-    "List CyberCloudInfra's technical capabilities, core competencies, technology partners, and NAICS codes for federal contracting.",
+    "List SDVODB Technologies' technical capabilities, core competencies, technology partners, and NAICS codes for federal contracting.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {
     const payload = {
       capabilities: capabilities.map((c) => ({
-        category: c.category,
-        items: c.items.map((i) => i.name),
+        slug: c.slug,
+        title: c.title,
+        description: c.description,
+        highlights: c.points,
       })),
       coreCompetencies,
       techPartners,

@@ -5,7 +5,7 @@ export default defineTool({
   name: "list_job_openings",
   title: "List job openings",
   description:
-    "List current CyberCloudInfra career openings with role, location, department, and company benefits.",
+    "List current SDVODB Technologies career openings with role, location, department, and company benefits.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {

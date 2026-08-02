@@ -5,7 +5,7 @@ export default defineTool({
   name: "list_services",
   title: "List services",
   description:
-    "List CyberCloudInfra's service offerings (cloud, cybersecurity, managed IT, disaster recovery, and more) with descriptions.",
+    "List SDVODB Technologies' service offerings (cloud, cybersecurity, managed IT, disaster recovery, and more) with descriptions.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {

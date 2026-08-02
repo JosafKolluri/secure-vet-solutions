@@ -9,13 +9,13 @@
     "server": {
       "name": "cybercloudinfra-mcp",
       "version": "0.1.0",
-      "title": "CyberCloudInfra MCP"
+      "title": "SDVODB Technologies MCP"
     },
     "tools": [
       {
         "name": "company_overview",
         "title": "Company overview",
-        "description": "Get an overview of CyberCloudInfra: an SDVOSB delivering secure cloud, cybersecurity, and IT infrastructure, including certifications, core values, and industries served.",
+        "description": "Get an overview of SDVODB Technologies: a veteran-owned provider of IT services, infrastructure engineering, and IT, non-IT, and healthcare staffing.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -31,7 +31,7 @@
       {
         "name": "list_services",
         "title": "List services",
-        "description": "List CyberCloudInfra's service offerings (cloud, cybersecurity, managed IT, disaster recovery, and more) with descriptions.",
+        "description": "List SDVODB Technologies' service offerings (cloud, cybersecurity, managed IT, disaster recovery, and more) with descriptions.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -47,7 +47,7 @@
       {
         "name": "list_capabilities",
         "title": "List capabilities",
-        "description": "List CyberCloudInfra's technical capabilities, core competencies, technology partners, and NAICS codes for federal contracting.",
+        "description": "List SDVODB Technologies' technical capabilities, core competencies, technology partners, and NAICS codes for federal contracting.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -63,7 +63,7 @@
       {
         "name": "list_blog_posts",
         "title": "List blog posts",
-        "description": "List CyberCloudInfra blog posts. Optionally pass a slug to fetch the full body of a single post.",
+        "description": "List SDVODB Technologies blog posts. Optionally pass a slug to fetch the full body of a single post.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -84,7 +84,7 @@
       {
         "name": "list_job_openings",
         "title": "List job openings",
-        "description": "List current CyberCloudInfra career openings with role, location, department, and company benefits.",
+        "description": "List current SDVODB Technologies career openings with role, location, department, and company benefits.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
