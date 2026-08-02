@@ -1,49 +1,55 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageHero, Reveal } from "@/components/sections/Primitives";
+import { PageHero, Reveal, SectionHeading, CTASection } from "@/components/sections/Primitives";
 import { industries } from "@/data/site";
 
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: "Industries | CyberCloudInfra — Federal, Defense, Healthcare" },
+      { title: "Industries We Serve | SDVODB Technologies" },
       {
         name: "description",
         content:
-          "CyberCloudInfra serves Federal Government, Healthcare, Defense, Financial Services, and Education with secure technology solutions.",
+          "Government, healthcare, financial services, manufacturing, education, and commercial enterprise clients rely on SDVODB Technologies for technology and talent.",
       },
-      { property: "og:title", content: "Industries We Serve | CyberCloudInfra" },
+      { property: "og:title", content: "Industries We Serve | SDVODB Technologies" },
       {
         property: "og:description",
-        content: "Federal, Healthcare, Defense, Financial Services, and Education.",
+        content: "Sector expertise across government, healthcare, finance, manufacturing, and more.",
       },
-      { property: "og:url", content: "/industries" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://secure-vet-solutions.lovable.app/industries" },
     ],
-    links: [{ rel: "canonical", href: "/industries" }],
+    links: [{ rel: "canonical", href: "https://secure-vet-solutions.lovable.app/industries" }],
   }),
-  component: Industries,
+  component: IndustriesPage,
 });
 
-function Industries() {
+function IndustriesPage() {
   return (
     <>
       <PageHero
         eyebrow="Industries"
-        title="Solutions for High-Stakes Industries"
-        description="We bring deep domain expertise and security-first engineering to the sectors that demand the most."
+        title="Sector knowledge that shortens delivery"
+        description="We already understand the compliance obligations, procurement cycles, and operating pressures of the industries we serve."
+        breadcrumb="Industries"
       />
 
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="section-py px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            eyebrow="Who we serve"
+            title="Specialized delivery for regulated environments"
+            description="Each sector gets a delivery team that has worked inside its constraints before."
+          />
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {industries.map((ind, i) => (
-              <Reveal key={ind.title} delay={(i % 3) * 0.07}>
-                <div className="group relative h-full overflow-hidden rounded-2xl border bg-card p-8 shadow-card transition-all hover:-translate-y-1 hover:shadow-elegant">
-                  <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-gradient-accent opacity-10 transition-opacity group-hover:opacity-20" />
-                  <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-secondary text-primary">
-                    <ind.icon className="h-7 w-7" />
+              <Reveal key={ind.title} delay={i * 0.06}>
+                <div className="hover-lift group h-full rounded-2xl border border-border bg-card p-7 shadow-soft">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground transition-transform duration-300 group-hover:scale-105">
+                    <ind.icon className="h-6 w-6" />
                   </span>
-                  <h2 className="relative mt-6 text-xl font-semibold">{ind.title}</h2>
-                  <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">
+                  <h2 className="mt-6 text-lg">{ind.title}</h2>
+                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
                     {ind.description}
                   </p>
                 </div>
@@ -52,6 +58,8 @@ function Industries() {
           </div>
         </div>
       </section>
+
+      <CTASection />
     </>
   );
 }

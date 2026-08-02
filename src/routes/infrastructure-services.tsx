@@ -36,9 +36,12 @@ export const Route = createFileRoute("/infrastructure-services")({
       image={infrastructureDatacenter}
       imageAlt="Engineer working between server racks in a modern data center"
       intro={{
-        heading: "Resilience you can prove, not assume"
-        }
-        }
+        heading: "Resilience you can prove, not assume",
+        body: [
+          "We document the current environment, remove single points of failure, and standardize configuration so every site behaves the same way.",
+          "Then we monitor it — 24/7, with runbooks for every priority-one scenario and reporting your leadership can actually read.",
+        ],
+      }}
       highlights={[
         "Data center design and migration",
         "LAN, WAN, SD-WAN, and wireless",
