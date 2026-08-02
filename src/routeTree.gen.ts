@@ -13,9 +13,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CertificationsRouteImport } from './routes/certifications'
 import { Route as CareersRouteImport } from './routes/careers'
-import { Route as CapabilitiesRouteImport } from './routes/capabilities'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -44,19 +42,9 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CertificationsRoute = CertificationsRouteImport.update({
-  id: '/certifications',
-  path: '/certifications',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CareersRoute = CareersRouteImport.update({
   id: '/careers',
   path: '/careers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CapabilitiesRoute = CapabilitiesRouteImport.update({
-  id: '/capabilities',
-  path: '/capabilities',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -102,9 +90,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
-  '/capabilities': typeof CapabilitiesRoute
   '/careers': typeof CareersRoute
-  '/certifications': typeof CertificationsRoute
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/mcp': typeof McpRoute
@@ -118,9 +104,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
-  '/capabilities': typeof CapabilitiesRoute
   '/careers': typeof CareersRoute
-  '/certifications': typeof CertificationsRoute
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/mcp': typeof McpRoute
@@ -135,9 +119,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
-  '/capabilities': typeof CapabilitiesRoute
   '/careers': typeof CareersRoute
-  '/certifications': typeof CertificationsRoute
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/mcp': typeof McpRoute
@@ -153,9 +135,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/blog'
-    | '/capabilities'
     | '/careers'
-    | '/certifications'
     | '/contact'
     | '/industries'
     | '/mcp'
@@ -169,9 +149,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/blog'
-    | '/capabilities'
     | '/careers'
-    | '/certifications'
     | '/contact'
     | '/industries'
     | '/mcp'
@@ -185,9 +163,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/blog'
-    | '/capabilities'
     | '/careers'
-    | '/certifications'
     | '/contact'
     | '/industries'
     | '/mcp'
@@ -202,9 +178,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRoute
-  CapabilitiesRoute: typeof CapabilitiesRoute
   CareersRoute: typeof CareersRoute
-  CertificationsRoute: typeof CertificationsRoute
   ContactRoute: typeof ContactRoute
   IndustriesRoute: typeof IndustriesRoute
   McpRoute: typeof McpRoute
@@ -245,25 +219,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/certifications': {
-      id: '/certifications'
-      path: '/certifications'
-      fullPath: '/certifications'
-      preLoaderRoute: typeof CertificationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/careers': {
       id: '/careers'
       path: '/careers'
       fullPath: '/careers'
       preLoaderRoute: typeof CareersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/capabilities': {
-      id: '/capabilities'
-      path: '/capabilities'
-      fullPath: '/capabilities'
-      preLoaderRoute: typeof CapabilitiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -322,9 +282,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BlogRoute: BlogRoute,
-  CapabilitiesRoute: CapabilitiesRoute,
   CareersRoute: CareersRoute,
-  CertificationsRoute: CertificationsRoute,
   ContactRoute: ContactRoute,
   IndustriesRoute: IndustriesRoute,
   McpRoute: McpRoute,
