@@ -5,14 +5,14 @@ export default defineTool({
   name: "company_overview",
   title: "Company overview",
   description:
-    "Get an overview of CyberCloudInfra: an SDVOSB delivering secure cloud, cybersecurity, and IT infrastructure, including certifications, core values, and industries served.",
+    "Get an overview of SDVODB Technologies: a veteran-owned provider of IT services, infrastructure engineering, and IT, non-IT, and healthcare staffing.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {
     const payload = {
-      name: "CyberCloudInfra LLC",
+      name: "SDVODB Technologies LLC",
       summary:
-        "Service-Disabled Veteran-Owned Small Business (SDVOSB) delivering secure cloud, cybersecurity, and IT infrastructure solutions for government and enterprise missions.",
+        "Service-Disabled Veteran-Owned Small Business delivering IT services, infrastructure engineering, and specialized IT, non-IT, and healthcare staffing.",
       certifications,
       coreValues,
       industriesServed: industries.map((i) => ({

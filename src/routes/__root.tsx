@@ -80,24 +80,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "CyberCloudInfra | SDVOSB Cloud & Cybersecurity" },
+      { title: "SDVODB Technologies | IT, Infrastructure & Staffing" },
       {
         name: "description",
         content:
-          "SDVOSB delivering secure cloud, cybersecurity, and IT infrastructure solutions for government and enterprise missions.",
+          "Veteran-owned provider of IT services, infrastructure engineering, and IT, non-IT, and healthcare staffing for government and enterprise.",
       },
-      { name: "author", content: "CyberCloudInfra" },
-      { property: "og:title", content: "CyberCloudInfra | SDVOSB Cloud & Cybersecurity" },
+      { name: "author", content: "SDVODB Technologies" },
+      { property: "og:title", content: "SDVODB Technologies | IT, Infrastructure & Staffing" },
       {
         property: "og:description",
         content:
-          "Mission-driven cloud, cybersecurity, and infrastructure solutions for government and enterprise.",
+          "Technology and talent solutions for mission-critical organizations.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "CyberCloudInfra" },
+      { property: "og:site_name", content: "SDVODB Technologies" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "CyberCloudInfra | SDVOSB Cloud & Cybersecurity" },
-      { name: "twitter:description", content: "Mission-driven cloud, cybersecurity, and infrastructure solutions for government and enterprise." },
+      { name: "twitter:title", content: "SDVODB Technologies | IT, Infrastructure & Staffing" },
+      { name: "twitter:description", content: "Technology and talent solutions for mission-critical organizations." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4670dae6-3b36-4a6e-83ed-ff3f24792e14/id-preview-20ac24a9--f33ea567-314e-482f-9b5f-4834b35ab57f.lovable.app-1782396161258.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4670dae6-3b36-4a6e-83ed-ff3f24792e14/id-preview-20ac24a9--f33ea567-314e-482f-9b5f-4834b35ab57f.lovable.app-1782396161258.png" },
     ],
@@ -108,7 +108,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap",
       },
     ],
     scripts: [
@@ -117,14 +117,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "CyberCloudInfra",
+          name: "SDVODB Technologies LLC",
           description:
-            "Service-Disabled Veteran-Owned Small Business delivering cloud, cybersecurity, and IT infrastructure solutions.",
+            "Service-Disabled Veteran-Owned Small Business delivering IT services, infrastructure engineering, and specialized staffing.",
           address: {
             "@type": "PostalAddress",
             addressCountry: "US",
           },
-          email: "contracts@cybercloudinfra.com",
+          email: "info@sdvodbtech.com",
         }),
       },
     ],
