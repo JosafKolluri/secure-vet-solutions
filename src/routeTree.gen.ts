@@ -10,8 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as NonItStaffingRouteImport } from './routes/non-it-staffing'
 import { Route as McpRouteImport } from './routes/mcp'
+import { Route as ItServicesRouteImport } from './routes/it-services'
+import { Route as InfrastructureServicesRouteImport } from './routes/infrastructure-services'
 import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as HealthcareStaffingRouteImport } from './routes/healthcare-staffing'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as BlogRouteImport } from './routes/blog'
@@ -27,14 +31,34 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NonItStaffingRoute = NonItStaffingRouteImport.update({
+  id: '/non-it-staffing',
+  path: '/non-it-staffing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const McpRoute = McpRouteImport.update({
   id: '/mcp',
   path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ItServicesRoute = ItServicesRouteImport.update({
+  id: '/it-services',
+  path: '/it-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InfrastructureServicesRoute = InfrastructureServicesRouteImport.update({
+  id: '/infrastructure-services',
+  path: '/infrastructure-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndustriesRoute = IndustriesRouteImport.update({
   id: '/industries',
   path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HealthcareStaffingRoute = HealthcareStaffingRouteImport.update({
+  id: '/healthcare-staffing',
+  path: '/healthcare-staffing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -92,8 +116,12 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/healthcare-staffing': typeof HealthcareStaffingRoute
   '/industries': typeof IndustriesRoute
+  '/infrastructure-services': typeof InfrastructureServicesRoute
+  '/it-services': typeof ItServicesRoute
   '/mcp': typeof McpRoute
+  '/non-it-staffing': typeof NonItStaffingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -106,8 +134,12 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/healthcare-staffing': typeof HealthcareStaffingRoute
   '/industries': typeof IndustriesRoute
+  '/infrastructure-services': typeof InfrastructureServicesRoute
+  '/it-services': typeof ItServicesRoute
   '/mcp': typeof McpRoute
+  '/non-it-staffing': typeof NonItStaffingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -121,8 +153,12 @@ export interface FileRoutesById {
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/healthcare-staffing': typeof HealthcareStaffingRoute
   '/industries': typeof IndustriesRoute
+  '/infrastructure-services': typeof InfrastructureServicesRoute
+  '/it-services': typeof ItServicesRoute
   '/mcp': typeof McpRoute
+  '/non-it-staffing': typeof NonItStaffingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -137,8 +173,12 @@ export interface FileRouteTypes {
     | '/blog'
     | '/careers'
     | '/contact'
+    | '/healthcare-staffing'
     | '/industries'
+    | '/infrastructure-services'
+    | '/it-services'
     | '/mcp'
+    | '/non-it-staffing'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
@@ -151,8 +191,12 @@ export interface FileRouteTypes {
     | '/blog'
     | '/careers'
     | '/contact'
+    | '/healthcare-staffing'
     | '/industries'
+    | '/infrastructure-services'
+    | '/it-services'
     | '/mcp'
+    | '/non-it-staffing'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
@@ -165,8 +209,12 @@ export interface FileRouteTypes {
     | '/blog'
     | '/careers'
     | '/contact'
+    | '/healthcare-staffing'
     | '/industries'
+    | '/infrastructure-services'
+    | '/it-services'
     | '/mcp'
+    | '/non-it-staffing'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
@@ -180,8 +228,12 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRoute
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
+  HealthcareStaffingRoute: typeof HealthcareStaffingRoute
   IndustriesRoute: typeof IndustriesRoute
+  InfrastructureServicesRoute: typeof InfrastructureServicesRoute
+  ItServicesRoute: typeof ItServicesRoute
   McpRoute: typeof McpRoute
+  NonItStaffingRoute: typeof NonItStaffingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -198,6 +250,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/non-it-staffing': {
+      id: '/non-it-staffing'
+      path: '/non-it-staffing'
+      fullPath: '/non-it-staffing'
+      preLoaderRoute: typeof NonItStaffingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mcp': {
       id: '/mcp'
       path: '/mcp'
@@ -205,11 +264,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/it-services': {
+      id: '/it-services'
+      path: '/it-services'
+      fullPath: '/it-services'
+      preLoaderRoute: typeof ItServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/infrastructure-services': {
+      id: '/infrastructure-services'
+      path: '/infrastructure-services'
+      fullPath: '/infrastructure-services'
+      preLoaderRoute: typeof InfrastructureServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/industries': {
       id: '/industries'
       path: '/industries'
       fullPath: '/industries'
       preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/healthcare-staffing': {
+      id: '/healthcare-staffing'
+      path: '/healthcare-staffing'
+      fullPath: '/healthcare-staffing'
+      preLoaderRoute: typeof HealthcareStaffingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -284,8 +364,12 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRoute,
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
+  HealthcareStaffingRoute: HealthcareStaffingRoute,
   IndustriesRoute: IndustriesRoute,
+  InfrastructureServicesRoute: InfrastructureServicesRoute,
+  ItServicesRoute: ItServicesRoute,
   McpRoute: McpRoute,
+  NonItStaffingRoute: NonItStaffingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
