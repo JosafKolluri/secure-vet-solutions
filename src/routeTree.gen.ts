@@ -16,6 +16,7 @@ import { Route as ItServicesRouteImport } from './routes/it-services'
 import { Route as InfrastructureServicesRouteImport } from './routes/infrastructure-services'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as HealthcareStaffingRouteImport } from './routes/healthcare-staffing'
+import { Route as GetQuoteRouteImport } from './routes/get-quote'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CareersRouteImport } from './routes/careers'
@@ -60,6 +61,11 @@ const IndustriesRoute = IndustriesRouteImport.update({
 const HealthcareStaffingRoute = HealthcareStaffingRouteImport.update({
   id: '/healthcare-staffing',
   path: '/healthcare-staffing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetQuoteRoute = GetQuoteRouteImport.update({
+  id: '/get-quote',
+  path: '/get-quote',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -123,6 +129,7 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/get-quote': typeof GetQuoteRoute
   '/healthcare-staffing': typeof HealthcareStaffingRoute
   '/industries': typeof IndustriesRoute
   '/infrastructure-services': typeof InfrastructureServicesRoute
@@ -142,6 +149,7 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/get-quote': typeof GetQuoteRoute
   '/healthcare-staffing': typeof HealthcareStaffingRoute
   '/industries': typeof IndustriesRoute
   '/infrastructure-services': typeof InfrastructureServicesRoute
@@ -162,6 +170,7 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/get-quote': typeof GetQuoteRoute
   '/healthcare-staffing': typeof HealthcareStaffingRoute
   '/industries': typeof IndustriesRoute
   '/infrastructure-services': typeof InfrastructureServicesRoute
@@ -183,6 +192,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/case-studies'
     | '/contact'
+    | '/get-quote'
     | '/healthcare-staffing'
     | '/industries'
     | '/infrastructure-services'
@@ -202,6 +212,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/case-studies'
     | '/contact'
+    | '/get-quote'
     | '/healthcare-staffing'
     | '/industries'
     | '/infrastructure-services'
@@ -221,6 +232,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/case-studies'
     | '/contact'
+    | '/get-quote'
     | '/healthcare-staffing'
     | '/industries'
     | '/infrastructure-services'
@@ -241,6 +253,7 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
+  GetQuoteRoute: typeof GetQuoteRoute
   HealthcareStaffingRoute: typeof HealthcareStaffingRoute
   IndustriesRoute: typeof IndustriesRoute
   InfrastructureServicesRoute: typeof InfrastructureServicesRoute
@@ -303,6 +316,13 @@ declare module '@tanstack/react-router' {
       path: '/healthcare-staffing'
       fullPath: '/healthcare-staffing'
       preLoaderRoute: typeof HealthcareStaffingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-quote': {
+      id: '/get-quote'
+      path: '/get-quote'
+      fullPath: '/get-quote'
+      preLoaderRoute: typeof GetQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -385,6 +405,7 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
+  GetQuoteRoute: GetQuoteRoute,
   HealthcareStaffingRoute: HealthcareStaffingRoute,
   IndustriesRoute: IndustriesRoute,
   InfrastructureServicesRoute: InfrastructureServicesRoute,
