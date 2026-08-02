@@ -3,21 +3,19 @@ import {
   Shield,
   Server,
   Cpu,
-  GitBranch,
-  Landmark,
+  Users,
+  Stethoscope,
   Network,
   HardDrive,
   Boxes,
   ShieldCheck,
-  Eye,
-  AlertTriangle,
-  FileSearch,
   Building2,
   HeartPulse,
   Banknote,
   GraduationCap,
-  Crosshair,
-  Zap,
+  Factory,
+  Landmark,
+  Truck,
   Award,
   Target,
   Rocket,
@@ -29,319 +27,85 @@ import {
   PenTool,
   DatabaseBackup,
   Gauge,
+  Headset,
+  Code2,
+  LineChart,
+  Wrench,
+  UserCheck,
+  BadgeCheck,
+  Handshake,
+  Clock,
   type LucideIcon,
 } from "lucide-react";
-
-
 
 import blogZeroTrust from "@/assets/blog-zero-trust.jpg";
 import blogCloudMigration from "@/assets/blog-cloud-migration.jpg";
 import blogDevsecops from "@/assets/blog-devsecops.jpg";
+
+/* ------------------------------------------------------------------ */
+/* Company                                                             */
+/* ------------------------------------------------------------------ */
+
+export const company = {
+  name: "SDVODB Technologies",
+  legalName: "SDVODB Technologies LLC",
+  tagline: "Technology & Talent Solutions for Mission-Critical Organizations",
+  shortDescription:
+    "SDVODB Technologies delivers IT services, infrastructure engineering, and specialized IT, non-IT, and healthcare staffing for government agencies and enterprises.",
+  email: "info@sdvodbtech.com",
+  phone: "[INSERT REAL NUMBER]",
+  hours: "Mon – Fri, 8:00 AM – 6:00 PM ET",
+};
+
+/* ------------------------------------------------------------------ */
+/* Services                                                            */
+/* ------------------------------------------------------------------ */
 
 export interface Service {
   slug: string;
   title: string;
   description: string;
   icon: LucideIcon;
+  href: string;
 }
 
+/** Top-level service pillars used in nav + home grid */
 export const services: Service[] = [
   {
-    slug: "cloud-migration",
-    title: "Cloud Migration",
+    slug: "it-services",
+    title: "IT Services",
     description:
-      "Azure-first migrations (plus AWS & GCP) that move workloads from the data center to secure, scalable cloud — with zero-trust controls built in.",
+      "Cloud, cybersecurity, application development, and managed IT delivered by certified engineers.",
     icon: Cloud,
+    href: "/it-services",
   },
   {
-    slug: "data-center",
-    title: "Data Center Expertise",
+    slug: "non-it-staffing",
+    title: "Non-IT Staffing",
     description:
-      "Deep data center engineering — design, consolidation, virtualization, and modernization for private and government environments.",
+      "Administrative, finance, engineering, and light-industrial talent sourced and vetted at speed.",
+    icon: Users,
+    href: "/non-it-staffing",
+  },
+  {
+    slug: "healthcare-staffing",
+    title: "Healthcare Staffing",
+    description:
+      "Credentialed clinical and allied health professionals for hospitals, clinics, and federal facilities.",
+    icon: Stethoscope,
+    href: "/healthcare-staffing",
+  },
+  {
+    slug: "infrastructure-services",
+    title: "Infrastructure Services",
+    description:
+      "Data center, network, end-user computing, and 24/7 NOC support that keeps operations running.",
     icon: Server,
-  },
-  {
-    slug: "cybersecurity-ai",
-    title: "AI-Driven Cybersecurity",
-    description:
-      "Threat detection and response powered by AI and best-in-class tools: Prisma Cloud, Splunk, CrowdStrike, and Wiz.",
-    icon: Shield,
-  },
-  {
-    slug: "disaster-recovery",
-    title: "Disaster Recovery",
-    description:
-      "Resilient backup, replication, and DR strategies that keep mission-critical systems available through any disruption.",
-    icon: HeartPulse,
-  },
-  {
-    slug: "managed-secops",
-    title: "Managed Security Operations",
-    description:
-      "24/7 monitoring, SIEM, and continuous compliance hardening to defend private and government missions around the clock.",
-    icon: Eye,
-  },
-  {
-    slug: "government-consulting",
-    title: "Government Consulting",
-    description:
-      "Acquisition strategy, program management, and IT advisory tailored for federal and public-sector missions.",
-    icon: Landmark,
+    href: "/infrastructure-services",
   },
 ];
 
-export interface Capability {
-  category: string;
-  icon: LucideIcon;
-  items: { name: string; icon: LucideIcon }[];
-}
-
-export const capabilities: Capability[] = [
-  {
-    category: "Cloud & Migration",
-    icon: Cloud,
-    items: [
-      { name: "Microsoft Azure (Primary)", icon: Cloud },
-      { name: "AWS & Google Cloud", icon: Cloud },
-      { name: "Data Center to Cloud Migration", icon: GitBranch },
-      { name: "Hybrid & Multi-Cloud", icon: Boxes },
-    ],
-  },
-  {
-    category: "Cybersecurity & AI",
-    icon: Shield,
-    items: [
-      { name: "Prisma Cloud", icon: ShieldCheck },
-      { name: "Splunk SIEM", icon: Eye },
-      { name: "CrowdStrike EDR", icon: AlertTriangle },
-      { name: "Wiz Cloud Security", icon: FileSearch },
-      { name: "AI-Driven Threat Detection", icon: Cpu },
-      { name: "Zero Trust Architecture", icon: ShieldCheck },
-    ],
-  },
-  {
-    category: "Data Center & Infrastructure",
-    icon: Server,
-    items: [
-      { name: "Data Center Design", icon: Server },
-      { name: "Networking", icon: Network },
-      { name: "Storage & Virtualization", icon: HardDrive },
-      { name: "Disaster Recovery", icon: HeartPulse },
-    ],
-  },
-  {
-    category: "Government Solutions",
-    icon: Landmark,
-    items: [
-      { name: "Federal IT Services", icon: Landmark },
-      { name: "Private & Public Sector", icon: Building2 },
-      { name: "Contract Support", icon: FileSearch },
-      { name: "Program Management", icon: Cpu },
-    ],
-  },
-];
-
-export interface Certification {
-  code: string;
-  title: string;
-  description: string;
-}
-
-export const certifications: Certification[] = [
-  { code: "SDVOSB", title: "Service-Disabled Veteran-Owned", description: "Certified Service-Disabled Veteran-Owned Small Business." },
-  { code: "Small Business", title: "Small Business", description: "Officially recognized small business concern." },
-  { code: "Veteran Owned", title: "Veteran Owned", description: "Founded and led by U.S. military veterans." },
-  { code: "SBA", title: "SBA Registered", description: "Registered with the U.S. Small Business Administration." },
-  { code: "SAM", title: "SAM Registered", description: "Active registration in the System for Award Management." },
-  { code: "CAGE", title: "CAGE Code", description: "Commercial and Government Entity code on file." },
-  { code: "UEI", title: "UEI Number", description: "Unique Entity Identifier for federal contracting." },
-];
-
-export interface Industry {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}
-
-export const industries: Industry[] = [
-  { title: "Federal Government", description: "Modern, compliant IT for civilian and federal agencies.", icon: Landmark },
-  { title: "Healthcare", description: "HIPAA-ready cloud and security for patient data.", icon: HeartPulse },
-  { title: "Defense", description: "Mission-assured infrastructure for defense programs.", icon: Crosshair },
-  { title: "Financial Services", description: "Regulated, resilient environments for financial data.", icon: Banknote },
-  { title: "Education", description: "Scalable, secure platforms for institutions.", icon: GraduationCap },
-];
-
-export const coreValues = [
-  { title: "Integrity", description: "We do what is right, even when no one is watching." },
-  { title: "Innovation", description: "We engineer modern solutions to hard problems." },
-  { title: "Service", description: "Mission-first commitment rooted in military values." },
-  { title: "Security", description: "Security is the foundation of everything we deliver." },
-  { title: "Excellence", description: "We hold ourselves to the highest standards." },
-];
-
-export interface Testimonial {
-  quote: string;
-  name: string;
-  role: string;
-  rating: number;
-  company: string;
-}
-
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "CyberCloudInfra modernized our agency cloud while keeping us fully compliant. Their team operates with true mission focus.",
-    name: "Program Director",
-    role: "Federal Civilian Agency",
-    rating: 5,
-    company: "FEDERAL",
-  },
-  {
-    quote:
-      "Their Zero Trust rollout was seamless. The veteran leadership brings a discipline and reliability we rarely see.",
-    name: "CISO",
-    role: "Defense Contractor",
-    rating: 5,
-    company: "DEFENSE",
-  },
-  {
-    quote:
-      "From migration to managed services, they have been a dependable partner that consistently delivers ahead of schedule.",
-    name: "IT Director",
-    role: "Healthcare System",
-    rating: 5,
-    company: "HEALTH+",
-  },
-];
-
-
-export const clientLogos = [
-  "DEFENSE",
-  "FEDERAL",
-  "HEALTH+",
-  "SECURE",
-  "AGENCY",
-  "GOVTECH",
-];
-
-export interface Job {
-  id: string;
-  title: string;
-  location: string;
-  type: string;
-  department: string;
-  summary: string;
-}
-
-export const jobs: Job[] = [
-  { id: "cloud-eng", title: "Senior Cloud Engineer", location: "Remote / DC Metro", type: "Full-time", department: "Engineering", summary: "Design and deploy secure AWS/Azure environments for federal clients." },
-  { id: "secops", title: "Security Operations Analyst", location: "Hybrid — Arlington, VA", type: "Full-time", department: "Cybersecurity", summary: "Monitor, detect, and respond to threats across mission systems." },
-  { id: "pm", title: "Program Manager", location: "On-site — DC Metro", type: "Full-time", department: "Delivery", summary: "Lead government IT programs from kickoff through delivery." },
-  { id: "devsecops", title: "DevSecOps Engineer", location: "Remote", type: "Full-time", department: "Engineering", summary: "Build secure CI/CD pipelines and automate compliance." },
-];
-
-export const benefits = [
-  "Comprehensive medical, dental & vision",
-  "401(k) with company match",
-  "Generous PTO & federal holidays",
-  "Certification & training reimbursement",
-  "Veteran-friendly culture",
-  "Remote & hybrid flexibility",
-];
-
-export interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  date: string;
-  readTime: string;
-  cover: string;
-  body: string[];
-}
-
-export const blogPosts: BlogPost[] = [
-  {
-    slug: "zero-trust-federal",
-    title: "Implementing Zero Trust Across Federal Agencies",
-    excerpt:
-      "A practical roadmap for agencies adopting Zero Trust Architecture under the federal mandate.",
-    category: "Cybersecurity",
-    date: "2026-05-18",
-    readTime: "6 min",
-    cover: blogZeroTrust,
-    body: [
-      "Zero Trust has shifted from buzzword to mandate. Federal agencies are now required to architect systems that never implicitly trust any user or device.",
-      "The journey starts with identity. Strong authentication, least-privilege access, and continuous verification form the backbone of any Zero Trust rollout.",
-      "Segmentation and continuous monitoring close the loop, ensuring that even if a perimeter is breached, lateral movement is contained.",
-    ],
-  },
-  {
-    slug: "cloud-migration-government",
-    title: "Cloud Migration Strategies for Government IT",
-    excerpt:
-      "How to move legacy government workloads to the cloud without compromising compliance.",
-    category: "Cloud",
-    date: "2026-04-02",
-    readTime: "5 min",
-    cover: blogCloudMigration,
-    body: [
-      "Government cloud migration is as much about governance as it is about technology. Compliance frameworks like FedRAMP shape every architectural decision.",
-      "A phased approach — assess, re-platform, optimize — reduces risk while delivering early wins to stakeholders.",
-      "Automation and infrastructure-as-code ensure migrations are repeatable, auditable, and secure.",
-    ],
-  },
-  {
-    slug: "devsecops-compliance",
-    title: "DevSecOps: Building Compliance Into the Pipeline",
-    excerpt:
-      "Shifting security left to meet government compliance without slowing delivery.",
-    category: "DevSecOps",
-    date: "2026-03-11",
-    readTime: "4 min",
-    cover: blogDevsecops,
-    body: [
-      "Traditional compliance happens at the end of a project. DevSecOps moves it to the beginning, embedding controls directly into CI/CD pipelines.",
-      "Automated scanning, policy-as-code, and continuous authorization let teams ship faster while staying audit-ready.",
-      "The result is a culture where security is everyone's responsibility, not a final gate.",
-    ],
-  },
-];
-
-/* ---------- Homepage content ---------- */
-
-export interface HomeStat {
-  value: number;
-  suffix?: string;
-  decimals?: number;
-  label: string;
-}
-
-export const homeStats: HomeStat[] = [
-  { value: 15, suffix: "+", label: "Years Experience" },
-  { value: 250, suffix: "+", label: "Projects Delivered" },
-  { value: 99.9, suffix: "%", decimals: 1, label: "Service Availability" },
-  { value: 100, suffix: "%", label: "Mission Focused" },
-  { value: 24, suffix: "/7", label: "Support" },
-];
-
-export interface HomeCert {
-  title: string;
-  icon: LucideIcon;
-}
-
-export const homeCerts: HomeCert[] = [
-  { title: "SDVOSB Certified", icon: ShieldCheck },
-  { title: "Veteran Owned", icon: Award },
-  { title: "Federal Contract Ready", icon: Landmark },
-  { title: "NIST Security Framework", icon: Lock },
-  { title: "SAM Registered", icon: FileSearch },
-  { title: "CAGE Code", icon: Building2 },
-  { title: "Azure Expertise", icon: Cloud },
-  { title: "Compliance Focus", icon: ClipboardCheck },
-];
-
-export interface HomeService {
+export interface ServiceDetail {
   slug: string;
   title: string;
   description: string;
@@ -349,49 +113,250 @@ export interface HomeService {
   points: string[];
 }
 
-export const homeServices: HomeService[] = [
+export const itServices: ServiceDetail[] = [
   {
-    slug: "cloud-modernization",
-    title: "Cloud Modernization",
-    description: "Azure-first cloud adoption, migration, and hybrid infrastructure engineered for scale and security.",
+    slug: "cloud-migration",
+    title: "Cloud & Migration",
+    description:
+      "Assess, plan, and migrate workloads to Azure, AWS, or GCP with landing zones, IaC, and cost governance built in.",
     icon: Cloud,
-    points: ["Azure Cloud", "AWS Migration", "Hybrid Infrastructure"],
+    points: ["Azure-first landing zones", "Lift-shift-optimize migrations", "FinOps & cost control"],
   },
   {
     slug: "cybersecurity",
     title: "Cybersecurity",
-    description: "Zero Trust architecture, identity protection, and managed SOC services defending mission systems.",
+    description:
+      "Zero-trust architecture, vulnerability management, and continuous monitoring aligned to NIST 800-53 and CMMC 2.0.",
     icon: Shield,
-    points: ["Zero Trust", "Identity Protection", "SOC Services"],
+    points: ["Zero-trust design", "SIEM & threat detection", "Compliance readiness"],
+  },
+  {
+    slug: "application-development",
+    title: "Application Development",
+    description:
+      "Modern web, API, and workflow applications built with secure SDLC practices and automated CI/CD pipelines.",
+    icon: Code2,
+    points: ["Custom web & API builds", "Legacy modernization", "DevSecOps pipelines"],
   },
   {
     slug: "managed-it",
-    title: "Managed IT",
-    description: "24x7 monitoring, responsive help desk, and infrastructure management that keeps operations running.",
-    icon: Gauge,
-    points: ["24x7 Monitoring", "Help Desk", "Infrastructure"],
+    title: "Managed IT Services",
+    description:
+      "Full-lifecycle IT operations — service desk, patching, monitoring, and vendor management under clear SLAs.",
+    icon: Headset,
+    points: ["Tiered service desk", "Proactive monitoring", "SLA-backed response"],
+  },
+  {
+    slug: "data-analytics",
+    title: "Data & Analytics",
+    description:
+      "Data platforms, pipelines, and dashboards that turn operational data into decisions leadership can act on.",
+    icon: LineChart,
+    points: ["Data warehousing", "ETL & pipelines", "Executive dashboards"],
   },
   {
     slug: "ai-automation",
     title: "AI & Automation",
-    description: "Generative AI, workflow automation, and AI assistants that accelerate mission outcomes.",
+    description:
+      "Practical AI and RPA use cases — document processing, service-desk deflection, and anomaly detection.",
     icon: Bot,
-    points: ["Generative AI", "Workflow Automation", "AI Assistants"],
+    points: ["Process automation", "AI-assisted operations", "Responsible AI guardrails"],
+  },
+];
+
+export const nonItStaffing: ServiceDetail[] = [
+  {
+    slug: "administrative",
+    title: "Administrative & Clerical",
+    description:
+      "Program assistants, records specialists, schedulers, and front-office staff ready for federal and commercial sites.",
+    icon: ClipboardCheck,
+    points: ["Program & office support", "Records management", "Cleared candidates available"],
+  },
+  {
+    slug: "finance-accounting",
+    title: "Finance & Accounting",
+    description:
+      "Analysts, accountants, contract specialists, and audit support professionals for regulated environments.",
+    icon: Banknote,
+    points: ["Financial analysts", "Contract & procurement", "Audit support"],
+  },
+  {
+    slug: "engineering-technical",
+    title: "Engineering & Technical",
+    description:
+      "Mechanical, electrical, civil, and quality engineers for infrastructure, facilities, and manufacturing programs.",
+    icon: Wrench,
+    points: ["Licensed engineers", "QA/QC specialists", "Field & site roles"],
+  },
+  {
+    slug: "light-industrial",
+    title: "Light Industrial & Logistics",
+    description:
+      "Warehouse, logistics, and production talent scaled up or down as program volume changes.",
+    icon: Truck,
+    points: ["Warehouse & logistics", "Production support", "Shift-based scaling"],
+  },
+  {
+    slug: "customer-support",
+    title: "Customer & Call Center",
+    description:
+      "Contact-center representatives and case workers trained on your systems, scripts, and quality standards.",
+    icon: Headset,
+    points: ["Multichannel support", "Case management", "Bilingual talent"],
+  },
+  {
+    slug: "executive-search",
+    title: "Executive Search",
+    description:
+      "Confidential recruiting for director and executive roles, with structured assessment and market mapping.",
+    icon: UserCheck,
+    points: ["Market mapping", "Structured assessment", "Confidential search"],
+  },
+];
+
+export const healthcareStaffing: ServiceDetail[] = [
+  {
+    slug: "nursing",
+    title: "Nursing",
+    description:
+      "RNs, LPNs, and nurse practitioners across med-surg, ICU, ER, and ambulatory settings — travel and permanent.",
+    icon: HeartPulse,
+    points: ["RN / LPN / NP", "Travel & permanent", "Rapid credentialing"],
+  },
+  {
+    slug: "allied-health",
+    title: "Allied Health",
+    description:
+      "Imaging techs, respiratory therapists, lab scientists, and rehabilitation professionals ready to deploy.",
+    icon: Stethoscope,
+    points: ["Imaging & laboratory", "Respiratory & rehab", "Licensure verified"],
+  },
+  {
+    slug: "physicians",
+    title: "Physicians & Advanced Practice",
+    description:
+      "Locum tenens and permanent placement for primary care, behavioral health, and specialty coverage.",
+    icon: BadgeCheck,
+    points: ["Locum tenens", "Specialty coverage", "Privileging support"],
+  },
+  {
+    slug: "revenue-cycle",
+    title: "Revenue Cycle & HIM",
+    description:
+      "Coders, billers, and health information management professionals who protect reimbursement accuracy.",
+    icon: LineChart,
+    points: ["Certified coders", "Billing & AR", "HIM specialists"],
+  },
+  {
+    slug: "behavioral-health",
+    title: "Behavioral Health",
+    description:
+      "Counselors, social workers, and case managers supporting veteran and community health programs.",
+    icon: Handshake,
+    points: ["Licensed clinicians", "Case management", "Veteran programs"],
+  },
+  {
+    slug: "healthcare-admin",
+    title: "Healthcare Administration",
+    description:
+      "Practice managers, credentialing coordinators, and compliance staff for clinics and federal health sites.",
+    icon: ClipboardCheck,
+    points: ["Practice operations", "Credentialing", "Compliance support"],
+  },
+];
+
+export const infrastructureServices: ServiceDetail[] = [
+  {
+    slug: "data-center",
+    title: "Data Center Services",
+    description:
+      "Design, build, consolidation, and migration of data center environments — including hardware refresh and decommission.",
+    icon: HardDrive,
+    points: ["Design & build-out", "Consolidation & refresh", "Structured decommission"],
+  },
+  {
+    slug: "network-engineering",
+    title: "Network Engineering",
+    description:
+      "LAN/WAN, SD-WAN, and wireless design and deployment with segmentation and performance baked in.",
+    icon: Network,
+    points: ["LAN / WAN / SD-WAN", "Wireless surveys", "Network segmentation"],
+  },
+  {
+    slug: "end-user-computing",
+    title: "End-User Computing",
+    description:
+      "Device lifecycle, imaging, VDI, and deskside support that keeps distributed teams productive.",
+    icon: Boxes,
+    points: ["Device lifecycle", "VDI & imaging", "Deskside support"],
+  },
+  {
+    slug: "noc-support",
+    title: "24/7 NOC & Monitoring",
+    description:
+      "Round-the-clock monitoring, incident response, and escalation management with transparent reporting.",
+    icon: Gauge,
+    points: ["24/7 monitoring", "Incident response", "Monthly reporting"],
   },
   {
     slug: "disaster-recovery",
-    title: "Disaster Recovery",
-    description: "Business continuity, backup, and resiliency strategies that protect critical systems and data.",
+    title: "Backup & Disaster Recovery",
+    description:
+      "Resilient backup, replication, and DR runbooks with tested RTO/RPO targets across cloud and on-premise.",
     icon: DatabaseBackup,
-    points: ["Business Continuity", "Backup", "Resiliency"],
+    points: ["Backup & replication", "DR runbooks", "Tested failover"],
   },
   {
-    slug: "data-center",
-    title: "Data Center",
-    description: "Virtualization, storage, and networking expertise for modern, efficient data center operations.",
-    icon: Server,
-    points: ["Virtualization", "Storage", "Networking"],
+    slug: "physical-security",
+    title: "Physical & OT Security",
+    description:
+      "Access control, surveillance, and operational technology hardening for facilities and campuses.",
+    icon: Lock,
+    points: ["Access control", "Surveillance systems", "OT hardening"],
   },
+];
+
+export const serviceCatalog: Record<
+  string,
+  { title: string; items: ServiceDetail[] }
+> = {
+  "it-services": { title: "IT Services", items: itServices },
+  "non-it-staffing": { title: "Non-IT Staffing", items: nonItStaffing },
+  "healthcare-staffing": { title: "Healthcare Staffing", items: healthcareStaffing },
+  "infrastructure-services": { title: "Infrastructure Services", items: infrastructureServices },
+};
+
+/** Legacy alias kept for agent tooling */
+export const homeServices = services.map((s) => ({
+  slug: s.slug,
+  title: s.title,
+  description: s.description,
+  points: (serviceCatalog[s.slug]?.items ?? []).slice(0, 3).map((i) => i.title),
+}));
+
+export const capabilities: ServiceDetail[] = [
+  ...itServices,
+  ...infrastructureServices,
+];
+
+/* ------------------------------------------------------------------ */
+/* Stats, differentiators, process                                     */
+/* ------------------------------------------------------------------ */
+
+export interface HomeStat {
+  value: number;
+  suffix?: string;
+  prefix?: string;
+  decimals?: number;
+  label: string;
+}
+
+export const homeStats: HomeStat[] = [
+  { value: 500, suffix: "+", label: "Projects Delivered" },
+  { value: 100, suffix: "+", label: "Clients Served" },
+  { value: 98, suffix: "%", label: "Client Retention" },
+  { value: 50, suffix: "+", label: "Expert Consultants" },
 ];
 
 export interface WhyReason {
@@ -401,61 +366,410 @@ export interface WhyReason {
 }
 
 export const whyChooseUs: WhyReason[] = [
-  { title: "Veteran Leadership", description: "Founded and led by U.S. military veterans with mission discipline.", icon: Award },
-  { title: "Federal Experience", description: "Deep track record delivering for government and regulated industries.", icon: Landmark },
-  { title: "Cloud Specialists", description: "Azure-first engineers certified across cloud platforms.", icon: Cloud },
-  { title: "Cybersecurity Experts", description: "Zero Trust and AI-driven defense from top security tools.", icon: Shield },
-  { title: "Rapid Delivery", description: "Agile teams that consistently deliver ahead of schedule.", icon: Rocket },
-  { title: "Mission Focused", description: "100% committed to the outcomes that matter to your mission.", icon: Target },
+  {
+    title: "Certified Expertise",
+    description:
+      "Engineers and recruiters credentialed across cloud, security, and clinical specialties — not generalists.",
+    icon: Award,
+  },
+  {
+    title: "24/7 Support",
+    description:
+      "Around-the-clock monitoring and escalation so incidents never wait for business hours.",
+    icon: Clock,
+  },
+  {
+    title: "Scalable Solutions",
+    description:
+      "Teams and platforms that flex with program surges, seasonal demand, and multi-year growth.",
+    icon: Rocket,
+  },
+  {
+    title: "Client-First Delivery",
+    description:
+      "A single accountable delivery lead, transparent reporting, and no hand-offs into a black box.",
+    icon: Handshake,
+  },
+  {
+    title: "Security by Default",
+    description:
+      "Zero-trust principles, least-privilege access, and compliance alignment built into every engagement.",
+    icon: Shield,
+  },
+  {
+    title: "Speed to Value",
+    description:
+      "Qualified candidate slates in days and technical discovery to roadmap in weeks, not quarters.",
+    icon: Target,
+  },
 ];
 
 export interface ProcessStep {
+  step: string;
   title: string;
   description: string;
   icon: LucideIcon;
 }
 
 export const processSteps: ProcessStep[] = [
-  { title: "Discover", description: "Understand mission goals and current state.", icon: Search },
-  { title: "Assess", description: "Evaluate risks, gaps, and opportunities.", icon: ClipboardCheck },
-  { title: "Design", description: "Architect secure, scalable solutions.", icon: PenTool },
-  { title: "Implement", description: "Deploy with agile precision.", icon: Rocket },
-  { title: "Secure", description: "Harden with Zero Trust controls.", icon: Lock },
-  { title: "Support", description: "24/7 monitoring and optimization.", icon: LifeBuoy },
+  {
+    step: "01",
+    title: "Consultation",
+    description:
+      "We map your objectives, constraints, and compliance obligations with the people who own the outcome.",
+    icon: Search,
+  },
+  {
+    step: "02",
+    title: "Strategy",
+    description:
+      "A prioritized roadmap with scope, staffing plan, milestones, and measurable success criteria.",
+    icon: PenTool,
+  },
+  {
+    step: "03",
+    title: "Implementation",
+    description:
+      "Delivery in disciplined sprints with weekly reporting, risk tracking, and stakeholder demos.",
+    icon: Cpu,
+  },
+  {
+    step: "04",
+    title: "Support",
+    description:
+      "Continuous improvement, SLA-backed support, and quarterly reviews that keep value compounding.",
+    icon: LifeBuoy,
+  },
 ];
 
-export const homeIndustries: Industry[] = [
-  { title: "Federal Government", description: "Modern, compliant IT for civilian and federal agencies.", icon: Landmark },
-  { title: "Defense", description: "Mission-assured infrastructure for defense programs.", icon: Crosshair },
-  { title: "Healthcare", description: "HIPAA-ready cloud and security for patient data.", icon: HeartPulse },
-  { title: "Education", description: "Scalable, secure platforms for institutions.", icon: GraduationCap },
-  { title: "Energy", description: "Resilient systems for critical energy infrastructure.", icon: Zap },
-  { title: "Commercial", description: "Enterprise-grade solutions for private sector.", icon: Building2 },
-  { title: "Government Agencies", description: "Tailored IT for state and local agencies.", icon: Building2 },
-  { title: "Financial Services", description: "Regulated, resilient environments for financial data.", icon: Banknote },
+/* ------------------------------------------------------------------ */
+/* Industries                                                          */
+/* ------------------------------------------------------------------ */
+
+export interface Industry {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+export const industries: Industry[] = [
+  {
+    title: "Government & Public Sector",
+    description:
+      "Federal, state, and local agencies modernizing infrastructure while meeting strict compliance mandates.",
+    icon: Landmark,
+  },
+  {
+    title: "Healthcare",
+    description:
+      "Hospitals, clinics, and health systems needing HIPAA-aligned technology and credentialed clinical talent.",
+    icon: HeartPulse,
+  },
+  {
+    title: "Financial Services",
+    description:
+      "Banks, credit unions, and insurers protecting sensitive data under continuous regulatory scrutiny.",
+    icon: Banknote,
+  },
+  {
+    title: "Manufacturing",
+    description:
+      "Plants and supply chains connecting OT and IT securely while scaling skilled technical labor.",
+    icon: Factory,
+  },
+  {
+    title: "Education",
+    description:
+      "Districts and universities modernizing networks, identity, and student-facing digital services.",
+    icon: GraduationCap,
+  },
+  {
+    title: "Commercial Enterprise",
+    description:
+      "Multi-site enterprises consolidating infrastructure and standardizing managed IT operations.",
+    icon: Building2,
+  },
+];
+
+export const homeIndustries = industries.slice(0, 6);
+
+/* ------------------------------------------------------------------ */
+/* Case studies                                                        */
+/* ------------------------------------------------------------------ */
+
+export interface CaseStudy {
+  slug: string;
+  title: string;
+  client: string;
+  industry: string;
+  service: string;
+  challenge: string;
+  solution: string;
+  results: string[];
+  image: string;
+}
+
+export const caseStudies: CaseStudy[] = [
+  {
+    slug: "federal-cloud-migration",
+    title: "Federal agency moves 240 workloads to Azure",
+    client: "Federal civilian agency",
+    industry: "Government & Public Sector",
+    service: "IT Services",
+    challenge:
+      "An aging data center with end-of-life hardware created outage risk and could not meet new continuous-monitoring requirements.",
+    solution:
+      "We designed an Azure landing zone, sequenced 240 workloads into migration waves, and automated environment builds with infrastructure as code.",
+    results: [
+      "Migration completed across three waves with no unplanned downtime",
+      "Infrastructure operating costs reduced through right-sizing and reserved capacity",
+      "Continuous monitoring aligned to NIST 800-53 control families",
+    ],
+    image: blogCloudMigration,
+  },
+  {
+    slug: "health-system-staffing-surge",
+    title: "Health system fills a 90-position clinical surge",
+    client: "Regional health system",
+    industry: "Healthcare",
+    service: "Healthcare Staffing",
+    challenge:
+      "Seasonal census growth and turnover left critical nursing and allied health shifts uncovered across four facilities.",
+    solution:
+      "We stood up a dedicated recruiting pod, pre-credentialed a candidate pipeline, and delivered weekly qualified slates against a shared scorecard.",
+    results: [
+      "Ninety positions filled across nursing and allied health",
+      "Time-to-submit reduced with pre-verified licensure packets",
+      "Contract-to-permanent conversions retained institutional knowledge",
+    ],
+    image: blogZeroTrust,
+  },
+  {
+    slug: "zero-trust-rollout",
+    title: "Zero-trust rollout for a multi-site enterprise",
+    client: "National commercial enterprise",
+    industry: "Commercial Enterprise",
+    service: "Cybersecurity",
+    challenge:
+      "Flat network architecture and inconsistent identity controls left lateral movement risk across 30 sites.",
+    solution:
+      "We implemented identity-centric access, network segmentation, and centralized logging with tuned detection content.",
+    results: [
+      "Segmented network zones across all sites",
+      "Centralized detection with measurable reduction in dwell time",
+      "Privileged access consolidated behind conditional policies",
+    ],
+    image: blogDevsecops,
+  },
+  {
+    slug: "noc-modernization",
+    title: "24/7 NOC modernization for a manufacturer",
+    client: "Industrial manufacturer",
+    industry: "Manufacturing",
+    service: "Infrastructure Services",
+    challenge:
+      "Plant outages were detected by operators rather than monitoring, extending downtime on production-critical systems.",
+    solution:
+      "We deployed unified monitoring across IT and OT, built escalation runbooks, and staffed a 24/7 NOC with tiered response.",
+    results: [
+      "Outage detection shifted from manual reports to automated alerting",
+      "Documented runbooks for every priority-one scenario",
+      "Monthly reporting adopted by plant leadership",
+    ],
+    image: blogCloudMigration,
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* Testimonials & partners                                             */
+/* ------------------------------------------------------------------ */
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+}
+
+export const testimonials: Testimonial[] = [];
+
+export const clientLogos = [
+  "Azure",
+  "AWS",
+  "Google Cloud",
+  "Microsoft 365",
+  "Cisco",
+  "VMware",
+  "Fortinet",
+  "ServiceNow",
 ];
 
 export const techPartners = [
   "Microsoft Azure",
-  "AWS",
+  "Amazon Web Services",
+  "Google Cloud",
   "Cisco",
   "VMware",
-  "CrowdStrike",
-  "Palo Alto",
-  "Microsoft Defender",
-  "Red Hat",
+  "Fortinet",
+  "Palo Alto Networks",
+  "ServiceNow",
+];
+
+/* ------------------------------------------------------------------ */
+/* Certifications & compliance                                         */
+/* ------------------------------------------------------------------ */
+
+export interface Certification {
+  label: string;
+  detail: string;
+  icon: LucideIcon;
+}
+
+export const certifications: Certification[] = [
+  { label: "SDVOSB", detail: "Service-Disabled Veteran-Owned Small Business", icon: ShieldCheck },
+  { label: "SAM.gov Registered", detail: "Active federal contractor registration", icon: BadgeCheck },
+  { label: "NIST 800-53 Aligned", detail: "Security controls mapped to federal baselines", icon: Shield },
+  { label: "CMMC 2.0 Aligned", detail: "Practices aligned to CMMC Level 2 objectives", icon: Lock },
 ];
 
 export const coreCompetencies = [
-  "Azure-First Cloud Migration",
-  "Zero Trust Cybersecurity",
-  "Data Center Modernization",
-  "Disaster Recovery & Continuity",
-  "Managed Security Operations",
-  "AI & Workflow Automation",
+  "Cloud migration & modernization",
+  "Cybersecurity & zero trust",
+  "Data center & network engineering",
+  "Managed IT & 24/7 NOC",
+  "IT & non-IT staffing",
+  "Healthcare & clinical staffing",
 ];
 
-export const naicsCodes = ["541512", "541519", "518210", "541513", "541611"];
+export const naicsCodes = ["541512", "541519", "541611", "561320", "621399", "518210"];
+
+/* ------------------------------------------------------------------ */
+/* About                                                               */
+/* ------------------------------------------------------------------ */
+
+export const coreValues = [
+  {
+    title: "Integrity",
+    description: "We commit to what we can deliver and report honestly when reality shifts.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Excellence",
+    description: "Engineering rigor and recruiting discipline applied to every engagement.",
+    icon: Award,
+  },
+  {
+    title: "Partnership",
+    description: "We measure success by your outcomes, not by hours billed.",
+    icon: Handshake,
+  },
+  {
+    title: "Service",
+    description: "Veteran-founded values: mission first, people always.",
+    icon: Target,
+  },
+];
+
+export const milestones = [
+  { year: "Founded", title: "Veteran-owned launch", description: "Established as a Service-Disabled Veteran-Owned Small Business focused on federal IT delivery." },
+  { year: "Expansion", title: "Infrastructure practice", description: "Added data center, network, and 24/7 NOC capability for multi-site clients." },
+  { year: "Growth", title: "Staffing divisions", description: "Launched dedicated IT, non-IT, and healthcare staffing practices." },
+  { year: "Today", title: "Integrated delivery", description: "Technology and talent delivered together under one accountable partner." },
+];
+
+/* ------------------------------------------------------------------ */
+/* Careers                                                             */
+/* ------------------------------------------------------------------ */
+
+export interface Job {
+  title: string;
+  location: string;
+  type: string;
+  department: string;
+}
+
+export const jobs: Job[] = [
+  { title: "Cloud Solutions Architect", location: "Remote (US)", type: "Full-time", department: "IT Services" },
+  { title: "Cybersecurity Analyst", location: "Hybrid — Washington, DC", type: "Full-time", department: "IT Services" },
+  { title: "Network Engineer", location: "On-site — Client sites", type: "Full-time", department: "Infrastructure" },
+  { title: "Technical Recruiter", location: "Remote (US)", type: "Full-time", department: "Staffing" },
+  { title: "Healthcare Credentialing Specialist", location: "Remote (US)", type: "Full-time", department: "Healthcare Staffing" },
+  { title: "Service Desk Technician", location: "On-site — Client sites", type: "Full-time", department: "Managed IT" },
+];
+
+export const benefits = [
+  "Competitive compensation and performance bonuses",
+  "Medical, dental, and vision coverage",
+  "401(k) with company contribution",
+  "Certification reimbursement and training budget",
+  "Paid time off and federal holidays",
+  "Remote and hybrid flexibility where the role allows",
+];
+
+/* ------------------------------------------------------------------ */
+/* Blog                                                                */
+/* ------------------------------------------------------------------ */
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readingTime: string;
+  category: string;
+  image: string;
+  content: string[];
+}
+
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "zero-trust-federal-agencies",
+    title: "Zero Trust: what federal agencies actually have to change",
+    excerpt:
+      "Zero trust is an architecture decision, not a product purchase. Here is the sequence that works in regulated environments.",
+    date: "2026-05-18",
+    readingTime: "6 min read",
+    category: "Cybersecurity",
+    image: blogZeroTrust,
+    content: [
+      "Zero trust replaces implicit network trust with continuous verification of identity, device posture, and context. For federal agencies, that means the perimeter stops being the control boundary and identity takes its place.",
+      "The sequence that works starts with identity consolidation. Until every user and service authenticates through a single, policy-enforced identity provider, segmentation and conditional access have nothing reliable to key on.",
+      "Next comes device and workload posture. Enrollment, patch state, and configuration compliance become inputs to access decisions rather than reports reviewed after the fact.",
+      "Finally, telemetry. Centralized logging with tuned detection content is what turns a segmented network into a defensible one. Without it, you have architecture but no visibility.",
+    ],
+  },
+  {
+    slug: "data-center-to-azure",
+    title: "Data center to Azure: sequencing a migration that does not stall",
+    excerpt:
+      "Most stalled migrations fail on dependency mapping and ownership, not on technology. A wave-based approach fixes both.",
+    date: "2026-04-22",
+    readingTime: "7 min read",
+    category: "Cloud",
+    image: blogCloudMigration,
+    content: [
+      "Migrations rarely stall because a workload cannot run in the cloud. They stall because nobody agreed who owns the application, what depends on it, and what downtime is acceptable.",
+      "Start with a dependency map built from real network telemetry rather than documentation. Group workloads into waves where every member shares owners and downtime tolerance.",
+      "Build the landing zone before the first wave: identity, network topology, policy, logging, and cost guardrails. Retrofitting governance after migration is far more expensive.",
+      "Treat the first wave as a rehearsal. Measure cutover time, rollback readiness, and post-migration performance, then adjust the runbook before scaling volume.",
+    ],
+  },
+  {
+    slug: "healthcare-staffing-shortage",
+    title: "Closing clinical coverage gaps without burning out your core staff",
+    excerpt:
+      "Surge staffing works when credentialing, scheduling, and retention are planned together rather than sequentially.",
+    date: "2026-03-11",
+    readingTime: "5 min read",
+    category: "Healthcare Staffing",
+    image: blogDevsecops,
+    content: [
+      "Coverage gaps compound. Every unfilled shift shifts load to permanent staff, which accelerates the turnover that created the gap in the first place.",
+      "The fix is to shorten time-to-submit. Pre-verified licensure, references, and compliance packets let qualified candidates reach hiring managers in days instead of weeks.",
+      "Scheduling matters as much as sourcing. Blocked schedules and predictable rotations make contract roles attractive to the clinicians you most want to convert to permanent.",
+      "Finally, measure conversion. Contract-to-permanent placements retain institutional knowledge and reduce the cost of the next surge.",
+    ],
+  },
+];
 
 export interface Faq {
   question: string;
@@ -464,30 +778,28 @@ export interface Faq {
 
 export const homeFaqs: Faq[] = [
   {
-    question: "What cybersecurity services do you offer?",
+    question: "What makes SDVODB Technologies different from a typical IT vendor?",
     answer:
-      "We deliver end-to-end protection — Zero Trust architecture, 24/7 managed SOC monitoring, AI-driven threat detection, cloud security, and continuous compliance hardening — engineered for federal and enterprise missions.",
+      "We deliver technology and talent together. The same partner that engineers your cloud or infrastructure can also staff the roles required to run it, which removes hand-offs between vendors.",
   },
   {
-    question: "How quickly can you respond to a security incident?",
+    question: "Do you work with federal and state government agencies?",
     answer:
-      "Our managed security operations run around the clock. Critical incidents are triaged and contained on a defined SLA, with rapid escalation, forensic analysis, and remediation to keep mission systems available.",
+      "Yes. As a Service-Disabled Veteran-Owned Small Business we support federal, state, and local agencies, and we align delivery to NIST 800-53 and CMMC 2.0 objectives.",
   },
   {
-    question: "Do you work with small businesses and agencies alike?",
+    question: "How quickly can you provide qualified candidates?",
     answer:
-      "Yes. As an SDVOSB we support federal, defense, and regulated commercial clients of every size — from a single cloud migration to enterprise-wide security transformation.",
+      "For most IT, non-IT, and healthcare roles we deliver a first qualified slate within days of an approved job order, using pre-verified compliance and licensure packets.",
   },
   {
-    question: "How do you monitor systems for threats?",
+    question: "Can you support 24/7 operations?",
     answer:
-      "We combine best-in-class tooling — Prisma Cloud, Splunk, CrowdStrike, and Wiz — with AI analytics and human expertise for continuous visibility across cloud, endpoint, and network layers.",
+      "Yes. Our NOC and managed IT services run around the clock with tiered escalation, documented runbooks, and SLA-backed response commitments.",
   },
   {
-    question: "Why is proactive protection important?",
+    question: "How do engagements typically start?",
     answer:
-      "Waiting until a breach happens is costly. Our proactive approach identifies vulnerabilities early, hardens systems with Zero Trust controls, and resolves risks before they disrupt your mission.",
+      "Most begin with a short discovery consultation, followed by a written scope and roadmap. You will always see pricing, milestones, and success criteria before work begins.",
   },
 ];
-
-
