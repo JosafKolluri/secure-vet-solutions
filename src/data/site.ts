@@ -51,7 +51,7 @@ export const company = {
   legalName: "CyberCloud Infra LLC",
   tagline: "Technology & Talent Solutions for Mission-Critical Organizations",
   shortDescription:
-    "CyberCloud Infra LLC delivers IT services, infrastructure engineering, and specialized IT, non-IT, and healthcare staffing for government agencies and enterprises.",
+    "CyberCloud Infra LLC empowers government agencies and enterprises with end-to-end IT services, infrastructure engineering, and specialized IT, non-IT, and healthcare staffing—delivering the expertise needed to modernize operations, accelerate growth, and build resilient teams.",
   email: "info@cybercloudinfra.com",
   phone: "[INSERT REAL NUMBER]",
   address: {
