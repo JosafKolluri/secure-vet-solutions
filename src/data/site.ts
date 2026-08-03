@@ -52,7 +52,7 @@ export const company = {
   tagline: "Technology & Talent Solutions for Mission-Critical Organizations",
   shortDescription:
     "CyberCloud Infra LLC delivers IT services, infrastructure engineering, and specialized IT, non-IT, and healthcare staffing for government agencies and enterprises.",
-  email: "info@sdvodbtech.com",
+  email: "info@cybercloudinfra.com",
   phone: "[INSERT REAL NUMBER]",
   address: {
     line1: "704 Fox Squirrel CT",
