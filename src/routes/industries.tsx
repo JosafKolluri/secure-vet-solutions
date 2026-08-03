@@ -5,13 +5,13 @@ import { industries } from "@/data/site";
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: "Industries We Serve | SDVODB Technologies" },
+      { title: "Industries We Serve | CyberCloud Infra LLC" },
       {
         name: "description",
         content:
-          "Government, healthcare, financial services, manufacturing, education, and commercial enterprise clients rely on SDVODB Technologies for technology and talent.",
+          "Government, healthcare, financial services, manufacturing, education, and commercial enterprise clients rely on CyberCloud Infra LLC for technology and talent.",
       },
-      { property: "og:title", content: "Industries We Serve | SDVODB Technologies" },
+      { property: "og:title", content: "Industries We Serve | CyberCloud Infra LLC" },
       {
         property: "og:description",
         content: "Sector expertise across government, healthcare, finance, manufacturing, and more.",

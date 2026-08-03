@@ -6,13 +6,13 @@ import infrastructureDatacenter from "@/assets/infrastructure-datacenter.jpg";
 export const Route = createFileRoute("/infrastructure-services")({
   head: () => ({
     meta: [
-      { title: "Infrastructure Services | SDVODB Technologies" },
+      { title: "Infrastructure Services | CyberCloud Infra LLC" },
       {
         name: "description",
         content:
           "Data center, network engineering, end-user computing, 24/7 NOC, disaster recovery, and physical security services for multi-site organizations.",
       },
-      { property: "og:title", content: "Infrastructure Services | SDVODB Technologies" },
+      { property: "og:title", content: "Infrastructure Services | CyberCloud Infra LLC" },
       {
         property: "og:description",
         content:

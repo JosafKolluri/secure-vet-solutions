@@ -6,13 +6,13 @@ import dashboardLaptop from "@/assets/dashboard-laptop.jpg";
 export const Route = createFileRoute("/it-services")({
   head: () => ({
     meta: [
-      { title: "IT Services | SDVODB Technologies" },
+      { title: "IT Services | CyberCloud Infra LLC" },
       {
         name: "description",
         content:
           "Cloud migration, cybersecurity, application development, managed IT, data analytics, and AI automation delivered by certified engineers.",
       },
-      { property: "og:title", content: "IT Services | SDVODB Technologies" },
+      { property: "og:title", content: "IT Services | CyberCloud Infra LLC" },
       {
         property: "og:description",
         content:

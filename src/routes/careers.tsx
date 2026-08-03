@@ -7,16 +7,16 @@ import { jobs, benefits, company } from "@/data/site";
 export const Route = createFileRoute("/careers")({
   head: () => ({
     meta: [
-      { title: "Careers | SDVODB Technologies" },
+      { title: "Careers | CyberCloud Infra LLC" },
       {
         name: "description",
         content:
           "Join a veteran-owned team delivering cloud, cybersecurity, infrastructure, and staffing solutions. View open roles and benefits.",
       },
-      { property: "og:title", content: "Careers | SDVODB Technologies" },
+      { property: "og:title", content: "Careers | CyberCloud Infra LLC" },
       {
         property: "og:description",
-        content: "Open roles across IT services, infrastructure, and staffing at SDVODB Technologies.",
+        content: "Open roles across IT services, infrastructure, and staffing at CyberCloud Infra LLC.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://secure-vet-solutions.lovable.app/careers" },

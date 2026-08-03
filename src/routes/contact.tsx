@@ -20,13 +20,13 @@ const schema = z.object({
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us | SDVODB Technologies" },
+      { title: "Contact Us | CyberCloud Infra LLC" },
       {
         name: "description",
         content:
-          "Contact SDVODB Technologies to discuss IT services, infrastructure engineering, or IT, non-IT, and healthcare staffing needs.",
+          "Contact CyberCloud Infra LLC to discuss IT services, infrastructure engineering, or IT, non-IT, and healthcare staffing needs.",
       },
-      { property: "og:title", content: "Contact Us | SDVODB Technologies" },
+      { property: "og:title", content: "Contact Us | CyberCloud Infra LLC" },
       {
         property: "og:description",
         content: "Reach our team about technology delivery or specialized staffing support.",

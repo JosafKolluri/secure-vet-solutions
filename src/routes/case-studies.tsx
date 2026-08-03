@@ -6,13 +6,13 @@ import { caseStudies } from "@/data/site";
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
     meta: [
-      { title: "Case Studies | SDVODB Technologies" },
+      { title: "Case Studies | CyberCloud Infra LLC" },
       {
         name: "description",
         content:
           "Real engagements in cloud migration, clinical staffing surges, zero-trust security, and 24/7 NOC modernization — with the outcomes delivered.",
       },
-      { property: "og:title", content: "Case Studies | SDVODB Technologies" },
+      { property: "og:title", content: "Case Studies | CyberCloud Infra LLC" },
       {
         property: "og:description",
         content: "Client outcomes across cloud, security, infrastructure, and staffing engagements.",

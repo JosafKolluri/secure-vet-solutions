@@ -16,7 +16,7 @@ export const Route = createFileRoute("/blog_/$slug")({
     }
     return {
       meta: [
-        { title: `${post.title} | SDVODB Technologies` },
+        { title: `${post.title} | CyberCloud Infra LLC` },
         { name: "description", content: post.excerpt },
         { property: "og:title", content: post.title },
         { property: "og:description", content: post.excerpt },
