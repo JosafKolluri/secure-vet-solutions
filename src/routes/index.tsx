@@ -15,9 +15,8 @@ import {
   homeStats,
   whyChooseUs,
   processSteps,
-  homeIndustries,
-  caseStudies,
   blogPosts,
+
   homeFaqs,
   certifications,
   techPartners,
