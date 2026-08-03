@@ -75,7 +75,7 @@ function ContactPage() {
               align="left"
               eyebrow="Get in touch"
               title="How to reach us"
-              description="Email or call during business hours, or send the form and we will route it to the right practice lead."
+              description="Email or call us, or send the form and we will route it to the right practice lead."
             />
             <ul className="mt-9 space-y-4">
               {[

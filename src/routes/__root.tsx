@@ -122,6 +122,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "Service-Disabled Veteran-Owned Small Business delivering IT services, infrastructure engineering, and specialized staffing.",
           address: {
             "@type": "PostalAddress",
+            streetAddress: "704 Fox Squirrel CT",
+            addressLocality: "Arlington",
+            addressRegion: "TX",
+            postalCode: "76005",
             addressCountry: "US",
           },
           email: "info@sdvodbtech.com",
