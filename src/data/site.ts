@@ -54,7 +54,12 @@ export const company = {
     "CyberCloud Infra LLC delivers IT services, infrastructure engineering, and specialized IT, non-IT, and healthcare staffing for government agencies and enterprises.",
   email: "info@sdvodbtech.com",
   phone: "[INSERT REAL NUMBER]",
-  hours: "Mon – Fri, 8:00 AM – 6:00 PM ET",
+  address: {
+    line1: "704 Fox Squirrel CT",
+    line2: "Arlington, TX 76005",
+    country: "United States",
+  },
+  addressText: "704 Fox Squirrel CT, Arlington, TX 76005, United States",
 };
 
 /* ------------------------------------------------------------------ */

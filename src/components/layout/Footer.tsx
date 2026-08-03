@@ -40,7 +40,7 @@ export function Footer() {
                 <ShieldCheck className="h-5 w-5" />
               </span>
               <span className="font-display text-lg font-extrabold leading-none text-white">
-                SDVODB<span className="text-brand"> Technologies</span>
+                CyberCloud<span className="text-brand"> Infra LLC</span>
               </span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
