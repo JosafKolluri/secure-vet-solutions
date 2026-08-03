@@ -7,10 +7,10 @@ import listJobOpeningsTool from "./tools/list-job-openings";
 
 export default defineMcp({
   name: "cybercloudinfra-mcp",
-  title: "SDVODB Technologies MCP",
+  title: "CyberCloud Infra LLC MCP",
   version: "0.1.0",
   instructions:
-    "Tools for SDVODB Technologies, an SDVOSB cloud and cybersecurity contractor. Use `company_overview` for a high-level profile, `list_services` and `list_capabilities` for offerings, `list_blog_posts` for insights, and `list_job_openings` for careers.",
+    "Tools for CyberCloud Infra LLC, an SDVOSB cloud and cybersecurity contractor. Use `company_overview` for a high-level profile, `list_services` and `list_capabilities` for offerings, `list_blog_posts` for insights, and `list_job_openings` for careers.",
   tools: [
     companyOverviewTool,
     listServicesTool,

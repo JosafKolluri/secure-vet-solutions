@@ -6,16 +6,16 @@ import { blogPosts } from "@/data/site";
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "Insights & Blog | SDVODB Technologies" },
+      { title: "Insights & Blog | CyberCloud Infra LLC" },
       {
         name: "description",
         content:
           "Practical guidance on cloud migration, cybersecurity, infrastructure modernization, and workforce strategy from our delivery teams.",
       },
-      { property: "og:title", content: "Insights & Blog | SDVODB Technologies" },
+      { property: "og:title", content: "Insights & Blog | CyberCloud Infra LLC" },
       {
         property: "og:description",
-        content: "Perspectives on modernization, security, and staffing from SDVODB Technologies.",
+        content: "Perspectives on modernization, security, and staffing from CyberCloud Infra LLC.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://secure-vet-solutions.lovable.app/blog" },

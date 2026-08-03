@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ShieldCheck, Mail, Phone, ArrowUp, Clock } from "lucide-react";
+import { ShieldCheck, Mail, Phone, ArrowUp, MapPin } from "lucide-react";
 import { company, services } from "@/data/site";
 
 const columns = [
@@ -40,7 +40,7 @@ export function Footer() {
                 <ShieldCheck className="h-5 w-5" />
               </span>
               <span className="font-display text-lg font-extrabold leading-none text-white">
-                SDVODB<span className="text-brand"> Technologies</span>
+                CyberCloud<span className="text-brand"> Infra LLC</span>
               </span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
@@ -56,8 +56,16 @@ export function Footer() {
               <li className="flex items-center gap-2.5">
                 <Phone className="h-4 w-4 shrink-0 text-brand" /> {company.phone}
               </li>
-              <li className="flex items-center gap-2.5">
-                <Clock className="h-4 w-4 shrink-0 text-brand" /> {company.hours}
+              <li className="flex items-start gap-2.5">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                <span>
+                  <span className="block font-medium text-white/85">Office Address</span>
+                  {company.address.line1}
+                  <br />
+                  {company.address.line2}
+                  <br />
+                  {company.address.country}
+                </span>
               </li>
             </ul>
           </div>

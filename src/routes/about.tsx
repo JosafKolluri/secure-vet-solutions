@@ -9,13 +9,13 @@ import aboutTeam from "@/assets/about-team.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us | SDVODB Technologies" },
+      { title: "About Us | CyberCloud Infra LLC" },
       {
         name: "description",
         content:
-          "SDVODB Technologies is a veteran-owned technology and staffing partner serving government agencies, healthcare systems, and enterprises across the United States.",
+          "CyberCloud Infra LLC is a veteran-owned technology and staffing partner serving government agencies, healthcare systems, and enterprises across the United States.",
       },
-      { property: "og:title", content: "About SDVODB Technologies" },
+      { property: "og:title", content: "About CyberCloud Infra LLC" },
       {
         property: "og:description",
         content:

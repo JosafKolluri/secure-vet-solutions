@@ -47,14 +47,19 @@ import blogDevsecops from "@/assets/blog-devsecops.jpg";
 /* ------------------------------------------------------------------ */
 
 export const company = {
-  name: "SDVODB Technologies",
-  legalName: "SDVODB Technologies LLC",
+  name: "CyberCloud Infra LLC",
+  legalName: "CyberCloud Infra LLC",
   tagline: "Technology & Talent Solutions for Mission-Critical Organizations",
   shortDescription:
-    "SDVODB Technologies delivers IT services, infrastructure engineering, and specialized IT, non-IT, and healthcare staffing for government agencies and enterprises.",
+    "CyberCloud Infra LLC delivers IT services, infrastructure engineering, and specialized IT, non-IT, and healthcare staffing for government agencies and enterprises.",
   email: "info@sdvodbtech.com",
   phone: "[INSERT REAL NUMBER]",
-  hours: "Mon – Fri, 8:00 AM – 6:00 PM ET",
+  address: {
+    line1: "704 Fox Squirrel CT",
+    line2: "Arlington, TX 76005",
+    country: "United States",
+  },
+  addressText: "704 Fox Squirrel CT, Arlington, TX 76005, United States",
 };
 
 /* ------------------------------------------------------------------ */
@@ -778,7 +783,7 @@ export interface Faq {
 
 export const homeFaqs: Faq[] = [
   {
-    question: "What makes SDVODB Technologies different from a typical IT vendor?",
+    question: "What makes CyberCloud Infra LLC different from a typical IT vendor?",
     answer:
       "We deliver technology and talent together. The same partner that engineers your cloud or infrastructure can also staff the roles required to run it, which removes hand-offs between vendors.",
   },

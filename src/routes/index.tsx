@@ -29,13 +29,13 @@ import aboutHandshake from "@/assets/about-handshake.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SDVODB Technologies | IT, Infrastructure & Staffing" },
+      { title: "CyberCloud Infra LLC | IT, Infrastructure & Staffing" },
       {
         name: "description",
         content:
-          "SDVODB Technologies is a veteran-owned provider of IT services, infrastructure engineering, and IT, non-IT, and healthcare staffing for government and enterprise.",
+          "CyberCloud Infra LLC is a veteran-owned provider of IT services, infrastructure engineering, and IT, non-IT, and healthcare staffing for government and enterprise.",
       },
-      { property: "og:title", content: "SDVODB Technologies | IT, Infrastructure & Staffing" },
+      { property: "og:title", content: "CyberCloud Infra LLC | IT, Infrastructure & Staffing" },
       {
         property: "og:description",
         content:
@@ -186,7 +186,7 @@ function HomePage() {
           <Reveal>
             <SectionHeading
               align="left"
-              eyebrow="Why SDVODB"
+              eyebrow="Why CyberCloud Infra"
               title="Built for organizations that cannot afford guesswork"
               description="We combine engineering discipline with recruiting depth, backed by veteran-owned values of accountability and service."
             />

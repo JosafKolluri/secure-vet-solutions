@@ -70,7 +70,7 @@ export function Header() {
               <ShieldCheck className="h-5 w-5" />
             </span>
             <span className="font-display text-lg font-extrabold leading-none tracking-tight text-foreground">
-              SDVODB<span className="text-primary"> Technologies</span>
+              CyberCloud<span className="text-primary"> Infra LLC</span>
             </span>
           </Link>
 

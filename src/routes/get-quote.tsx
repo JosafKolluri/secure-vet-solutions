@@ -21,13 +21,13 @@ const schema = z.object({
 export const Route = createFileRoute("/get-quote")({
   head: () => ({
     meta: [
-      { title: "Get a Free Quote | SDVODB Technologies" },
+      { title: "Get a Free Quote | CyberCloud Infra LLC" },
       {
         name: "description",
         content:
           "Request a free, no-obligation quote for IT services, infrastructure engineering, or IT, non-IT, and healthcare staffing support.",
       },
-      { property: "og:title", content: "Get a Free Quote | SDVODB Technologies" },
+      { property: "og:title", content: "Get a Free Quote | CyberCloud Infra LLC" },
       {
         property: "og:description",
         content: "Tell us your requirements and receive a scoped quote from our delivery team.",

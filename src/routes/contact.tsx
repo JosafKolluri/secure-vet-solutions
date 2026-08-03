@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Mail, Phone, Clock } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { PageHero, Reveal, SectionHeading } from "@/components/sections/Primitives";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,13 +20,13 @@ const schema = z.object({
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us | SDVODB Technologies" },
+      { title: "Contact Us | CyberCloud Infra LLC" },
       {
         name: "description",
         content:
-          "Contact SDVODB Technologies to discuss IT services, infrastructure engineering, or IT, non-IT, and healthcare staffing needs.",
+          "Contact CyberCloud Infra LLC to discuss IT services, infrastructure engineering, or IT, non-IT, and healthcare staffing needs.",
       },
-      { property: "og:title", content: "Contact Us | SDVODB Technologies" },
+      { property: "og:title", content: "Contact Us | CyberCloud Infra LLC" },
       {
         property: "og:description",
         content: "Reach our team about technology delivery or specialized staffing support.",
@@ -75,13 +75,17 @@ function ContactPage() {
               align="left"
               eyebrow="Get in touch"
               title="How to reach us"
-              description="Email or call during business hours, or send the form and we will route it to the right practice lead."
+              description="Email or call us, or send the form and we will route it to the right practice lead."
             />
             <ul className="mt-9 space-y-4">
               {[
                 { icon: Mail, label: "Email", value: company.email, href: `mailto:${company.email}` },
                 { icon: Phone, label: "Phone", value: company.phone },
-                { icon: Clock, label: "Hours", value: company.hours },
+                {
+                  icon: MapPin,
+                  label: "Office Address",
+                  value: `${company.address.line1}, ${company.address.line2}, ${company.address.country}`,
+                },
               ].map((item) => (
                 <li
                   key={item.label}

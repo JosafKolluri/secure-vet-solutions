@@ -6,13 +6,13 @@ import heroTeam from "@/assets/hero-team.jpg";
 export const Route = createFileRoute("/non-it-staffing")({
   head: () => ({
     meta: [
-      { title: "Non-IT Staffing | SDVODB Technologies" },
+      { title: "Non-IT Staffing | CyberCloud Infra LLC" },
       {
         name: "description",
         content:
           "Administrative, finance, engineering, light industrial, customer support, and executive talent — sourced, vetted, and placed at program speed.",
       },
-      { property: "og:title", content: "Non-IT Staffing | SDVODB Technologies" },
+      { property: "og:title", content: "Non-IT Staffing | CyberCloud Infra LLC" },
       {
         property: "og:description",
         content:

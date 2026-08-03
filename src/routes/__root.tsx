@@ -80,23 +80,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SDVODB Technologies | IT, Infrastructure & Staffing" },
+      { title: "CyberCloud Infra LLC | IT, Infrastructure & Staffing" },
       {
         name: "description",
         content:
           "Veteran-owned provider of IT services, infrastructure engineering, and IT, non-IT, and healthcare staffing for government and enterprise.",
       },
-      { name: "author", content: "SDVODB Technologies" },
-      { property: "og:title", content: "SDVODB Technologies | IT, Infrastructure & Staffing" },
+      { name: "author", content: "CyberCloud Infra LLC" },
+      { property: "og:title", content: "CyberCloud Infra LLC | IT, Infrastructure & Staffing" },
       {
         property: "og:description",
         content:
           "Technology and talent solutions for mission-critical organizations.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "SDVODB Technologies" },
+      { property: "og:site_name", content: "CyberCloud Infra LLC" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "SDVODB Technologies | IT, Infrastructure & Staffing" },
+      { name: "twitter:title", content: "CyberCloud Infra LLC | IT, Infrastructure & Staffing" },
       { name: "twitter:description", content: "Technology and talent solutions for mission-critical organizations." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4670dae6-3b36-4a6e-83ed-ff3f24792e14/id-preview-20ac24a9--f33ea567-314e-482f-9b5f-4834b35ab57f.lovable.app-1782396161258.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4670dae6-3b36-4a6e-83ed-ff3f24792e14/id-preview-20ac24a9--f33ea567-314e-482f-9b5f-4834b35ab57f.lovable.app-1782396161258.png" },
@@ -117,11 +117,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "SDVODB Technologies LLC",
+          name: "CyberCloud Infra LLC",
           description:
             "Service-Disabled Veteran-Owned Small Business delivering IT services, infrastructure engineering, and specialized staffing.",
           address: {
             "@type": "PostalAddress",
+            streetAddress: "704 Fox Squirrel CT",
+            addressLocality: "Arlington",
+            addressRegion: "TX",
+            postalCode: "76005",
             addressCountry: "US",
           },
           email: "info@sdvodbtech.com",

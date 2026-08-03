@@ -6,13 +6,13 @@ import healthcareStaff from "@/assets/healthcare-staff.jpg";
 export const Route = createFileRoute("/healthcare-staffing")({
   head: () => ({
     meta: [
-      { title: "Healthcare Staffing | SDVODB Technologies" },
+      { title: "Healthcare Staffing | CyberCloud Infra LLC" },
       {
         name: "description",
         content:
           "Credentialed nursing, allied health, physician, behavioral health, and revenue cycle professionals for hospitals, clinics, and federal health facilities.",
       },
-      { property: "og:title", content: "Healthcare Staffing | SDVODB Technologies" },
+      { property: "og:title", content: "Healthcare Staffing | CyberCloud Infra LLC" },
       {
         property: "og:description",
         content:
