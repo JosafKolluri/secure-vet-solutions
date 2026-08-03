@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Mail, Phone, Clock } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { PageHero, Reveal, SectionHeading } from "@/components/sections/Primitives";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -81,7 +81,11 @@ function ContactPage() {
               {[
                 { icon: Mail, label: "Email", value: company.email, href: `mailto:${company.email}` },
                 { icon: Phone, label: "Phone", value: company.phone },
-                { icon: Clock, label: "Hours", value: company.hours },
+                {
+                  icon: MapPin,
+                  label: "Office Address",
+                  value: `${company.address.line1}, ${company.address.line2}, ${company.address.country}`,
+                },
               ].map((item) => (
                 <li
                   key={item.label}
