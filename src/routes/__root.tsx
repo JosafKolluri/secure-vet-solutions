@@ -159,11 +159,13 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      <main>
+      <main className="pb-20 md:pb-0">
         <Outlet />
       </main>
       <Footer />
+      <MobileCTABar />
       <Toaster />
     </QueryClientProvider>
+
   );
 }
