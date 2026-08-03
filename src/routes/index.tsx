@@ -251,81 +251,8 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ---------------- Industries ---------------- */}
-      <section className="section-py px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="Industries"
-            title="Sector expertise that shortens the learning curve"
-            description="We already know the compliance obligations, procurement rhythms, and operational realities of the sectors we serve."
-          />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {homeIndustries.map((ind, i) => (
-              <Reveal key={ind.title} delay={i * 0.06}>
-                <div className="hover-lift group h-full rounded-2xl border border-border bg-card p-7 shadow-soft">
-                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand/10 text-brand transition-transform duration-300 group-hover:scale-105">
-                    <ind.icon className="h-6 w-6" />
-                  </span>
-                  <h3 className="mt-6 text-lg">{ind.title}</h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
-                    {ind.description}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Button asChild variant="outline" size="lg">
-              <Link to="/industries">
-                View all industries <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* Industries & case studies live on their dedicated pages */}
 
-      {/* ---------------- Case studies ---------------- */}
-      <section className="section-py bg-surface px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="Case studies"
-            title="Outcomes, not activity reports"
-            description="A sample of engagements across cloud migration, staffing surges, and security modernization."
-          />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {caseStudies.slice(0, 3).map((cs, i) => (
-              <Reveal key={cs.slug} delay={i * 0.07}>
-                <Link
-                  to="/case-studies"
-                  className="hover-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
-                >
-                  <div className="aspect-16/10 overflow-hidden">
-                    <img
-                      src={cs.image}
-                      alt={cs.title}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <span className="text-xs font-semibold uppercase tracking-[0.12em] text-brand">
-                      {cs.industry}
-                    </span>
-                    <h3 className="mt-3 text-lg leading-snug">{cs.title}</h3>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                      {cs.challenge}
-                    </p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                      Read the story
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ---------------- Certifications ---------------- */}
       <section className="section-py px-4 sm:px-6 lg:px-8">
