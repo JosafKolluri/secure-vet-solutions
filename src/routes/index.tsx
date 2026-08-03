@@ -71,18 +71,20 @@ function HomePage() {
               non-IT, and healthcare staffing — so agencies and enterprises can modernize and staff
               from one accountable partner.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
               <Button asChild size="lg" className="bg-brand text-brand-foreground hover:bg-brand/90">
                 <Link to="/get-quote">
                   Get a Free Quote <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/contact">
-                  <Phone className="h-4 w-4" /> Talk to an Expert
-                </Link>
-              </Button>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+              >
+                <Phone className="h-4 w-4" /> Talk to an expert
+              </Link>
             </div>
+
             <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-3">
               {["Government & enterprise clients", "24/7 support", "Certified specialists"].map((t) => (
                 <li key={t} className="flex items-center gap-2 text-sm font-medium text-foreground">
