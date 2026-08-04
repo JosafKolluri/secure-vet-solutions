@@ -53,84 +53,84 @@
   --color-success-foreground: var(--success-foreground);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
-  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
   --radius: 1rem;
 
-  /* CyberCloud Infra LLC — modern enterprise palette */
-  --background: #ffffff;
-  --foreground: #111827;
+  /* CyberCloud Infra LLC — Navy + Signal Orange */
+  --background: #f8fafc;
+  --foreground: #0b1f3a;
   --card: #ffffff;
-  --card-foreground: #111827;
+  --card-foreground: #0b1f3a;
   --popover: #ffffff;
-  --popover-foreground: #111827;
+  --popover-foreground: #0b1f3a;
 
-  --primary: #2563eb;
+  --primary: #123a6b;
   --primary-foreground: #ffffff;
 
   --brand: #eb7d34;
   --brand-foreground: #ffffff;
 
-  --navy: #0f172a;
+  --navy: #0b1f3a;
   --navy-foreground: #ffffff;
 
-  --secondary: #f8fafc;
-  --secondary-foreground: #111827;
+  --secondary: #eef2f7;
+  --secondary-foreground: #0b1f3a;
 
-  --muted: #f1f5f9;
-  --muted-foreground: #52607a;
+  --muted: #eef2f7;
+  --muted-foreground: #55637a;
 
-  --accent: #eff6ff;
-  --accent-foreground: #1d4ed8;
+  --accent: #e8eef7;
+  --accent-foreground: #123a6b;
 
   --warning: #f59e0b;
-  --success: #16a34a;
+  --success: #15803d;
   --success-foreground: #ffffff;
 
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #2563eb;
+  --border: #dfe6ef;
+  --input: #dfe6ef;
+  --ring: #123a6b;
 
-  --chart-1: #2563eb;
+  --chart-1: #123a6b;
   --chart-2: #eb7d34;
-  --chart-3: #0ea5e9;
-  --chart-4: #16a34a;
-  --chart-5: #6366f1;
+  --chart-3: #2b6cb0;
+  --chart-4: #15803d;
+  --chart-5: #132c52;
 
   --sidebar: #ffffff;
-  --sidebar-foreground: #111827;
-  --sidebar-primary: #2563eb;
+  --sidebar-foreground: #0b1f3a;
+  --sidebar-primary: #123a6b;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f8fafc;
-  --sidebar-accent-foreground: #111827;
-  --sidebar-border: #e2e8f0;
-  --sidebar-ring: #2563eb;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #0b1f3a;
+  --sidebar-border: #dfe6ef;
+  --sidebar-ring: #123a6b;
 
-  --surface: #f8fafc;
-  --surface-2: #eff4fb;
+  --surface: #f1f5f9;
+  --surface-2: #e8eef7;
 
   --gradient-hero: radial-gradient(
       110% 90% at 12% 0%,
-      rgba(37, 99, 235, 0.14) 0%,
+      rgba(18, 58, 107, 0.14) 0%,
       transparent 58%
     ),
-    radial-gradient(90% 80% at 95% 10%, rgba(235, 125, 52, 0.12) 0%, transparent 60%),
-    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 55%, #3b82f6 100%);
-  --gradient-brand: linear-gradient(135deg, #eb7d34 0%, #f59e0b 100%);
-  --gradient-mix: linear-gradient(120deg, #2563eb 0%, #4f46e5 45%, #eb7d34 100%);
-  --gradient-subtle: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  --gradient-navy: linear-gradient(140deg, #0f172a 0%, #14224a 55%, #1e3a8a 100%);
+    radial-gradient(90% 80% at 95% 10%, rgba(235, 125, 52, 0.14) 0%, transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  --gradient-primary: linear-gradient(135deg, #0b1f3a 0%, #123a6b 55%, #1d4e8f 100%);
+  --gradient-brand: linear-gradient(135deg, #eb7d34 0%, #f5a35c 100%);
+  --gradient-mix: linear-gradient(120deg, #0b1f3a 0%, #123a6b 45%, #eb7d34 100%);
+  --gradient-subtle: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  --gradient-navy: linear-gradient(140deg, #06121f 0%, #0b1f3a 52%, #132c52 100%);
 
-  --shadow-soft: 0 1px 2px rgba(17, 24, 39, 0.04), 0 12px 32px -18px rgba(17, 24, 39, 0.18);
-  --shadow-card: 0 2px 4px rgba(17, 24, 39, 0.03), 0 24px 48px -28px rgba(17, 24, 39, 0.22);
-  --shadow-lift: 0 8px 12px -6px rgba(37, 99, 235, 0.16), 0 32px 60px -28px rgba(37, 99, 235, 0.35);
-  --shadow-glow: 0 0 0 1px rgba(37, 99, 235, 0.12), 0 24px 60px -24px rgba(37, 99, 235, 0.4);
+  --shadow-soft: 0 1px 2px rgba(11, 31, 58, 0.05), 0 12px 32px -18px rgba(11, 31, 58, 0.22);
+  --shadow-card: 0 2px 4px rgba(11, 31, 58, 0.04), 0 24px 48px -28px rgba(11, 31, 58, 0.26);
+  --shadow-lift: 0 8px 12px -6px rgba(11, 31, 58, 0.16), 0 32px 60px -28px rgba(11, 31, 58, 0.4);
+  --shadow-glow: 0 0 0 1px rgba(235, 125, 52, 0.18), 0 24px 60px -24px rgba(235, 125, 52, 0.45);
 }
 
 .dark {
