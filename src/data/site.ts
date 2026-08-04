@@ -808,3 +808,95 @@ export const homeFaqs: Faq[] = [
       "Most begin with a short discovery consultation, followed by a written scope and roadmap. You will always see pricing, milestones, and success criteria before work begins.",
   },
 ];
+
+/* ------------------------------------------------------------------ */
+/* Solution pillars (bento grid on home)                               */
+/* ------------------------------------------------------------------ */
+
+export interface SolutionPillar {
+  title: string;
+  kicker: string;
+  description: string;
+  bullets: string[];
+  icon: LucideIcon;
+  href: string;
+  cta: string;
+}
+
+export const solutionPillars: SolutionPillar[] = [
+  {
+    title: "DevSecOps",
+    kicker: "Security as an innovation catalyst",
+    description:
+      "We integrate security seamlessly into development and operations, so every commit ships hardened instead of waiting on a late-stage review.",
+    bullets: [
+      "CI/CD pipeline engineering and automation",
+      "Container, IaC, and supply-chain scanning",
+      "Continuous compliance evidence and reporting",
+    ],
+    icon: ShieldCheck,
+    href: "/it-services",
+    cta: "Start integrating today",
+  },
+  {
+    title: "Software Development",
+    kicker: "Ideas into digital reality",
+    description:
+      "Full-stack product teams that design, build, and modernize mission applications one disciplined sprint at a time.",
+    bullets: ["Cloud-native application delivery", "Legacy modernization and API layers"],
+    icon: Code2,
+    href: "/it-services",
+    cta: "Let's build something",
+  },
+  {
+    title: "Agile & DevSecOps Training",
+    kicker: "Upskill your teams",
+    description:
+      "Practitioner-led training that builds an Agile mindset and equips self-managed, cross-functional teams to hit business goals.",
+    bullets: ["Role-based curricula", "Hands-on labs and coaching"],
+    icon: GraduationCap,
+    href: "/careers",
+    cta: "Start upskilling today",
+  },
+  {
+    title: "Agile Transformation",
+    kicker: "Modernize how you deliver",
+    description:
+      "Subject-matter experts guide ceremonies, launch Agile release trains, and improve flexibility, collaboration, and responsiveness to customers.",
+    bullets: ["Release train launch and coaching", "Delivery metrics and maturity roadmaps"],
+    icon: Rocket,
+    href: "/case-studies",
+    cta: "Start transforming today",
+  },
+  {
+    title: "No-Code / Low-Code",
+    kicker: "Accelerate digital innovation",
+    description:
+      "Migrate traditional applications and manual processes onto platforms like ServiceNow and Salesforce to reduce barriers and cost.",
+    bullets: ["ServiceNow and Salesforce delivery", "Workflow and process automation"],
+    icon: Boxes,
+    href: "/infrastructure-services",
+    cta: "Start creating today",
+  },
+  {
+    title: "Healthcare Staffing",
+    kicker: "Credentialed clinical talent",
+    description:
+      "Clinical and allied health professionals for hospitals, clinics, and federal facilities — credentialed, compliant, and deployment-ready.",
+    bullets: ["Clinical and allied health roles", "Compliance-first credentialing"],
+    icon: Stethoscope,
+    href: "/healthcare-staffing",
+    cta: "Explore healthcare staffing",
+  },
+];
+
+export const devSecOpsPhases = [
+  "Plan",
+  "Code",
+  "Build",
+  "Test",
+  "Release",
+  "Deploy",
+  "Operate",
+  "Monitor",
+];
