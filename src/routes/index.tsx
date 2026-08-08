@@ -1,45 +1,53 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, ArrowUpRight, Check, Phone, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  Cloud,
+  Code2,
+  Server,
+  Shield,
+  Users,
+  Workflow,
+  Search,
+  PenTool,
+  Rocket,
+  Gauge,
+  Quote,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Reveal, SectionHeading, CTASection, Eyebrow } from "@/components/sections/Primitives";
-import { StatBlock } from "@/components/sections/AnimatedCounter";
-import {
-  services,
-  solutionPillars,
-  devSecOpsPhases,
-  homeStats,
-  whyChooseUs,
-  processSteps,
-  blogPosts,
-  homeFaqs,
-  certifications,
-  techPartners,
-  company,
-} from "@/data/site";
-import heroSoc from "@/assets/hero-soc-navy.jpg";
-import aboutHandshake from "@/assets/about-handshake.jpg";
+import { HeroVisual } from "@/components/sections/HeroVisual";
+import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
+import { blogPosts, industries } from "@/data/site";
+import aboutTeam from "@/assets/about-team.jpg";
+import imgDatacenter from "@/assets/infrastructure-datacenter.jpg";
+import imgHealthcare from "@/assets/healthcare-staff.jpg";
+import imgSecurity from "@/assets/security-analyst.jpg";
+import imgSoc from "@/assets/soc-analysts.jpg";
+import imgDashboard from "@/assets/dashboard-laptop.jpg";
+import imgTeam from "@/assets/team-dark.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CyberCloud Infra LLC | DevSecOps, Cloud & Staffing" },
+      { title: "CyberCloud Infra LLC | Technology, Infrastructure & Talent" },
       {
         name: "description",
         content:
-          "Veteran-owned CyberCloud Infra LLC delivers DevSecOps, software development, Agile transformation, low-code solutions, infrastructure engineering, and specialized staffing.",
+          "CyberCloud Infra LLC delivers enterprise IT services, cloud infrastructure, cybersecurity, application development, ServiceNow consulting, and specialized staffing solutions.",
       },
-      { property: "og:title", content: "CyberCloud Infra LLC | DevSecOps, Cloud & Staffing" },
+      {
+        property: "og:title",
+        content: "CyberCloud Infra LLC | Technology, Infrastructure & Talent",
+      },
       {
         property: "og:description",
         content:
-          "Security built into every step of delivery — DevSecOps, cloud modernization, Agile transformation, and mission-ready talent.",
+          "Enterprise IT services, cloud infrastructure, cybersecurity, application development, ServiceNow consulting, and specialized staffing.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://secure-vet-solutions.lovable.app/" },
@@ -49,409 +57,765 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
+const SECTION = "px-5 py-16 sm:px-6 sm:py-[85px] lg:px-8 lg:py-[120px]";
+const CONTAINER = "mx-auto max-w-[1200px]";
+
+const trustStats = [
+  { value: "10+", label: "Years of Expertise" },
+  { value: "50+", label: "Enterprise Projects" },
+  { value: "100+", label: "Technology Professionals" },
+  { value: "24/7", label: "Operational Support" },
+];
+
+const homeServiceCards = [
+  {
+    icon: Workflow,
+    title: "IT Services & Consulting",
+    description:
+      "Advisory, managed IT, and modernization programs run by engineers who own the outcome end to end.",
+    to: "/it-services",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud & Infrastructure",
+    description:
+      "Azure-first landing zones, data center migration, networking, and 24/7 operations that stay resilient.",
+    to: "/infrastructure-services",
+  },
+  {
+    icon: Shield,
+    title: "Cybersecurity",
+    description:
+      "Zero-trust architecture, continuous monitoring, and compliance alignment for regulated environments.",
+    to: "/it-services",
+  },
+  {
+    icon: Code2,
+    title: "Application Development",
+    description:
+      "Secure, cloud-native applications and API platforms delivered in disciplined, demo-driven sprints.",
+    to: "/it-services",
+  },
+  {
+    icon: Server,
+    title: "ServiceNow Consulting",
+    description:
+      "Workflow design, ITSM implementation, and platform governance that turn process into automation.",
+    to: "/it-services",
+  },
+  {
+    icon: Users,
+    title: "Technology Staffing",
+    description:
+      "IT, non-IT, and healthcare talent sourced, screened, and placed against critical role requirements.",
+    to: "/non-it-staffing",
+  },
+];
+
+const solutions = [
+  {
+    number: "01",
+    title: "Cloud & Infrastructure Modernization",
+    description:
+      "Move off aging data centers with dependency-mapped migration waves, hardened landing zones, and cost governance from day one.",
+    to: "/infrastructure-services",
+  },
+  {
+    number: "02",
+    title: "Digital Transformation",
+    description:
+      "Replace manual process with automated workflow, secure applications, and data platforms your teams actually adopt.",
+    to: "/it-services",
+  },
+  {
+    number: "03",
+    title: "Workforce & Staffing Solutions",
+    description:
+      "Scale delivery with vetted IT, non-IT, and healthcare professionals matched to mission requirements, not keyword lists.",
+    to: "/non-it-staffing",
+  },
+];
+
+const industryCards = [
+  { ...industries[0], image: imgDatacenter },
+  { ...industries[1], image: imgHealthcare },
+  { ...industries[2], image: imgSecurity },
+  { ...industries[3], image: imgDashboard },
+  { ...industries[4], image: imgSoc },
+  { ...industries[5], image: imgTeam },
+];
+
+const staffingCards = [
+  { title: "IT Staffing", detail: "Cloud, security, data, and platform engineers" },
+  { title: "Non-IT Staffing", detail: "Administrative, finance, and engineering talent" },
+  { title: "Healthcare Staffing", detail: "Credentialed clinical and allied health professionals" },
+];
+
+const techStack = [
+  "ServiceNow",
+  "AWS",
+  "Microsoft Azure",
+  "Microsoft 365",
+  "React",
+  "Node.js",
+  "Python",
+  "PostgreSQL",
+  "Cybersecurity",
+  "Cloud Infrastructure",
+];
+
+const whyCards = [
+  {
+    number: "01",
+    title: "One Accountable Partner",
+    description: "A single delivery lead across technology and talent — no hand-offs, no finger-pointing.",
+  },
+  {
+    number: "02",
+    title: "Enterprise-Ready Expertise",
+    description: "Certified engineers and recruiters with experience in regulated, mission-critical programs.",
+  },
+  {
+    number: "03",
+    title: "Technology + Talent",
+    description: "Platforms and people delivered together, so modernization does not stall on staffing gaps.",
+  },
+  {
+    number: "04",
+    title: "Mission-Critical Delivery",
+    description: "Disciplined sprints, transparent reporting, and SLA-backed support after go-live.",
+  },
+];
+
+const processSteps = [
+  { number: "01", title: "Discover", icon: Search, description: "Map objectives, constraints, and compliance obligations with the people who own the outcome." },
+  { number: "02", title: "Design", icon: PenTool, description: "A prioritized roadmap with scope, staffing plan, milestones, and measurable success criteria." },
+  { number: "03", title: "Deliver", icon: Rocket, description: "Execution in disciplined sprints with weekly reporting, risk tracking, and stakeholder demos." },
+  { number: "04", title: "Optimize", icon: Gauge, description: "Continuous improvement, SLA-backed support, and quarterly reviews that compound value." },
+];
+
+const quotes = [
+  {
+    quote:
+      "The migration plan was the first one we saw that accounted for dependencies and ownership before touching a single workload. Cutover weekends stopped being events.",
+    name: "Director of Infrastructure",
+    role: "Public sector agency (name withheld)",
+  },
+  {
+    quote:
+      "We needed credentialed clinical staff at short notice and got qualified slates in days, not weeks. Coverage held without burning out our core team.",
+    name: "VP of Clinical Operations",
+    role: "Regional health system (name withheld)",
+  },
+  {
+    quote:
+      "Security work was scoped against the controls we actually have to answer for, and the reporting made audit preparation straightforward.",
+    name: "Chief Information Security Officer",
+    role: "Financial services firm (name withheld)",
+  },
+];
+
 function HomePage() {
   return (
     <>
-      {/* ---------------- Hero ---------------- */}
-      <section className="relative isolate overflow-hidden bg-navy pt-32 pb-20 lg:pt-40 lg:pb-28">
-        <img
-          src={heroSoc}
-          alt=""
-          aria-hidden="true"
-          width={1600}
-          height={1200}
-          className="absolute inset-0 -z-20 h-full w-full object-cover opacity-45"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-navy opacity-90" />
-        <div className="pointer-events-none absolute inset-0 -z-10 grid-pattern-light opacity-70" />
-        <div className="pointer-events-none absolute -right-32 top-10 -z-10 h-96 w-96 rounded-full bg-brand/25 blur-3xl animate-pulse-glow" />
+      <Hero />
+      <TrustBar />
+      <About />
+      <Services />
+      <FeaturedSolutions />
+      <Industries />
+      <Staffing />
+      <TechEcosystem />
+      <WhyCyberCloud />
+      <Process />
+      <Testimonials />
+      <Insights />
+      <FinalCTA />
+    </>
+  );
+}
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+/* ---------------------------------------------------------------- Hero */
+
+function Hero() {
+  return (
+    <section className="relative overflow-hidden bg-gradient-hero pb-16 pt-[104px] sm:pb-20 lg:min-h-[780px] lg:pb-24 lg:pt-[150px]">
+      <div className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-gradient-primary opacity-[0.10] blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 grid-pattern opacity-70 [mask-image:linear-gradient(180deg,black,transparent_75%)]" />
+      <div className={`relative ${CONTAINER} px-5 sm:px-6 lg:px-8`}>
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14">
           <motion.div
-            initial={{ opacity: 0, y: 26 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-3xl"
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Eyebrow tone="light">Service-Disabled Veteran-Owned Small Business</Eyebrow>
-            <h1 className="mt-6 text-4xl leading-[1.05] text-white sm:text-5xl lg:text-[4rem]">
-              Security built into every step of{" "}
-              <span className="text-brand">delivery</span>
+            <Eyebrow>Technology • Infrastructure • Talent</Eyebrow>
+            <h1 className="mt-6 text-[2.5rem] font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-[3.25rem] lg:text-[4rem]">
+              Technology & Talent for{" "}
+              <span className="text-gradient">Mission-Critical Organizations</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
-              {company.name} integrates DevSecOps, cloud and infrastructure engineering, Agile
-              transformation, and mission-ready talent — so government agencies and enterprises
-              modernize faster without trading away security.
+            <p className="mt-6 max-w-xl text-base leading-[1.7] text-muted-foreground sm:text-lg">
+              CyberCloud Infra LLC delivers IT services, infrastructure engineering, cybersecurity,
+              and specialized IT, non-IT, and healthcare staffing — bringing technology and talent
+              together through one accountable partner.
             </p>
-
-            <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
-              <Button asChild size="lg" className="bg-brand text-brand-foreground hover:bg-brand/90">
-                <Link to="/get-quote">
-                  Start a conversation <ArrowRight className="h-4 w-4" />
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Button
+                asChild
+                className="h-[52px] rounded-[10px] bg-gradient-primary px-7 text-base font-semibold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
+              >
+                <Link to="/it-services">
+                  Explore Our Services <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-white/85 underline-offset-4 hover:text-brand hover:underline"
+              <Button
+                asChild
+                variant="outline"
+                className="h-[52px] rounded-[10px] border-primary/40 px-7 text-base font-semibold text-primary transition-transform hover:-translate-y-0.5 hover:bg-accent hover:text-primary"
               >
-                <Phone className="h-4 w-4" /> Talk to an expert
-              </Link>
+                <Link to="/contact">Talk to an Expert</Link>
+              </Button>
             </div>
-
-            <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-3">
-              {["Government & enterprise programs", "24/7 support", "Certified specialists"].map(
-                (t) => (
-                  <li key={t} className="flex items-center gap-2 text-sm font-medium text-white/80">
-                    <span className="grid h-5 w-5 place-items-center rounded-full bg-brand/20 text-brand">
-                      <Check className="h-3 w-3" />
-                    </span>
-                    {t}
-                  </li>
-                ),
-              )}
-            </ul>
           </motion.div>
 
-          {/* Service quick-links */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            {services.map((s) => (
-              <Link
-                key={s.slug}
-                to={s.href}
-                className="glass-navy group flex items-center gap-3 rounded-2xl p-4 transition-colors hover:border-brand/40"
-              >
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand/15 text-brand">
-                  <s.icon className="h-5 w-5" />
-                </span>
-                <span className="min-w-0 flex-1 truncate font-display text-sm font-semibold text-white">
-                  {s.title}
-                </span>
-                <ArrowUpRight className="h-4 w-4 shrink-0 text-white/50 transition-transform group-hover:-translate-y-0.5 group-hover:text-brand" />
-              </Link>
-            ))}
+            <HeroVisual />
           </motion.div>
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* ---------------- Partner strip ---------------- */}
-      <section className="border-b border-border bg-card py-8">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            Platforms and partners we build on
-          </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-            {techPartners.map((p) => (
-              <span key={p} className="font-display text-base font-bold text-foreground/45">
-                {p}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+/* ------------------------------------------------------------ TrustBar */
 
-      {/* ---------------- Bento: what we do ---------------- */}
-      <section className="section-py px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="What we do"
-            title="Six capabilities. One accountable partner."
-            description="Using the right tools at the right time, our teams accelerate delivery and drive value while building security into every step of the process."
+function TrustBar() {
+  return (
+    <section className="border-y border-border bg-background px-5 py-10 sm:px-6 lg:px-8 lg:py-12">
+      <div className={`${CONTAINER} grid grid-cols-2 gap-y-8 lg:grid-cols-4`}>
+        {trustStats.map((s, i) => (
+          <Reveal
+            key={s.label}
+            delay={i * 0.08}
+            className={i > 0 ? "lg:border-l lg:border-border" : ""}
+          >
+            <div className="px-2 text-center">
+              <p className="font-display text-[2.25rem] font-bold leading-none text-primary sm:text-[2.6rem]">
+                {s.value}
+              </p>
+              <p className="mt-2.5 text-sm text-muted-foreground">{s.label}</p>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------------- About */
+
+function About() {
+  const features = [
+    "Enterprise Technology Expertise",
+    "Specialized Talent Solutions",
+    "Mission-Critical Delivery",
+  ];
+  return (
+    <section className={`bg-background ${SECTION}`}>
+      <div className={`${CONTAINER} grid items-center gap-14 lg:grid-cols-2`}>
+        <Reveal className="relative">
+          <img
+            src={aboutTeam}
+            alt="CyberCloud Infra engineers collaborating in an enterprise technology operations center"
+            loading="lazy"
+            className="h-[420px] w-full rounded-3xl object-cover shadow-card lg:h-[500px]"
           />
+          <div className="absolute -bottom-6 left-4 rounded-2xl border border-border bg-card px-5 py-4 shadow-lift sm:left-8">
+            <p className="text-sm font-semibold text-foreground">Enterprise Ready</p>
+            <p className="text-xs text-muted-foreground">Governance, security, and SLAs built in</p>
+          </div>
+          <div className="absolute -top-6 right-4 hidden rounded-2xl border border-border bg-card px-5 py-4 shadow-lift sm:block">
+            <p className="text-sm font-semibold text-foreground">Technology + Talent</p>
+            <p className="text-xs text-muted-foreground">One accountable partner</p>
+          </div>
+        </Reveal>
 
-          <div className="mt-14 grid gap-5 lg:grid-cols-3">
-            {/* Feature tile */}
-            <Reveal className="lg:col-span-2">
+        <Reveal delay={0.1}>
+          <Eyebrow>Who We Are</Eyebrow>
+          <h2 className="mt-5 text-[2rem] font-extrabold leading-[1.15] tracking-tight text-foreground sm:text-[2.375rem] lg:text-[2.875rem]">
+            One Partner for Technology, Infrastructure & Talent
+          </h2>
+          <p className="mt-5 text-base leading-[1.7] text-muted-foreground">
+            CyberCloud Infra LLC is a Service-Disabled Veteran-Owned Small Business supporting
+            government agencies and enterprises that cannot afford downtime, drift, or unfilled
+            critical roles.
+          </p>
+          <p className="mt-4 text-base leading-[1.7] text-muted-foreground">
+            We combine infrastructure engineering, cloud modernization, and cybersecurity with
+            specialized staffing — so the platform and the people arrive together.
+          </p>
+          <ul className="mt-8 space-y-4">
+            {features.map((f) => (
+              <li key={f} className="flex items-center gap-3">
+                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                </span>
+                <span className="font-medium text-foreground">{f}</span>
+              </li>
+            ))}
+          </ul>
+          <Button
+            asChild
+            className="mt-9 h-[52px] rounded-[10px] bg-gradient-primary px-7 font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
+          >
+            <Link to="/about">
+              Discover CyberCloud <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------ Services */
+
+function Services() {
+  return (
+    <section className={`bg-surface ${SECTION}`}>
+      <div className={CONTAINER}>
+        <Reveal>
+          <SectionHeading
+            eyebrow="Our Services"
+            title="Technology Solutions Built Around Your Mission"
+            description="From cloud modernization to credentialed staffing, every engagement is scoped to the outcomes your organization is accountable for."
+          />
+        </Reveal>
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {homeServiceCards.map((card, i) => (
+            <Reveal key={card.title} delay={i * 0.06}>
               <Link
-                to={solutionPillars[0]!.href}
-                className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-gradient-navy p-8 shadow-card lg:p-10"
+                to={card.to}
+                className="group flex h-full flex-col rounded-[20px] border border-border bg-card p-8 shadow-card transition-all duration-300 hover:-translate-y-2 hover:shadow-lift"
               >
-                <div className="pointer-events-none absolute inset-0 grid-pattern-light opacity-60" />
-                <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-brand/25 blur-3xl" />
-                <div className="relative">
-                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-brand text-brand-foreground shadow-glow">
-                    <ShieldCheck className="h-7 w-7" />
-                  </span>
-                  <p className="mt-7 text-xs font-semibold uppercase tracking-[0.16em] text-brand">
-                    {solutionPillars[0]!.kicker}
-                  </p>
-                  <h3 className="mt-3 text-3xl text-white lg:text-4xl">
-                    {solutionPillars[0]!.title}
-                  </h3>
-                  <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70">
-                    {solutionPillars[0]!.description}
-                  </p>
-                  <ul className="mt-7 grid gap-2.5 sm:grid-cols-2">
-                    {solutionPillars[0]!.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2 text-sm text-white/75">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                  <span className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
-                    {solutionPillars[0]!.cta}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-accent text-primary transition-colors duration-300 group-hover:bg-gradient-primary group-hover:text-primary-foreground">
+                  <card.icon className="h-6 w-6" />
+                </span>
+                <h3 className="mt-6 text-[1.35rem] font-bold text-foreground">{card.title}</h3>
+                <p className="mt-3 flex-1 text-[0.975rem] leading-[1.7] text-muted-foreground">
+                  {card.description}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                  Learn More
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </span>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------------------------- FeaturedSolutions */
+
+function FeaturedSolutions() {
+  return (
+    <section className={`relative overflow-hidden bg-gradient-navy ${SECTION}`}>
+      <div className="pointer-events-none absolute inset-0 opacity-50 [background:radial-gradient(50%_60%_at_15%_10%,rgba(16,102,242,0.35),transparent_60%),radial-gradient(45%_60%_at_90%_90%,rgba(108,99,255,0.35),transparent_60%)]" />
+      <div className={`relative ${CONTAINER}`}>
+        <Reveal>
+          <SectionHeading
+            tone="light"
+            eyebrow="Featured Solutions"
+            title={
+              <>
+                Modernize Your Technology.
+                <br className="hidden sm:block" /> Strengthen Your Workforce.
+              </>
+            }
+          />
+        </Reveal>
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {solutions.map((s, i) => (
+            <Reveal key={s.number} delay={i * 0.08}>
+              <Link
+                to={s.to}
+                className="group relative flex h-full flex-col overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.04] p-9 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-white/25 hover:bg-white/[0.08]"
+              >
+                <span className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-primary opacity-20 blur-2xl" />
+                <span className="font-display text-5xl font-extrabold text-white/25">
+                  {s.number}
+                </span>
+                <h3 className="mt-6 text-2xl font-bold text-white">{s.title}</h3>
+                <p className="mt-4 flex-1 text-[0.975rem] leading-[1.7] text-white/70">
+                  {s.description}
+                </p>
+                <ArrowUpRight className="mt-8 h-6 w-6 text-white/70 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------------------------------------- Industries */
+
+function Industries() {
+  return (
+    <section className={`bg-background ${SECTION}`}>
+      <div className={CONTAINER}>
+        <Reveal>
+          <SectionHeading
+            eyebrow="Industries"
+            title="Built for Organizations Where Reliability Matters"
+          />
+        </Reveal>
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          {industryCards.map((card, i) => (
+            <Reveal key={card.title} delay={i * 0.06}>
+              <Link
+                to="/industries"
+                className="group relative block h-[230px] overflow-hidden rounded-[20px] border border-border shadow-card transition-shadow duration-300 hover:shadow-lift"
+              >
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <span className="absolute inset-0 bg-gradient-to-t from-[#080d24] via-[#080d24]/70 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
+                  <div className="min-w-0">
+                    <h3 className="text-xl font-bold text-white">{card.title}</h3>
+                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-white/70">
+                      {card.description}
+                    </p>
+                  </div>
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white/10 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <ArrowUpRight className="h-5 w-5" />
                   </span>
                 </div>
               </Link>
             </Reveal>
-
-            {/* Secondary tiles */}
-            {solutionPillars.slice(1).map((p, i) => (
-              <Reveal key={p.title} delay={0.06 * (i + 1)}>
-                <Link
-                  to={p.href}
-                  className="hover-lift group flex h-full flex-col rounded-3xl border border-border bg-card p-7 shadow-soft"
-                >
-                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground">
-                    <p.icon className="h-6 w-6" />
-                  </span>
-                  <p className="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-brand">
-                    {p.kicker}
-                  </p>
-                  <h3 className="mt-2 text-xl">{p.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                    {p.description}
-                  </p>
-                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                    {p.cta}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------------- CI/CD band ---------------- */}
-      <section className="relative overflow-hidden bg-navy px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <div className="pointer-events-none absolute inset-0 grid-pattern-light opacity-50" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
-          <Reveal>
-            <Eyebrow tone="light">Continuous integration & deployment</Eyebrow>
-            <h2 className="mt-5 text-3xl leading-[1.15] text-white sm:text-4xl">
-              Faster deployments. <span className="text-brand">Continuous innovation.</span>
-            </h2>
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70">
-              We leverage automation across the toolchain to boost productivity, shorten release
-              cycles, and keep security controls verifiable at every stage of the lifecycle.
-            </p>
-            <div className="mt-8">
-              <Button asChild size="lg" className="bg-brand text-brand-foreground hover:bg-brand/90">
-                <Link to="/it-services">
-                  Explore our delivery model <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <div className="glass-navy rounded-3xl p-6 sm:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/55">
-                Our DevSecOps lifecycle
-              </p>
-              <ol className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                {devSecOpsPhases.map((phase, i) => (
-                  <li
-                    key={phase}
-                    className="rounded-2xl border border-white/10 bg-white/5 px-3 py-4 text-center"
-                  >
-                    <span className="block font-display text-xs font-bold text-brand">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="mt-1.5 block text-sm font-semibold text-white">{phase}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ---------------- Stats ---------------- */}
-      <section className="bg-surface px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-8 rounded-3xl border border-border bg-card p-10 shadow-soft sm:grid-cols-2 lg:grid-cols-4">
-          {homeStats.map((s, i) => (
-            <StatBlock key={s.label} {...s} delay={i * 0.08} />
           ))}
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* ---------------- Why choose us ---------------- */}
-      <section className="section-py px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl items-start gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-          <Reveal>
-            <SectionHeading
-              align="left"
-              eyebrow="Why CyberCloud Infra"
-              title="Built for organizations that cannot afford guesswork"
-              description="We combine engineering discipline with recruiting depth, backed by veteran-owned values of accountability and service."
-            />
-            <div className="relative mt-10">
-              <img
-                src={aboutHandshake}
-                alt="Two professionals shaking hands in a modern office lobby"
-                loading="lazy"
-                width={1408}
-                height={1008}
-                className="w-full rounded-3xl object-cover shadow-card"
-              />
-            </div>
-          </Reveal>
-          <div className="grid gap-5 sm:grid-cols-2">
-            {whyChooseUs.map((r, i) => (
-              <Reveal key={r.title} delay={i * 0.06}>
-                <div className="hover-lift h-full rounded-2xl border border-border bg-card p-6 shadow-soft">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-accent text-accent-foreground">
-                    <r.icon className="h-5 w-5" />
-                  </span>
-                  <h3 className="mt-5 text-lg">{r.title}</h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
-                    {r.description}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+/* ------------------------------------------------------------ Staffing */
 
-      {/* ---------------- Process ---------------- */}
-      <section className="section-py bg-surface px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="Our process"
-            title="From first conversation to continuous support"
-            description="A predictable four-phase engagement model with named owners and written milestones."
-          />
-          <div className="relative mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="pointer-events-none absolute left-0 right-0 top-16 hidden h-px bg-border lg:block" />
-            {processSteps.map((step, i) => (
-              <Reveal key={step.step} delay={i * 0.08}>
-                <div className="relative h-full rounded-2xl border border-border bg-card p-7 shadow-soft">
-                  <div className="flex items-center justify-between">
-                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-primary text-primary-foreground">
-                      <step.icon className="h-5 w-5" />
-                    </span>
-                    <span className="font-display text-3xl font-extrabold text-brand/25">
-                      {step.step}
-                    </span>
-                  </div>
-                  <h3 className="mt-5 text-lg">{step.title}</h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
-                    {step.description}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------------- Credentials strip ---------------- */}
-      <section className="border-y border-border bg-card px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-sm">
-            <Eyebrow>Credentials</Eyebrow>
-            <h2 className="mt-4 text-2xl leading-snug">Compliance-aligned from day one</h2>
-          </div>
-          <ul className="flex flex-wrap gap-3">
-            {certifications.map((c) => (
-              <li
-                key={c.label}
-                title={c.detail}
-                className="flex items-center gap-2.5 rounded-full border border-border bg-surface px-4 py-2.5"
-              >
-                <c.icon className="h-4 w-4 text-brand" />
-                <span className="text-sm font-semibold text-foreground">{c.label}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ---------------- Insights ---------------- */}
-      <section className="section-py bg-surface px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading
-              align="left"
-              eyebrow="Insights"
-              title="Perspectives from our delivery teams"
-            />
-            <Link
-              to="/blog"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
-            >
-              View all insights <ArrowRight className="h-4 w-4" />
+function Staffing() {
+  return (
+    <section className="relative overflow-hidden bg-gradient-navy px-5 py-16 sm:px-6 sm:py-[85px] lg:px-8 lg:py-[120px]">
+      <div className="pointer-events-none absolute inset-0 opacity-60 [background:radial-gradient(60%_70%_at_80%_20%,rgba(108,99,255,0.4),transparent_62%),radial-gradient(50%_60%_at_0%_100%,rgba(16,102,242,0.35),transparent_62%)]" />
+      <div className={`relative ${CONTAINER} grid items-center gap-14 lg:grid-cols-2`}>
+        <Reveal>
+          <Eyebrow tone="light">Staffing</Eyebrow>
+          <h2 className="mt-5 text-[2rem] font-extrabold leading-[1.15] tracking-tight text-white sm:text-[2.375rem] lg:text-[2.875rem]">
+            Find the Right Talent for Critical Roles
+          </h2>
+          <p className="mt-5 max-w-xl text-base leading-[1.7] text-white/70">
+            Our recruiters are specialists, not generalists. We source, screen, and credential
+            professionals against the actual requirements of the role — then support them through
+            placement and retention.
+          </p>
+          <Button
+            asChild
+            className="mt-9 h-[52px] rounded-[10px] bg-white px-7 font-semibold text-navy hover:bg-white/90"
+          >
+            <Link to="/non-it-staffing">
+              Explore Staffing Solutions <ArrowRight className="h-4 w-4" />
             </Link>
-          </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {blogPosts.slice(0, 2).map((post, i) => (
-              <Reveal key={post.slug} delay={i * 0.07}>
-                <Link
-                  to="/blog/$slug"
-                  params={{ slug: post.slug }}
-                  className="hover-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft sm:flex-row"
-                >
-                  <div className="shrink-0 overflow-hidden sm:w-2/5">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      loading="lazy"
-                      className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-full"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <div className="flex items-center gap-3 text-xs font-medium text-muted-foreground">
-                      <span className="font-semibold uppercase tracking-[0.12em] text-brand">
-                        {post.category}
-                      </span>
-                      <span>{post.readingTime}</span>
-                    </div>
-                    <h3 className="mt-3 text-lg leading-snug">{post.title}</h3>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                      {post.excerpt}
-                    </p>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+          </Button>
+        </Reveal>
 
-      {/* ---------------- FAQ ---------------- */}
-      <section className="section-py px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+        <Reveal delay={0.1} className="space-y-4">
+          {staffingCards.map((card, i) => (
+            <motion.div
+              key={card.title}
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 5 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
+              className="flex items-center gap-4 rounded-2xl border border-white/12 bg-white/[0.06] p-5 backdrop-blur-sm lg:ml-auto lg:max-w-md"
+              style={{ marginLeft: i === 1 ? "auto" : undefined }}
+            >
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-primary text-primary-foreground">
+                <Users className="h-5 w-5" />
+              </span>
+              <div className="min-w-0">
+                <p className="font-semibold text-white">{card.title}</p>
+                <p className="text-sm text-white/65">{card.detail}</p>
+              </div>
+            </motion.div>
+          ))}
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------- TechEcosystem */
+
+function TechEcosystem() {
+  return (
+    <section className={`bg-surface ${SECTION}`}>
+      <div className={CONTAINER}>
+        <Reveal>
           <SectionHeading
-            align="left"
-            eyebrow="FAQ"
-            title="Questions we hear before every engagement"
-            description="Straight answers on scope, timelines, compliance, and how we staff programs."
+            eyebrow="Technology"
+            title="Technology Expertise That Scales With You"
+            description="Platforms, clouds, and stacks our engineers work in every day across enterprise and public-sector programs."
           />
-          <Accordion type="single" collapsible className="w-full">
-            {homeFaqs.map((faq, i) => (
-              <AccordionItem key={faq.question} value={`faq-${i}`}>
-                <AccordionTrigger className="text-left text-base font-semibold">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        </Reveal>
+        <div className="mt-12 flex flex-wrap justify-center gap-3">
+          {techStack.map((tech, i) => (
+            <Reveal key={tech} delay={i * 0.03}>
+              <span className="inline-flex items-center rounded-2xl border border-border bg-card px-6 py-4 text-sm font-semibold text-foreground shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:text-primary">
+                {tech}
+              </span>
+            </Reveal>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      <CTASection />
-    </>
+/* -------------------------------------------------------- WhyCyberCloud */
+
+function WhyCyberCloud() {
+  return (
+    <section className={`bg-background ${SECTION}`}>
+      <div className={CONTAINER}>
+        <Reveal>
+          <SectionHeading eyebrow="Why Us" title="Why Organizations Choose CyberCloud" />
+        </Reveal>
+        <div className="relative mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="pointer-events-none absolute left-0 right-0 top-6 hidden h-px bg-border lg:block" />
+          {whyCards.map((c, i) => (
+            <Reveal key={c.number} delay={i * 0.08} className="relative">
+              <span className="font-display text-[3rem] font-extrabold leading-none text-primary/25">
+                {c.number}
+              </span>
+              <h3 className="mt-4 text-lg font-bold text-foreground">{c.title}</h3>
+              <p className="mt-3 text-[0.95rem] leading-[1.7] text-muted-foreground">
+                {c.description}
+              </p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------- Process */
+
+function Process() {
+  return (
+    <section className={`bg-surface ${SECTION}`}>
+      <div className={CONTAINER}>
+        <Reveal>
+          <SectionHeading eyebrow="Process" title="How We Deliver" />
+        </Reveal>
+        <div className="relative mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="pointer-events-none absolute left-7 top-0 hidden h-full w-px bg-border sm:block lg:left-0 lg:right-0 lg:top-7 lg:h-px lg:w-full" />
+          {processSteps.map((step, i) => (
+            <Reveal key={step.number} delay={i * 0.08} className="relative">
+              <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-soft">
+                <step.icon className="h-6 w-6" />
+              </span>
+              <p className="mt-5 text-sm font-bold tracking-[0.14em] text-primary">{step.number}</p>
+              <h3 className="mt-2 text-lg font-bold text-foreground">{step.title}</h3>
+              <p className="mt-3 text-[0.95rem] leading-[1.7] text-muted-foreground">
+                {step.description}
+              </p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------- Testimonials */
+
+function Testimonials() {
+  const [index, setIndex] = useState(0);
+  const total = quotes.length;
+  const active = quotes[index];
+
+  return (
+    <section className={`bg-background ${SECTION}`}>
+      <div className={CONTAINER}>
+        <Reveal>
+          <SectionHeading
+            eyebrow="Testimonials"
+            title="What Delivery Partners Tell Us"
+            description="Representative feedback from engagements. Client names withheld under confidentiality agreements."
+          />
+        </Reveal>
+
+        <Reveal delay={0.1} className="mt-12">
+          <div className="mx-auto max-w-[760px] rounded-3xl border border-border bg-card p-8 shadow-card sm:p-[50px]">
+            <Quote className="h-9 w-9 text-primary/30" />
+            <motion.blockquote
+              key={index}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="mt-6 text-lg leading-[1.7] text-foreground sm:text-xl"
+            >
+              “{active.quote}”
+            </motion.blockquote>
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6">
+              <div>
+                <p className="font-semibold text-foreground">{active.name}</p>
+                <p className="text-sm text-muted-foreground">{active.role}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  aria-label="Previous testimonial"
+                  onClick={() => setIndex((i) => (i - 1 + total) % total)}
+                  className="grid h-11 w-11 place-items-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Next testimonial"
+                  onClick={() => setIndex((i) => (i + 1) % total)}
+                  className="grid h-11 w-11 place-items-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="mt-6 flex justify-center gap-2">
+            {quotes.map((q, i) => (
+              <button
+                key={q.name}
+                type="button"
+                aria-label={`Go to testimonial ${i + 1}`}
+                onClick={() => setIndex(i)}
+                className={`h-2 rounded-full transition-all ${
+                  i === index ? "w-7 bg-primary" : "w-2 bg-border"
+                }`}
+              />
+            ))}
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------- Insights */
+
+function Insights() {
+  return (
+    <section className={`bg-surface ${SECTION}`}>
+      <div className={CONTAINER}>
+        <Reveal>
+          <SectionHeading
+            eyebrow="Insights"
+            title="Perspectives From Our Engineers"
+            description="Practical guidance on cloud infrastructure, security strategy, and building mission-critical teams."
+          />
+        </Reveal>
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {blogPosts.slice(0, 3).map((post, i) => (
+            <Reveal key={post.slug} delay={i * 0.08}>
+              <Link
+                to="/blog/$slug"
+                params={{ slug: post.slug }}
+                className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-border bg-card shadow-card transition-all duration-300 hover:-translate-y-2 hover:shadow-lift"
+              >
+                <div className="h-52 overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-7">
+                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">
+                    {post.category}
+                  </span>
+                  <h3 className="mt-3 text-xl font-bold leading-snug text-foreground">
+                    {post.title}
+                  </h3>
+                  <p className="mt-3 flex-1 text-[0.95rem] leading-[1.7] text-muted-foreground">
+                    {post.excerpt}
+                  </p>
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                    Read More
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------- CTA */
+
+function FinalCTA() {
+  return (
+    <section className="px-5 pb-20 sm:px-6 lg:px-8 lg:pb-28">
+      <div
+        className={`${CONTAINER} relative overflow-hidden rounded-[28px] px-6 py-16 text-center sm:px-12 lg:py-20`}
+        style={{
+          backgroundImage:
+            "linear-gradient(135deg, #080D24 0%, #1066F2 55%, #6C63FF 100%)",
+        }}
+      >
+        <div className="pointer-events-none absolute -left-16 -top-16 h-64 w-64 rounded-full border border-white/15" />
+        <div className="pointer-events-none absolute -bottom-24 -right-10 h-80 w-80 rounded-full border border-white/10" />
+        <div className="pointer-events-none absolute inset-0 dot-pattern opacity-20" />
+        <div className="relative mx-auto max-w-[900px]">
+          <h2 className="text-[2rem] font-extrabold leading-[1.15] tracking-tight text-white sm:text-[2.5rem] lg:text-[3rem]">
+            Ready to Build What Comes Next?
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-[1.7] text-white/80 sm:text-lg">
+            Let's discuss how CyberCloud Infra LLC can modernize your technology, strengthen your
+            infrastructure, and deliver the talent you need.
+          </p>
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button
+              asChild
+              className="h-[52px] rounded-[10px] bg-white px-7 text-base font-semibold text-navy transition-transform hover:-translate-y-0.5 hover:bg-white/90"
+            >
+              <Link to="/contact">
+                Start a Conversation <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="h-[52px] rounded-[10px] border-white/40 bg-white/10 px-7 text-base font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-white/20 hover:text-white"
+            >
+              <Link to="/it-services">View Services</Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
