@@ -167,8 +167,8 @@
   }
 
   ::selection {
-    background: rgba(235, 125, 52, 0.22);
-    color: #0b1f3a;
+    background: rgba(16, 102, 242, 0.18);
+    color: #0b0f2a;
   }
 
   :focus-visible {
@@ -236,13 +236,13 @@
 
 @utility grid-pattern {
   background-image:
-    linear-gradient(rgba(37, 99, 235, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.055) 1px, transparent 1px);
+    linear-gradient(rgba(16, 102, 242, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 102, 242, 0.06) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
 @utility dot-pattern {
-  background-image: radial-gradient(rgba(37, 99, 235, 0.16) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(16, 102, 242, 0.16) 1px, transparent 1px);
   background-size: 22px 22px;
 }
 
