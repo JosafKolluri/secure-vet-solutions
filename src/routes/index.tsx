@@ -140,9 +140,9 @@ const industryCards = [
   { ...industries[0], image: imgDatacenter },
   { ...industries[1], image: imgHealthcare },
   { ...industries[2], image: imgSecurity },
-  { title: "Technology", description: industries[5].description, image: imgDashboard },
-  { ...industries[3], image: imgSoc },
-  { title: "Professional Services", description: industries[4].description, image: imgTeam },
+  { ...industries[3], image: imgDashboard },
+  { ...industries[4], image: imgSoc },
+  { ...industries[5], image: imgTeam },
 ];
 
 const staffingCards = [
