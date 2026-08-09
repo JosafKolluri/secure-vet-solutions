@@ -17,6 +17,7 @@ import { Route as ItServicesRouteImport } from './routes/it-services'
 import { Route as InfrastructureServicesRouteImport } from './routes/infrastructure-services'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as HealthcareStaffingRouteImport } from './routes/healthcare-staffing'
+import { Route as HealthcareServicesRouteImport } from './routes/healthcare-services'
 import { Route as GetQuoteRouteImport } from './routes/get-quote'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
@@ -67,6 +68,11 @@ const IndustriesRoute = IndustriesRouteImport.update({
 const HealthcareStaffingRoute = HealthcareStaffingRouteImport.update({
   id: '/healthcare-staffing',
   path: '/healthcare-staffing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HealthcareServicesRoute = HealthcareServicesRouteImport.update({
+  id: '/healthcare-services',
+  path: '/healthcare-services',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GetQuoteRoute = GetQuoteRouteImport.update({
@@ -136,6 +142,7 @@ export interface FileRoutesByFullPath {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/get-quote': typeof GetQuoteRoute
+  '/healthcare-services': typeof HealthcareServicesRoute
   '/healthcare-staffing': typeof HealthcareStaffingRoute
   '/industries': typeof IndustriesRoute
   '/infrastructure-services': typeof InfrastructureServicesRoute
@@ -157,6 +164,7 @@ export interface FileRoutesByTo {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/get-quote': typeof GetQuoteRoute
+  '/healthcare-services': typeof HealthcareServicesRoute
   '/healthcare-staffing': typeof HealthcareStaffingRoute
   '/industries': typeof IndustriesRoute
   '/infrastructure-services': typeof InfrastructureServicesRoute
@@ -179,6 +187,7 @@ export interface FileRoutesById {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/get-quote': typeof GetQuoteRoute
+  '/healthcare-services': typeof HealthcareServicesRoute
   '/healthcare-staffing': typeof HealthcareStaffingRoute
   '/industries': typeof IndustriesRoute
   '/infrastructure-services': typeof InfrastructureServicesRoute
@@ -202,6 +211,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/contact'
     | '/get-quote'
+    | '/healthcare-services'
     | '/healthcare-staffing'
     | '/industries'
     | '/infrastructure-services'
@@ -223,6 +233,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/contact'
     | '/get-quote'
+    | '/healthcare-services'
     | '/healthcare-staffing'
     | '/industries'
     | '/infrastructure-services'
@@ -244,6 +255,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/contact'
     | '/get-quote'
+    | '/healthcare-services'
     | '/healthcare-staffing'
     | '/industries'
     | '/infrastructure-services'
@@ -266,6 +278,7 @@ export interface RootRouteChildren {
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   GetQuoteRoute: typeof GetQuoteRoute
+  HealthcareServicesRoute: typeof HealthcareServicesRoute
   HealthcareStaffingRoute: typeof HealthcareStaffingRoute
   IndustriesRoute: typeof IndustriesRoute
   InfrastructureServicesRoute: typeof InfrastructureServicesRoute
@@ -336,6 +349,13 @@ declare module '@tanstack/react-router' {
       path: '/healthcare-staffing'
       fullPath: '/healthcare-staffing'
       preLoaderRoute: typeof HealthcareStaffingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/healthcare-services': {
+      id: '/healthcare-services'
+      path: '/healthcare-services'
+      fullPath: '/healthcare-services'
+      preLoaderRoute: typeof HealthcareServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/get-quote': {
@@ -426,6 +446,7 @@ const rootRouteChildren: RootRouteChildren = {
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   GetQuoteRoute: GetQuoteRoute,
+  HealthcareServicesRoute: HealthcareServicesRoute,
   HealthcareStaffingRoute: HealthcareStaffingRoute,
   IndustriesRoute: IndustriesRoute,
   InfrastructureServicesRoute: InfrastructureServicesRoute,
