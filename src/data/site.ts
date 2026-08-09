@@ -900,3 +900,141 @@ export const devSecOpsPhases = [
   "Operate",
   "Monitor",
 ];
+
+/* ------------------------------------------------------------------ */
+/* Four service pillars + client markets                               */
+/* ------------------------------------------------------------------ */
+
+export interface Pillar {
+  number: string;
+  slug: string;
+  title: string;
+  summary: string;
+  icon: LucideIcon;
+  href: string;
+  services: string[];
+}
+
+export const pillars: Pillar[] = [
+  {
+    number: "01",
+    slug: "it-services",
+    title: "IT Services",
+    summary: "Technology solutions for modern organizations — advisory, build, and run.",
+    icon: Cloud,
+    href: "/it-services",
+    services: [
+      "IT Consulting",
+      "Managed IT Services",
+      "Software Development",
+      "Application Development",
+      "Cloud Services",
+      "Cybersecurity",
+      "IT Support",
+      "Digital Transformation",
+      "Data & Analytics",
+      "Technology Consulting",
+    ],
+  },
+  {
+    number: "02",
+    slug: "non-it-services",
+    title: "Non-IT Services",
+    summary: "Professional workforce and operational support across business functions.",
+    icon: Users,
+    href: "/non-it-services",
+    services: [
+      "Administrative Staffing",
+      "Professional Staffing",
+      "Business Operations",
+      "Project Support",
+      "Finance & Accounting Staffing",
+      "Human Resources Staffing",
+      "Customer Service Staffing",
+      "Engineering Staffing",
+      "Skilled Workforce Solutions",
+    ],
+  },
+  {
+    number: "03",
+    slug: "infrastructure-services",
+    title: "Infrastructure Services",
+    summary: "Infrastructure engineering and operations that keep environments resilient.",
+    icon: Server,
+    href: "/infrastructure-services",
+    services: [
+      "Cloud Infrastructure",
+      "Data Center Services",
+      "Network Infrastructure",
+      "Systems Engineering",
+      "Infrastructure Modernization",
+      "Infrastructure Support",
+      "Server & Storage",
+      "Network Operations",
+      "Migration Services",
+      "Infrastructure Monitoring",
+      "Technical Field Services",
+    ],
+  },
+  {
+    number: "04",
+    slug: "healthcare-services",
+    title: "Healthcare Services",
+    summary: "Healthcare workforce, technology, and operational support solutions.",
+    icon: Stethoscope,
+    href: "/healthcare-services",
+    services: [
+      "Healthcare Staffing",
+      "Clinical Staffing",
+      "Non-Clinical Staffing",
+      "Healthcare IT",
+      "Healthcare Operations Support",
+      "Administrative Healthcare Staffing",
+      "Medical Office Staffing",
+      "Healthcare Technology Support",
+      "Healthcare Workforce Solutions",
+    ],
+  },
+];
+
+export interface Market {
+  slug: string;
+  title: string;
+  message: string;
+  icon: LucideIcon;
+  segments: string[];
+}
+
+export const whoWeServe: Market[] = [
+  {
+    slug: "private-sector",
+    title: "Private Sector",
+    message:
+      "Technology, infrastructure, workforce, and operational solutions designed to help organizations grow and transform.",
+    icon: Building2,
+    segments: [
+      "Enterprises",
+      "Small & Medium Businesses",
+      "Technology Companies",
+      "Financial Services",
+      "Manufacturing",
+      "Professional Services",
+      "Healthcare Organizations",
+    ],
+  },
+  {
+    slug: "government-public-sector",
+    title: "Government & Public Sector",
+    message:
+      "Reliable technology, infrastructure, professional workforce, and operational support aligned with public-sector missions.",
+    icon: Landmark,
+    segments: [
+      "Federal Government",
+      "State Government",
+      "Local Government",
+      "Public Agencies",
+      "Government Contractors",
+      "Public Institutions",
+    ],
+  },
+];
