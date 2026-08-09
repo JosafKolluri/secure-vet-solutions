@@ -22,7 +22,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { HeroVisual } from "@/components/sections/HeroVisual";
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
-import { blogPosts, industries } from "@/data/site";
+import { blogPosts, industries, pillars, whoWeServe } from "@/data/site";
 import aboutTeam from "@/assets/about-team.jpg";
 import imgDatacenter from "@/assets/infrastructure-datacenter.jpg";
 import imgHealthcare from "@/assets/healthcare-staff.jpg";
@@ -67,50 +67,8 @@ const trustStats = [
   { value: "24/7", label: "Operational Support" },
 ];
 
-const homeServiceCards = [
-  {
-    icon: Workflow,
-    title: "IT Services & Consulting",
-    description:
-      "Advisory, managed IT, and modernization programs run by engineers who own the outcome end to end.",
-    to: "/it-services",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud & Infrastructure",
-    description:
-      "Azure-first landing zones, data center migration, networking, and 24/7 operations that stay resilient.",
-    to: "/infrastructure-services",
-  },
-  {
-    icon: Shield,
-    title: "Cybersecurity",
-    description:
-      "Zero-trust architecture, continuous monitoring, and compliance alignment for regulated environments.",
-    to: "/it-services",
-  },
-  {
-    icon: Code2,
-    title: "Application Development",
-    description:
-      "Secure, cloud-native applications and API platforms delivered in disciplined, demo-driven sprints.",
-    to: "/it-services",
-  },
-  {
-    icon: Server,
-    title: "ServiceNow Consulting",
-    description:
-      "Workflow design, ITSM implementation, and platform governance that turn process into automation.",
-    to: "/it-services",
-  },
-  {
-    icon: Users,
-    title: "Technology Staffing",
-    description:
-      "IT, non-IT, and healthcare talent sourced, screened, and placed against critical role requirements.",
-    to: "/non-it-staffing",
-  },
-];
+// Home service grid is driven by the four pillars in src/data/site.ts
+
 
 const solutions = [
   {
@@ -132,7 +90,7 @@ const solutions = [
     title: "Workforce & Staffing Solutions",
     description:
       "Scale delivery with vetted IT, non-IT, and healthcare professionals matched to mission requirements, not keyword lists.",
-    to: "/non-it-staffing",
+    to: "/non-it-services",
   },
 ];
 
@@ -146,9 +104,9 @@ const industryCards = [
 ];
 
 const staffingCards = [
-  { title: "IT Staffing", detail: "Cloud, security, data, and platform engineers" },
-  { title: "Non-IT Staffing", detail: "Administrative, finance, and engineering talent" },
-  { title: "Healthcare Staffing", detail: "Credentialed clinical and allied health professionals" },
+  { title: "IT & Technology Talent", detail: "Cloud, security, data, and platform engineers" },
+  { title: "Non-IT Professionals", detail: "Administrative, finance, HR, and engineering talent" },
+  { title: "Healthcare Workforce", detail: "Clinical, non-clinical, and medical office professionals" },
 ];
 
 const techStack = [
@@ -222,6 +180,7 @@ function HomePage() {
       <TrustBar />
       <About />
       <Services />
+      <WhoWeServe />
       <FeaturedSolutions />
       <Industries />
       <Staffing />
@@ -249,25 +208,26 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Eyebrow>Technology • Infrastructure • Talent</Eyebrow>
+            <Eyebrow>IT • Non-IT • Infrastructure • Healthcare</Eyebrow>
             <h1 className="mt-6 text-[2.5rem] font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-[3.25rem] lg:text-[4rem]">
-              Technology & Talent for{" "}
+              Technology, Infrastructure & Talent for{" "}
               <span className="text-gradient">Mission-Critical Organizations</span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-[1.7] text-muted-foreground sm:text-lg">
-              CyberCloud Infra LLC delivers IT services, infrastructure engineering, cybersecurity,
-              and specialized IT, non-IT, and healthcare staffing — bringing technology and talent
-              together through one accountable partner.
+              CyberCloud Infra LLC delivers technology, infrastructure, professional workforce,
+              non-IT, and healthcare solutions to private and government organizations through one
+              accountable partner.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button
                 asChild
                 className="h-[52px] rounded-[10px] bg-gradient-primary px-7 text-base font-semibold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
               >
-                <Link to="/it-services">
+                <Link to="/services">
                   Explore Our Services <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
+
               <Button
                 asChild
                 variant="outline"
@@ -391,24 +351,37 @@ function Services() {
         <Reveal>
           <SectionHeading
             eyebrow="Our Services"
-            title="Technology Solutions Built Around Your Mission"
-            description="From cloud modernization to credentialed staffing, every engagement is scoped to the outcomes your organization is accountable for."
+            title="Four Service Pillars, One Accountable Partner"
+            description="Technology, professional workforce, infrastructure, and healthcare solutions — delivered together for private, government, and public-sector organizations."
           />
         </Reveal>
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {homeServiceCards.map((card, i) => (
-            <Reveal key={card.title} delay={i * 0.06}>
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((pillar, i) => (
+            <Reveal key={pillar.slug} delay={i * 0.06}>
               <Link
-                to={card.to}
-                className="group flex h-full flex-col rounded-[20px] border border-border bg-card p-8 shadow-card transition-all duration-300 hover:-translate-y-2 hover:shadow-lift"
+                to={pillar.href}
+                className="group flex h-full flex-col rounded-[20px] border border-border bg-card p-7 shadow-card transition-all duration-300 hover:-translate-y-2 hover:shadow-lift"
               >
-                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-accent text-primary transition-colors duration-300 group-hover:bg-gradient-primary group-hover:text-primary-foreground">
-                  <card.icon className="h-6 w-6" />
-                </span>
-                <h3 className="mt-6 text-[1.35rem] font-bold text-foreground">{card.title}</h3>
-                <p className="mt-3 flex-1 text-[0.975rem] leading-[1.7] text-muted-foreground">
-                  {card.description}
+                <div className="flex items-center justify-between">
+                  <span className="grid h-13 w-13 place-items-center rounded-2xl bg-accent p-3.5 text-primary transition-colors duration-300 group-hover:bg-gradient-primary group-hover:text-primary-foreground">
+                    <pillar.icon className="h-6 w-6" />
+                  </span>
+                  <span className="font-display text-2xl font-extrabold text-border">
+                    {pillar.number}
+                  </span>
+                </div>
+                <h3 className="mt-6 text-[1.2rem] font-bold text-foreground">{pillar.title}</h3>
+                <p className="mt-3 text-[0.95rem] leading-[1.65] text-muted-foreground">
+                  {pillar.summary}
                 </p>
+                <ul className="mt-5 flex-1 space-y-2">
+                  {pillar.services.slice(0, 4).map((s) => (
+                    <li key={s} className="flex items-start gap-2 text-sm text-foreground/80">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      {s}
+                    </li>
+                  ))}
+                </ul>
                 <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
                   Learn More
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
@@ -421,6 +394,58 @@ function Services() {
     </section>
   );
 }
+
+/* ---------------------------------------------------------- WhoWeServe */
+
+function WhoWeServe() {
+  return (
+    <section className={`bg-background ${SECTION}`}>
+      <div className={CONTAINER}>
+        <Reveal>
+          <SectionHeading
+            eyebrow="Who We Serve"
+            title="Trusted Across Private and Public Sectors"
+            description="From growing businesses to federal agencies, we bring the same disciplined delivery model to every engagement."
+          />
+        </Reveal>
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          {whoWeServe.map((market, i) => (
+            <Reveal key={market.slug} delay={i * 0.08}>
+              <div className="flex h-full flex-col rounded-[24px] border border-border bg-card p-8 shadow-card lg:p-10">
+                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground">
+                  <market.icon className="h-6 w-6" />
+                </span>
+                <h3 className="mt-6 text-[1.45rem] font-bold text-foreground">{market.title}</h3>
+                <p className="mt-3 text-[0.975rem] leading-[1.7] text-muted-foreground">
+                  {market.message}
+                </p>
+                <ul className="mt-7 grid gap-2.5 sm:grid-cols-2">
+                  {market.segments.map((s) => (
+                    <li key={s} className="flex items-start gap-2.5 text-sm text-foreground/85">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.12}>
+          <div className="mt-10 text-center">
+            <Link
+              to="/who-we-serve"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary"
+            >
+              See how we support each sector <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 
 /* --------------------------------------------------- FeaturedSolutions */
 
@@ -533,7 +558,7 @@ function Staffing() {
             asChild
             className="mt-9 h-[52px] rounded-[10px] bg-white px-7 font-semibold text-navy hover:bg-white/90"
           >
-            <Link to="/non-it-staffing">
+            <Link to="/non-it-services">
               Explore Staffing Solutions <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>

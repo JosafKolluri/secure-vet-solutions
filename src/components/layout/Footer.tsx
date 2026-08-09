@@ -8,6 +8,7 @@ const columns = [
     heading: "Company",
     links: [
       { to: "/about", label: "About" },
+      { to: "/who-we-serve", label: "Who We Serve" },
       { to: "/case-studies", label: "Case Studies" },
       { to: "/careers", label: "Careers" },
       { to: "/blog", label: "Insights" },
@@ -17,12 +18,11 @@ const columns = [
   {
     heading: "Services",
     links: [
+      { to: "/services", label: "All Services" },
       { to: "/it-services", label: "IT Services" },
-      { to: "/infrastructure-services", label: "Cloud & Infrastructure" },
-      { to: "/it-services", label: "Cybersecurity" },
-      { to: "/it-services", label: "Application Development" },
-      { to: "/non-it-staffing", label: "Non-IT Staffing" },
-      { to: "/healthcare-staffing", label: "Healthcare Staffing" },
+      { to: "/non-it-services", label: "Non-IT Services" },
+      { to: "/infrastructure-services", label: "Infrastructure Services" },
+      { to: "/healthcare-services", label: "Healthcare Services" },
     ],
   },
   {
@@ -36,6 +36,7 @@ const columns = [
     ],
   },
 ] as const;
+
 
 const socials = [
   { icon: Linkedin, label: "LinkedIn" },
@@ -54,8 +55,9 @@ export function Footer() {
           <div>
             <Logo className="text-white [&_span:last-child]:text-white/90" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
-              Technology & Talent for Mission-Critical Organizations.
+              Technology, Infrastructure & Talent for Mission-Critical Organizations.
             </p>
+
             <ul className="mt-6 space-y-3 text-sm text-white/75">
               <li className="flex items-center gap-2.5">
                 <Mail className="h-4 w-4 shrink-0 text-primary" />
