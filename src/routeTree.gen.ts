@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhoWeServeRouteImport } from './routes/who-we-serve'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as NonItStaffingRouteImport } from './routes/non-it-staffing'
 import { Route as NonItServicesRouteImport } from './routes/non-it-services'
 import { Route as McpRouteImport } from './routes/mcp'
@@ -39,6 +40,11 @@ const WhoWeServeRoute = WhoWeServeRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NonItStaffingRoute = NonItStaffingRouteImport.update({
@@ -156,6 +162,7 @@ export interface FileRoutesByFullPath {
   '/mcp': typeof McpRoute
   '/non-it-services': typeof NonItServicesRoute
   '/non-it-staffing': typeof NonItStaffingRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/who-we-serve': typeof WhoWeServeRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -179,6 +186,7 @@ export interface FileRoutesByTo {
   '/mcp': typeof McpRoute
   '/non-it-services': typeof NonItServicesRoute
   '/non-it-staffing': typeof NonItStaffingRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/who-we-serve': typeof WhoWeServeRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -203,6 +211,7 @@ export interface FileRoutesById {
   '/mcp': typeof McpRoute
   '/non-it-services': typeof NonItServicesRoute
   '/non-it-staffing': typeof NonItStaffingRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/who-we-serve': typeof WhoWeServeRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -228,6 +237,7 @@ export interface FileRouteTypes {
     | '/mcp'
     | '/non-it-services'
     | '/non-it-staffing'
+    | '/services'
     | '/sitemap.xml'
     | '/who-we-serve'
     | '/.mcp/list-tools'
@@ -251,6 +261,7 @@ export interface FileRouteTypes {
     | '/mcp'
     | '/non-it-services'
     | '/non-it-staffing'
+    | '/services'
     | '/sitemap.xml'
     | '/who-we-serve'
     | '/.mcp/list-tools'
@@ -274,6 +285,7 @@ export interface FileRouteTypes {
     | '/mcp'
     | '/non-it-services'
     | '/non-it-staffing'
+    | '/services'
     | '/sitemap.xml'
     | '/who-we-serve'
     | '/.mcp/list-tools'
@@ -298,6 +310,7 @@ export interface RootRouteChildren {
   McpRoute: typeof McpRoute
   NonItServicesRoute: typeof NonItServicesRoute
   NonItStaffingRoute: typeof NonItStaffingRoute
+  ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WhoWeServeRoute: typeof WhoWeServeRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
@@ -320,6 +333,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/non-it-staffing': {
@@ -474,6 +494,7 @@ const rootRouteChildren: RootRouteChildren = {
   McpRoute: McpRoute,
   NonItServicesRoute: NonItServicesRoute,
   NonItStaffingRoute: NonItStaffingRoute,
+  ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   WhoWeServeRoute: WhoWeServeRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
