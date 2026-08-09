@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WhoWeServeRouteImport } from './routes/who-we-serve'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as NonItStaffingRouteImport } from './routes/non-it-staffing'
 import { Route as NonItServicesRouteImport } from './routes/non-it-services'
@@ -30,6 +31,11 @@ import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } fr
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 
+const WhoWeServeRoute = WhoWeServeRouteImport.update({
+  id: '/who-we-serve',
+  path: '/who-we-serve',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -151,6 +157,7 @@ export interface FileRoutesByFullPath {
   '/non-it-services': typeof NonItServicesRoute
   '/non-it-staffing': typeof NonItStaffingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/who-we-serve': typeof WhoWeServeRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -173,6 +180,7 @@ export interface FileRoutesByTo {
   '/non-it-services': typeof NonItServicesRoute
   '/non-it-staffing': typeof NonItStaffingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/who-we-serve': typeof WhoWeServeRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -196,6 +204,7 @@ export interface FileRoutesById {
   '/non-it-services': typeof NonItServicesRoute
   '/non-it-staffing': typeof NonItStaffingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/who-we-serve': typeof WhoWeServeRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/blog_/$slug': typeof BlogSlugRoute
@@ -220,6 +229,7 @@ export interface FileRouteTypes {
     | '/non-it-services'
     | '/non-it-staffing'
     | '/sitemap.xml'
+    | '/who-we-serve'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/blog/$slug'
@@ -242,6 +252,7 @@ export interface FileRouteTypes {
     | '/non-it-services'
     | '/non-it-staffing'
     | '/sitemap.xml'
+    | '/who-we-serve'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/blog/$slug'
@@ -264,6 +275,7 @@ export interface FileRouteTypes {
     | '/non-it-services'
     | '/non-it-staffing'
     | '/sitemap.xml'
+    | '/who-we-serve'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/blog_/$slug'
@@ -287,6 +299,7 @@ export interface RootRouteChildren {
   NonItServicesRoute: typeof NonItServicesRoute
   NonItStaffingRoute: typeof NonItStaffingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  WhoWeServeRoute: typeof WhoWeServeRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -295,6 +308,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/who-we-serve': {
+      id: '/who-we-serve'
+      path: '/who-we-serve'
+      fullPath: '/who-we-serve'
+      preLoaderRoute: typeof WhoWeServeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -455,6 +475,7 @@ const rootRouteChildren: RootRouteChildren = {
   NonItServicesRoute: NonItServicesRoute,
   NonItStaffingRoute: NonItStaffingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  WhoWeServeRoute: WhoWeServeRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
