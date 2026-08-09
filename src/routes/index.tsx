@@ -22,7 +22,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { HeroVisual } from "@/components/sections/HeroVisual";
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
-import { blogPosts, industries } from "@/data/site";
+import { blogPosts, industries, pillars, whoWeServe } from "@/data/site";
 import aboutTeam from "@/assets/about-team.jpg";
 import imgDatacenter from "@/assets/infrastructure-datacenter.jpg";
 import imgHealthcare from "@/assets/healthcare-staff.jpg";
@@ -67,50 +67,8 @@ const trustStats = [
   { value: "24/7", label: "Operational Support" },
 ];
 
-const homeServiceCards = [
-  {
-    icon: Workflow,
-    title: "IT Services & Consulting",
-    description:
-      "Advisory, managed IT, and modernization programs run by engineers who own the outcome end to end.",
-    to: "/it-services",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud & Infrastructure",
-    description:
-      "Azure-first landing zones, data center migration, networking, and 24/7 operations that stay resilient.",
-    to: "/infrastructure-services",
-  },
-  {
-    icon: Shield,
-    title: "Cybersecurity",
-    description:
-      "Zero-trust architecture, continuous monitoring, and compliance alignment for regulated environments.",
-    to: "/it-services",
-  },
-  {
-    icon: Code2,
-    title: "Application Development",
-    description:
-      "Secure, cloud-native applications and API platforms delivered in disciplined, demo-driven sprints.",
-    to: "/it-services",
-  },
-  {
-    icon: Server,
-    title: "ServiceNow Consulting",
-    description:
-      "Workflow design, ITSM implementation, and platform governance that turn process into automation.",
-    to: "/it-services",
-  },
-  {
-    icon: Users,
-    title: "Technology Staffing",
-    description:
-      "IT, non-IT, and healthcare talent sourced, screened, and placed against critical role requirements.",
-    to: "/non-it-staffing",
-  },
-];
+// Home service grid is driven by the four pillars in src/data/site.ts
+
 
 const solutions = [
   {
@@ -132,7 +90,7 @@ const solutions = [
     title: "Workforce & Staffing Solutions",
     description:
       "Scale delivery with vetted IT, non-IT, and healthcare professionals matched to mission requirements, not keyword lists.",
-    to: "/non-it-staffing",
+    to: "/non-it-services",
   },
 ];
 
@@ -146,9 +104,9 @@ const industryCards = [
 ];
 
 const staffingCards = [
-  { title: "IT Staffing", detail: "Cloud, security, data, and platform engineers" },
-  { title: "Non-IT Staffing", detail: "Administrative, finance, and engineering talent" },
-  { title: "Healthcare Staffing", detail: "Credentialed clinical and allied health professionals" },
+  { title: "IT & Technology Talent", detail: "Cloud, security, data, and platform engineers" },
+  { title: "Non-IT Professionals", detail: "Administrative, finance, HR, and engineering talent" },
+  { title: "Healthcare Workforce", detail: "Clinical, non-clinical, and medical office professionals" },
 ];
 
 const techStack = [
@@ -222,6 +180,7 @@ function HomePage() {
       <TrustBar />
       <About />
       <Services />
+      <WhoWeServe />
       <FeaturedSolutions />
       <Industries />
       <Staffing />
@@ -534,7 +493,7 @@ function Staffing() {
             asChild
             className="mt-9 h-[52px] rounded-[10px] bg-white px-7 font-semibold text-navy hover:bg-white/90"
           >
-            <Link to="/non-it-staffing">
+            <Link to="/non-it-services">
               Explore Staffing Solutions <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
