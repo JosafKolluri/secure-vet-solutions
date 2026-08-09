@@ -14,29 +14,32 @@ type NavItemDef = {
 
 const nav: NavItemDef[] = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
   {
-    to: "/it-services",
-    label: "Services",
+    to: "/about",
+    label: "About",
     children: [
-      { to: "/it-services", label: "IT Services & Consulting" },
-      { to: "/infrastructure-services", label: "Cloud & Infrastructure" },
+      { to: "/about", label: "About Us" },
       { to: "/case-studies", label: "Case Studies" },
-    ],
-  },
-  { to: "/industries", label: "Industries" },
-  {
-    to: "/non-it-staffing",
-    label: "Staffing",
-    children: [
-      { to: "/non-it-staffing", label: "Non-IT Staffing" },
-      { to: "/healthcare-staffing", label: "Healthcare Staffing" },
       { to: "/careers", label: "Careers" },
     ],
   },
+  {
+    to: "/services",
+    label: "Services",
+    children: [
+      { to: "/services", label: "All Services" },
+      { to: "/it-services", label: "IT Services" },
+      { to: "/non-it-services", label: "Non-IT Services" },
+      { to: "/infrastructure-services", label: "Infrastructure Services" },
+      { to: "/healthcare-services", label: "Healthcare Services" },
+    ],
+  },
+  { to: "/who-we-serve", label: "Who We Serve" },
+  { to: "/industries", label: "Industries" },
   { to: "/blog", label: "Insights" },
   { to: "/contact", label: "Contact" },
 ];
+
 
 export function Logo({ className }: { className?: string }) {
   return (
