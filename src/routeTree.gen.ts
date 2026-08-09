@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as NonItStaffingRouteImport } from './routes/non-it-staffing'
+import { Route as NonItServicesRouteImport } from './routes/non-it-services'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as ItServicesRouteImport } from './routes/it-services'
 import { Route as InfrastructureServicesRouteImport } from './routes/infrastructure-services'
@@ -36,6 +37,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const NonItStaffingRoute = NonItStaffingRouteImport.update({
   id: '/non-it-staffing',
   path: '/non-it-staffing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NonItServicesRoute = NonItServicesRouteImport.update({
+  id: '/non-it-services',
+  path: '/non-it-services',
   getParentRoute: () => rootRouteImport,
 } as any)
 const McpRoute = McpRouteImport.update({
@@ -135,6 +141,7 @@ export interface FileRoutesByFullPath {
   '/infrastructure-services': typeof InfrastructureServicesRoute
   '/it-services': typeof ItServicesRoute
   '/mcp': typeof McpRoute
+  '/non-it-services': typeof NonItServicesRoute
   '/non-it-staffing': typeof NonItStaffingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -155,6 +162,7 @@ export interface FileRoutesByTo {
   '/infrastructure-services': typeof InfrastructureServicesRoute
   '/it-services': typeof ItServicesRoute
   '/mcp': typeof McpRoute
+  '/non-it-services': typeof NonItServicesRoute
   '/non-it-staffing': typeof NonItStaffingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -176,6 +184,7 @@ export interface FileRoutesById {
   '/infrastructure-services': typeof InfrastructureServicesRoute
   '/it-services': typeof ItServicesRoute
   '/mcp': typeof McpRoute
+  '/non-it-services': typeof NonItServicesRoute
   '/non-it-staffing': typeof NonItStaffingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -198,6 +207,7 @@ export interface FileRouteTypes {
     | '/infrastructure-services'
     | '/it-services'
     | '/mcp'
+    | '/non-it-services'
     | '/non-it-staffing'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
@@ -218,6 +228,7 @@ export interface FileRouteTypes {
     | '/infrastructure-services'
     | '/it-services'
     | '/mcp'
+    | '/non-it-services'
     | '/non-it-staffing'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
@@ -238,6 +249,7 @@ export interface FileRouteTypes {
     | '/infrastructure-services'
     | '/it-services'
     | '/mcp'
+    | '/non-it-services'
     | '/non-it-staffing'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
@@ -259,6 +271,7 @@ export interface RootRouteChildren {
   InfrastructureServicesRoute: typeof InfrastructureServicesRoute
   ItServicesRoute: typeof ItServicesRoute
   McpRoute: typeof McpRoute
+  NonItServicesRoute: typeof NonItServicesRoute
   NonItStaffingRoute: typeof NonItStaffingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
@@ -281,6 +294,13 @@ declare module '@tanstack/react-router' {
       path: '/non-it-staffing'
       fullPath: '/non-it-staffing'
       preLoaderRoute: typeof NonItStaffingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/non-it-services': {
+      id: '/non-it-services'
+      path: '/non-it-services'
+      fullPath: '/non-it-services'
+      preLoaderRoute: typeof NonItServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mcp': {
@@ -411,6 +431,7 @@ const rootRouteChildren: RootRouteChildren = {
   InfrastructureServicesRoute: InfrastructureServicesRoute,
   ItServicesRoute: ItServicesRoute,
   McpRoute: McpRoute,
+  NonItServicesRoute: NonItServicesRoute,
   NonItStaffingRoute: NonItStaffingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
