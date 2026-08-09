@@ -249,25 +249,26 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Eyebrow>Technology • Infrastructure • Talent</Eyebrow>
+            <Eyebrow>IT • Non-IT • Infrastructure • Healthcare</Eyebrow>
             <h1 className="mt-6 text-[2.5rem] font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-[3.25rem] lg:text-[4rem]">
-              Technology & Talent for{" "}
+              Technology, Infrastructure & Talent for{" "}
               <span className="text-gradient">Mission-Critical Organizations</span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-[1.7] text-muted-foreground sm:text-lg">
-              CyberCloud Infra LLC delivers IT services, infrastructure engineering, cybersecurity,
-              and specialized IT, non-IT, and healthcare staffing — bringing technology and talent
-              together through one accountable partner.
+              CyberCloud Infra LLC delivers technology, infrastructure, professional workforce,
+              non-IT, and healthcare solutions to private and government organizations through one
+              accountable partner.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button
                 asChild
                 className="h-[52px] rounded-[10px] bg-gradient-primary px-7 text-base font-semibold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
               >
-                <Link to="/it-services">
+                <Link to="/services">
                   Explore Our Services <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
+
               <Button
                 asChild
                 variant="outline"
