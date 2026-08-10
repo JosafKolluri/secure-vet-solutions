@@ -181,8 +181,6 @@ function HomePage() {
       <About />
       <Services />
       <WhoWeServe />
-      <FeaturedSolutions />
-      <Industries />
       <Staffing />
       <TechEcosystem />
       <WhyCyberCloud />
