@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import {
   ArrowRight,
-  ArrowUpRight,
+  
   Check,
   Cloud,
   Code2,
