@@ -81,11 +81,14 @@ export function Header() {
     setMobileSub(null);
   }, [pathname]);
 
+  const isHome = pathname === "/";
+  const solid = scrolled || mobileOpen || !isHome;
+
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled || mobileOpen
+        solid
           ? "border-b border-border bg-background/90 shadow-soft backdrop-blur-xl"
           : "bg-transparent",
       )}
