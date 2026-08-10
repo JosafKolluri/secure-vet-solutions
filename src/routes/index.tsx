@@ -22,14 +22,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { HeroVisual } from "@/components/sections/HeroVisual";
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
-import { blogPosts, industries, pillars, whoWeServe } from "@/data/site";
+import { blogPosts, pillars, whoWeServe } from "@/data/site";
 import aboutTeam from "@/assets/about-team.jpg";
-import imgDatacenter from "@/assets/infrastructure-datacenter.jpg";
-import imgHealthcare from "@/assets/healthcare-staff.jpg";
-import imgSecurity from "@/assets/security-analyst.jpg";
-import imgSoc from "@/assets/soc-analysts.jpg";
-import imgDashboard from "@/assets/dashboard-laptop.jpg";
-import imgTeam from "@/assets/team-dark.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
