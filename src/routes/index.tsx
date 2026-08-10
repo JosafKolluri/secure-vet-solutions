@@ -70,38 +70,7 @@ const trustStats = [
 // Home service grid is driven by the four pillars in src/data/site.ts
 
 
-const solutions = [
-  {
-    number: "01",
-    title: "Cloud & Infrastructure Modernization",
-    description:
-      "Move off aging data centers with dependency-mapped migration waves, hardened landing zones, and cost governance from day one.",
-    to: "/infrastructure-services",
-  },
-  {
-    number: "02",
-    title: "Digital Transformation",
-    description:
-      "Replace manual process with automated workflow, secure applications, and data platforms your teams actually adopt.",
-    to: "/it-services",
-  },
-  {
-    number: "03",
-    title: "Workforce & Staffing Solutions",
-    description:
-      "Scale delivery with vetted IT, non-IT, and healthcare professionals matched to mission requirements, not keyword lists.",
-    to: "/non-it-services",
-  },
-];
 
-const industryCards = [
-  { ...industries[0], image: imgDatacenter },
-  { ...industries[1], image: imgHealthcare },
-  { ...industries[2], image: imgSecurity },
-  { ...industries[3], image: imgDashboard },
-  { ...industries[4], image: imgSoc },
-  { ...industries[5], image: imgTeam },
-];
 
 const staffingCards = [
   { title: "IT & Technology Talent", detail: "Cloud, security, data, and platform engineers" },
