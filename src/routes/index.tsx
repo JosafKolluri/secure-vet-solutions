@@ -305,6 +305,13 @@ function About() {
 
 /* ------------------------------------------------------------ Services */
 
+const pillarImages: Record<string, string> = {
+  "it-services": itImage,
+  "non-it-services": nonItImage,
+  "infrastructure-services": infraImage,
+  "healthcare-services": healthcareImage,
+};
+
 function Services() {
   return (
     <section className={`bg-surface ${SECTION}`}>
@@ -316,37 +323,47 @@ function Services() {
             description="Technology, professional workforce, infrastructure, and healthcare solutions — delivered together for private, government, and public-sector organizations."
           />
         </Reveal>
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map((pillar, i) => (
             <Reveal key={pillar.slug} delay={i * 0.06}>
               <Link
                 to={pillar.href}
-                className="group flex h-full flex-col rounded-[20px] border border-border bg-card p-7 shadow-card transition-all duration-300 hover:-translate-y-2 hover:shadow-lift"
+                className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-border bg-card shadow-card transition-all duration-300 hover:-translate-y-2 hover:shadow-lift"
               >
-                <div className="flex items-center justify-between">
-                  <span className="grid h-13 w-13 place-items-center rounded-2xl bg-accent p-3.5 text-primary transition-colors duration-300 group-hover:bg-gradient-primary group-hover:text-primary-foreground">
+                <div className="relative">
+                  <div className="aspect-[16/11] w-full overflow-hidden">
+                    <img
+                      src={pillarImages[pillar.slug]}
+                      alt={`${pillar.title} at CyberCloud Infra LLC`}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <span className="absolute -bottom-7 left-6 grid h-14 w-14 place-items-center rounded-full bg-gradient-primary text-primary-foreground shadow-lift ring-4 ring-card">
                     <pillar.icon className="h-6 w-6" />
                   </span>
-                  <span className="font-display text-2xl font-extrabold text-border">
+                  <span className="absolute right-4 top-4 rounded-full bg-card/85 px-2.5 py-1 font-display text-xs font-extrabold text-primary backdrop-blur">
                     {pillar.number}
                   </span>
                 </div>
-                <h3 className="mt-6 text-[1.2rem] font-bold text-foreground">{pillar.title}</h3>
-                <p className="mt-3 text-[0.95rem] leading-[1.65] text-muted-foreground">
-                  {pillar.summary}
-                </p>
-                <ul className="mt-5 flex-1 space-y-2">
-                  {pillar.services.slice(0, 4).map((s) => (
-                    <li key={s} className="flex items-start gap-2 text-sm text-foreground/80">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                  Learn More
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
-                </span>
+                <div className="flex flex-1 flex-col px-6 pb-7 pt-11">
+                  <h3 className="text-[1.2rem] font-bold text-foreground">{pillar.title}</h3>
+                  <p className="mt-3 text-[0.95rem] leading-[1.65] text-muted-foreground">
+                    {pillar.summary}
+                  </p>
+                  <ul className="mt-5 flex-1 space-y-2">
+                    {pillar.services.slice(0, 3).map((s) => (
+                      <li key={s} className="flex items-start gap-2 text-sm text-foreground/80">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                    Read More
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                  </span>
+                </div>
               </Link>
             </Reveal>
           ))}
@@ -355,6 +372,7 @@ function Services() {
     </section>
   );
 }
+
 
 /* ---------------------------------------------------------- WhoWeServe */
 
