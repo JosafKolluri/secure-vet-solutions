@@ -20,7 +20,6 @@ const nav: NavItemDef[] = [
     children: [
       { to: "/about", label: "About Us" },
       { to: "/case-studies", label: "Case Studies" },
-      { to: "/careers", label: "Careers" },
     ],
   },
   {
@@ -36,6 +35,7 @@ const nav: NavItemDef[] = [
   },
   { to: "/who-we-serve", label: "Who We Serve" },
   { to: "/industries", label: "Industries" },
+  { to: "/careers", label: "Careers" },
   { to: "/blog", label: "Insights" },
   { to: "/contact", label: "Contact" },
 ];
