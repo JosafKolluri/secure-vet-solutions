@@ -24,6 +24,10 @@ import { HeroVisual } from "@/components/sections/HeroVisual";
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
 import { blogPosts, pillars, whoWeServe } from "@/data/site";
 import aboutTeam from "@/assets/about-team.jpg";
+import itImage from "@/assets/dashboard-laptop.jpg";
+import nonItImage from "@/assets/hero-team.jpg";
+import infraImage from "@/assets/infrastructure-datacenter.jpg";
+import healthcareImage from "@/assets/healthcare-staff.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
