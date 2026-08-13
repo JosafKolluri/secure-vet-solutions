@@ -60,6 +60,7 @@ export const company = {
     country: "United States",
   },
   addressText: "704 Fox Squirrel CT, Arlington, TX 76005, United States",
+  locationShort: "Arlington, TX",
 };
 
 /* ------------------------------------------------------------------ */
@@ -125,7 +126,11 @@ export const itServices: ServiceDetail[] = [
     description:
       "Assess, plan, and migrate workloads to Azure, AWS, or GCP with landing zones, IaC, and cost governance built in.",
     icon: Cloud,
-    points: ["Azure-first landing zones", "Lift-shift-optimize migrations", "FinOps & cost control"],
+    points: [
+      "Azure-first landing zones",
+      "Lift-shift-optimize migrations",
+      "FinOps & cost control",
+    ],
   },
   {
     slug: "cybersecurity",
@@ -322,10 +327,7 @@ export const infrastructureServices: ServiceDetail[] = [
   },
 ];
 
-export const serviceCatalog: Record<
-  string,
-  { title: string; items: ServiceDetail[] }
-> = {
+export const serviceCatalog: Record<string, { title: string; items: ServiceDetail[] }> = {
   "it-services": { title: "IT Services", items: itServices },
   "non-it-staffing": { title: "Non-IT Staffing", items: nonItStaffing },
   "healthcare-staffing": { title: "Healthcare Staffing", items: healthcareStaffing },
@@ -340,10 +342,7 @@ export const homeServices = services.map((s) => ({
   points: (serviceCatalog[s.slug]?.items ?? []).slice(0, 3).map((i) => i.title),
 }));
 
-export const capabilities: ServiceDetail[] = [
-  ...itServices,
-  ...infrastructureServices,
-];
+export const capabilities: ServiceDetail[] = [...itServices, ...infrastructureServices];
 
 /* ------------------------------------------------------------------ */
 /* Stats, differentiators, process                                     */
@@ -631,8 +630,16 @@ export interface Certification {
 
 export const certifications: Certification[] = [
   { label: "SDVOSB", detail: "Service-Disabled Veteran-Owned Small Business", icon: ShieldCheck },
-  { label: "SAM.gov Registered", detail: "Active federal contractor registration", icon: BadgeCheck },
-  { label: "NIST 800-53 Aligned", detail: "Security controls mapped to federal baselines", icon: Shield },
+  {
+    label: "SAM.gov Registered",
+    detail: "Active federal contractor registration",
+    icon: BadgeCheck,
+  },
+  {
+    label: "NIST 800-53 Aligned",
+    detail: "Security controls mapped to federal baselines",
+    icon: Shield,
+  },
   { label: "CMMC 2.0 Aligned", detail: "Practices aligned to CMMC Level 2 objectives", icon: Lock },
 ];
 
@@ -646,6 +653,54 @@ export const coreCompetencies = [
 ];
 
 export const naicsCodes = ["541512", "541519", "541611", "561320", "621399", "518210"];
+
+export const trustChips = [
+  { lead: "SDVOSB", rest: "Veteran-owned" },
+  { lead: "SAM", rest: "Active registration" },
+  { lead: "NIST", rest: "800-53 aligned" },
+  { lead: "CMMC", rest: "Level 2 practices" },
+  { lead: "NAICS", rest: "541512 · 541611" },
+];
+
+export const contractingQuals: { label: string; value: string }[] = [
+  { label: "Certification", value: "Service-Disabled Veteran-Owned Small Business (SDVOSB)" },
+  { label: "Registration", value: "SAM.gov active federal contractor" },
+  { label: "NAICS", value: naicsCodes.join(", ") },
+  { label: "Contract types", value: "FFP, T&M, IDIQ task orders, staff augmentation" },
+  {
+    label: "Delivery lanes",
+    value: "IT services, infrastructure, cybersecurity, specialized staffing",
+  },
+  { label: "Sectors", value: "Federal, state, local, and commercial mission-critical programs" },
+  { label: "Support", value: "24/7 NOC and SLA-backed operations after go-live" },
+];
+
+export const faqs: { q: string; a: string }[] = [
+  {
+    q: "Are you a certified SDVOSB?",
+    a: "Yes. CyberCloud Infra LLC is a Service-Disabled Veteran-Owned Small Business. We support primes meeting subcontracting goals and agencies buying under small-business set-asides.",
+  },
+  {
+    q: "Do you work with federal and commercial clients?",
+    a: "Both. We deliver the same disciplined model to government agencies, public institutions, and private-sector organizations that cannot afford downtime or unfilled critical roles.",
+  },
+  {
+    q: "Can you provide technology and staffing on the same engagement?",
+    a: "That is the point of one accountable partner. Platform work and the people who run it are scoped, staffed, and reported under a single delivery lead — no hand-offs between vendors.",
+  },
+  {
+    q: "How fast can you mobilize?",
+    a: "Discovery starts as soon as we have objectives and constraints. Staffing slates and engineering kickoff timelines are confirmed in the scope call so you are not guessing against a deadline.",
+  },
+  {
+    q: "What happens after go-live?",
+    a: "SLA-backed support, 24/7 monitoring where the contract requires it, and quarterly reviews. We stay on the program until operations are stable — not just until the cutover weekend ends.",
+  },
+  {
+    q: "How do we start?",
+    a: "Book a conversation or send the quote form. We come back with a clear scope, timeline, and staffing plan — not a generic brochure.",
+  },
+];
 
 /* ------------------------------------------------------------------ */
 /* About                                                               */
@@ -675,10 +730,27 @@ export const coreValues = [
 ];
 
 export const milestones = [
-  { year: "Founded", title: "Veteran-owned launch", description: "Established as a Service-Disabled Veteran-Owned Small Business focused on federal IT delivery." },
-  { year: "Expansion", title: "Infrastructure practice", description: "Added data center, network, and 24/7 NOC capability for multi-site clients." },
-  { year: "Growth", title: "Staffing divisions", description: "Launched dedicated IT, non-IT, and healthcare staffing practices." },
-  { year: "Today", title: "Integrated delivery", description: "Technology and talent delivered together under one accountable partner." },
+  {
+    year: "Founded",
+    title: "Veteran-owned launch",
+    description:
+      "Established as a Service-Disabled Veteran-Owned Small Business focused on federal IT delivery.",
+  },
+  {
+    year: "Expansion",
+    title: "Infrastructure practice",
+    description: "Added data center, network, and 24/7 NOC capability for multi-site clients.",
+  },
+  {
+    year: "Growth",
+    title: "Staffing divisions",
+    description: "Launched dedicated IT, non-IT, and healthcare staffing practices.",
+  },
+  {
+    year: "Today",
+    title: "Integrated delivery",
+    description: "Technology and talent delivered together under one accountable partner.",
+  },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -693,12 +765,42 @@ export interface Job {
 }
 
 export const jobs: Job[] = [
-  { title: "Cloud Solutions Architect", location: "Remote (US)", type: "Full-time", department: "IT Services" },
-  { title: "Cybersecurity Analyst", location: "Hybrid — Washington, DC", type: "Full-time", department: "IT Services" },
-  { title: "Network Engineer", location: "On-site — Client sites", type: "Full-time", department: "Infrastructure" },
-  { title: "Technical Recruiter", location: "Remote (US)", type: "Full-time", department: "Staffing" },
-  { title: "Healthcare Credentialing Specialist", location: "Remote (US)", type: "Full-time", department: "Healthcare Staffing" },
-  { title: "Service Desk Technician", location: "On-site — Client sites", type: "Full-time", department: "Managed IT" },
+  {
+    title: "Cloud Solutions Architect",
+    location: "Remote (US)",
+    type: "Full-time",
+    department: "IT Services",
+  },
+  {
+    title: "Cybersecurity Analyst",
+    location: "Hybrid — Washington, DC",
+    type: "Full-time",
+    department: "IT Services",
+  },
+  {
+    title: "Network Engineer",
+    location: "On-site — Client sites",
+    type: "Full-time",
+    department: "Infrastructure",
+  },
+  {
+    title: "Technical Recruiter",
+    location: "Remote (US)",
+    type: "Full-time",
+    department: "Staffing",
+  },
+  {
+    title: "Healthcare Credentialing Specialist",
+    location: "Remote (US)",
+    type: "Full-time",
+    department: "Healthcare Staffing",
+  },
+  {
+    title: "Service Desk Technician",
+    location: "On-site — Client sites",
+    type: "Full-time",
+    department: "Managed IT",
+  },
 ];
 
 export const benefits = [

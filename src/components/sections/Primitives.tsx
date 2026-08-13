@@ -27,17 +27,28 @@ export function Reveal({
   );
 }
 
-export function Eyebrow({ children, tone = "primary" }: { children: ReactNode; tone?: "primary" | "brand" | "light" }) {
+export function Eyebrow({
+  children,
+  tone = "primary",
+}: {
+  children: ReactNode;
+  tone?: "primary" | "brand" | "light";
+}) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em]",
-        tone === "primary" && "bg-accent text-accent-foreground",
-        tone === "brand" && "bg-brand/10 text-brand",
-        tone === "light" && "border border-white/20 bg-white/10 text-white",
+        "inline-flex items-center gap-2 rounded-sm px-0 text-xs font-semibold uppercase tracking-[0.18em]",
+        tone === "primary" && "text-teal",
+        tone === "brand" && "text-brand",
+        tone === "light" && "text-brand",
       )}
     >
-      <span className={cn("h-1.5 w-1.5 rounded-full", tone === "brand" ? "bg-brand" : tone === "light" ? "bg-white" : "bg-primary")} />
+      <span
+        className={cn(
+          "h-1.5 w-1.5 rounded-full",
+          tone === "light" || tone === "brand" ? "bg-brand" : "bg-teal",
+        )}
+      />
       {children}
     </span>
   );
@@ -101,9 +112,9 @@ export function PageHero({
   breadcrumb?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-navy pt-36 pb-20 lg:pt-44 lg:pb-24">
-      <div className="pointer-events-none absolute inset-0 opacity-40 [background:radial-gradient(60%_70%_at_85%_0%,rgba(59,130,246,0.45),transparent_65%),radial-gradient(45%_60%_at_5%_100%,rgba(235,125,52,0.3),transparent_70%)]" />
-      <div className="pointer-events-none absolute inset-0 opacity-[0.18] [background-image:linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)] [background-size:64px_64px]" />
+    <section className="relative overflow-hidden bg-gradient-hero pt-36 pb-20 lg:pt-44 lg:pb-24">
+      <div className="pointer-events-none absolute inset-0 plus-pattern" />
+      <div className="pointer-events-none absolute inset-0 opacity-50 [background:radial-gradient(60%_70%_at_85%_0%,rgba(14,116,144,0.35),transparent_65%),radial-gradient(45%_60%_at_5%_100%,rgba(255,184,28,0.12),transparent_70%)]" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
@@ -112,7 +123,9 @@ export function PageHero({
           className="max-w-3xl"
         >
           <Eyebrow tone="light">{eyebrow}</Eyebrow>
-          <h1 className="mt-6 text-4xl leading-[1.1] text-white sm:text-5xl lg:text-6xl">{title}</h1>
+          <h1 className="mt-6 text-4xl leading-[1.1] text-white sm:text-5xl lg:text-6xl">
+            {title}
+          </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75">{description}</p>
           {breadcrumb && (
             <nav aria-label="Breadcrumb" className="mt-8 text-sm text-white/60">
@@ -147,12 +160,17 @@ export function CTASection({
   return (
     <section className="px-4 pb-24 sm:px-6 lg:px-8">
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-navy px-6 py-16 text-center sm:px-12 lg:py-20">
-        <div className="pointer-events-none absolute inset-0 opacity-50 [background:radial-gradient(50%_80%_at_20%_0%,rgba(59,130,246,0.45),transparent_60%),radial-gradient(50%_80%_at_85%_100%,rgba(235,125,52,0.35),transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 plus-pattern opacity-80" />
+        <div className="pointer-events-none absolute inset-0 opacity-50 [background:radial-gradient(50%_80%_at_20%_0%,rgba(14,116,144,0.4),transparent_60%),radial-gradient(50%_80%_at_85%_100%,rgba(255,184,28,0.18),transparent_60%)]" />
         <div className="relative mx-auto max-w-3xl">
           <h2 className="text-3xl text-white sm:text-4xl lg:text-[2.6rem]">{title}</h2>
           <p className="mt-5 text-lg leading-relaxed text-white/75">{description}</p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button asChild size="lg" className="bg-brand text-brand-foreground hover:bg-brand/90">
+            <Button
+              asChild
+              size="lg"
+              className="bg-brand font-semibold text-brand-foreground hover:bg-brand/90"
+            >
               <Link to={primaryTo}>
                 {primaryLabel} <ArrowRight className="h-4 w-4" />
               </Link>

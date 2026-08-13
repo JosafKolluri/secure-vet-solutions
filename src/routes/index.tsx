@@ -3,14 +3,8 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import {
   ArrowRight,
-  
   Check,
-  Cloud,
-  Code2,
-  Server,
-  Shield,
   Users,
-  Workflow,
   Search,
   PenTool,
   Rocket,
@@ -20,9 +14,23 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { HeroVisual } from "@/components/sections/HeroVisual";
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
-import { blogPosts, pillars, whoWeServe } from "@/data/site";
+import {
+  blogPosts,
+  pillars,
+  whoWeServe,
+  company,
+  trustChips,
+  contractingQuals,
+  faqs,
+} from "@/data/site";
 import aboutTeam from "@/assets/about-team.jpg";
 import itImage from "@/assets/dashboard-laptop.jpg";
 import nonItImage from "@/assets/hero-team.jpg";
@@ -67,13 +75,13 @@ const trustStats = [
 
 // Home service grid is driven by the four pillars in src/data/site.ts
 
-
-
-
 const staffingCards = [
   { title: "IT & Technology Talent", detail: "Cloud, security, data, and platform engineers" },
   { title: "Non-IT Professionals", detail: "Administrative, finance, HR, and engineering talent" },
-  { title: "Healthcare Workforce", detail: "Clinical, non-clinical, and medical office professionals" },
+  {
+    title: "Healthcare Workforce",
+    detail: "Clinical, non-clinical, and medical office professionals",
+  },
 ];
 
 const techStack = [
@@ -93,30 +101,58 @@ const whyCards = [
   {
     number: "01",
     title: "One Accountable Partner",
-    description: "A single delivery lead across technology and talent — no hand-offs, no finger-pointing.",
+    description:
+      "A single delivery lead across technology and talent — no hand-offs, no finger-pointing.",
   },
   {
     number: "02",
     title: "Enterprise-Ready Expertise",
-    description: "Certified engineers and recruiters with experience in regulated, mission-critical programs.",
+    description:
+      "Certified engineers and recruiters with experience in regulated, mission-critical programs.",
   },
   {
     number: "03",
     title: "Technology + Talent",
-    description: "Platforms and people delivered together, so modernization does not stall on staffing gaps.",
+    description:
+      "Platforms and people delivered together, so modernization does not stall on staffing gaps.",
   },
   {
     number: "04",
     title: "Mission-Critical Delivery",
-    description: "Disciplined sprints, transparent reporting, and SLA-backed support after go-live.",
+    description:
+      "Disciplined sprints, transparent reporting, and SLA-backed support after go-live.",
   },
 ];
 
 const processSteps = [
-  { number: "01", title: "Discover", icon: Search, description: "Map objectives, constraints, and compliance obligations with the people who own the outcome." },
-  { number: "02", title: "Design", icon: PenTool, description: "A prioritized roadmap with scope, staffing plan, milestones, and measurable success criteria." },
-  { number: "03", title: "Deliver", icon: Rocket, description: "Execution in disciplined sprints with weekly reporting, risk tracking, and stakeholder demos." },
-  { number: "04", title: "Optimize", icon: Gauge, description: "Continuous improvement, SLA-backed support, and quarterly reviews that compound value." },
+  {
+    number: "01",
+    title: "Discover",
+    icon: Search,
+    description:
+      "Map objectives, constraints, and compliance obligations with the people who own the outcome.",
+  },
+  {
+    number: "02",
+    title: "Design",
+    icon: PenTool,
+    description:
+      "A prioritized roadmap with scope, staffing plan, milestones, and measurable success criteria.",
+  },
+  {
+    number: "03",
+    title: "Deliver",
+    icon: Rocket,
+    description:
+      "Execution in disciplined sprints with weekly reporting, risk tracking, and stakeholder demos.",
+  },
+  {
+    number: "04",
+    title: "Optimize",
+    icon: Gauge,
+    description:
+      "Continuous improvement, SLA-backed support, and quarterly reviews that compound value.",
+  },
 ];
 
 const quotes = [
@@ -144,16 +180,18 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <TrustBar />
+      <AudienceRouter />
       <About />
       <Services />
       <WhoWeServe />
+      <Qualifications />
       <Staffing />
       <TechEcosystem />
       <WhyCyberCloud />
       <Process />
       <Testimonials />
       <Insights />
+      <Faq />
       <FinalCTA />
     </>
   );
@@ -163,9 +201,9 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-hero pb-16 pt-[104px] sm:pb-20 lg:min-h-[780px] lg:pb-24 lg:pt-[150px]">
-      <div className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-gradient-primary opacity-[0.10] blur-3xl" />
-      <div className="pointer-events-none absolute inset-0 grid-pattern opacity-70 [mask-image:linear-gradient(180deg,black,transparent_75%)]" />
+    <section className="relative overflow-hidden bg-gradient-hero pb-16 pt-[104px] sm:pb-20 lg:min-h-[780px] lg:pb-24 lg:pt-[140px]">
+      <div className="pointer-events-none absolute inset-0 plus-pattern" />
+      <div className="pointer-events-none absolute inset-0 opacity-60 [background:radial-gradient(70%_80%_at_90%_10%,rgba(14,116,144,0.35),transparent_60%),radial-gradient(50%_50%_at_0%_100%,rgba(255,184,28,0.12),transparent_55%)]" />
       <div className={`relative ${CONTAINER} px-5 sm:px-6 lg:px-8`}>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14">
           <motion.div
@@ -173,33 +211,48 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Eyebrow>IT • Non-IT • Infrastructure • Healthcare</Eyebrow>
-            <h1 className="mt-6 text-[2.5rem] font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-[3.25rem] lg:text-[4rem]">
-              Technology, Infrastructure & Talent for{" "}
-              <span className="text-gradient">Mission-Critical Organizations</span>
+            <Eyebrow tone="light">SDVOSB · {company.locationShort}</Eyebrow>
+            <h1 className="mt-6 text-[2.35rem] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[3.15rem] lg:text-[3.75rem]">
+              Win the work. Deliver it. One SDVOSB does both.
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-[1.7] text-muted-foreground sm:text-lg">
-              CyberCloud Infra LLC delivers technology, infrastructure, professional workforce,
-              non-IT, and healthcare solutions to private and government organizations through one
-              accountable partner.
+            <p className="mt-6 max-w-xl text-base leading-[1.7] text-white/75 sm:text-lg">
+              Technology, infrastructure, cybersecurity, and specialized staffing for government and
+              enterprise programs that cannot afford downtime, drift, or unfilled critical roles.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button
                 asChild
-                className="h-[52px] rounded-[10px] bg-gradient-primary px-7 text-base font-semibold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
+                className="h-[52px] rounded-md bg-brand px-7 text-base font-semibold text-brand-foreground shadow-md transition-transform hover:-translate-y-0.5 hover:bg-brand/90"
               >
                 <Link to="/services">
-                  Explore Our Services <ArrowRight className="h-4 w-4" />
+                  See Services &amp; Delivery <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
 
               <Button
                 asChild
                 variant="outline"
-                className="h-[52px] rounded-[10px] border-primary/40 px-7 text-base font-semibold text-primary transition-transform hover:-translate-y-0.5 hover:bg-accent hover:text-primary"
+                className="h-[52px] rounded-md border-white/35 bg-transparent px-7 text-base font-semibold text-white hover:-translate-y-0.5 hover:bg-white/10 hover:text-white"
               >
-                <Link to="/contact">Talk to an Expert</Link>
+                <Link to="/who-we-serve">Prime contractor? Team with us</Link>
               </Button>
+            </div>
+            <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
+              {trustStats.map((s) => (
+                <div key={s.label}>
+                  <p className="font-display text-[1.65rem] font-bold leading-none text-brand sm:text-[1.85rem]">
+                    {s.value}
+                  </p>
+                  <p className="mt-2 text-xs leading-snug text-white/65">{s.label}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/15 pt-5 text-xs text-white/70">
+              {trustChips.map((chip) => (
+                <span key={chip.lead}>
+                  <b className="font-semibold text-white">{chip.lead}</b> {chip.rest}
+                </span>
+              ))}
             </div>
           </motion.div>
 
@@ -216,23 +269,39 @@ function Hero() {
   );
 }
 
-/* ------------------------------------------------------------ TrustBar */
+/* ------------------------------------------------------ AudienceRouter */
 
-function TrustBar() {
+function AudienceRouter() {
   return (
-    <section className="border-y border-border bg-background px-5 py-10 sm:px-6 lg:px-8 lg:py-12">
-      <div className={`${CONTAINER} grid grid-cols-2 gap-y-8 lg:grid-cols-4`}>
-        {trustStats.map((s, i) => (
-          <Reveal
-            key={s.label}
-            delay={i * 0.08}
-            className={i > 0 ? "lg:border-l lg:border-border" : ""}
-          >
-            <div className="px-2 text-center">
-              <p className="font-display text-[2.25rem] font-bold leading-none text-primary sm:text-[2.6rem]">
-                {s.value}
+    <section className="bg-surface px-5 py-14 sm:px-6 lg:px-8 lg:py-16">
+      <div className={`${CONTAINER} grid gap-6 lg:grid-cols-2`}>
+        {whoWeServe.map((market, i) => (
+          <Reveal key={market.slug} delay={i * 0.08}>
+            <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-card">
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-teal">
+                {market.slug === "government-public-sector"
+                  ? "For agencies & primes"
+                  : "For private-sector teams"}
+              </span>
+              <h2 className="mt-4 text-[1.55rem] font-bold leading-snug text-foreground">
+                {market.slug === "government-public-sector"
+                  ? "I need an SDVOSB that can actually deliver"
+                  : "I need technology and talent under one contract"}
+              </h2>
+              <p className="mt-3 flex-1 text-[0.975rem] leading-[1.7] text-muted-foreground">
+                {market.message}
               </p>
-              <p className="mt-2.5 text-sm text-muted-foreground">{s.label}</p>
+              <Button
+                asChild
+                className="mt-7 h-11 w-fit rounded-md bg-primary px-5 font-semibold text-primary-foreground hover:bg-primary/90"
+              >
+                <Link to="/who-we-serve">
+                  {market.slug === "government-public-sector"
+                    ? "See public-sector delivery"
+                    : "See private-sector delivery"}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
             </div>
           </Reveal>
         ))}
@@ -295,7 +364,7 @@ function About() {
           </ul>
           <Button
             asChild
-            className="mt-9 h-[52px] rounded-[10px] bg-gradient-primary px-7 font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
+            className="mt-9 h-[52px] rounded-md bg-brand px-7 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5 hover:bg-brand/90"
           >
             <Link to="/about">
               Discover CyberCloud <ArrowRight className="h-4 w-4" />
@@ -343,7 +412,7 @@ function Services() {
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <span className="absolute -bottom-7 left-6 grid h-14 w-14 place-items-center rounded-full bg-gradient-primary text-primary-foreground shadow-lift ring-4 ring-card">
+                  <span className="absolute -bottom-7 left-6 grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-lift ring-4 ring-card">
                     <pillar.icon className="h-6 w-6" />
                   </span>
                   <span className="absolute right-4 top-4 rounded-full bg-card/85 px-2.5 py-1 font-display text-xs font-extrabold text-primary backdrop-blur">
@@ -377,7 +446,6 @@ function Services() {
   );
 }
 
-
 /* ---------------------------------------------------------- WhoWeServe */
 
 function WhoWeServe() {
@@ -395,7 +463,7 @@ function WhoWeServe() {
           {whoWeServe.map((market, i) => (
             <Reveal key={market.slug} delay={i * 0.08}>
               <div className="flex h-full flex-col rounded-[24px] border border-border bg-card p-8 shadow-card lg:p-10">
-                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground">
+                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-primary-foreground">
                   <market.icon className="h-6 w-6" />
                 </span>
                 <h3 className="mt-6 text-[1.45rem] font-bold text-foreground">{market.title}</h3>
@@ -429,15 +497,13 @@ function WhoWeServe() {
   );
 }
 
-
-
-
 /* ------------------------------------------------------------ Staffing */
 
 function Staffing() {
   return (
     <section className="relative overflow-hidden bg-gradient-navy px-5 py-16 sm:px-6 sm:py-[85px] lg:px-8 lg:py-[120px]">
-      <div className="pointer-events-none absolute inset-0 opacity-60 [background:radial-gradient(60%_70%_at_80%_20%,rgba(108,99,255,0.4),transparent_62%),radial-gradient(50%_60%_at_0%_100%,rgba(16,102,242,0.35),transparent_62%)]" />
+      <div className="pointer-events-none absolute inset-0 plus-pattern" />
+      <div className="pointer-events-none absolute inset-0 opacity-60 [background:radial-gradient(60%_70%_at_80%_20%,rgba(14,116,144,0.4),transparent_62%),radial-gradient(50%_60%_at_0%_100%,rgba(255,184,28,0.18),transparent_62%)]" />
       <div className={`relative ${CONTAINER} grid items-center gap-14 lg:grid-cols-2`}>
         <Reveal>
           <Eyebrow tone="light">Staffing</Eyebrow>
@@ -451,7 +517,7 @@ function Staffing() {
           </p>
           <Button
             asChild
-            className="mt-9 h-[52px] rounded-[10px] bg-white px-7 font-semibold text-navy hover:bg-white/90"
+            className="mt-9 h-[52px] rounded-md bg-brand px-7 font-semibold text-brand-foreground hover:bg-brand/90"
           >
             <Link to="/non-it-services">
               Explore Staffing Solutions <ArrowRight className="h-4 w-4" />
@@ -468,7 +534,7 @@ function Staffing() {
               className="flex items-center gap-4 rounded-2xl border border-white/12 bg-white/[0.06] p-5 backdrop-blur-sm lg:ml-auto lg:max-w-md"
               style={{ marginLeft: i === 1 ? "auto" : undefined }}
             >
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-primary text-primary-foreground">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-brand text-brand-foreground">
                 <Users className="h-5 w-5" />
               </span>
               <div className="min-w-0">
@@ -551,7 +617,7 @@ function Process() {
           <div className="pointer-events-none absolute left-7 top-0 hidden h-full w-px bg-border sm:block lg:left-0 lg:right-0 lg:top-7 lg:h-px lg:w-full" />
           {processSteps.map((step, i) => (
             <Reveal key={step.number} delay={i * 0.08} className="relative">
-              <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-soft">
+              <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-soft">
                 <step.icon className="h-6 w-6" />
               </span>
               <p className="mt-5 text-sm font-bold tracking-[0.14em] text-primary">{step.number}</p>
@@ -696,42 +762,124 @@ function Insights() {
 
 /* -------------------------------------------------------------- CTA */
 
+function Qualifications() {
+  return (
+    <section className={`bg-surface ${SECTION}`}>
+      <div className={`${CONTAINER} grid items-start gap-12 lg:grid-cols-[1.2fr_0.8fr]`}>
+        <Reveal>
+          <Eyebrow>For primes &amp; SBLOs</Eyebrow>
+          <h2 className="mt-5 text-[2rem] font-extrabold leading-[1.15] tracking-tight text-foreground sm:text-[2.375rem] lg:text-[2.75rem]">
+            SDVOSB capacity, task-order ready
+          </h2>
+          <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card">
+            <table className="w-full text-left text-sm">
+              <tbody>
+                {contractingQuals.map((row) => (
+                  <tr key={row.label} className="border-b border-border last:border-0">
+                    <th
+                      scope="row"
+                      className="w-[38%] bg-muted/60 px-4 py-3.5 font-semibold text-foreground sm:px-5"
+                    >
+                      {row.label}
+                    </th>
+                    <td className="px-4 py-3.5 text-muted-foreground sm:px-5">{row.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="text-base leading-[1.7] text-muted-foreground">
+            Everything a contracting officer or small-business liaison needs to evaluate us as a
+            delivery partner — certifications, NAICS, contract types, and how we actually show up
+            after award.
+          </p>
+          <Button
+            asChild
+            className="mt-8 h-[52px] rounded-md bg-primary px-7 font-semibold text-primary-foreground hover:bg-primary/90"
+          >
+            <Link to="/contact">
+              Book a teaming conversation <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+          <p className="mt-4">
+            <Link to="/about" className="text-sm font-semibold text-teal hover:underline">
+              Or read about our veteran-owned delivery model →
+            </Link>
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function Faq() {
+  return (
+    <section className={`bg-background ${SECTION}`}>
+      <div className={`${CONTAINER} mx-auto max-w-3xl`}>
+        <Reveal>
+          <SectionHeading
+            eyebrow="Before you ask"
+            title="Straight answers"
+            description="The questions agencies, primes, and enterprise buyers usually ask before the first call."
+          />
+        </Reveal>
+        <Reveal delay={0.08} className="mt-10">
+          <Accordion
+            type="single"
+            collapsible
+            className="rounded-2xl border border-border bg-card px-5"
+          >
+            {faqs.map((item) => (
+              <AccordionItem key={item.q} value={item.q}>
+                <AccordionTrigger className="text-base font-semibold text-foreground hover:no-underline">
+                  {item.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-[0.95rem] leading-[1.7] text-muted-foreground">
+                  {item.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 function FinalCTA() {
   return (
     <section className="px-5 pb-20 sm:px-6 lg:px-8 lg:pb-28">
       <div
-        className={`${CONTAINER} relative overflow-hidden rounded-[28px] px-6 py-16 text-center sm:px-12 lg:py-20`}
-        style={{
-          backgroundImage:
-            "linear-gradient(135deg, #080D24 0%, #1066F2 55%, #6C63FF 100%)",
-        }}
+        className={`${CONTAINER} relative overflow-hidden rounded-[28px] bg-gradient-hero px-6 py-16 text-center sm:px-12 lg:py-20`}
       >
-        <div className="pointer-events-none absolute -left-16 -top-16 h-64 w-64 rounded-full border border-white/15" />
-        <div className="pointer-events-none absolute -bottom-24 -right-10 h-80 w-80 rounded-full border border-white/10" />
-        <div className="pointer-events-none absolute inset-0 dot-pattern opacity-20" />
+        <div className="pointer-events-none absolute inset-0 plus-pattern" />
+        <div className="pointer-events-none absolute inset-0 opacity-50 [background:radial-gradient(50%_80%_at_85%_0%,rgba(255,184,28,0.18),transparent_60%)]" />
         <div className="relative mx-auto max-w-[900px]">
-          <h2 className="text-[2rem] font-extrabold leading-[1.15] tracking-tight text-white sm:text-[2.5rem] lg:text-[3rem]">
-            Ready to Build What Comes Next?
+          <Eyebrow tone="light">Next step</Eyebrow>
+          <h2 className="mt-5 text-[2rem] font-extrabold leading-[1.15] tracking-tight text-white sm:text-[2.5rem] lg:text-[3rem]">
+            Have a program on the clock?
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-[1.7] text-white/80 sm:text-lg">
-            Let's discuss how CyberCloud Infra LLC can modernize your technology, strengthen your
-            infrastructure, and deliver the talent you need.
+            Tell us the mission. We will come back with a clear scope, timeline, and staffing plan —
+            from a principal who stays on the work.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <Button
               asChild
-              className="h-[52px] rounded-[10px] bg-white px-7 text-base font-semibold text-navy transition-transform hover:-translate-y-0.5 hover:bg-white/90"
+              className="h-[52px] rounded-md bg-brand px-7 text-base font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5 hover:bg-brand/90"
             >
               <Link to="/contact">
-                Start a Conversation <ArrowRight className="h-4 w-4" />
+                Start a conversation <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="h-[52px] rounded-[10px] border-white/40 bg-white/10 px-7 text-base font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-white/20 hover:text-white"
+              className="h-[52px] rounded-md border-white/40 bg-white/10 px-7 text-base font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-white/20 hover:text-white"
             >
-              <Link to="/it-services">View Services</Link>
+              <Link to="/services">View services</Link>
             </Button>
           </div>
         </div>

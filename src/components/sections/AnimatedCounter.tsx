@@ -67,7 +67,7 @@ export function StatBlock({
       transition={{ duration: 0.5, delay }}
       className="text-center"
     >
-      <p className="font-display text-4xl font-extrabold tracking-tight text-gradient sm:text-5xl">
+      <p className="font-display text-4xl font-extrabold tracking-tight text-primary sm:text-5xl">
         <AnimatedCounter value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
       </p>
       <p className="mt-2 text-sm font-medium text-muted-foreground">{label}</p>

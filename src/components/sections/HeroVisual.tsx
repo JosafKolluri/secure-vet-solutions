@@ -14,7 +14,7 @@ export function HeroVisual() {
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[560px]">
       {/* radial mesh backdrop */}
-      <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-primary opacity-[0.12] blur-2xl" />
+      <div className="pointer-events-none absolute inset-0 rounded-full bg-brand opacity-[0.22] blur-2xl" />
       <div className="pointer-events-none absolute inset-8 rounded-full border border-primary/15" />
       <div className="pointer-events-none absolute inset-20 rounded-full border border-primary/10" />
       <div className="pointer-events-none absolute inset-0 dot-pattern opacity-60 [mask-image:radial-gradient(closest-side,black,transparent)]" />
@@ -49,8 +49,8 @@ export function HeroVisual() {
         ))}
         <defs>
           <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#1066F2" />
-            <stop offset="100%" stopColor="#6C63FF" />
+            <stop offset="0%" stopColor="#0e7490" />
+            <stop offset="100%" stopColor="#ffb81c" />
           </linearGradient>
         </defs>
       </svg>
@@ -59,7 +59,7 @@ export function HeroVisual() {
       <motion.div
         animate={{ y: [0, -14, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-1/2 top-1/2 grid h-32 w-32 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-[2rem] bg-gradient-primary text-primary-foreground shadow-glow sm:h-40 sm:w-40"
+        className="absolute left-1/2 top-1/2 grid h-32 w-32 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-[2rem] bg-brand text-brand-foreground shadow-glow sm:h-40 sm:w-40"
       >
         <Cloud className="h-14 w-14 sm:h-16 sm:w-16" strokeWidth={1.4} />
       </motion.div>

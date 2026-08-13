@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin, ArrowUp, Linkedin, Twitter, Github } from "lucide-react";
-import { company } from "@/data/site";
+import { company, certifications, naicsCodes } from "@/data/site";
 import { Logo } from "./Header";
 
 const columns = [
@@ -37,7 +37,6 @@ const columns = [
   },
 ] as const;
 
-
 const socials = [
   { icon: Linkedin, label: "LinkedIn" },
   { icon: Twitter, label: "X" },
@@ -49,27 +48,28 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-gradient-navy text-navy-foreground">
-      <div className="pointer-events-none absolute inset-0 opacity-40 [background:radial-gradient(50%_60%_at_8%_0%,rgba(16,102,242,0.35),transparent_62%),radial-gradient(45%_60%_at_92%_100%,rgba(108,99,255,0.3),transparent_62%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-40 [background:radial-gradient(50%_60%_at_8%_0%,rgba(14,116,144,0.4),transparent_62%),radial-gradient(45%_60%_at_92%_100%,rgba(255,184,28,0.12),transparent_62%)]" />
+      <div className="pointer-events-none absolute inset-0 plus-pattern" />
       <div className="relative mx-auto max-w-[1200px] px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
           <div>
-            <Logo className="text-white [&_span:last-child]:text-white/90" />
+            <Logo inverted className="text-white" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
               Technology, Infrastructure & Talent for Mission-Critical Organizations.
             </p>
 
             <ul className="mt-6 space-y-3 text-sm text-white/75">
               <li className="flex items-center gap-2.5">
-                <Mail className="h-4 w-4 shrink-0 text-primary" />
+                <Mail className="h-4 w-4 shrink-0 text-brand" />
                 <a href={`mailto:${company.email}`} className="transition-colors hover:text-white">
                   {company.email}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 shrink-0 text-primary" /> {company.phone}
+                <Phone className="h-4 w-4 shrink-0 text-brand" /> {company.phone}
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
                 <span>
                   704 Fox Squirrel CT
                   <br />
@@ -100,7 +100,7 @@ export function Footer() {
                   <li key={`${col.heading}-${link.label}`}>
                     <Link
                       to={link.to}
-                      className="text-sm text-white/65 transition-colors hover:text-white"
+                      className="text-sm text-white/65 transition-colors hover:text-brand"
                     >
                       {link.label}
                     </Link>
@@ -111,7 +111,17 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/55 sm:flex-row">
+        <div className="mt-12 grid gap-6 border-t border-white/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+          {certifications.map((c) => (
+            <div key={c.label}>
+              <p className="text-sm font-semibold text-white">{c.label}</p>
+              <p className="mt-1 text-xs text-brand">{c.detail}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-4 text-xs text-white/55">NAICS {naicsCodes.join(" · ")}</p>
+
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/55 sm:flex-row">
           <p>© {new Date().getFullYear()} CyberCloud Infra LLC. All Rights Reserved.</p>
           <div className="flex items-center gap-6">
             <Link to="/contact" className="transition-colors hover:text-white">
