@@ -1,5 +1,5 @@
 import { defineTool } from "@lovable.dev/mcp-js";
-import { homeServices, services } from "@/data/site";
+import { offerings } from "@/data/site";
 
 export default defineTool({
   name: "list_services",
@@ -9,19 +9,14 @@ export default defineTool({
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {
-    const combined = [
-      ...homeServices.map((s) => ({
-        slug: s.slug,
-        title: s.title,
-        description: s.description,
-        highlights: s.points,
-      })),
-      ...services.map((s) => ({
-        slug: s.slug,
-        title: s.title,
-        description: s.description,
-      })),
-    ];
+    const combined = offerings.map((s) => ({
+      slug: s.slug,
+      title: s.title,
+      pillar: s.pillarSlug,
+      description: s.description,
+      highlights: s.points,
+      href: `/services/${s.slug}`,
+    }));
     return {
       content: [{ type: "text", text: JSON.stringify(combined, null, 2) }],
       structuredContent: { services: combined },

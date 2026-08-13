@@ -426,9 +426,12 @@ function Services() {
                   </p>
                   <ul className="mt-5 flex-1 space-y-2">
                     {pillar.services.slice(0, 3).map((s) => (
-                      <li key={s} className="flex items-start gap-2 text-sm text-foreground/80">
+                      <li
+                        key={s.slug}
+                        className="flex items-start gap-2 text-sm text-foreground/80"
+                      >
                         <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                        {s}
+                        {s.title}
                       </li>
                     ))}
                   </ul>

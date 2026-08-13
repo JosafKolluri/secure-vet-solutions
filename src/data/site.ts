@@ -21,17 +21,14 @@ import {
   Rocket,
   Lock,
   LifeBuoy,
-  Bot,
   Search,
   ClipboardCheck,
   PenTool,
-  DatabaseBackup,
   Gauge,
   Headset,
   Code2,
   LineChart,
   Wrench,
-  UserCheck,
   BadgeCheck,
   Handshake,
   Clock,
@@ -41,6 +38,10 @@ import {
 import blogZeroTrust from "@/assets/blog-zero-trust.jpg";
 import blogCloudMigration from "@/assets/blog-cloud-migration.jpg";
 import blogDevsecops from "@/assets/blog-devsecops.jpg";
+import { offeringsForPillar } from "@/data/offerings";
+
+export type { Offering } from "@/data/offerings";
+export { offerings, getOffering, offeringsForPillar } from "@/data/offerings";
 
 /* ------------------------------------------------------------------ */
 /* Company                                                             */
@@ -119,213 +120,13 @@ export interface ServiceDetail {
   points: string[];
 }
 
-export const itServices: ServiceDetail[] = [
-  {
-    slug: "cloud-migration",
-    title: "Cloud & Migration",
-    description:
-      "Assess, plan, and migrate workloads to Azure, AWS, or GCP with landing zones, IaC, and cost governance built in.",
-    icon: Cloud,
-    points: [
-      "Azure-first landing zones",
-      "Lift-shift-optimize migrations",
-      "FinOps & cost control",
-    ],
-  },
-  {
-    slug: "cybersecurity",
-    title: "Cybersecurity",
-    description:
-      "Zero-trust architecture, vulnerability management, and continuous monitoring aligned to NIST 800-53 and CMMC 2.0.",
-    icon: Shield,
-    points: ["Zero-trust design", "SIEM & threat detection", "Compliance readiness"],
-  },
-  {
-    slug: "application-development",
-    title: "Application Development",
-    description:
-      "Modern web, API, and workflow applications built with secure SDLC practices and automated CI/CD pipelines.",
-    icon: Code2,
-    points: ["Custom web & API builds", "Legacy modernization", "DevSecOps pipelines"],
-  },
-  {
-    slug: "managed-it",
-    title: "Managed IT Services",
-    description:
-      "Full-lifecycle IT operations — service desk, patching, monitoring, and vendor management under clear SLAs.",
-    icon: Headset,
-    points: ["Tiered service desk", "Proactive monitoring", "SLA-backed response"],
-  },
-  {
-    slug: "data-analytics",
-    title: "Data & Analytics",
-    description:
-      "Data platforms, pipelines, and dashboards that turn operational data into decisions leadership can act on.",
-    icon: LineChart,
-    points: ["Data warehousing", "ETL & pipelines", "Executive dashboards"],
-  },
-  {
-    slug: "ai-automation",
-    title: "AI & Automation",
-    description:
-      "Practical AI and RPA use cases — document processing, service-desk deflection, and anomaly detection.",
-    icon: Bot,
-    points: ["Process automation", "AI-assisted operations", "Responsible AI guardrails"],
-  },
-];
-
-export const nonItStaffing: ServiceDetail[] = [
-  {
-    slug: "administrative",
-    title: "Administrative & Clerical",
-    description:
-      "Program assistants, records specialists, schedulers, and front-office staff ready for federal and commercial sites.",
-    icon: ClipboardCheck,
-    points: ["Program & office support", "Records management", "Cleared candidates available"],
-  },
-  {
-    slug: "finance-accounting",
-    title: "Finance & Accounting",
-    description:
-      "Analysts, accountants, contract specialists, and audit support professionals for regulated environments.",
-    icon: Banknote,
-    points: ["Financial analysts", "Contract & procurement", "Audit support"],
-  },
-  {
-    slug: "engineering-technical",
-    title: "Engineering & Technical",
-    description:
-      "Mechanical, electrical, civil, and quality engineers for infrastructure, facilities, and manufacturing programs.",
-    icon: Wrench,
-    points: ["Licensed engineers", "QA/QC specialists", "Field & site roles"],
-  },
-  {
-    slug: "light-industrial",
-    title: "Light Industrial & Logistics",
-    description:
-      "Warehouse, logistics, and production talent scaled up or down as program volume changes.",
-    icon: Truck,
-    points: ["Warehouse & logistics", "Production support", "Shift-based scaling"],
-  },
-  {
-    slug: "customer-support",
-    title: "Customer & Call Center",
-    description:
-      "Contact-center representatives and case workers trained on your systems, scripts, and quality standards.",
-    icon: Headset,
-    points: ["Multichannel support", "Case management", "Bilingual talent"],
-  },
-  {
-    slug: "executive-search",
-    title: "Executive Search",
-    description:
-      "Confidential recruiting for director and executive roles, with structured assessment and market mapping.",
-    icon: UserCheck,
-    points: ["Market mapping", "Structured assessment", "Confidential search"],
-  },
-];
-
-export const healthcareStaffing: ServiceDetail[] = [
-  {
-    slug: "nursing",
-    title: "Nursing",
-    description:
-      "RNs, LPNs, and nurse practitioners across med-surg, ICU, ER, and ambulatory settings — travel and permanent.",
-    icon: HeartPulse,
-    points: ["RN / LPN / NP", "Travel & permanent", "Rapid credentialing"],
-  },
-  {
-    slug: "allied-health",
-    title: "Allied Health",
-    description:
-      "Imaging techs, respiratory therapists, lab scientists, and rehabilitation professionals ready to deploy.",
-    icon: Stethoscope,
-    points: ["Imaging & laboratory", "Respiratory & rehab", "Licensure verified"],
-  },
-  {
-    slug: "physicians",
-    title: "Physicians & Advanced Practice",
-    description:
-      "Locum tenens and permanent placement for primary care, behavioral health, and specialty coverage.",
-    icon: BadgeCheck,
-    points: ["Locum tenens", "Specialty coverage", "Privileging support"],
-  },
-  {
-    slug: "revenue-cycle",
-    title: "Revenue Cycle & HIM",
-    description:
-      "Coders, billers, and health information management professionals who protect reimbursement accuracy.",
-    icon: LineChart,
-    points: ["Certified coders", "Billing & AR", "HIM specialists"],
-  },
-  {
-    slug: "behavioral-health",
-    title: "Behavioral Health",
-    description:
-      "Counselors, social workers, and case managers supporting veteran and community health programs.",
-    icon: Handshake,
-    points: ["Licensed clinicians", "Case management", "Veteran programs"],
-  },
-  {
-    slug: "healthcare-admin",
-    title: "Healthcare Administration",
-    description:
-      "Practice managers, credentialing coordinators, and compliance staff for clinics and federal health sites.",
-    icon: ClipboardCheck,
-    points: ["Practice operations", "Credentialing", "Compliance support"],
-  },
-];
-
-export const infrastructureServices: ServiceDetail[] = [
-  {
-    slug: "data-center",
-    title: "Data Center Services",
-    description:
-      "Design, build, consolidation, and migration of data center environments — including hardware refresh and decommission.",
-    icon: HardDrive,
-    points: ["Design & build-out", "Consolidation & refresh", "Structured decommission"],
-  },
-  {
-    slug: "network-engineering",
-    title: "Network Engineering",
-    description:
-      "LAN/WAN, SD-WAN, and wireless design and deployment with segmentation and performance baked in.",
-    icon: Network,
-    points: ["LAN / WAN / SD-WAN", "Wireless surveys", "Network segmentation"],
-  },
-  {
-    slug: "end-user-computing",
-    title: "End-User Computing",
-    description:
-      "Device lifecycle, imaging, VDI, and deskside support that keeps distributed teams productive.",
-    icon: Boxes,
-    points: ["Device lifecycle", "VDI & imaging", "Deskside support"],
-  },
-  {
-    slug: "noc-support",
-    title: "24/7 NOC & Monitoring",
-    description:
-      "Round-the-clock monitoring, incident response, and escalation management with transparent reporting.",
-    icon: Gauge,
-    points: ["24/7 monitoring", "Incident response", "Monthly reporting"],
-  },
-  {
-    slug: "disaster-recovery",
-    title: "Backup & Disaster Recovery",
-    description:
-      "Resilient backup, replication, and DR runbooks with tested RTO/RPO targets across cloud and on-premise.",
-    icon: DatabaseBackup,
-    points: ["Backup & replication", "DR runbooks", "Tested failover"],
-  },
-  {
-    slug: "physical-security",
-    title: "Physical & OT Security",
-    description:
-      "Access control, surveillance, and operational technology hardening for facilities and campuses.",
-    icon: Lock,
-    points: ["Access control", "Surveillance systems", "OT hardening"],
-  },
-];
+export const itServices: ServiceDetail[] = offeringsForPillar("it-services");
+export const nonItStaffing: ServiceDetail[] = offeringsForPillar("non-it-services");
+export const nonItServices: ServiceDetail[] = nonItStaffing;
+export const healthcareStaffing: ServiceDetail[] = offeringsForPillar("healthcare-services");
+export const healthcareServices: ServiceDetail[] = healthcareStaffing;
+export const infrastructureServices: ServiceDetail[] =
+  offeringsForPillar("infrastructure-services");
 
 export const serviceCatalog: Record<string, { title: string; items: ServiceDetail[] }> = {
   "it-services": { title: "IT Services", items: itServices },
@@ -1014,7 +815,7 @@ export interface Pillar {
   summary: string;
   icon: LucideIcon;
   href: string;
-  services: string[];
+  services: { title: string; slug: string }[];
 }
 
 export const pillars: Pillar[] = [
@@ -1025,18 +826,7 @@ export const pillars: Pillar[] = [
     summary: "Technology solutions for modern organizations — advisory, build, and run.",
     icon: Cloud,
     href: "/it-services",
-    services: [
-      "IT Consulting",
-      "Managed IT Services",
-      "Software Development",
-      "Application Development",
-      "Cloud Services",
-      "Cybersecurity",
-      "IT Support",
-      "Digital Transformation",
-      "Data & Analytics",
-      "Technology Consulting",
-    ],
+    services: itServices.map((s) => ({ title: s.title, slug: s.slug })),
   },
   {
     number: "02",
@@ -1045,17 +835,7 @@ export const pillars: Pillar[] = [
     summary: "Professional workforce and operational support across business functions.",
     icon: Users,
     href: "/non-it-services",
-    services: [
-      "Administrative Staffing",
-      "Professional Staffing",
-      "Business Operations",
-      "Project Support",
-      "Finance & Accounting Staffing",
-      "Human Resources Staffing",
-      "Customer Service Staffing",
-      "Engineering Staffing",
-      "Skilled Workforce Solutions",
-    ],
+    services: nonItServices.map((s) => ({ title: s.title, slug: s.slug })),
   },
   {
     number: "03",
@@ -1064,19 +844,7 @@ export const pillars: Pillar[] = [
     summary: "Infrastructure engineering and operations that keep environments resilient.",
     icon: Server,
     href: "/infrastructure-services",
-    services: [
-      "Cloud Infrastructure",
-      "Data Center Services",
-      "Network Infrastructure",
-      "Systems Engineering",
-      "Infrastructure Modernization",
-      "Infrastructure Support",
-      "Server & Storage",
-      "Network Operations",
-      "Migration Services",
-      "Infrastructure Monitoring",
-      "Technical Field Services",
-    ],
+    services: infrastructureServices.map((s) => ({ title: s.title, slug: s.slug })),
   },
   {
     number: "04",
@@ -1085,17 +853,7 @@ export const pillars: Pillar[] = [
     summary: "Healthcare workforce, technology, and operational support solutions.",
     icon: Stethoscope,
     href: "/healthcare-services",
-    services: [
-      "Healthcare Staffing",
-      "Clinical Staffing",
-      "Non-Clinical Staffing",
-      "Healthcare IT",
-      "Healthcare Operations Support",
-      "Administrative Healthcare Staffing",
-      "Medical Office Staffing",
-      "Healthcare Technology Support",
-      "Healthcare Workforce Solutions",
-    ],
+    services: healthcareServices.map((s) => ({ title: s.title, slug: s.slug })),
   },
 ];
 
