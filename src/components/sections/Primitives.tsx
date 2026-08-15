@@ -80,7 +80,7 @@ export function SectionHeading({
       {eyebrow && <Eyebrow tone={tone}>{eyebrow}</Eyebrow>}
       <h2
         className={cn(
-          "mt-5 text-3xl leading-[1.15] sm:text-4xl lg:text-[2.75rem]",
+          "mt-4 text-[1.75rem] font-bold leading-[1.2] sm:text-[2.15rem] lg:text-[2.35rem]",
           tone === "light" ? "text-white" : "text-foreground",
         )}
       >
@@ -89,7 +89,8 @@ export function SectionHeading({
       {description && (
         <p
           className={cn(
-            "mt-5 text-base leading-relaxed sm:text-lg",
+            "mt-4 max-w-2xl text-base leading-[1.75] sm:text-[1.0625rem]",
+            align === "center" && "mx-auto",
             tone === "light" ? "text-white/75" : "text-muted-foreground",
           )}
         >
@@ -163,13 +164,13 @@ export function CTASection({
         <div className="pointer-events-none absolute inset-0 plus-pattern opacity-80" />
         <div className="pointer-events-none absolute inset-0 opacity-50 [background:radial-gradient(50%_80%_at_20%_0%,rgba(14,116,144,0.4),transparent_60%),radial-gradient(50%_80%_at_85%_100%,rgba(255,184,28,0.18),transparent_60%)]" />
         <div className="relative mx-auto max-w-3xl">
-          <h2 className="text-3xl text-white sm:text-4xl lg:text-[2.6rem]">{title}</h2>
-          <p className="mt-5 text-lg leading-relaxed text-white/75">{description}</p>
+          <h2 className="text-[1.85rem] font-bold text-white sm:text-[2.25rem]">{title}</h2>
+          <p className="mt-5 text-base leading-[1.75] text-white/75">{description}</p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <Button
               asChild
               size="lg"
-              className="bg-brand font-semibold text-brand-foreground hover:bg-brand/90"
+              className="h-12 bg-brand font-semibold text-brand-foreground hover:bg-brand/90"
             >
               <Link to={primaryTo}>
                 {primaryLabel} <ArrowRight className="h-4 w-4" />

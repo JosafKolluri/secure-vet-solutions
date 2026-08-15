@@ -82,7 +82,7 @@
   --secondary-foreground: #0c2340;
 
   --muted: #f4f7fa;
-  --muted-foreground: #475569;
+  --muted-foreground: #3d4a5c;
 
   --accent: #e8eef5;
   --accent-foreground: #0c2340;
@@ -143,6 +143,8 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -151,14 +153,19 @@
     scroll-behavior: smooth;
   }
 
-  h1,
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
   h2,
   h3,
   h4,
   h5 {
     font-family: var(--font-display);
-    font-weight: 800;
-    letter-spacing: -0.025em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   ::selection {

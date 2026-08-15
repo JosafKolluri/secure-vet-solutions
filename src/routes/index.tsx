@@ -1,18 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "motion/react";
-import {
-  ArrowRight,
-  Check,
-  Users,
-  Search,
-  PenTool,
-  Rocket,
-  Gauge,
-  Quote,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ArrowRight, Check, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -20,18 +9,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { HeroVisual } from "@/components/sections/HeroVisual";
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
-import {
-  blogPosts,
-  pillars,
-  whoWeServe,
-  company,
-  trustChips,
-  contractingQuals,
-  faqs,
-} from "@/data/site";
-import aboutTeam from "@/assets/about-team.jpg";
+import { pillars, whoWeServe, company, trustChips, contractingQuals, faqs } from "@/data/site";
 import itImage from "@/assets/dashboard-laptop.jpg";
 import nonItImage from "@/assets/hero-team.jpg";
 import infraImage from "@/assets/infrastructure-datacenter.jpg";
@@ -40,20 +19,20 @@ import healthcareImage from "@/assets/healthcare-staff.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CyberCloud Infra LLC | Technology, Infrastructure & Talent" },
+      { title: "CyberCloud Infra LLC | IT, Non-IT, Infrastructure & Healthcare" },
       {
         name: "description",
         content:
-          "CyberCloud Infra LLC delivers enterprise IT services, cloud infrastructure, cybersecurity, application development, ServiceNow consulting, and specialized staffing solutions.",
+          "SDVOSB delivering IT services, non-IT professional services, infrastructure, and healthcare solutions for government and enterprise.",
       },
       {
         property: "og:title",
-        content: "CyberCloud Infra LLC | Technology, Infrastructure & Talent",
+        content: "CyberCloud Infra LLC | IT, Non-IT, Infrastructure & Healthcare",
       },
       {
         property: "og:description",
         content:
-          "Enterprise IT services, cloud infrastructure, cybersecurity, application development, ServiceNow consulting, and specialized staffing.",
+          "IT, Non-IT, Infrastructure, and Healthcare services through one accountable SDVOSB partner.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://secure-vet-solutions.lovable.app/" },
@@ -63,96 +42,14 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const SECTION = "px-5 py-16 sm:px-6 sm:py-[85px] lg:px-8 lg:py-[120px]";
-const CONTAINER = "mx-auto max-w-[1200px]";
+const SECTION = "px-5 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32";
+const CONTAINER = "mx-auto max-w-[1120px]";
 
 const trustStats = [
-  { value: "10+", label: "Years of Expertise" },
-  { value: "50+", label: "Enterprise Projects" },
-  { value: "100+", label: "Technology Professionals" },
-  { value: "24/7", label: "Operational Support" },
-];
-
-// Home service grid is driven by the four pillars in src/data/site.ts
-
-const staffingCards = [
-  { title: "IT & Technology Talent", detail: "Cloud, security, data, and platform engineers" },
-  { title: "Non-IT Professionals", detail: "Administrative, finance, HR, and engineering talent" },
-  {
-    title: "Healthcare Workforce",
-    detail: "Clinical, non-clinical, and medical office professionals",
-  },
-];
-
-const techStack = [
-  "ServiceNow",
-  "AWS",
-  "Microsoft Azure",
-  "Microsoft 365",
-  "React",
-  "Node.js",
-  "Python",
-  "PostgreSQL",
-  "Cybersecurity",
-  "Cloud Infrastructure",
-];
-
-const whyCards = [
-  {
-    number: "01",
-    title: "One Accountable Partner",
-    description:
-      "A single delivery lead across technology and talent — no hand-offs, no finger-pointing.",
-  },
-  {
-    number: "02",
-    title: "Enterprise-Ready Expertise",
-    description:
-      "Certified engineers and recruiters with experience in regulated, mission-critical programs.",
-  },
-  {
-    number: "03",
-    title: "Technology + Talent",
-    description:
-      "Platforms and people delivered together, so modernization does not stall on staffing gaps.",
-  },
-  {
-    number: "04",
-    title: "Mission-Critical Delivery",
-    description:
-      "Disciplined sprints, transparent reporting, and SLA-backed support after go-live.",
-  },
-];
-
-const processSteps = [
-  {
-    number: "01",
-    title: "Discover",
-    icon: Search,
-    description:
-      "Map objectives, constraints, and compliance obligations with the people who own the outcome.",
-  },
-  {
-    number: "02",
-    title: "Design",
-    icon: PenTool,
-    description:
-      "A prioritized roadmap with scope, staffing plan, milestones, and measurable success criteria.",
-  },
-  {
-    number: "03",
-    title: "Deliver",
-    icon: Rocket,
-    description:
-      "Execution in disciplined sprints with weekly reporting, risk tracking, and stakeholder demos.",
-  },
-  {
-    number: "04",
-    title: "Optimize",
-    icon: Gauge,
-    description:
-      "Continuous improvement, SLA-backed support, and quarterly reviews that compound value.",
-  },
+  { value: "10+", label: "Years of expertise" },
+  { value: "50+", label: "Enterprise projects" },
+  { value: "100+", label: "Professionals" },
+  { value: "24/7", label: "Operations support" },
 ];
 
 const quotes = [
@@ -176,208 +73,6 @@ const quotes = [
   },
 ];
 
-function HomePage() {
-  return (
-    <>
-      <Hero />
-      <AudienceRouter />
-      <About />
-      <Services />
-      <WhoWeServe />
-      <Qualifications />
-      <Staffing />
-      <TechEcosystem />
-      <WhyCyberCloud />
-      <Process />
-      <Testimonials />
-      <Insights />
-      <Faq />
-      <FinalCTA />
-    </>
-  );
-}
-
-/* ---------------------------------------------------------------- Hero */
-
-function Hero() {
-  return (
-    <section className="relative overflow-hidden bg-gradient-hero pb-16 pt-[104px] sm:pb-20 lg:min-h-[780px] lg:pb-24 lg:pt-[140px]">
-      <div className="pointer-events-none absolute inset-0 plus-pattern" />
-      <div className="pointer-events-none absolute inset-0 opacity-60 [background:radial-gradient(70%_80%_at_90%_10%,rgba(14,116,144,0.35),transparent_60%),radial-gradient(50%_50%_at_0%_100%,rgba(255,184,28,0.12),transparent_55%)]" />
-      <div className={`relative ${CONTAINER} px-5 sm:px-6 lg:px-8`}>
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <Eyebrow tone="light">SDVOSB · {company.locationShort}</Eyebrow>
-            <h1 className="mt-6 text-[2.35rem] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[3.15rem] lg:text-[3.75rem]">
-              Win the work. Deliver it. One SDVOSB does both.
-            </h1>
-            <p className="mt-6 max-w-xl text-base leading-[1.7] text-white/75 sm:text-lg">
-              Technology, infrastructure, cybersecurity, and specialized staffing for government and
-              enterprise programs that cannot afford downtime, drift, or unfilled critical roles.
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button
-                asChild
-                className="h-[52px] rounded-md bg-brand px-7 text-base font-semibold text-brand-foreground shadow-md transition-transform hover:-translate-y-0.5 hover:bg-brand/90"
-              >
-                <Link to="/services">
-                  See Services &amp; Delivery <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-
-              <Button
-                asChild
-                variant="outline"
-                className="h-[52px] rounded-md border-white/35 bg-transparent px-7 text-base font-semibold text-white hover:-translate-y-0.5 hover:bg-white/10 hover:text-white"
-              >
-                <Link to="/who-we-serve">Prime contractor? Team with us</Link>
-              </Button>
-            </div>
-            <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
-              {trustStats.map((s) => (
-                <div key={s.label}>
-                  <p className="font-display text-[1.65rem] font-bold leading-none text-brand sm:text-[1.85rem]">
-                    {s.value}
-                  </p>
-                  <p className="mt-2 text-xs leading-snug text-white/65">{s.label}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/15 pt-5 text-xs text-white/70">
-              {trustChips.map((chip) => (
-                <span key={chip.lead}>
-                  <b className="font-semibold text-white">{chip.lead}</b> {chip.rest}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <HeroVisual />
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------ AudienceRouter */
-
-function AudienceRouter() {
-  return (
-    <section className="bg-surface px-5 py-14 sm:px-6 lg:px-8 lg:py-16">
-      <div className={`${CONTAINER} grid gap-6 lg:grid-cols-2`}>
-        {whoWeServe.map((market, i) => (
-          <Reveal key={market.slug} delay={i * 0.08}>
-            <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-card">
-              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-teal">
-                {market.slug === "government-public-sector"
-                  ? "For agencies & primes"
-                  : "For private-sector teams"}
-              </span>
-              <h2 className="mt-4 text-[1.55rem] font-bold leading-snug text-foreground">
-                {market.slug === "government-public-sector"
-                  ? "I need an SDVOSB that can actually deliver"
-                  : "I need technology and talent under one contract"}
-              </h2>
-              <p className="mt-3 flex-1 text-[0.975rem] leading-[1.7] text-muted-foreground">
-                {market.message}
-              </p>
-              <Button
-                asChild
-                className="mt-7 h-11 w-fit rounded-md bg-primary px-5 font-semibold text-primary-foreground hover:bg-primary/90"
-              >
-                <Link to="/who-we-serve">
-                  {market.slug === "government-public-sector"
-                    ? "See public-sector delivery"
-                    : "See private-sector delivery"}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/* --------------------------------------------------------------- About */
-
-function About() {
-  const features = [
-    "Enterprise Technology Expertise",
-    "Specialized Talent Solutions",
-    "Mission-Critical Delivery",
-  ];
-  return (
-    <section className={`bg-background ${SECTION}`}>
-      <div className={`${CONTAINER} grid items-center gap-14 lg:grid-cols-2`}>
-        <Reveal className="relative">
-          <img
-            src={aboutTeam}
-            alt="CyberCloud Infra engineers collaborating in an enterprise technology operations center"
-            loading="lazy"
-            className="h-[420px] w-full rounded-3xl object-cover shadow-card lg:h-[500px]"
-          />
-          <div className="absolute -bottom-6 left-4 rounded-2xl border border-border bg-card px-5 py-4 shadow-lift sm:left-8">
-            <p className="text-sm font-semibold text-foreground">Enterprise Ready</p>
-            <p className="text-xs text-muted-foreground">Governance, security, and SLAs built in</p>
-          </div>
-          <div className="absolute -top-6 right-4 hidden rounded-2xl border border-border bg-card px-5 py-4 shadow-lift sm:block">
-            <p className="text-sm font-semibold text-foreground">Technology + Talent</p>
-            <p className="text-xs text-muted-foreground">One accountable partner</p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <Eyebrow>Who We Are</Eyebrow>
-          <h2 className="mt-5 text-[2rem] font-extrabold leading-[1.15] tracking-tight text-foreground sm:text-[2.375rem] lg:text-[2.875rem]">
-            One Partner for Technology, Infrastructure & Talent
-          </h2>
-          <p className="mt-5 text-base leading-[1.7] text-muted-foreground">
-            CyberCloud Infra LLC is a Service-Disabled Veteran-Owned Small Business supporting
-            government agencies and enterprises that cannot afford downtime, drift, or unfilled
-            critical roles.
-          </p>
-          <p className="mt-4 text-base leading-[1.7] text-muted-foreground">
-            We combine infrastructure engineering, cloud modernization, and cybersecurity with
-            specialized staffing — so the platform and the people arrive together.
-          </p>
-          <ul className="mt-8 space-y-4">
-            {features.map((f) => (
-              <li key={f} className="flex items-center gap-3">
-                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
-                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                </span>
-                <span className="font-medium text-foreground">{f}</span>
-              </li>
-            ))}
-          </ul>
-          <Button
-            asChild
-            className="mt-9 h-[52px] rounded-md bg-brand px-7 font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5 hover:bg-brand/90"
-          >
-            <Link to="/about">
-              Discover CyberCloud <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------ Services */
-
 const pillarImages: Record<string, string> = {
   "it-services": itImage,
   "non-it-services": nonItImage,
@@ -385,59 +80,150 @@ const pillarImages: Record<string, string> = {
   "healthcare-services": healthcareImage,
 };
 
+function HomePage() {
+  return (
+    <>
+      <Hero />
+      <Services />
+      <Proof />
+      <WhoWeServe />
+      <Qualifications />
+      <Faq />
+      <FinalCTA />
+    </>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="relative overflow-hidden bg-gradient-hero pt-[96px] pb-14 sm:pt-[120px] sm:pb-16 lg:pt-[132px] lg:pb-20">
+      <div className="pointer-events-none absolute inset-0 plus-pattern opacity-70" />
+      <div className={`relative ${CONTAINER} px-5 sm:px-6 lg:px-8`}>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto max-w-3xl text-center"
+        >
+          <Eyebrow tone="light">SDVOSB · {company.locationShort}</Eyebrow>
+          <h1 className="mt-5 text-[2.15rem] font-extrabold leading-[1.12] tracking-tight text-white sm:text-[3rem] lg:text-[3.35rem]">
+            IT, Non-IT, Infrastructure & Healthcare services for mission-critical work
+          </h1>
+          <p className="mx-auto mt-5 max-w-2xl text-[1.05rem] leading-[1.7] text-white/78 sm:text-lg">
+            CyberCloud Infra LLC delivers technology, professional workforce, infrastructure, and
+            healthcare solutions to government and enterprise — one accountable partner, not four
+            vendors.
+          </p>
+        </motion.div>
+
+        <motion.ul
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto mt-9 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4"
+        >
+          {pillars.map((pillar) => (
+            <li key={pillar.slug}>
+              <Link
+                to={pillar.href}
+                className="flex min-h-[72px] flex-col items-center justify-center rounded-xl border border-white/15 bg-white/[0.06] px-3 py-3 text-center transition-colors hover:border-brand/50 hover:bg-white/[0.1]"
+              >
+                <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
+                  {pillar.number}
+                </span>
+                <span className="mt-1 text-sm font-semibold leading-snug text-white">
+                  {pillar.title.replace(" Services", "")}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </motion.ul>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.14 }}
+          className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+        >
+          <Button
+            asChild
+            className="h-12 min-w-[200px] rounded-md bg-brand px-8 text-base font-semibold text-brand-foreground shadow-[0_10px_30px_rgba(255,184,28,0.28)] hover:bg-brand/90"
+          >
+            <Link to="/get-quote">
+              Get a quote <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="h-12 min-w-[180px] rounded-md border-white/30 bg-transparent px-7 text-base font-medium text-white/90 hover:bg-white/10 hover:text-white"
+          >
+            <Link to="/contact">Talk to an expert</Link>
+          </Button>
+        </motion.div>
+
+        <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-white/60 sm:text-[13px]">
+          {trustChips.map((chip, i) => (
+            <span key={chip.lead}>
+              {i > 0 && <span className="mx-2 text-white/25">·</span>}
+              <span className="font-semibold text-white/80">{chip.lead}</span> {chip.rest}
+            </span>
+          ))}
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function Services() {
   return (
-    <section className={`bg-surface ${SECTION}`}>
+    <section id="services" className={`bg-background ${SECTION}`}>
       <div className={CONTAINER}>
         <Reveal>
           <SectionHeading
-            eyebrow="Our Services"
-            title="Four Service Pillars, One Accountable Partner"
-            description="Technology, professional workforce, infrastructure, and healthcare solutions — delivered together for private, government, and public-sector organizations."
+            align="left"
+            eyebrow="Service architecture"
+            title="Four pillars. One delivery lead."
+            description="Every engagement maps to one of these lanes — so you always know who owns the work."
           />
         </Reveal>
-        <div className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-8 sm:grid-cols-2">
           {pillars.map((pillar, i) => (
-            <Reveal key={pillar.slug} delay={i * 0.06}>
+            <Reveal key={pillar.slug} delay={i * 0.05}>
               <Link
                 to={pillar.href}
-                className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-border bg-card shadow-card transition-all duration-300 hover:-translate-y-2 hover:shadow-lift"
+                className="group grid h-full overflow-hidden rounded-2xl border border-border bg-card sm:grid-cols-[140px_1fr]"
               >
-                <div className="relative">
-                  <div className="aspect-[16/11] w-full overflow-hidden">
-                    <img
-                      src={pillarImages[pillar.slug]}
-                      alt={`${pillar.title} at CyberCloud Infra LLC`}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <span className="absolute -bottom-7 left-6 grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-lift ring-4 ring-card">
-                    <pillar.icon className="h-6 w-6" />
-                  </span>
-                  <span className="absolute right-4 top-4 rounded-full bg-card/85 px-2.5 py-1 font-display text-xs font-extrabold text-primary backdrop-blur">
-                    {pillar.number}
-                  </span>
+                <div className="relative min-h-[140px] sm:min-h-full">
+                  <img
+                    src={pillarImages[pillar.slug]}
+                    alt=""
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
                 </div>
-                <div className="flex flex-1 flex-col px-6 pb-7 pt-11">
-                  <h3 className="text-[1.2rem] font-bold text-foreground">{pillar.title}</h3>
-                  <p className="mt-3 text-[0.95rem] leading-[1.65] text-muted-foreground">
+                <div className="flex flex-col p-6 sm:p-8">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal">
+                    {pillar.number}
+                  </p>
+                  <h3 className="mt-2 text-xl font-bold text-foreground">{pillar.title}</h3>
+                  <p className="mt-3 text-[0.975rem] leading-[1.7] text-muted-foreground">
                     {pillar.summary}
                   </p>
-                  <ul className="mt-5 flex-1 space-y-2">
+                  <ul className="mt-5 space-y-2">
                     {pillar.services.slice(0, 3).map((s) => (
                       <li
                         key={s.slug}
                         className="flex items-start gap-2 text-sm text-foreground/80"
                       >
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
                         {s.title}
                       </li>
                     ))}
                   </ul>
                   <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                    Read More
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                    Explore {pillar.title}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
               </Link>
@@ -449,234 +235,56 @@ function Services() {
   );
 }
 
-/* ---------------------------------------------------------- WhoWeServe */
-
-function WhoWeServe() {
-  return (
-    <section className={`bg-background ${SECTION}`}>
-      <div className={CONTAINER}>
-        <Reveal>
-          <SectionHeading
-            eyebrow="Who We Serve"
-            title="Trusted Across Private and Public Sectors"
-            description="From growing businesses to federal agencies, we bring the same disciplined delivery model to every engagement."
-          />
-        </Reveal>
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          {whoWeServe.map((market, i) => (
-            <Reveal key={market.slug} delay={i * 0.08}>
-              <div className="flex h-full flex-col rounded-[24px] border border-border bg-card p-8 shadow-card lg:p-10">
-                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-primary-foreground">
-                  <market.icon className="h-6 w-6" />
-                </span>
-                <h3 className="mt-6 text-[1.45rem] font-bold text-foreground">{market.title}</h3>
-                <p className="mt-3 text-[0.975rem] leading-[1.7] text-muted-foreground">
-                  {market.message}
-                </p>
-                <ul className="mt-7 grid gap-2.5 sm:grid-cols-2">
-                  {market.segments.map((s) => (
-                    <li key={s} className="flex items-start gap-2.5 text-sm text-foreground/85">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={0.12}>
-          <div className="mt-10 text-center">
-            <Link
-              to="/who-we-serve"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-primary"
-            >
-              See how we support each sector <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------ Staffing */
-
-function Staffing() {
-  return (
-    <section className="relative overflow-hidden bg-gradient-navy px-5 py-16 sm:px-6 sm:py-[85px] lg:px-8 lg:py-[120px]">
-      <div className="pointer-events-none absolute inset-0 plus-pattern" />
-      <div className="pointer-events-none absolute inset-0 opacity-60 [background:radial-gradient(60%_70%_at_80%_20%,rgba(14,116,144,0.4),transparent_62%),radial-gradient(50%_60%_at_0%_100%,rgba(255,184,28,0.18),transparent_62%)]" />
-      <div className={`relative ${CONTAINER} grid items-center gap-14 lg:grid-cols-2`}>
-        <Reveal>
-          <Eyebrow tone="light">Staffing</Eyebrow>
-          <h2 className="mt-5 text-[2rem] font-extrabold leading-[1.15] tracking-tight text-white sm:text-[2.375rem] lg:text-[2.875rem]">
-            Find the Right Talent for Critical Roles
-          </h2>
-          <p className="mt-5 max-w-xl text-base leading-[1.7] text-white/70">
-            Our recruiters are specialists, not generalists. We source, screen, and credential
-            professionals against the actual requirements of the role — then support them through
-            placement and retention.
-          </p>
-          <Button
-            asChild
-            className="mt-9 h-[52px] rounded-md bg-brand px-7 font-semibold text-brand-foreground hover:bg-brand/90"
-          >
-            <Link to="/non-it-services">
-              Explore Staffing Solutions <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
-        </Reveal>
-
-        <Reveal delay={0.1} className="space-y-4">
-          {staffingCards.map((card, i) => (
-            <motion.div
-              key={card.title}
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 5 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
-              className="flex items-center gap-4 rounded-2xl border border-white/12 bg-white/[0.06] p-5 backdrop-blur-sm lg:ml-auto lg:max-w-md"
-              style={{ marginLeft: i === 1 ? "auto" : undefined }}
-            >
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-brand text-brand-foreground">
-                <Users className="h-5 w-5" />
-              </span>
-              <div className="min-w-0">
-                <p className="font-semibold text-white">{card.title}</p>
-                <p className="text-sm text-white/65">{card.detail}</p>
-              </div>
-            </motion.div>
-          ))}
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------- TechEcosystem */
-
-function TechEcosystem() {
-  return (
-    <section className={`bg-surface ${SECTION}`}>
-      <div className={CONTAINER}>
-        <Reveal>
-          <SectionHeading
-            eyebrow="Technology"
-            title="Technology Expertise That Scales With You"
-            description="Platforms, clouds, and stacks our engineers work in every day across enterprise and public-sector programs."
-          />
-        </Reveal>
-        <div className="mt-12 flex flex-wrap justify-center gap-3">
-          {techStack.map((tech, i) => (
-            <Reveal key={tech} delay={i * 0.03}>
-              <span className="inline-flex items-center rounded-2xl border border-border bg-card px-6 py-4 text-sm font-semibold text-foreground shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:text-primary">
-                {tech}
-              </span>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* -------------------------------------------------------- WhyCyberCloud */
-
-function WhyCyberCloud() {
-  return (
-    <section className={`bg-background ${SECTION}`}>
-      <div className={CONTAINER}>
-        <Reveal>
-          <SectionHeading eyebrow="Why Us" title="Why Organizations Choose CyberCloud" />
-        </Reveal>
-        <div className="relative mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="pointer-events-none absolute left-0 right-0 top-6 hidden h-px bg-border lg:block" />
-          {whyCards.map((c, i) => (
-            <Reveal key={c.number} delay={i * 0.08} className="relative">
-              <span className="font-display text-[3rem] font-extrabold leading-none text-primary/25">
-                {c.number}
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-foreground">{c.title}</h3>
-              <p className="mt-3 text-[0.95rem] leading-[1.7] text-muted-foreground">
-                {c.description}
-              </p>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* -------------------------------------------------------------- Process */
-
-function Process() {
-  return (
-    <section className={`bg-surface ${SECTION}`}>
-      <div className={CONTAINER}>
-        <Reveal>
-          <SectionHeading eyebrow="Process" title="How We Deliver" />
-        </Reveal>
-        <div className="relative mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="pointer-events-none absolute left-7 top-0 hidden h-full w-px bg-border sm:block lg:left-0 lg:right-0 lg:top-7 lg:h-px lg:w-full" />
-          {processSteps.map((step, i) => (
-            <Reveal key={step.number} delay={i * 0.08} className="relative">
-              <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-soft">
-                <step.icon className="h-6 w-6" />
-              </span>
-              <p className="mt-5 text-sm font-bold tracking-[0.14em] text-primary">{step.number}</p>
-              <h3 className="mt-2 text-lg font-bold text-foreground">{step.title}</h3>
-              <p className="mt-3 text-[0.95rem] leading-[1.7] text-muted-foreground">
-                {step.description}
-              </p>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* --------------------------------------------------------- Testimonials */
-
-function Testimonials() {
+function Proof() {
   const [index, setIndex] = useState(0);
   const total = quotes.length;
   const active = quotes[index];
 
   return (
-    <section className={`bg-background ${SECTION}`}>
+    <section className={`bg-surface ${SECTION}`}>
       <div className={CONTAINER}>
         <Reveal>
           <SectionHeading
-            eyebrow="Testimonials"
-            title="What Delivery Partners Tell Us"
-            description="Representative feedback from engagements. Client names withheld under confidentiality agreements."
+            align="left"
+            eyebrow="Proof"
+            title="What delivery partners tell us"
+            description="Credentials in the header. Outcomes next to the decision to call."
           />
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-12">
-          <div className="mx-auto max-w-[760px] rounded-3xl border border-border bg-card p-8 shadow-card sm:p-[50px]">
-            <Quote className="h-9 w-9 text-primary/30" />
+        <div className="mt-14 grid gap-6 sm:grid-cols-4">
+          {trustStats.map((s) => (
+            <div key={s.label} className="border-t border-border pt-5">
+              <p className="font-display text-3xl font-bold tracking-tight text-primary">
+                {s.value}
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">{s.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <Reveal delay={0.08} className="mt-14">
+          <div className="rounded-2xl border border-border bg-card p-8 sm:p-12">
+            <Quote className="h-8 w-8 text-brand" />
             <motion.blockquote
               key={index}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="mt-6 text-lg leading-[1.7] text-foreground sm:text-xl"
+              className="mt-5 max-w-3xl text-lg leading-[1.7] text-foreground sm:text-[1.25rem]"
             >
               “{active.quote}”
             </motion.blockquote>
-            <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6">
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
               <div>
                 <p className="font-semibold text-foreground">{active.name}</p>
                 <p className="text-sm text-muted-foreground">{active.role}</p>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex gap-2">
                 <button
                   type="button"
                   aria-label="Previous testimonial"
                   onClick={() => setIndex((i) => (i - 1 + total) % total)}
-                  className="grid h-11 w-11 place-items-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:text-primary"
+                  className="grid h-12 w-12 place-items-center rounded-md border border-border"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
@@ -684,133 +292,121 @@ function Testimonials() {
                   type="button"
                   aria-label="Next testimonial"
                   onClick={() => setIndex((i) => (i + 1) % total)}
-                  className="grid h-11 w-11 place-items-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:text-primary"
+                  className="grid h-12 w-12 place-items-center rounded-md border border-border"
                 >
                   <ChevronRight className="h-5 w-5" />
                 </button>
               </div>
             </div>
           </div>
-          <div className="mt-6 flex justify-center gap-2">
-            {quotes.map((q, i) => (
-              <button
-                key={q.name}
-                type="button"
-                aria-label={`Go to testimonial ${i + 1}`}
-                onClick={() => setIndex(i)}
-                className={`h-2 rounded-full transition-all ${
-                  i === index ? "w-7 bg-primary" : "w-2 bg-border"
-                }`}
-              />
-            ))}
-          </div>
         </Reveal>
-      </div>
-    </section>
-  );
-}
 
-/* -------------------------------------------------------------- Insights */
-
-function Insights() {
-  return (
-    <section className={`bg-surface ${SECTION}`}>
-      <div className={CONTAINER}>
-        <Reveal>
-          <SectionHeading
-            eyebrow="Insights"
-            title="Perspectives From Our Engineers"
-            description="Practical guidance on cloud infrastructure, security strategy, and building mission-critical teams."
-          />
-        </Reveal>
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {blogPosts.slice(0, 3).map((post, i) => (
-            <Reveal key={post.slug} delay={i * 0.08}>
-              <Link
-                to="/blog/$slug"
-                params={{ slug: post.slug }}
-                className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-border bg-card shadow-card transition-all duration-300 hover:-translate-y-2 hover:shadow-lift"
-              >
-                <div className="h-52 overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-7">
-                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">
-                    {post.category}
-                  </span>
-                  <h3 className="mt-3 text-xl font-bold leading-snug text-foreground">
-                    {post.title}
-                  </h3>
-                  <p className="mt-3 flex-1 text-[0.95rem] leading-[1.7] text-muted-foreground">
-                    {post.excerpt}
-                  </p>
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                    Read More
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
-                  </span>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
+        <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
+            Ready to scope IT, staffing, infrastructure, or healthcare support? We come back with a
+            written plan — not a brochure.
+          </p>
+          <Button
+            asChild
+            className="h-12 rounded-md bg-brand px-7 font-semibold text-brand-foreground hover:bg-brand/90"
+          >
+            <Link to="/get-quote">
+              Get a quote <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
   );
 }
 
-/* -------------------------------------------------------------- CTA */
+function WhoWeServe() {
+  return (
+    <section className={`bg-background ${SECTION}`}>
+      <div className={CONTAINER}>
+        <Reveal>
+          <SectionHeading
+            align="left"
+            eyebrow="Who we serve"
+            title="Private sector and government, same delivery model"
+          />
+        </Reveal>
+        <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:gap-16">
+          {whoWeServe.map((market) => (
+            <div key={market.slug} className="border-t border-border pt-8">
+              <h3 className="text-xl font-bold text-foreground">{market.title}</h3>
+              <p className="mt-3 text-[0.975rem] leading-[1.75] text-muted-foreground">
+                {market.message}
+              </p>
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {market.segments.map((s) => (
+                  <li
+                    key={s}
+                    className="rounded-full border border-border px-3 py-1.5 text-xs font-medium text-foreground/80"
+                  >
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <Link
+          to="/who-we-serve"
+          className="mt-10 inline-flex min-h-12 items-center gap-2 text-sm font-semibold text-primary"
+        >
+          How we support each sector <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
+    </section>
+  );
+}
 
 function Qualifications() {
   return (
     <section className={`bg-surface ${SECTION}`}>
-      <div className={`${CONTAINER} grid items-start gap-12 lg:grid-cols-[1.2fr_0.8fr]`}>
+      <div
+        className={`${CONTAINER} grid items-start gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20`}
+      >
         <Reveal>
           <Eyebrow>For primes &amp; SBLOs</Eyebrow>
-          <h2 className="mt-5 text-[2rem] font-extrabold leading-[1.15] tracking-tight text-foreground sm:text-[2.375rem] lg:text-[2.75rem]">
+          <h2 className="mt-5 max-w-xl text-[1.85rem] font-bold leading-[1.2] tracking-tight text-foreground sm:text-[2.25rem]">
             SDVOSB capacity, task-order ready
           </h2>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card">
-            <table className="w-full text-left text-sm">
+          <div className="mt-10 overflow-x-auto rounded-2xl border border-border bg-card">
+            <table className="w-full min-w-[480px] text-left text-sm">
               <tbody>
                 {contractingQuals.map((row) => (
                   <tr key={row.label} className="border-b border-border last:border-0">
                     <th
                       scope="row"
-                      className="w-[38%] bg-muted/60 px-4 py-3.5 font-semibold text-foreground sm:px-5"
+                      className="w-[34%] bg-muted/50 px-4 py-4 font-semibold text-foreground sm:px-5"
                     >
                       {row.label}
                     </th>
-                    <td className="px-4 py-3.5 text-muted-foreground sm:px-5">{row.value}</td>
+                    <td className="px-4 py-4 leading-relaxed text-muted-foreground sm:px-5">
+                      {row.value}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
         </Reveal>
-        <Reveal delay={0.1}>
-          <p className="text-base leading-[1.7] text-muted-foreground">
-            Everything a contracting officer or small-business liaison needs to evaluate us as a
-            delivery partner — certifications, NAICS, contract types, and how we actually show up
-            after award.
+        <Reveal delay={0.08} className="lg:pt-16">
+          <p className="text-base leading-[1.75] text-muted-foreground">
+            Certifications, NAICS, contract types, and how we show up after award — in one table a
+            small-business liaison can drop into a sub plan.
           </p>
           <Button
             asChild
-            className="mt-8 h-[52px] rounded-md bg-primary px-7 font-semibold text-primary-foreground hover:bg-primary/90"
+            variant="outline"
+            className="mt-8 h-12 rounded-md border-primary/25 px-7 font-semibold text-primary hover:bg-accent"
           >
             <Link to="/contact">
               Book a teaming conversation <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
-          <p className="mt-4">
-            <Link to="/about" className="text-sm font-semibold text-teal hover:underline">
-              Or read about our veteran-owned delivery model →
-            </Link>
-          </p>
         </Reveal>
       </div>
     </section>
@@ -820,26 +416,22 @@ function Qualifications() {
 function Faq() {
   return (
     <section className={`bg-background ${SECTION}`}>
-      <div className={`${CONTAINER} mx-auto max-w-3xl`}>
+      <div className={`${CONTAINER} mx-auto max-w-2xl`}>
         <Reveal>
           <SectionHeading
             eyebrow="Before you ask"
             title="Straight answers"
-            description="The questions agencies, primes, and enterprise buyers usually ask before the first call."
+            description="The questions buyers usually ask before the first call."
           />
         </Reveal>
-        <Reveal delay={0.08} className="mt-10">
-          <Accordion
-            type="single"
-            collapsible
-            className="rounded-2xl border border-border bg-card px-5"
-          >
+        <Reveal delay={0.06} className="mt-12">
+          <Accordion type="single" collapsible className="border-t border-border">
             {faqs.map((item) => (
-              <AccordionItem key={item.q} value={item.q}>
-                <AccordionTrigger className="text-base font-semibold text-foreground hover:no-underline">
+              <AccordionItem key={item.q} value={item.q} className="border-border">
+                <AccordionTrigger className="py-5 text-left text-base font-semibold text-foreground hover:no-underline">
                   {item.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-[0.95rem] leading-[1.7] text-muted-foreground">
+                <AccordionContent className="pb-5 text-[0.975rem] leading-[1.75] text-muted-foreground">
                   {item.a}
                 </AccordionContent>
               </AccordionItem>
@@ -853,36 +445,36 @@ function Faq() {
 
 function FinalCTA() {
   return (
-    <section className="px-5 pb-20 sm:px-6 lg:px-8 lg:pb-28">
+    <section className="px-5 pb-24 sm:px-6 lg:px-8 lg:pb-32">
       <div
-        className={`${CONTAINER} relative overflow-hidden rounded-[28px] bg-gradient-hero px-6 py-16 text-center sm:px-12 lg:py-20`}
+        className={`${CONTAINER} relative overflow-hidden rounded-3xl bg-gradient-hero px-6 py-16 text-center sm:px-12 lg:py-20`}
       >
-        <div className="pointer-events-none absolute inset-0 plus-pattern" />
-        <div className="pointer-events-none absolute inset-0 opacity-50 [background:radial-gradient(50%_80%_at_85%_0%,rgba(255,184,28,0.18),transparent_60%)]" />
-        <div className="relative mx-auto max-w-[900px]">
+        <div className="relative mx-auto max-w-2xl">
           <Eyebrow tone="light">Next step</Eyebrow>
-          <h2 className="mt-5 text-[2rem] font-extrabold leading-[1.15] tracking-tight text-white sm:text-[2.5rem] lg:text-[3rem]">
+          <h2 className="mt-5 text-[1.85rem] font-bold leading-[1.2] tracking-tight text-white sm:text-[2.4rem]">
             Have a program on the clock?
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-[1.7] text-white/80 sm:text-lg">
-            Tell us the mission. We will come back with a clear scope, timeline, and staffing plan —
-            from a principal who stays on the work.
+          <p className="mx-auto mt-5 max-w-xl text-base leading-[1.75] text-white/75 sm:text-lg">
+            Tell us the mission. We return a clear scope, timeline, and staffing plan.
           </p>
-          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+          <blockquote className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-white/65">
+            “{quotes[0].quote}”
+          </blockquote>
+          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <Button
               asChild
-              className="h-[52px] rounded-md bg-brand px-7 text-base font-semibold text-brand-foreground transition-transform hover:-translate-y-0.5 hover:bg-brand/90"
+              className="h-12 min-w-[200px] rounded-md bg-brand px-8 text-base font-semibold text-brand-foreground hover:bg-brand/90"
             >
-              <Link to="/contact">
-                Start a conversation <ArrowRight className="h-4 w-4" />
+              <Link to="/get-quote">
+                Get a quote <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="h-[52px] rounded-md border-white/40 bg-white/10 px-7 text-base font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-white/20 hover:text-white"
+              className="h-12 rounded-md border-white/30 bg-transparent px-7 text-base font-medium text-white hover:bg-white/10 hover:text-white"
             >
-              <Link to="/services">View services</Link>
+              <Link to="/services">View all services</Link>
             </Button>
           </div>
         </div>

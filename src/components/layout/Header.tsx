@@ -13,15 +13,6 @@ type NavItemDef = {
 };
 
 const nav: NavItemDef[] = [
-  { to: "/", label: "Home" },
-  {
-    to: "/about",
-    label: "About",
-    children: [
-      { to: "/about", label: "About Us" },
-      { to: "/case-studies", label: "Case Studies" },
-    ],
-  },
   {
     to: "/services",
     label: "Services",
@@ -34,9 +25,7 @@ const nav: NavItemDef[] = [
     ],
   },
   { to: "/who-we-serve", label: "Who We Serve" },
-  { to: "/industries", label: "Industries" },
-  { to: "/careers", label: "Careers" },
-  { to: "/blog", label: "Insights" },
+  { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -119,7 +108,7 @@ export function Header() {
                   key={item.label}
                   to={item.to}
                   className={cn(
-                    "rounded-lg px-3 py-2 text-sm font-semibold transition-colors",
+                    "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                     !solid
                       ? active
                         ? "text-brand"
@@ -146,7 +135,7 @@ export function Header() {
                   aria-expanded={open}
                   onClick={() => setOpenMenu(open ? null : item.label)}
                   className={cn(
-                    "flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold transition-colors",
+                    "flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                     !solid
                       ? active
                         ? "text-brand"
@@ -192,10 +181,10 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Button
             asChild
-            className="hidden h-11 rounded-md bg-brand px-6 font-semibold text-brand-foreground shadow-md transition-transform hover:-translate-y-0.5 hover:bg-brand/90 sm:inline-flex"
+            className="hidden h-11 rounded-md bg-brand px-5 text-sm font-semibold text-brand-foreground shadow-md hover:bg-brand/90 sm:inline-flex"
           >
             <Link to="/get-quote">
-              Get Started <ArrowRight className="h-4 w-4" />
+              Get a quote <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
           <button
@@ -268,10 +257,10 @@ export function Header() {
               )}
               <Button
                 asChild
-                className="mt-5 h-12 w-full rounded-md bg-brand font-semibold text-brand-foreground"
+                className="mt-5 h-12 w-full rounded-md bg-brand text-base font-semibold text-brand-foreground"
               >
                 <Link to="/get-quote">
-                  Get Started <ArrowRight className="h-4 w-4" />
+                  Get a quote <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </nav>
