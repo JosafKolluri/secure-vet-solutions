@@ -810,12 +810,11 @@ export const devSecOpsPhases = [
 
 export interface Pillar {
   number: string;
-  slug: "it-services" | "non-it-services" | "infrastructure-services" | "healthcare-services";
+  slug: string;
   title: string;
   summary: string;
-  outcome: string;
   icon: LucideIcon;
-  href: "/it-services" | "/non-it-services" | "/infrastructure-services" | "/healthcare-services";
+  href: string;
   services: { title: string; slug: string }[];
 }
 
@@ -825,7 +824,6 @@ export const pillars: Pillar[] = [
     slug: "it-services",
     title: "IT Services",
     summary: "Technology solutions for modern organizations — advisory, build, and run.",
-    outcome: "Cloud, cybersecurity, applications, and managed IT — scoped to your compliance bar.",
     icon: Cloud,
     href: "/it-services",
     services: itServices.map((s) => ({ title: s.title, slug: s.slug })),
@@ -835,8 +833,6 @@ export const pillars: Pillar[] = [
     slug: "non-it-services",
     title: "Non-IT Services",
     summary: "Professional workforce and operational support across business functions.",
-    outcome:
-      "Administrative, professional, and skilled talent plus the operations that keep a program moving.",
     icon: Users,
     href: "/non-it-services",
     services: nonItServices.map((s) => ({ title: s.title, slug: s.slug })),
@@ -846,7 +842,6 @@ export const pillars: Pillar[] = [
     slug: "infrastructure-services",
     title: "Infrastructure Services",
     summary: "Infrastructure engineering and operations that keep environments resilient.",
-    outcome: "Data center, network, and 24/7 operations you can prove — not assume.",
     icon: Server,
     href: "/infrastructure-services",
     services: infrastructureServices.map((s) => ({ title: s.title, slug: s.slug })),
@@ -856,7 +851,6 @@ export const pillars: Pillar[] = [
     slug: "healthcare-services",
     title: "Healthcare Services",
     summary: "Healthcare workforce, technology, and operational support solutions.",
-    outcome: "Clinical and non-clinical staffing, healthcare IT, and clinic operations support.",
     icon: Stethoscope,
     href: "/healthcare-services",
     services: healthcareServices.map((s) => ({ title: s.title, slug: s.slug })),
