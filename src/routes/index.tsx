@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, Check, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -10,11 +10,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
+import { ServicesShowcase } from "@/components/sections/ServicesShowcase";
 import { pillars, whoWeServe, company, trustChips, contractingQuals, faqs } from "@/data/site";
-import itImage from "@/assets/dashboard-laptop.jpg";
-import nonItImage from "@/assets/hero-team.jpg";
-import infraImage from "@/assets/infrastructure-datacenter.jpg";
-import healthcareImage from "@/assets/healthcare-staff.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -72,13 +69,6 @@ const quotes = [
     role: "Financial services firm (name withheld)",
   },
 ];
-
-const pillarImages: Record<string, string> = {
-  "it-services": itImage,
-  "non-it-services": nonItImage,
-  "infrastructure-services": infraImage,
-  "healthcare-services": healthcareImage,
-};
 
 function HomePage() {
   return (
@@ -179,57 +169,7 @@ function Services() {
   return (
     <section id="services" className={`bg-background ${SECTION}`}>
       <div className={CONTAINER}>
-        <Reveal>
-          <SectionHeading
-            align="left"
-            eyebrow="Service architecture"
-            title="Four pillars. One delivery lead."
-            description="Every engagement maps to one of these lanes — so you always know who owns the work."
-          />
-        </Reveal>
-        <div className="mt-16 grid gap-8 sm:grid-cols-2">
-          {pillars.map((pillar, i) => (
-            <Reveal key={pillar.slug} delay={i * 0.05}>
-              <Link
-                to={pillar.href}
-                className="group grid h-full overflow-hidden rounded-2xl border border-border bg-card sm:grid-cols-[140px_1fr]"
-              >
-                <div className="relative min-h-[140px] sm:min-h-full">
-                  <img
-                    src={pillarImages[pillar.slug]}
-                    alt=""
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                </div>
-                <div className="flex flex-col p-6 sm:p-8">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal">
-                    {pillar.number}
-                  </p>
-                  <h3 className="mt-2 text-xl font-bold text-foreground">{pillar.title}</h3>
-                  <p className="mt-3 text-[0.975rem] leading-[1.7] text-muted-foreground">
-                    {pillar.summary}
-                  </p>
-                  <ul className="mt-5 space-y-2">
-                    {pillar.services.slice(0, 3).map((s) => (
-                      <li
-                        key={s.slug}
-                        className="flex items-start gap-2 text-sm text-foreground/80"
-                      >
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
-                        {s.title}
-                      </li>
-                    ))}
-                  </ul>
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                    Explore {pillar.title}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
+        <ServicesShowcase />
       </div>
     </section>
   );
