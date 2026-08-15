@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, Check, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -97,7 +97,9 @@ function HomePage() {
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-hero pt-[96px] pb-14 sm:pt-[120px] sm:pb-16 lg:pt-[132px] lg:pb-20">
-      <div className="pointer-events-none absolute inset-0 plus-pattern opacity-70" />
+      <div className="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-teal/25 blur-3xl" />
+      <div className="pointer-events-none absolute -right-20 bottom-[-4rem] h-96 w-96 rounded-full bg-brand/15 blur-3xl" />
+      <div className="hero-dots pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_32%,transparent_18%,black_78%)]" />
       <div className={`relative ${CONTAINER} px-5 sm:px-6 lg:px-8`}>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -177,56 +179,66 @@ function Hero() {
 
 function Services() {
   return (
-    <section id="services" className={`bg-background ${SECTION}`}>
+    <section id="services" className={`bg-surface ${SECTION}`}>
       <div className={CONTAINER}>
         <Reveal>
           <SectionHeading
             align="left"
-            eyebrow="Service architecture"
+            eyebrow="Services"
             title="Four pillars. One delivery lead."
             description="Every engagement maps to one of these lanes — so you always know who owns the work."
           />
         </Reveal>
-        <div className="mt-16 grid gap-8 sm:grid-cols-2">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:gap-8">
           {pillars.map((pillar, i) => (
             <Reveal key={pillar.slug} delay={i * 0.05}>
-              <Link
-                to={pillar.href}
-                className="group grid h-full overflow-hidden rounded-2xl border border-border bg-card sm:grid-cols-[140px_1fr]"
-              >
-                <div className="relative min-h-[140px] sm:min-h-full">
+              <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card">
+                <div className="relative aspect-[16/9] overflow-hidden">
                   <img
                     src={pillarImages[pillar.slug]}
                     alt=""
                     loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                </div>
-                <div className="flex flex-col p-6 sm:p-8">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c2340] via-[#0c2340]/35 to-transparent" />
+                  <span className="absolute left-5 top-5 grid h-11 w-11 place-items-center rounded-lg bg-brand text-brand-foreground shadow-md">
+                    <pillar.icon className="h-5 w-5" />
+                  </span>
+                  <span className="absolute bottom-4 left-5 font-display text-sm font-bold tracking-[0.16em] text-white/80">
                     {pillar.number}
-                  </p>
-                  <h3 className="mt-2 text-xl font-bold text-foreground">{pillar.title}</h3>
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-6 sm:p-7">
+                  <h3 className="text-xl font-bold text-foreground">
+                    <Link to={pillar.href} className="hover:text-primary">
+                      {pillar.title}
+                    </Link>
+                  </h3>
                   <p className="mt-3 text-[0.975rem] leading-[1.7] text-muted-foreground">
                     {pillar.summary}
                   </p>
-                  <ul className="mt-5 space-y-2">
-                    {pillar.services.slice(0, 3).map((s) => (
-                      <li
-                        key={s.slug}
-                        className="flex items-start gap-2 text-sm text-foreground/80"
-                      >
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
-                        {s.title}
+                  <ul className="mt-5 flex flex-wrap gap-2">
+                    {pillar.services.slice(0, 4).map((s) => (
+                      <li key={s.slug}>
+                        <Link
+                          to="/services/$slug"
+                          params={{ slug: s.slug }}
+                          className="inline-flex min-h-10 items-center rounded-full border border-border bg-muted/60 px-3 py-1.5 text-xs font-medium text-foreground/85 transition-colors hover:border-primary/30 hover:text-primary"
+                        >
+                          {s.title}
+                        </Link>
                       </li>
                     ))}
                   </ul>
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                  <Link
+                    to={pillar.href}
+                    className="mt-6 inline-flex min-h-12 items-center gap-2 text-sm font-semibold text-primary"
+                  >
                     Explore {pillar.title}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
+                  </Link>
                 </div>
-              </Link>
+              </article>
             </Reveal>
           ))}
         </div>
@@ -241,7 +253,7 @@ function Proof() {
   const active = quotes[index];
 
   return (
-    <section className={`bg-surface ${SECTION}`}>
+    <section className={`bg-background ${SECTION}`}>
       <div className={CONTAINER}>
         <Reveal>
           <SectionHeading
