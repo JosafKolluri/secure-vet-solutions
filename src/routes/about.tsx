@@ -3,29 +3,18 @@ import { Check } from "lucide-react";
 import { PageHero, Reveal, SectionHeading, CTASection } from "@/components/sections/Primitives";
 import { StatBlock } from "@/components/sections/AnimatedCounter";
 import { coreValues, milestones, homeStats, certifications, company } from "@/data/site";
+import { pageHead } from "@/lib/seo";
 import aboutHandshake from "@/assets/about-handshake.jpg";
 import aboutTeam from "@/assets/about-team.jpg";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About Us | CyberCloud Infra LLC" },
-      {
-        name: "description",
-        content:
-          "CyberCloud Infra LLC is a veteran-owned technology and staffing partner serving government agencies, healthcare systems, and enterprises across the United States.",
-      },
-      { property: "og:title", content: "About CyberCloud Infra LLC" },
-      {
-        property: "og:description",
-        content:
-          "Veteran-owned values, engineering discipline, and recruiting depth for mission-critical organizations.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://secure-vet-solutions.lovable.app/about" },
-    ],
-    links: [{ rel: "canonical", href: "https://secure-vet-solutions.lovable.app/about" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "About CyberCloud Infra LLC | Veteran-Owned SDVOSB",
+      description:
+        "CyberCloud Infra LLC is a veteran-owned SDVOSB delivering IT, infrastructure, non-IT professional services, and healthcare solutions to government and enterprise.",
+      path: "/about",
+    }),
   component: AboutPage,
 });
 
@@ -34,8 +23,8 @@ function AboutPage() {
     <>
       <PageHero
         eyebrow="About Us"
-        title="A veteran-owned partner for technology and talent"
-        description="We were founded on a simple premise: mission-critical organizations deserve one partner who can both engineer the solution and staff the people who run it."
+        title="A veteran-owned SDVOSB for technology and talent"
+        description="Mission-critical organizations deserve one partner who can engineer the solution and staff the people who run it — across IT, infrastructure, non-IT, and healthcare."
         breadcrumb="About Us"
       />
 

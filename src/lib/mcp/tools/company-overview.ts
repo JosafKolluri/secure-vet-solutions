@@ -5,14 +5,14 @@ export default defineTool({
   name: "company_overview",
   title: "Company overview",
   description:
-    "Get an overview of CyberCloud Infra LLC: a veteran-owned provider of IT services, infrastructure engineering, and IT, non-IT, and healthcare staffing.",
+    "Get an overview of CyberCloud Infra LLC: an SDVOSB delivering IT, non-IT professional services, infrastructure, and healthcare solutions to government and enterprise.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {
     const payload = {
       name: "CyberCloud Infra LLC",
       summary:
-        "Service-Disabled Veteran-Owned Small Business delivering IT services, infrastructure engineering, and specialized IT, non-IT, and healthcare staffing.",
+        "Service-Disabled Veteran-Owned Small Business delivering IT, non-IT professional services, infrastructure engineering, and healthcare solutions.",
       certifications,
       coreValues,
       industriesServed: industries.map((i) => ({

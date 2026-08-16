@@ -144,8 +144,8 @@ export function PageHero({
 }
 
 export function CTASection({
-  title = "Ready to strengthen your technology and your team?",
-  description = "Talk with our team about your program goals. We will come back with a clear scope, timeline, and staffing plan.",
+  title = "Ready to scope IT, infrastructure, or healthcare support?",
+  description = "Tell us the program. We will return a clear scope, timeline, and staffing plan — no generic brochure.",
   primaryLabel = "Get a Free Quote",
   primaryTo = "/get-quote",
   secondaryLabel = "Contact Us",

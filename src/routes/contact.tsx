@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { company } from "@/data/site";
+import { pageHead } from "@/lib/seo";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -18,24 +19,13 @@ const schema = z.object({
 });
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact Us | CyberCloud Infra LLC" },
-      {
-        name: "description",
-        content:
-          "Contact CyberCloud Infra LLC to discuss IT services, infrastructure engineering, or IT, non-IT, and healthcare staffing needs.",
-      },
-      { property: "og:title", content: "Contact Us | CyberCloud Infra LLC" },
-      {
-        property: "og:description",
-        content: "Reach our team about technology delivery or specialized staffing support.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://secure-vet-solutions.lovable.app/contact" },
-    ],
-    links: [{ rel: "canonical", href: "https://secure-vet-solutions.lovable.app/contact" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Contact CyberCloud Infra LLC | Arlington, TX SDVOSB",
+      description:
+        "Contact CyberCloud Infra LLC in Arlington, TX to discuss IT, non-IT, infrastructure, or healthcare services for government and enterprise programs.",
+      path: "/contact",
+    }),
   component: ContactPage,
 });
 
@@ -63,8 +53,8 @@ function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Talk to a team that answers"
-        description="Tell us what you need to deliver. We respond to every inquiry with a real person and a clear next step."
+        title="Talk with CyberCloud Infra LLC"
+        description="Reach our Arlington, TX team about IT, non-IT, infrastructure, or healthcare support. We reply with a real person and a clear next step."
         breadcrumb="Contact"
       />
 
@@ -74,8 +64,8 @@ function ContactPage() {
             <SectionHeading
               align="left"
               eyebrow="Get in touch"
-              title="How to reach us"
-              description="Email or call us, or send the form and we will route it to the right practice lead."
+              title="Arlington, TX office and nationwide delivery"
+              description="Email the team or send the form. We route every inquiry to the right practice lead."
             />
             <ul className="mt-9 space-y-4">
               {[

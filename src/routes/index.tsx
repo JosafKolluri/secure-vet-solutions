@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
 import { pillars, whoWeServe, company, trustChips, contractingQuals, faqs } from "@/data/site";
+import { jsonLdScript, pageHead, SITE_URL } from "@/lib/seo";
 import itImage from "@/assets/dashboard-laptop.jpg";
 import nonItImage from "@/assets/hero-team.jpg";
 import infraImage from "@/assets/infrastructure-datacenter.jpg";
@@ -18,26 +19,30 @@ import healthcareImage from "@/assets/healthcare-staff.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "CyberCloud Infra LLC | IT, Non-IT, Infrastructure & Healthcare" },
-      {
-        name: "description",
-        content:
-          "SDVOSB delivering IT services, non-IT professional services, infrastructure, and healthcare solutions for government and enterprise.",
-      },
-      {
-        property: "og:title",
-        content: "CyberCloud Infra LLC | IT, Non-IT, Infrastructure & Healthcare",
-      },
-      {
-        property: "og:description",
-        content:
-          "IT, Non-IT, Infrastructure, and Healthcare services through one accountable SDVOSB partner.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://secure-vet-solutions.lovable.app/" },
+    ...pageHead({
+      title: "CyberCloud Infra LLC | IT, Non-IT, Infrastructure & Healthcare",
+      description:
+        "SDVOSB delivering IT, non-IT professional services, infrastructure, and healthcare solutions for government and enterprise. One accountable partner in Arlington, TX.",
+      path: "/",
+    }),
+    scripts: [
+      jsonLdScript({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
+      }),
+      jsonLdScript({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: company.name,
+        url: SITE_URL,
+        description: company.shortDescription,
+      }),
     ],
-    links: [{ rel: "canonical", href: "https://secure-vet-solutions.lovable.app/" }],
   }),
   component: HomePage,
 });
@@ -112,9 +117,8 @@ function Hero() {
             IT, Non-IT, Infrastructure & Healthcare services for mission-critical work
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-[1.05rem] leading-[1.7] text-white/78 sm:text-lg">
-            CyberCloud Infra LLC delivers technology, professional workforce, infrastructure, and
-            healthcare solutions to government and enterprise — one accountable partner, not four
-            vendors.
+            An SDVOSB partner for government and enterprise: IT, non-IT professional services,
+            infrastructure, and healthcare — one delivery lead, not four vendors.
           </p>
         </motion.div>
 
@@ -185,8 +189,8 @@ function Services() {
           <SectionHeading
             align="left"
             eyebrow="Services"
-            title="Four pillars. One delivery lead."
-            description="Every engagement maps to one of these lanes — so you always know who owns the work."
+            title="IT, Non-IT, Infrastructure, and Healthcare"
+            description="Every engagement maps to one of these four lanes — so you always know who owns the work."
           />
         </Reveal>
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:gap-8">
@@ -196,7 +200,7 @@ function Services() {
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <img
                     src={pillarImages[pillar.slug]}
-                    alt=""
+                    alt={`${pillar.title} — CyberCloud Infra LLC`}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -259,8 +263,8 @@ function Proof() {
           <SectionHeading
             align="left"
             eyebrow="Proof"
-            title="What delivery partners tell us"
-            description="Credentials in the header. Outcomes next to the decision to call."
+            title="What program leaders tell us"
+            description="Representative outcomes from cloud, infrastructure, security, and healthcare staffing work. Client names withheld where contracts require it."
           />
         </Reveal>
 
@@ -315,8 +319,8 @@ function Proof() {
 
         <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
-            Ready to scope IT, staffing, infrastructure, or healthcare support? We come back with a
-            written plan — not a brochure.
+            Ready to scope IT, non-IT, infrastructure, or healthcare support? We return a written
+            plan — not a brochure.
           </p>
           <Button
             asChild
@@ -340,7 +344,8 @@ function WhoWeServe() {
           <SectionHeading
             align="left"
             eyebrow="Who we serve"
-            title="Private sector and government, same delivery model"
+            title="Private sector and government, same accountable model"
+            description="Enterprises, small businesses, and public agencies get the same four service pillars under one contract."
           />
         </Reveal>
         <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:gap-16">
@@ -431,9 +436,9 @@ function Faq() {
       <div className={`${CONTAINER} mx-auto max-w-2xl`}>
         <Reveal>
           <SectionHeading
-            eyebrow="Before you ask"
-            title="Straight answers"
-            description="The questions buyers usually ask before the first call."
+            eyebrow="FAQ"
+            title="Questions agencies and enterprises ask"
+            description="SDVOSB status, service coverage, staffing speed, and what happens after go-live."
           />
         </Reveal>
         <Reveal delay={0.06} className="mt-12">
@@ -464,10 +469,10 @@ function FinalCTA() {
         <div className="relative mx-auto max-w-2xl">
           <Eyebrow tone="light">Next step</Eyebrow>
           <h2 className="mt-5 text-[1.85rem] font-bold leading-[1.2] tracking-tight text-white sm:text-[2.4rem]">
-            Have a program on the clock?
+            Need IT, staffing, infrastructure, or healthcare support?
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base leading-[1.75] text-white/75 sm:text-lg">
-            Tell us the mission. We return a clear scope, timeline, and staffing plan.
+            Tell us the mission. We return a scoped quote with approach, timeline, and staffing plan.
           </p>
           <blockquote className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-white/65">
             “{quotes[0].quote}”

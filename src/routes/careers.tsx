@@ -3,26 +3,16 @@ import { MapPin, Briefcase, Check } from "lucide-react";
 import { PageHero, Reveal, SectionHeading, CTASection } from "@/components/sections/Primitives";
 import { Button } from "@/components/ui/button";
 import { jobs, benefits, company } from "@/data/site";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/careers")({
-  head: () => ({
-    meta: [
-      { title: "Careers | CyberCloud Infra LLC" },
-      {
-        name: "description",
-        content:
-          "Join a veteran-owned team delivering cloud, cybersecurity, infrastructure, and staffing solutions. View open roles and benefits.",
-      },
-      { property: "og:title", content: "Careers | CyberCloud Infra LLC" },
-      {
-        property: "og:description",
-        content: "Open roles across IT services, infrastructure, and staffing at CyberCloud Infra LLC.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://secure-vet-solutions.lovable.app/careers" },
-    ],
-    links: [{ rel: "canonical", href: "https://secure-vet-solutions.lovable.app/careers" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Careers | Open Roles at CyberCloud Infra LLC",
+      description:
+        "Join a veteran-owned SDVOSB delivering IT, infrastructure, and healthcare solutions. View open engineering, recruiting, and operations roles.",
+      path: "/careers",
+    }),
   component: CareersPage,
 });
 

@@ -1,14 +1,25 @@
-# CyberCloudInfra
+# CyberCloud Infra LLC
 
-> Service-Disabled Veteran-Owned Small Business (SDVOSB) delivering secure Azure-first cloud modernization, cybersecurity, disaster recovery, and IT infrastructure solutions for government and enterprise missions.
+> Service-Disabled Veteran-Owned Small Business (SDVOSB) delivering IT services, non-IT professional services, infrastructure engineering, and healthcare solutions for government and enterprise. Based in Arlington, TX.
 
 ## Pages
 
-- [Home](/): Overview of CyberCloudInfra's SDVOSB cloud, cybersecurity, and IT modernization services.
+- [Home](/): Overview of four service pillars and SDVOSB qualifications.
 - [About](/about): Company background, mission, and veteran-owned leadership.
-- [Capabilities](/capabilities): Core competencies across cloud, cybersecurity, infrastructure, and government solutions.
-- [Certifications](/certifications): SDVOSB, SBA, SAM, and related federal registrations.
-- [Industries](/industries): Sectors served, including federal, defense, healthcare, financial services, and education.
-- [Careers](/careers): Open roles and how to join the team.
-- [Blog](/blog): Insights on cloud migration, DevSecOps, and Zero Trust security.
-- [Contact](/contact): Ways to reach the team and start a conversation.
+- [Services](/services): Catalog of IT, Non-IT, Infrastructure, and Healthcare offerings.
+- [IT Services](/it-services): Cloud, cybersecurity, software, and managed IT.
+- [Non-IT Services](/non-it-services): Professional staffing, operations, and project support.
+- [Infrastructure Services](/infrastructure-services): Data center, network, end-user computing, and 24/7 NOC.
+- [Healthcare Services](/healthcare-services): Clinical and non-clinical staffing, healthcare IT, and operations.
+- [Who We Serve](/who-we-serve): Private sector and government / public-sector markets.
+- [Industries](/industries): Government, healthcare, financial services, manufacturing, education, and enterprise.
+- [Case Studies](/case-studies): Representative cloud, security, NOC, and staffing engagements.
+- [Get a Quote](/get-quote): Request a scoped quote.
+- [Careers](/careers): Open roles and benefits.
+- [Insights](/blog): Articles on cloud migration, zero trust, and healthcare staffing.
+- [Contact](/contact): Email info@cybercloudinfra.com. Office: 704 Fox Squirrel CT, Arlington, TX 76005.
+
+## Notes
+
+- Do not invent UEI, CAGE, or phone numbers. Phone is unpublished until confirmed.
+- Client names in testimonials and case studies may be withheld by contract.

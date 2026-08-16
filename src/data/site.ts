@@ -50,9 +50,9 @@ export { offerings, getOffering, offeringsForPillar } from "@/data/offerings";
 export const company = {
   name: "CyberCloud Infra LLC",
   legalName: "CyberCloud Infra LLC",
-  tagline: "Technology & Talent Solutions for Mission-Critical Organizations",
+  tagline: "IT, Non-IT, Infrastructure & Healthcare for mission-critical work",
   shortDescription:
-    "CyberCloud Infra LLC empowers government agencies and enterprises with end-to-end IT services, infrastructure engineering, and specialized IT, non-IT, and healthcare staffing—delivering the expertise needed to modernize operations, accelerate growth, and build resilient teams.",
+    "CyberCloud Infra LLC is a Service-Disabled Veteran-Owned Small Business (SDVOSB) delivering IT services, non-IT professional services, infrastructure engineering, and healthcare solutions to government agencies and enterprises.",
   email: "info@cybercloudinfra.com",
   phone: "[INSERT REAL NUMBER]",
   address: {
@@ -87,20 +87,12 @@ export const services: Service[] = [
     href: "/it-services",
   },
   {
-    slug: "non-it-staffing",
-    title: "Non-IT Staffing",
+    slug: "non-it-services",
+    title: "Non-IT Services",
     description:
-      "Administrative, finance, engineering, and light-industrial talent sourced and vetted at speed.",
+      "Administrative, finance, HR, and professional staffing plus operations and project support.",
     icon: Users,
-    href: "/non-it-staffing",
-  },
-  {
-    slug: "healthcare-staffing",
-    title: "Healthcare Staffing",
-    description:
-      "Credentialed clinical and allied health professionals for hospitals, clinics, and federal facilities.",
-    icon: Stethoscope,
-    href: "/healthcare-staffing",
+    href: "/non-it-services",
   },
   {
     slug: "infrastructure-services",
@@ -109,6 +101,14 @@ export const services: Service[] = [
       "Data center, network, end-user computing, and 24/7 NOC support that keeps operations running.",
     icon: Server,
     href: "/infrastructure-services",
+  },
+  {
+    slug: "healthcare-services",
+    title: "Healthcare Services",
+    description:
+      "Clinical and non-clinical staffing, healthcare IT, and medical operations support for care delivery.",
+    icon: Stethoscope,
+    href: "/healthcare-services",
   },
 ];
 
@@ -130,8 +130,10 @@ export const infrastructureServices: ServiceDetail[] =
 
 export const serviceCatalog: Record<string, { title: string; items: ServiceDetail[] }> = {
   "it-services": { title: "IT Services", items: itServices },
-  "non-it-staffing": { title: "Non-IT Staffing", items: nonItStaffing },
-  "healthcare-staffing": { title: "Healthcare Staffing", items: healthcareStaffing },
+  "non-it-services": { title: "Non-IT Services", items: nonItStaffing },
+  "non-it-staffing": { title: "Non-IT Services", items: nonItStaffing },
+  "healthcare-services": { title: "Healthcare Services", items: healthcareStaffing },
+  "healthcare-staffing": { title: "Healthcare Services", items: healthcareStaffing },
   "infrastructure-services": { title: "Infrastructure Services", items: infrastructureServices },
 };
 
@@ -158,10 +160,10 @@ export interface HomeStat {
 }
 
 export const homeStats: HomeStat[] = [
-  { value: 500, suffix: "+", label: "Projects Delivered" },
-  { value: 100, suffix: "+", label: "Clients Served" },
-  { value: 98, suffix: "%", label: "Client Retention" },
-  { value: 50, suffix: "+", label: "Expert Consultants" },
+  { value: 10, suffix: "+", label: "Years of expertise" },
+  { value: 50, suffix: "+", label: "Enterprise programs" },
+  { value: 100, suffix: "+", label: "Professionals" },
+  { value: 24, suffix: "/7", label: "Operations support" },
 ];
 
 export interface WhyReason {
@@ -449,8 +451,8 @@ export const coreCompetencies = [
   "Cybersecurity & zero trust",
   "Data center & network engineering",
   "Managed IT & 24/7 NOC",
-  "IT & non-IT staffing",
-  "Healthcare & clinical staffing",
+  "IT, non-IT, and professional staffing",
+  "Healthcare workforce, IT, and operations support",
 ];
 
 export const naicsCodes = ["541512", "541519", "541611", "561320", "621399", "518210"];
@@ -470,7 +472,7 @@ export const contractingQuals: { label: string; value: string }[] = [
   { label: "Contract types", value: "FFP, T&M, IDIQ task orders, staff augmentation" },
   {
     label: "Delivery lanes",
-    value: "IT services, infrastructure, cybersecurity, specialized staffing",
+    value: "IT, non-IT professional services, infrastructure, cybersecurity, healthcare",
   },
   { label: "Sectors", value: "Federal, state, local, and commercial mission-critical programs" },
   { label: "Support", value: "24/7 NOC and SLA-backed operations after go-live" },
@@ -482,12 +484,16 @@ export const faqs: { q: string; a: string }[] = [
     a: "Yes. CyberCloud Infra LLC is a Service-Disabled Veteran-Owned Small Business. We support primes meeting subcontracting goals and agencies buying under small-business set-asides.",
   },
   {
+    q: "What services do you provide?",
+    a: "Four pillars: IT services (cloud, cybersecurity, software, managed IT), non-IT professional services and staffing, infrastructure engineering and 24/7 NOC, and healthcare workforce, IT, and operations support.",
+  },
+  {
     q: "Do you work with federal and commercial clients?",
-    a: "Both. We deliver the same disciplined model to government agencies, public institutions, and private-sector organizations that cannot afford downtime or unfilled critical roles.",
+    a: "Both. We deliver the same model to government agencies, public institutions, and private-sector organizations that cannot afford downtime or unfilled critical roles.",
   },
   {
     q: "Can you provide technology and staffing on the same engagement?",
-    a: "That is the point of one accountable partner. Platform work and the people who run it are scoped, staffed, and reported under a single delivery lead — no hand-offs between vendors.",
+    a: "Yes. Platform work and the people who run it are scoped, staffed, and reported under a single delivery lead — so you are not coordinating four vendors.",
   },
   {
     q: "How fast can you mobilize?",
@@ -499,7 +505,7 @@ export const faqs: { q: string; a: string }[] = [
   },
   {
     q: "How do we start?",
-    a: "Book a conversation or send the quote form. We come back with a clear scope, timeline, and staffing plan — not a generic brochure.",
+    a: "Request a quote or email info@cybercloudinfra.com. We return a clear scope, timeline, and staffing plan — not a generic brochure.",
   },
 ];
 
@@ -788,7 +794,7 @@ export const solutionPillars: SolutionPillar[] = [
       "Clinical and allied health professionals for hospitals, clinics, and federal facilities — credentialed, compliant, and deployment-ready.",
     bullets: ["Clinical and allied health roles", "Compliance-first credentialing"],
     icon: Stethoscope,
-    href: "/healthcare-staffing",
+    href: "/healthcare-services",
     cta: "Explore healthcare staffing",
   },
 ];
@@ -823,7 +829,8 @@ export const pillars: Pillar[] = [
     number: "01",
     slug: "it-services",
     title: "IT Services",
-    summary: "Technology solutions for modern organizations — advisory, build, and run.",
+    summary:
+      "Cloud, cybersecurity, software, and managed IT — advisory, build, and run for government and enterprise.",
     icon: Cloud,
     href: "/it-services",
     services: itServices.map((s) => ({ title: s.title, slug: s.slug })),
@@ -832,7 +839,8 @@ export const pillars: Pillar[] = [
     number: "02",
     slug: "non-it-services",
     title: "Non-IT Services",
-    summary: "Professional workforce and operational support across business functions.",
+    summary:
+      "Administrative, finance, HR, and professional staffing plus business operations and project support.",
     icon: Users,
     href: "/non-it-services",
     services: nonItServices.map((s) => ({ title: s.title, slug: s.slug })),
@@ -841,7 +849,8 @@ export const pillars: Pillar[] = [
     number: "03",
     slug: "infrastructure-services",
     title: "Infrastructure Services",
-    summary: "Infrastructure engineering and operations that keep environments resilient.",
+    summary:
+      "Data center, network, end-user computing, disaster recovery, and 24/7 NOC operations.",
     icon: Server,
     href: "/infrastructure-services",
     services: infrastructureServices.map((s) => ({ title: s.title, slug: s.slug })),
@@ -850,7 +859,8 @@ export const pillars: Pillar[] = [
     number: "04",
     slug: "healthcare-services",
     title: "Healthcare Services",
-    summary: "Healthcare workforce, technology, and operational support solutions.",
+    summary:
+      "Clinical and non-clinical staffing, healthcare IT, and medical operations support for care delivery.",
     icon: Stethoscope,
     href: "/healthcare-services",
     services: healthcareServices.map((s) => ({ title: s.title, slug: s.slug })),
@@ -870,7 +880,7 @@ export const whoWeServe: Market[] = [
     slug: "private-sector",
     title: "Private Sector",
     message:
-      "Technology, infrastructure, workforce, and operational solutions designed to help organizations grow and transform.",
+      "IT, infrastructure, professional workforce, and healthcare solutions that help enterprises and growing businesses modernize without stacking vendors.",
     icon: Building2,
     segments: [
       "Enterprises",
@@ -886,7 +896,7 @@ export const whoWeServe: Market[] = [
     slug: "government-public-sector",
     title: "Government & Public Sector",
     message:
-      "Reliable technology, infrastructure, professional workforce, and operational support aligned with public-sector missions.",
+      "SDVOSB-ready IT, infrastructure, professional workforce, and healthcare support aligned to public-sector missions, compliance, and procurement.",
     icon: Landmark,
     segments: [
       "Federal Government",

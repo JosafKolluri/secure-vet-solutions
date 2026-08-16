@@ -10,7 +10,7 @@ export default defineMcp({
   title: "CyberCloud Infra LLC MCP",
   version: "0.1.0",
   instructions:
-    "Tools for CyberCloud Infra LLC, an SDVOSB cloud and cybersecurity contractor. Use `company_overview` for a high-level profile, `list_services` and `list_capabilities` for offerings, `list_blog_posts` for insights, and `list_job_openings` for careers.",
+    "Tools for CyberCloud Infra LLC, an SDVOSB delivering IT, non-IT, infrastructure, and healthcare services. Use `company_overview` for a high-level profile, `list_services` and `list_capabilities` for offerings, `list_blog_posts` for insights, and `list_job_openings` for careers.",
   tools: [
     companyOverviewTool,
     listServicesTool,

@@ -1,26 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Reveal, SectionHeading, CTASection } from "@/components/sections/Primitives";
 import { industries } from "@/data/site";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/industries")({
-  head: () => ({
-    meta: [
-      { title: "Industries We Serve | CyberCloud Infra LLC" },
-      {
-        name: "description",
-        content:
-          "Government, healthcare, financial services, manufacturing, education, and commercial enterprise clients rely on CyberCloud Infra LLC for technology and talent.",
-      },
-      { property: "og:title", content: "Industries We Serve | CyberCloud Infra LLC" },
-      {
-        property: "og:description",
-        content: "Sector expertise across government, healthcare, finance, manufacturing, and more.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://secure-vet-solutions.lovable.app/industries" },
-    ],
-    links: [{ rel: "canonical", href: "https://secure-vet-solutions.lovable.app/industries" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Industries | Government, Healthcare & Enterprise | CyberCloud Infra",
+      description:
+        "CyberCloud Infra LLC serves government, healthcare, financial services, manufacturing, education, and commercial enterprises with IT, infrastructure, and healthcare services.",
+      path: "/industries",
+    }),
   component: IndustriesPage,
 });
 
@@ -29,8 +19,8 @@ function IndustriesPage() {
     <>
       <PageHero
         eyebrow="Industries"
-        title="Sector knowledge that shortens delivery"
-        description="We already understand the compliance obligations, procurement cycles, and operating pressures of the industries we serve."
+        title="Industry experience that shortens delivery"
+        description="We already understand the compliance obligations, procurement cycles, and operating pressures of government, healthcare, finance, manufacturing, education, and enterprise."
         breadcrumb="Industries"
       />
 
