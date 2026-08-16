@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUp, Mail, Phone, MapPin } from "lucide-react";
-import { company, certifications } from "@/data/site";
+import { company } from "@/data/site";
 import { Logo } from "./Header";
 
 const columns = [
@@ -90,15 +90,6 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-12 grid gap-6 border-t border-white/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
-          {certifications.map((c) => (
-            <div key={c.label}>
-              <p className="text-sm font-semibold text-white">{c.label}</p>
-              <p className="mt-1 text-xs text-brand">{c.detail}</p>
             </div>
           ))}
         </div>
