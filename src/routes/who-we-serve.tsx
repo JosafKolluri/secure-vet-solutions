@@ -3,6 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { PageHero, CTASection, Reveal, SectionHeading } from "@/components/sections/Primitives";
 import { whoWeServe, pillars } from "@/data/site";
 import { pageHead } from "@/lib/seo";
+import { marketPhotos, pillarPhotos } from "@/data/media";
 
 export const Route = createFileRoute("/who-we-serve")({
   head: () =>
@@ -29,7 +30,14 @@ function WhoWeServePage() {
         <div className="mx-auto grid max-w-[1200px] gap-8 lg:grid-cols-2">
           {whoWeServe.map((market, i) => (
             <Reveal key={market.slug} delay={i * 0.08}>
-              <div className="flex h-full flex-col rounded-[24px] border border-border bg-card p-8 shadow-card lg:p-10">
+              <div className="flex h-full flex-col overflow-hidden rounded-[24px] border border-border bg-card shadow-card">
+                <img
+                  src={marketPhotos[market.slug].src}
+                  alt={marketPhotos[market.slug].alt}
+                  loading="lazy"
+                  className="h-52 w-full object-cover"
+                />
+                <div className="flex flex-1 flex-col p-8 lg:p-10">
                 <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground">
                   <market.icon className="h-6 w-6" />
                 </span>
@@ -45,6 +53,7 @@ function WhoWeServePage() {
                     </li>
                   ))}
                 </ul>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -65,8 +74,15 @@ function WhoWeServePage() {
               <Reveal key={p.slug} delay={i * 0.06}>
                 <Link
                   to={p.href}
-                  className="group flex h-full flex-col rounded-[20px] border border-border bg-card p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift"
+                  className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-border bg-card shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift"
                 >
+                  <img
+                    src={pillarPhotos[p.slug].src}
+                    alt=""
+                    loading="lazy"
+                    className="h-36 w-full object-cover"
+                  />
+                  <div className="flex flex-1 flex-col p-7">
                   <span className="font-display text-sm font-bold text-primary/60">{p.number}</span>
                   <h3 className="mt-3 text-[1.15rem] font-bold text-foreground">{p.title}</h3>
                   <p className="mt-2 flex-1 text-sm leading-[1.7] text-muted-foreground">
@@ -76,6 +92,7 @@ function WhoWeServePage() {
                     Learn More
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />
                   </span>
+                  </div>
                 </Link>
               </Reveal>
             ))}

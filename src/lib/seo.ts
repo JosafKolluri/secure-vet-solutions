@@ -1,7 +1,6 @@
 export const SITE_URL = "https://secure-vet-solutions.lovable.app";
 
-export const OG_IMAGE =
-  "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4670dae6-3b36-4a6e-83ed-ff3f24792e14/id-preview-20ac24a9--f33ea567-314e-482f-9b5f-4834b35ab57f.lovable.app-1782396161258.png";
+export const OG_IMAGE = `${SITE_URL}/og-share.jpg`;
 
 export function absoluteUrl(path = "/") {
   if (path === "/" || path === "") return `${SITE_URL}/`;

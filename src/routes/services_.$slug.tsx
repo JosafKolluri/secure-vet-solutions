@@ -4,6 +4,7 @@ import { getOffering, offeringsForPillar, pillars, company } from "@/data/site";
 import { Button } from "@/components/ui/button";
 import { PageHero, CTASection, Reveal } from "@/components/sections/Primitives";
 import { absoluteUrl, jsonLdScript, pageHead } from "@/lib/seo";
+import { pillarPhotos } from "@/data/media";
 
 export const Route = createFileRoute("/services_/$slug")({
   loader: ({ params }) => {
@@ -115,6 +116,13 @@ function ServiceDetailPage() {
           </Reveal>
 
           <Reveal delay={0.08}>
+            <img
+              src={pillarPhotos[offering.pillarSlug].src}
+              alt={pillarPhotos[offering.pillarSlug].alt}
+              className="mb-6 w-full rounded-2xl object-cover shadow-card"
+              width={1408}
+              height={1008}
+            />
             <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal">
                 In this engagement

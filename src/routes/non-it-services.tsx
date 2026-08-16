@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ServiceCatalogPage } from "@/components/sections/ServiceCatalogPage";
 import { nonItStaffing } from "@/data/site";
 import { pageHead } from "@/lib/seo";
-import heroTeam from "@/assets/hero-team.jpg";
+import nonItProfessionals from "@/assets/non-it-professionals.jpg";
 
 export const Route = createFileRoute("/non-it-services")({
   head: () =>
@@ -17,8 +17,8 @@ export const Route = createFileRoute("/non-it-services")({
       eyebrow="Non-IT Services"
       title="Professional workforce and operational support"
       description="Administrative, finance, HR, customer service, and engineering professionals — plus business operations and project support that keep programs moving."
-      image={heroTeam}
-      imageAlt="Professional team collaborating in a modern office"
+      image={nonItProfessionals}
+      imageAlt="Administrative and professional staff working in a modern operations office"
       intro={{
         heading: "People and process, delivered together",
         body: [

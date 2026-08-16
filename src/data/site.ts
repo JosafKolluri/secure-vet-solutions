@@ -37,7 +37,8 @@ import {
 
 import blogZeroTrust from "@/assets/blog-zero-trust.jpg";
 import blogCloudMigration from "@/assets/blog-cloud-migration.jpg";
-import blogDevsecops from "@/assets/blog-devsecops.jpg";
+import blogClinicalStaffing from "@/assets/blog-clinical-staffing.jpg";
+import caseNocOperations from "@/assets/case-noc-operations.jpg";
 import { offeringsForPillar } from "@/data/offerings";
 
 export type { Offering } from "@/data/offerings";
@@ -349,7 +350,7 @@ export const caseStudies: CaseStudy[] = [
       "Time-to-submit reduced with pre-verified licensure packets",
       "Contract-to-permanent conversions retained institutional knowledge",
     ],
-    image: blogZeroTrust,
+    image: blogClinicalStaffing,
   },
   {
     slug: "zero-trust-rollout",
@@ -366,7 +367,7 @@ export const caseStudies: CaseStudy[] = [
       "Centralized detection with measurable reduction in dwell time",
       "Privileged access consolidated behind conditional policies",
     ],
-    image: blogDevsecops,
+    image: blogZeroTrust,
   },
   {
     slug: "noc-modernization",
@@ -383,7 +384,7 @@ export const caseStudies: CaseStudy[] = [
       "Documented runbooks for every priority-one scenario",
       "Monthly reporting adopted by plant leadership",
     ],
-    image: blogCloudMigration,
+    image: caseNocOperations,
   },
 ];
 
@@ -675,7 +676,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-03-11",
     readingTime: "5 min read",
     category: "Healthcare Staffing",
-    image: blogDevsecops,
+    image: blogClinicalStaffing,
     content: [
       "Coverage gaps compound. Every unfilled shift shifts load to permanent staff, which accelerates the turnover that created the gap in the first place.",
       "The fix is to shorten time-to-submit. Pre-verified licensure, references, and compliance packets let qualified candidates reach hiring managers in days instead of weeks.",

@@ -4,6 +4,7 @@ import { PageHero, Reveal, SectionHeading, CTASection } from "@/components/secti
 import { Button } from "@/components/ui/button";
 import { jobs, benefits, company } from "@/data/site";
 import { pageHead } from "@/lib/seo";
+import careersPhoto from "@/assets/careers-collaboration.jpg";
 
 export const Route = createFileRoute("/careers")({
   head: () =>
@@ -27,7 +28,17 @@ function CareersPage() {
       />
 
       <section className="section-py px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <Reveal>
+            <img
+              src={careersPhoto}
+              alt="Engineers and recruiting staff collaborating in a modern office"
+              className="w-full rounded-3xl object-cover shadow-card"
+              width={1536}
+              height={1024}
+            />
+          </Reveal>
+          <div>
           <SectionHeading
             eyebrow="Open positions"
             title="Current opportunities"
@@ -59,6 +70,7 @@ function CareersPage() {
                 </div>
               </Reveal>
             ))}
+          </div>
           </div>
         </div>
       </section>

@@ -12,10 +12,7 @@ import {
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
 import { pillars, whoWeServe, company, trustChips, contractingQuals, faqs } from "@/data/site";
 import { jsonLdScript, pageHead, SITE_URL } from "@/lib/seo";
-import itImage from "@/assets/dashboard-laptop.jpg";
-import nonItImage from "@/assets/hero-team.jpg";
-import infraImage from "@/assets/infrastructure-datacenter.jpg";
-import healthcareImage from "@/assets/healthcare-staff.jpg";
+import { pageHeroImage, pillarPhotos, marketPhotos } from "@/data/media";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -78,13 +75,6 @@ const quotes = [
   },
 ];
 
-const pillarImages: Record<string, string> = {
-  "it-services": itImage,
-  "non-it-services": nonItImage,
-  "infrastructure-services": infraImage,
-  "healthcare-services": healthcareImage,
-};
-
 function HomePage() {
   return (
     <>
@@ -101,7 +91,14 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-hero pt-[96px] pb-14 sm:pt-[120px] sm:pb-16 lg:pt-[132px] lg:pb-20">
+    <section className="relative overflow-hidden bg-[#0c2340] pt-[96px] pb-14 sm:pt-[120px] sm:pb-16 lg:pt-[132px] lg:pb-20">
+      <img
+        src={pageHeroImage}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0c2340]/80 via-[#0c2340]/75 to-[#0c2340]" />
       <div className="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-teal/25 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 bottom-[-4rem] h-96 w-96 rounded-full bg-brand/15 blur-3xl" />
       <div className="hero-dots pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_32%,transparent_18%,black_78%)]" />
@@ -199,8 +196,8 @@ function Services() {
               <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card">
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <img
-                    src={pillarImages[pillar.slug]}
-                    alt={`${pillar.title} — CyberCloud Infra LLC`}
+                    src={pillarPhotos[pillar.slug].src}
+                    alt={pillarPhotos[pillar.slug].alt}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -350,7 +347,13 @@ function WhoWeServe() {
         </Reveal>
         <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:gap-16">
           {whoWeServe.map((market) => (
-            <div key={market.slug} className="border-t border-border pt-8">
+            <div key={market.slug}>
+              <img
+                src={marketPhotos[market.slug].src}
+                alt={marketPhotos[market.slug].alt}
+                loading="lazy"
+                className="mb-6 aspect-[16/9] w-full rounded-2xl object-cover"
+              />
               <h3 className="text-xl font-bold text-foreground">{market.title}</h3>
               <p className="mt-3 text-[0.975rem] leading-[1.75] text-muted-foreground">
                 {market.message}

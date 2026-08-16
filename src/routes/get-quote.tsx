@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { pillars } from "@/data/site";
 import { pageHead } from "@/lib/seo";
+import handshake from "@/assets/about-handshake.jpg";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -61,6 +62,13 @@ function QuotePage() {
       <section className="section-py px-4 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal>
+            <img
+              src={handshake}
+              alt="Professionals confirming a delivery partnership with a handshake"
+              className="mb-8 w-full rounded-3xl object-cover shadow-card"
+              width={1536}
+              height={1024}
+            />
             <SectionHeading
               align="left"
               eyebrow="What happens next"

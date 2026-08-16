@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { company } from "@/data/site";
 import { pageHead } from "@/lib/seo";
+import contactOffice from "@/assets/contact-office.jpg";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -61,6 +62,13 @@ function ContactPage() {
       <section className="section-py px-4 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.2fr]">
           <Reveal>
+            <img
+              src={contactOffice}
+              alt="Professional office interior for CyberCloud Infra LLC in Arlington, Texas"
+              className="mb-8 w-full rounded-3xl object-cover shadow-card"
+              width={1536}
+              height={1024}
+            />
             <SectionHeading
               align="left"
               eyebrow="Get in touch"

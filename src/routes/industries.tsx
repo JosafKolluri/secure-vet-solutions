@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Reveal, SectionHeading, CTASection } from "@/components/sections/Primitives";
 import { industries } from "@/data/site";
 import { pageHead } from "@/lib/seo";
+import { industryPhotos } from "@/data/media";
 
 export const Route = createFileRoute("/industries")({
   head: () =>
@@ -34,7 +35,14 @@ function IndustriesPage() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {industries.map((ind, i) => (
               <Reveal key={ind.title} delay={i * 0.06}>
-                <div className="hover-lift group h-full rounded-2xl border border-border bg-card p-7 shadow-soft">
+                <div className="hover-lift group h-full overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
+                  <img
+                    src={industryPhotos[ind.title].src}
+                    alt={industryPhotos[ind.title].alt}
+                    loading="lazy"
+                    className="h-44 w-full object-cover"
+                  />
+                  <div className="p-7">
                   <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground transition-transform duration-300 group-hover:scale-105">
                     <ind.icon className="h-6 w-6" />
                   </span>
@@ -42,6 +50,7 @@ function IndustriesPage() {
                   <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
                     {ind.description}
                   </p>
+                  </div>
                 </div>
               </Reveal>
             ))}

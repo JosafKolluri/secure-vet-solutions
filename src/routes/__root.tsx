@@ -125,7 +125,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         legalName: company.legalName,
         url: SITE_URL,
         description: company.shortDescription,
-        email: company.email,
+        image: OG_IMAGE,
         address: {
           "@type": "PostalAddress",
           streetAddress: company.address.line1,

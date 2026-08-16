@@ -4,6 +4,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { pageHeroImage } from "@/data/media";
 
 export function Reveal({
   children,
@@ -106,14 +107,23 @@ export function PageHero({
   title,
   description,
   breadcrumb,
+  image = pageHeroImage,
 }: {
   eyebrow: string;
   title: string;
   description: string;
   breadcrumb?: string;
+  image?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-hero pt-36 pb-20 lg:pt-44 lg:pb-24">
+    <section className="relative overflow-hidden bg-[#0c2340] pt-36 pb-20 lg:pt-44 lg:pb-24">
+      <img
+        src={image}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0c2340] via-[#0c2340]/88 to-[#0c2340]/70" />
       <div className="pointer-events-none absolute inset-0 plus-pattern" />
       <div className="pointer-events-none absolute inset-0 opacity-50 [background:radial-gradient(60%_70%_at_85%_0%,rgba(14,116,144,0.35),transparent_65%),radial-gradient(45%_60%_at_5%_100%,rgba(255,184,28,0.12),transparent_70%)]" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

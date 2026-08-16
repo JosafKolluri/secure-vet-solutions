@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { PageHero, CTASection, Reveal } from "@/components/sections/Primitives";
 import { pillars } from "@/data/site";
 import { pageHead } from "@/lib/seo";
+import { pillarPhotos } from "@/data/media";
 
 export const Route = createFileRoute("/services")({
   head: () =>
@@ -29,7 +30,14 @@ function ServicesPage() {
         <div className="mx-auto max-w-[1200px] space-y-8">
           {pillars.map((p, i) => (
             <Reveal key={p.slug} delay={i * 0.05}>
-              <div className="grid gap-8 rounded-[24px] border border-border bg-card p-8 shadow-card lg:grid-cols-[1fr_1.35fr] lg:p-10">
+              <div className="overflow-hidden rounded-[24px] border border-border bg-card shadow-card">
+                <img
+                  src={pillarPhotos[p.slug].src}
+                  alt={pillarPhotos[p.slug].alt}
+                  loading="lazy"
+                  className="h-48 w-full object-cover"
+                />
+                <div className="grid gap-8 p-8 lg:grid-cols-[1fr_1.35fr] lg:p-10">
                 <div>
                   <span className="font-display text-sm font-bold text-primary/60">{p.number}</span>
                   <h2 className="mt-2 text-[1.75rem] font-bold text-foreground">{p.title}</h2>
@@ -56,6 +64,7 @@ function ServicesPage() {
                     </li>
                   ))}
                 </ul>
+                </div>
               </div>
             </Reveal>
           ))}
