@@ -21,7 +21,7 @@ export const pillarPhotos: Record<string, { src: string; alt: string }> = {
   },
   "non-it-services": {
     src: nonItServices,
-    alt: "Administrative and professional staff working in a modern operations office",
+    alt: "HR, finance, and operations professionals collaborating in an office",
   },
   "infrastructure-services": {
     src: infrastructureServices,

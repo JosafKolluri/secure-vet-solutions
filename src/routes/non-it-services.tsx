@@ -18,7 +18,7 @@ export const Route = createFileRoute("/non-it-services")({
       title="Professional workforce and operational support"
       description="Administrative, finance, HR, customer service, and engineering professionals — plus business operations and project support that keep programs moving."
       image={nonItProfessionals}
-      imageAlt="Administrative and professional staff working in a modern operations office"
+      imageAlt="HR, finance, and operations professionals collaborating in an office"
       intro={{
         heading: "People and process, delivered together",
         body: [

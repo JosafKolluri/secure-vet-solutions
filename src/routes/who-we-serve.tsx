@@ -78,7 +78,7 @@ function WhoWeServePage() {
                 >
                   <img
                     src={pillarPhotos[p.slug].src}
-                    alt=""
+                    alt={pillarPhotos[p.slug].alt}
                     loading="lazy"
                     className="h-36 w-full object-cover"
                   />
