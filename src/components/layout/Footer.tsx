@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUp, Mail, Phone, MapPin } from "lucide-react";
-import { company, certifications, naicsCodes } from "@/data/site";
+import { company, certifications } from "@/data/site";
 import { Logo } from "./Header";
 
 const columns = [
@@ -102,7 +102,6 @@ export function Footer() {
             </div>
           ))}
         </div>
-        <p className="mt-4 text-xs text-white/55">NAICS {naicsCodes.join(" · ")}</p>
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/55 sm:flex-row">
           <p>© {new Date().getFullYear()} CyberCloud Infra LLC. All Rights Reserved.</p>
