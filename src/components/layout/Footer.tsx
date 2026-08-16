@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, ArrowUp, Linkedin, Twitter, Github } from "lucide-react";
+import { ArrowUp, Mail, Phone, MapPin } from "lucide-react";
 import { company, certifications, naicsCodes } from "@/data/site";
 import { Logo } from "./Header";
 
@@ -31,17 +31,11 @@ const columns = [
       { to: "/industries", label: "Government" },
       { to: "/industries", label: "Healthcare" },
       { to: "/industries", label: "Financial Services" },
-      { to: "/industries", label: "Technology" },
+      { to: "/industries", label: "Education" },
       { to: "/industries", label: "Manufacturing" },
     ],
   },
 ] as const;
-
-const socials = [
-  { icon: Linkedin, label: "LinkedIn" },
-  { icon: Twitter, label: "X" },
-  { icon: Github, label: "GitHub" },
-];
 
 export function Footer() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -55,7 +49,7 @@ export function Footer() {
           <div>
             <Logo inverted className="text-white" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
-              Technology, Infrastructure & Talent for Mission-Critical Organizations.
+              {company.tagline}
             </p>
 
             <ul className="mt-6 space-y-3 text-sm text-white/75">
@@ -77,17 +71,6 @@ export function Footer() {
                 </span>
               </li>
             </ul>
-            <div className="mt-6 flex gap-2">
-              {socials.map((s) => (
-                <span
-                  key={s.label}
-                  aria-label={s.label}
-                  className="grid h-9 w-9 place-items-center rounded-lg border border-white/12 bg-white/5 text-white/70"
-                >
-                  <s.icon className="h-4 w-4" />
-                </span>
-              ))}
-            </div>
           </div>
 
           {columns.map((col) => (

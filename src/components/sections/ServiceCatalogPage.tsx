@@ -77,7 +77,7 @@ export function ServiceCatalogPage({
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="What we deliver"
-            title="Capabilities built around your mission"
+            title={`${eyebrow} capabilities`}
             description="Each engagement is scoped to your environment, compliance posture, and timeline — never a fixed template."
           />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

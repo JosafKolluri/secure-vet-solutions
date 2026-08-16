@@ -8,7 +8,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { services } from "@/data/site";
+import { pillars } from "@/data/site";
+import { pageHead } from "@/lib/seo";
+import handshake from "@/assets/about-handshake.jpg";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -19,24 +21,13 @@ const schema = z.object({
 });
 
 export const Route = createFileRoute("/get-quote")({
-  head: () => ({
-    meta: [
-      { title: "Get a Free Quote | CyberCloud Infra LLC" },
-      {
-        name: "description",
-        content:
-          "Request a free, no-obligation quote for IT services, infrastructure engineering, or IT, non-IT, and healthcare staffing support.",
-      },
-      { property: "og:title", content: "Get a Free Quote | CyberCloud Infra LLC" },
-      {
-        property: "og:description",
-        content: "Tell us your requirements and receive a scoped quote from our delivery team.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://secure-vet-solutions.lovable.app/get-quote" },
-    ],
-    links: [{ rel: "canonical", href: "https://secure-vet-solutions.lovable.app/get-quote" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Get a Quote | IT, Infrastructure & Healthcare | CyberCloud Infra",
+      description:
+        "Request a no-obligation quote for IT services, non-IT professional services, infrastructure engineering, or healthcare staffing and operations support.",
+      path: "/get-quote",
+    }),
   component: QuotePage,
 });
 
@@ -63,14 +54,21 @@ function QuotePage() {
     <>
       <PageHero
         eyebrow="Get a Quote"
-        title="Request a free, scoped quote"
-        description="Share your requirements and we will come back with scope, approach, and pricing — no obligation."
+        title="Request a quote for IT, infrastructure, or healthcare"
+        description="Share requirements for any of our four service pillars. We return scope, approach, and pricing — no obligation."
         breadcrumb="Get a Quote"
       />
 
       <section className="section-py px-4 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal>
+            <img
+              src={handshake}
+              alt="Professionals confirming a delivery partnership with a handshake"
+              className="mb-8 w-full rounded-3xl object-cover shadow-card"
+              width={1536}
+              height={1024}
+            />
             <SectionHeading
               align="left"
               eyebrow="What happens next"
@@ -132,7 +130,7 @@ function QuotePage() {
                     <option value="" disabled>
                       Select a service
                     </option>
-                    {services.map((s) => (
+                    {pillars.map((s) => (
                       <option key={s.slug} value={s.title}>
                         {s.title}
                       </option>

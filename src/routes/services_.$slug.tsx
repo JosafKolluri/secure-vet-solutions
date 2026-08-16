@@ -1,10 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
-import { getOffering, offeringsForPillar, pillars } from "@/data/site";
+import { getOffering, offeringsForPillar, pillars, company } from "@/data/site";
 import { Button } from "@/components/ui/button";
 import { PageHero, CTASection, Reveal } from "@/components/sections/Primitives";
-
-const BASE = "https://secure-vet-solutions.lovable.app";
+import { absoluteUrl, jsonLdScript, pageHead } from "@/lib/seo";
+import { pillarPhotos } from "@/data/media";
 
 export const Route = createFileRoute("/services_/$slug")({
   loader: ({ params }) => {
@@ -17,16 +17,46 @@ export const Route = createFileRoute("/services_/$slug")({
     if (!offering) {
       return { meta: [{ title: "Service unavailable" }, { name: "robots", content: "noindex" }] };
     }
+    const pillar = pillars.find((p) => p.slug === offering.pillarSlug);
+    const path = `/services/${offering.slug}`;
+    const head = pageHead({
+      title: `${offering.title} | ${pillar?.title ?? "Services"} | CyberCloud Infra LLC`,
+      description: `${offering.description} SDVOSB delivery for government and enterprise.`,
+      path,
+    });
     return {
-      meta: [
-        { title: `${offering.title} | CyberCloud Infra LLC` },
-        { name: "description", content: offering.description },
-        { property: "og:title", content: `${offering.title} | CyberCloud Infra LLC` },
-        { property: "og:description", content: offering.description },
-        { property: "og:type", content: "website" },
-        { property: "og:url", content: `${BASE}/services/${offering.slug}` },
+      ...head,
+      scripts: [
+        jsonLdScript({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: offering.title,
+          description: offering.description,
+          provider: {
+            "@type": "Organization",
+            name: company.name,
+            url: absoluteUrl("/"),
+          },
+          serviceType: pillar?.title ?? offering.title,
+          areaServed: "United States",
+          url: absoluteUrl(path),
+        }),
+        jsonLdScript({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+            { "@type": "ListItem", position: 2, name: "Services", item: absoluteUrl("/services") },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: pillar?.title ?? "Services",
+              item: absoluteUrl(pillar?.href ?? "/services"),
+            },
+            { "@type": "ListItem", position: 4, name: offering.title, item: absoluteUrl(path) },
+          ],
+        }),
       ],
-      links: [{ rel: "canonical", href: `${BASE}/services/${offering.slug}` }],
     };
   },
   component: ServiceDetailPage,
@@ -86,6 +116,13 @@ function ServiceDetailPage() {
           </Reveal>
 
           <Reveal delay={0.08}>
+            <img
+              src={pillarPhotos[offering.pillarSlug].src}
+              alt={pillarPhotos[offering.pillarSlug].alt}
+              className="mb-6 w-full rounded-2xl object-cover shadow-card"
+              width={1408}
+              height={1008}
+            />
             <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal">
                 In this engagement

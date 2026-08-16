@@ -1,7 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
-import { blogPosts } from "@/data/site";
+import { blogPosts, company } from "@/data/site";
 import { CTASection } from "@/components/sections/Primitives";
+import { jsonLdScript, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog_/$slug")({
   loader: ({ params }) => {
@@ -9,25 +10,30 @@ export const Route = createFileRoute("/blog_/$slug")({
     if (!post) throw notFound();
     return { slug: post.slug };
   },
-  head: ({ params, loaderData }) => {
+  head: ({ loaderData }) => {
     const post = loaderData ? blogPosts.find((p) => p.slug === loaderData.slug) : undefined;
     if (!post) {
       return { meta: [{ title: "Article unavailable" }, { name: "robots", content: "noindex" }] };
     }
+    const path = `/blog/${post.slug}`;
+    const head = pageHead({
+      title: `${post.title} | CyberCloud Infra LLC`,
+      description: post.excerpt,
+      path,
+      type: "article",
+    });
     return {
-      meta: [
-        { title: `${post.title} | CyberCloud Infra LLC` },
-        { name: "description", content: post.excerpt },
-        { property: "og:title", content: post.title },
-        { property: "og:description", content: post.excerpt },
-        { property: "og:type", content: "article" },
-        {
-          property: "og:url",
-          content: `https://secure-vet-solutions.lovable.app/blog/${params.slug}`,
-        },
-      ],
-      links: [
-        { rel: "canonical", href: `https://secure-vet-solutions.lovable.app/blog/${params.slug}` },
+      ...head,
+      scripts: [
+        jsonLdScript({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: post.title,
+          description: post.excerpt,
+          datePublished: post.date,
+          author: { "@type": "Organization", name: company.name },
+          publisher: { "@type": "Organization", name: company.name },
+        }),
       ],
     };
   },

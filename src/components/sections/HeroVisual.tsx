@@ -85,7 +85,7 @@ export function HeroVisual() {
         className="absolute -left-2 top-[34%] rounded-2xl border border-border bg-card px-4 py-3 shadow-lift"
       >
         <p className="text-xs font-semibold text-foreground">Cloud Infrastructure</p>
-        <p className="text-[11px] text-muted-foreground">Azure-first architecture</p>
+        <p className="text-[11px] text-muted-foreground">Azure, AWS, and Google Cloud</p>
       </motion.div>
       <motion.div
         animate={{ y: [0, 9, 0] }}

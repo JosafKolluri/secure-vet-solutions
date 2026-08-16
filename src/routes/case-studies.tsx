@@ -2,26 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { PageHero, Reveal, SectionHeading, CTASection } from "@/components/sections/Primitives";
 import { caseStudies } from "@/data/site";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/case-studies")({
-  head: () => ({
-    meta: [
-      { title: "Case Studies | CyberCloud Infra LLC" },
-      {
-        name: "description",
-        content:
-          "Real engagements in cloud migration, clinical staffing surges, zero-trust security, and 24/7 NOC modernization — with the outcomes delivered.",
-      },
-      { property: "og:title", content: "Case Studies | CyberCloud Infra LLC" },
-      {
-        property: "og:description",
-        content: "Client outcomes across cloud, security, infrastructure, and staffing engagements.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://secure-vet-solutions.lovable.app/case-studies" },
-    ],
-    links: [{ rel: "canonical", href: "https://secure-vet-solutions.lovable.app/case-studies" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Case Studies | Cloud, Security, NOC & Clinical Staffing",
+      description:
+        "Representative CyberCloud Infra LLC engagements: Azure cloud migration, clinical staffing surge, zero-trust security, and 24/7 NOC modernization.",
+      path: "/case-studies",
+    }),
   component: CaseStudiesPage,
 });
 
@@ -30,7 +20,7 @@ function CaseStudiesPage() {
     <>
       <PageHero
         eyebrow="Case Studies"
-        title="Programs delivered, problems retired"
+        title="Cloud, security, infrastructure, and staffing outcomes"
         description="A representative sample of engagements. Client names are withheld where contracts require it."
         breadcrumb="Case Studies"
       />

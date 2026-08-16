@@ -3,26 +3,17 @@ import { MapPin, Briefcase, Check } from "lucide-react";
 import { PageHero, Reveal, SectionHeading, CTASection } from "@/components/sections/Primitives";
 import { Button } from "@/components/ui/button";
 import { jobs, benefits, company } from "@/data/site";
+import { pageHead } from "@/lib/seo";
+import careersPhoto from "@/assets/careers-collaboration.jpg";
 
 export const Route = createFileRoute("/careers")({
-  head: () => ({
-    meta: [
-      { title: "Careers | CyberCloud Infra LLC" },
-      {
-        name: "description",
-        content:
-          "Join a veteran-owned team delivering cloud, cybersecurity, infrastructure, and staffing solutions. View open roles and benefits.",
-      },
-      { property: "og:title", content: "Careers | CyberCloud Infra LLC" },
-      {
-        property: "og:description",
-        content: "Open roles across IT services, infrastructure, and staffing at CyberCloud Infra LLC.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://secure-vet-solutions.lovable.app/careers" },
-    ],
-    links: [{ rel: "canonical", href: "https://secure-vet-solutions.lovable.app/careers" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Careers | Open Roles at CyberCloud Infra LLC",
+      description:
+        "Join a veteran-owned SDVOSB delivering IT, infrastructure, and healthcare solutions. View open engineering, recruiting, and operations roles.",
+      path: "/careers",
+    }),
   component: CareersPage,
 });
 
@@ -37,7 +28,17 @@ function CareersPage() {
       />
 
       <section className="section-py px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <Reveal>
+            <img
+              src={careersPhoto}
+              alt="Engineers and recruiting staff collaborating in a modern office"
+              className="w-full rounded-3xl object-cover shadow-card"
+              width={1536}
+              height={1024}
+            />
+          </Reveal>
+          <div>
           <SectionHeading
             eyebrow="Open positions"
             title="Current opportunities"
@@ -69,6 +70,7 @@ function CareersPage() {
                 </div>
               </Reveal>
             ))}
+          </div>
           </div>
         </div>
       </section>
