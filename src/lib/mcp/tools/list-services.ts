@@ -5,7 +5,7 @@ export default defineTool({
   name: "list_services",
   title: "List services",
   description:
-    "List CyberCloud Infra LLC' service offerings (cloud, cybersecurity, managed IT, disaster recovery, and more) with descriptions.",
+    "List CyberCloud Infra LLC service offerings across IT, non-IT, infrastructure, and healthcare, with descriptions and pillar grouping.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {

@@ -2,29 +2,16 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageHero, CTASection, Reveal } from "@/components/sections/Primitives";
 import { pillars } from "@/data/site";
-
-const URL = "https://secure-vet-solutions.lovable.app/services";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Services | CyberCloud Infra LLC" },
-      {
-        name: "description",
-        content:
-          "IT services, non-IT professional services, infrastructure services, and healthcare services for private, government, and public-sector organizations.",
-      },
-      { property: "og:title", content: "Services | CyberCloud Infra LLC" },
-      {
-        property: "og:description",
-        content:
-          "Four service pillars: IT, Non-IT, Infrastructure, and Healthcare — delivered through one accountable partner.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: URL },
-    ],
-    links: [{ rel: "canonical", href: URL }],
-  }),
+  head: () =>
+    pageHead({
+      title: "IT, Non-IT, Infrastructure & Healthcare Services | CyberCloud Infra",
+      description:
+        "Browse CyberCloud Infra LLC services: IT, non-IT professional services, infrastructure engineering, and healthcare workforce and operations for government and enterprise.",
+      path: "/services",
+    }),
   component: ServicesPage,
 });
 
@@ -33,8 +20,8 @@ function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title="Technology, infrastructure, workforce, and healthcare solutions"
-        description="Four service pillars covering the technology you run, the infrastructure it runs on, the professionals who operate it, and the healthcare workforce behind care delivery."
+        title="IT, Non-IT, Infrastructure, and Healthcare services"
+        description="Four pillars covering the technology you run, the infrastructure it runs on, the professionals who operate it, and the healthcare workforce behind care delivery."
         breadcrumb="Services"
       />
 

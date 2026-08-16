@@ -2,26 +2,16 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageHero, Reveal, SectionHeading, CTASection } from "@/components/sections/Primitives";
 import { blogPosts } from "@/data/site";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog")({
-  head: () => ({
-    meta: [
-      { title: "Insights & Blog | CyberCloud Infra LLC" },
-      {
-        name: "description",
-        content:
-          "Practical guidance on cloud migration, cybersecurity, infrastructure modernization, and workforce strategy from our delivery teams.",
-      },
-      { property: "og:title", content: "Insights & Blog | CyberCloud Infra LLC" },
-      {
-        property: "og:description",
-        content: "Perspectives on modernization, security, and staffing from CyberCloud Infra LLC.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://secure-vet-solutions.lovable.app/blog" },
-    ],
-    links: [{ rel: "canonical", href: "https://secure-vet-solutions.lovable.app/blog" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Insights | Cloud, Security & Healthcare Staffing | CyberCloud Infra",
+      description:
+        "Practical guidance on cloud migration, zero trust, infrastructure modernization, and healthcare staffing from CyberCloud Infra LLC delivery teams.",
+      path: "/blog",
+    }),
   component: BlogPage,
 });
 
@@ -30,8 +20,8 @@ function BlogPage() {
     <>
       <PageHero
         eyebrow="Insights"
-        title="Ideas from the teams doing the work"
-        description="No vendor fluff — just what we have learned delivering modernization programs and staffing mission-critical roles."
+        title="Notes from cloud, security, and staffing delivery"
+        description="What we have learned delivering modernization programs and staffing mission-critical IT, infrastructure, and healthcare roles."
         breadcrumb="Blog"
       />
 

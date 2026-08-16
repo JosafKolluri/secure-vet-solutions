@@ -15,7 +15,7 @@
       {
         "name": "company_overview",
         "title": "Company overview",
-        "description": "Get an overview of CyberCloud Infra LLC: a veteran-owned provider of IT services, infrastructure engineering, and IT, non-IT, and healthcare staffing.",
+        "description": "Get an overview of CyberCloud Infra LLC: an SDVOSB delivering IT, non-IT professional services, infrastructure, and healthcare solutions to government and enterprise.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -31,7 +31,7 @@
       {
         "name": "list_services",
         "title": "List services",
-        "description": "List CyberCloud Infra LLC' service offerings (cloud, cybersecurity, managed IT, disaster recovery, and more) with descriptions.",
+        "description": "List CyberCloud Infra LLC service offerings across IT, non-IT, infrastructure, and healthcare, with descriptions and pillar grouping.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,

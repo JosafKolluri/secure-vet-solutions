@@ -1,37 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceCatalogPage } from "@/components/sections/ServiceCatalogPage";
 import { infrastructureServices } from "@/data/site";
+import { pageHead } from "@/lib/seo";
 import infrastructureDatacenter from "@/assets/infrastructure-datacenter.jpg";
 
 export const Route = createFileRoute("/infrastructure-services")({
-  head: () => ({
-    meta: [
-      { title: "Infrastructure Services | CyberCloud Infra LLC" },
-      {
-        name: "description",
-        content:
-          "Data center, network engineering, end-user computing, 24/7 NOC, disaster recovery, and physical security services for multi-site organizations.",
-      },
-      { property: "og:title", content: "Infrastructure Services | CyberCloud Infra LLC" },
-      {
-        property: "og:description",
-        content:
-          "Data center, network, end-user computing, and 24/7 monitoring services that keep operations running.",
-      },
-      { property: "og:type", content: "website" },
-      {
-        property: "og:url",
-        content: "https://secure-vet-solutions.lovable.app/infrastructure-services",
-      },
-    ],
-    links: [
-      { rel: "canonical", href: "https://secure-vet-solutions.lovable.app/infrastructure-services" },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: "Infrastructure Services | Data Center, Network & NOC | CyberCloud Infra",
+      description:
+        "Infrastructure engineering: data center, network, end-user computing, 24/7 NOC, disaster recovery, and physical security for multi-site organizations.",
+      path: "/infrastructure-services",
+    }),
   component: () => (
     <ServiceCatalogPage
       eyebrow="Infrastructure Services"
-      title="The foundation your operations run on"
+      title="Infrastructure services that keep operations running"
       description="Data center, network, and end-user infrastructure designed, deployed, and monitored around the clock by engineers who own the outcome."
       image={infrastructureDatacenter}
       imageAlt="Engineer working between server racks in a modern data center"

@@ -2,29 +2,16 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
 import { PageHero, CTASection, Reveal, SectionHeading } from "@/components/sections/Primitives";
 import { whoWeServe, pillars } from "@/data/site";
-
-const URL = "https://secure-vet-solutions.lovable.app/who-we-serve";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/who-we-serve")({
-  head: () => ({
-    meta: [
-      { title: "Who We Serve | CyberCloud Infra LLC" },
-      {
-        name: "description",
-        content:
-          "CyberCloud Infra LLC supports private-sector enterprises and small businesses as well as federal, state, local government and public institutions.",
-      },
-      { property: "og:title", content: "Who We Serve | CyberCloud Infra LLC" },
-      {
-        property: "og:description",
-        content:
-          "Private sector and government & public sector organizations served through one accountable partner.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: URL },
-    ],
-    links: [{ rel: "canonical", href: URL }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Who We Serve | Government & Enterprise | CyberCloud Infra LLC",
+      description:
+        "CyberCloud Infra LLC supports private-sector enterprises and small businesses plus federal, state, and local government with IT, infrastructure, and healthcare services.",
+      path: "/who-we-serve",
+    }),
   component: WhoWeServePage,
 });
 
