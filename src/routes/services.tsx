@@ -58,11 +58,14 @@ function ServicesPage() {
                 </div>
                 <ul className="grid gap-2.5 sm:grid-cols-2">
                   {p.services.map((s) => (
-                    <li
-                      key={s}
-                      className="rounded-xl border border-border bg-surface px-4 py-2.5 text-sm font-medium text-foreground/85"
-                    >
-                      {s}
+                    <li key={s.slug}>
+                      <Link
+                        to="/services/$slug"
+                        params={{ slug: s.slug }}
+                        className="block rounded-xl border border-border bg-surface px-4 py-2.5 text-sm font-medium text-foreground/85 transition-colors hover:border-primary/30 hover:text-primary"
+                      >
+                        {s.title}
+                      </Link>
                     </li>
                   ))}
                 </ul>

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { blogPosts } from "@/data/site";
+import { blogPosts, offerings } from "@/data/site";
 
 const BASE_URL = "https://secure-vet-solutions.lovable.app";
 
@@ -17,16 +17,23 @@ export const Route = createFileRoute("/sitemap.xml")({
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/about", changefreq: "monthly", priority: "0.8" },
+          { path: "/services", changefreq: "monthly", priority: "0.9" },
           { path: "/it-services", changefreq: "monthly", priority: "0.9" },
-          { path: "/non-it-staffing", changefreq: "monthly", priority: "0.9" },
-          { path: "/healthcare-staffing", changefreq: "monthly", priority: "0.9" },
+          { path: "/non-it-services", changefreq: "monthly", priority: "0.9" },
+          { path: "/healthcare-services", changefreq: "monthly", priority: "0.9" },
           { path: "/infrastructure-services", changefreq: "monthly", priority: "0.9" },
+          { path: "/who-we-serve", changefreq: "monthly", priority: "0.8" },
           { path: "/case-studies", changefreq: "monthly", priority: "0.8" },
           { path: "/get-quote", changefreq: "yearly", priority: "0.7" },
           { path: "/industries", changefreq: "monthly", priority: "0.7" },
           { path: "/careers", changefreq: "weekly", priority: "0.7" },
           { path: "/blog", changefreq: "weekly", priority: "0.8" },
           { path: "/contact", changefreq: "yearly", priority: "0.6" },
+          ...offerings.map((o) => ({
+            path: `/services/${o.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.8",
+          })),
           ...blogPosts.map((p) => ({
             path: `/blog/${p.slug}`,
             changefreq: "monthly" as const,

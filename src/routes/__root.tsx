@@ -16,7 +16,6 @@ import { Footer } from "../components/layout/Footer";
 import { Toaster } from "../components/ui/sonner";
 import { MobileCTABar } from "../components/sections/MobileCTABar";
 
-
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -92,16 +91,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "CyberCloud Infra LLC | IT, Infrastructure & Staffing" },
       {
         property: "og:description",
-        content:
-          "Technology and talent solutions for mission-critical organizations.",
+        content: "Technology and talent solutions for mission-critical organizations.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "CyberCloud Infra LLC" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "CyberCloud Infra LLC | IT, Infrastructure & Staffing" },
-      { name: "twitter:description", content: "Technology and talent solutions for mission-critical organizations." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4670dae6-3b36-4a6e-83ed-ff3f24792e14/id-preview-20ac24a9--f33ea567-314e-482f-9b5f-4834b35ab57f.lovable.app-1782396161258.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4670dae6-3b36-4a6e-83ed-ff3f24792e14/id-preview-20ac24a9--f33ea567-314e-482f-9b5f-4834b35ab57f.lovable.app-1782396161258.png" },
+      {
+        name: "twitter:description",
+        content: "Technology and talent solutions for mission-critical organizations.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4670dae6-3b36-4a6e-83ed-ff3f24792e14/id-preview-20ac24a9--f33ea567-314e-482f-9b5f-4834b35ab57f.lovable.app-1782396161258.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4670dae6-3b36-4a6e-83ed-ff3f24792e14/id-preview-20ac24a9--f33ea567-314e-482f-9b5f-4834b35ab57f.lovable.app-1782396161258.png",
+      },
     ],
     links: [
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
@@ -148,6 +157,12 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-navy focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
         {children}
         <Scripts />
       </body>
@@ -161,13 +176,12 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      <main className="pb-20 md:pb-0">
+      <main id="main-content" className="pb-20 md:pb-0">
         <Outlet />
       </main>
       <Footer />
       <MobileCTABar />
       <Toaster />
     </QueryClientProvider>
-
   );
 }

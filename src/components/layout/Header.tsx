@@ -13,15 +13,6 @@ type NavItemDef = {
 };
 
 const nav: NavItemDef[] = [
-  { to: "/", label: "Home" },
-  {
-    to: "/about",
-    label: "About",
-    children: [
-      { to: "/about", label: "About Us" },
-      { to: "/case-studies", label: "Case Studies" },
-    ],
-  },
   {
     to: "/services",
     label: "Services",
@@ -34,26 +25,38 @@ const nav: NavItemDef[] = [
     ],
   },
   { to: "/who-we-serve", label: "Who We Serve" },
-  { to: "/industries", label: "Industries" },
-  { to: "/careers", label: "Careers" },
-  { to: "/blog", label: "Insights" },
+  { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
 
-
-export function Logo({ className }: { className?: string }) {
+export function Logo({ className, inverted }: { className?: string; inverted?: boolean }) {
   return (
     <Link
       to="/"
       className={cn("flex items-center gap-2.5", className)}
       aria-label={`${company.name} home`}
     >
-      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-soft">
+      <span
+        className={cn(
+          "grid h-10 w-10 shrink-0 place-items-center rounded-xl text-primary-foreground shadow-soft",
+          inverted ? "bg-brand text-navy" : "bg-gradient-primary",
+        )}
+      >
         <Cloud className="h-5 w-5" />
       </span>
-      <span className="font-display text-[1.05rem] font-extrabold leading-[1.1] tracking-tight">
+      <span
+        className={cn(
+          "font-display text-[1.05rem] font-extrabold leading-[1.1] tracking-tight",
+          inverted && "text-white",
+        )}
+      >
         CyberCloud
-        <span className="block text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-primary">
+        <span
+          className={cn(
+            "block text-[0.72rem] font-semibold uppercase tracking-[0.2em]",
+            inverted ? "text-brand" : "text-primary",
+          )}
+        >
           Infra LLC
         </span>
       </span>
@@ -94,22 +97,25 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-[68px] max-w-[1200px] items-center justify-between gap-4 px-5 sm:px-6 lg:h-[78px] lg:px-8">
-        <Logo />
+        <Logo inverted={!solid} />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
           {nav.map((item) => {
-            const active =
-              item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
+            const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
             if (!item.children) {
               return (
                 <Link
                   key={item.label}
                   to={item.to}
                   className={cn(
-                    "rounded-lg px-3 py-2 text-sm font-semibold transition-colors",
-                    active
-                      ? "text-primary"
-                      : "text-foreground/80 hover:bg-accent hover:text-primary",
+                    "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                    !solid
+                      ? active
+                        ? "text-brand"
+                        : "text-white/85 hover:text-white"
+                      : active
+                        ? "text-primary"
+                        : "text-foreground/80 hover:bg-accent hover:text-primary",
                   )}
                 >
                   {item.label}
@@ -129,10 +135,14 @@ export function Header() {
                   aria-expanded={open}
                   onClick={() => setOpenMenu(open ? null : item.label)}
                   className={cn(
-                    "flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold transition-colors",
-                    active
-                      ? "text-primary"
-                      : "text-foreground/80 hover:bg-accent hover:text-primary",
+                    "flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                    !solid
+                      ? active
+                        ? "text-brand"
+                        : "text-white/85 hover:text-white"
+                      : active
+                        ? "text-primary"
+                        : "text-foreground/80 hover:bg-accent hover:text-primary",
                   )}
                 >
                   {item.label}
@@ -171,10 +181,10 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Button
             asChild
-            className="hidden h-11 rounded-[10px] bg-gradient-primary px-6 font-semibold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5 sm:inline-flex"
+            className="hidden h-11 rounded-md bg-brand px-5 text-sm font-semibold text-brand-foreground shadow-md hover:bg-brand/90 sm:inline-flex"
           >
             <Link to="/get-quote">
-              Get Started <ArrowRight className="h-4 w-4" />
+              Get a quote <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
           <button
@@ -182,7 +192,12 @@ export function Header() {
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
-            className="grid h-11 w-11 place-items-center rounded-xl border border-border bg-card text-foreground lg:hidden"
+            className={cn(
+              "grid h-11 w-11 place-items-center rounded-xl border lg:hidden",
+              solid
+                ? "border-border bg-card text-foreground"
+                : "border-white/20 bg-white/10 text-white",
+            )}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -242,10 +257,10 @@ export function Header() {
               )}
               <Button
                 asChild
-                className="mt-5 h-12 w-full rounded-[10px] bg-gradient-primary font-semibold text-primary-foreground"
+                className="mt-5 h-12 w-full rounded-md bg-brand text-base font-semibold text-brand-foreground"
               >
                 <Link to="/get-quote">
-                  Get Started <ArrowRight className="h-4 w-4" />
+                  Get a quote <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </nav>
