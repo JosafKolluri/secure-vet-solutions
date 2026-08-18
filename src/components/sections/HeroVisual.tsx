@@ -49,8 +49,8 @@ export function HeroVisual() {
         ))}
         <defs>
           <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#0e7490" />
-            <stop offset="100%" stopColor="#ffb81c" />
+            <stop offset="0%" stopColor="#1ec8b8" />
+            <stop offset="100%" stopColor="#0e141b" />
           </linearGradient>
         </defs>
       </svg>
@@ -59,7 +59,7 @@ export function HeroVisual() {
       <motion.div
         animate={{ y: [0, -14, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-1/2 top-1/2 grid h-32 w-32 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-[2rem] bg-brand text-brand-foreground shadow-glow sm:h-40 sm:w-40"
+        className="absolute left-1/2 top-1/2 grid h-32 w-32 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-lg bg-navy text-brand shadow-glow sm:h-40 sm:w-40"
       >
         <Cloud className="h-14 w-14 sm:h-16 sm:w-16" strokeWidth={1.4} />
       </motion.div>

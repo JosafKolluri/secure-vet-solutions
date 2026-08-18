@@ -103,7 +103,7 @@ function AboutPage() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="h-full rounded-3xl bg-gradient-navy p-9 text-white shadow-card">
+            <div className="h-full rounded-lg bg-navy p-9 text-white shadow-card">
               <h2 className="text-2xl text-white">Our vision</h2>
               <p className="mt-4 text-base leading-relaxed text-white/75">
                 To be the partner agencies and enterprises call first when a program has to work —

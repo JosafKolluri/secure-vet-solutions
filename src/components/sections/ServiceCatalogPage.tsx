@@ -32,14 +32,14 @@ export function ServiceCatalogPage({
         <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <Reveal>
             <div className="relative">
-              <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-primary opacity-10 blur-2xl" />
+              <div className="absolute -inset-4 -z-10 rounded-lg bg-gradient-primary opacity-10 blur-2xl" />
               <img
                 src={image}
                 alt={imageAlt}
                 loading="lazy"
                 width={1408}
                 height={1008}
-                className="w-full rounded-3xl object-cover shadow-card"
+                className="w-full rounded-lg object-cover shadow-card"
               />
             </div>
           </Reveal>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, X, ChevronDown, ArrowRight, Cloud } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { company } from "@/data/site";
@@ -29,6 +29,22 @@ const nav: NavItemDef[] = [
   { to: "/contact", label: "Contact" },
 ];
 
+export function Mark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
+      <rect width="40" height="40" rx="5" fill="#0e141b" />
+      <path
+        d="M11 22.5c0-4.7 3.8-8.5 8.5-8.5 3.1 0 5.9 1.7 7.3 4.2 1-.4 2-.6 3.1-.6 4 0 7.2 3.2 7.2 7.1S33.9 32 29.9 32H13.8C10.6 32 8 29.4 8 26.3c0-2.1 1.1-4 2.8-5.1"
+        fill="none"
+        stroke="#1ec8b8"
+        strokeWidth="2.1"
+        strokeLinecap="round"
+      />
+      <path d="M16 23h10" stroke="#1ec8b8" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function Logo({ className, inverted }: { className?: string; inverted?: boolean }) {
   return (
     <Link
@@ -36,25 +52,18 @@ export function Logo({ className, inverted }: { className?: string; inverted?: b
       className={cn("flex items-center gap-2.5", className)}
       aria-label={`${company.name} home`}
     >
+      <Mark className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" />
       <span
         className={cn(
-          "grid h-10 w-10 shrink-0 place-items-center rounded-xl text-primary-foreground shadow-soft",
-          inverted ? "bg-brand text-navy" : "bg-gradient-primary",
-        )}
-      >
-        <Cloud className="h-5 w-5" />
-      </span>
-      <span
-        className={cn(
-          "font-display text-[1.05rem] font-extrabold leading-[1.1] tracking-tight",
-          inverted && "text-white",
+          "font-display text-[1.02rem] font-semibold leading-[1.05] tracking-tight",
+          inverted ? "text-white" : "text-foreground",
         )}
       >
         CyberCloud
         <span
           className={cn(
-            "block text-[0.72rem] font-semibold uppercase tracking-[0.2em]",
-            inverted ? "text-brand" : "text-primary",
+            "mt-0.5 block text-[0.62rem] font-medium uppercase tracking-[0.22em]",
+            inverted ? "text-brand" : "text-teal",
           )}
         >
           Infra LLC
@@ -92,14 +101,14 @@ export function Header() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         solid
-          ? "border-b border-border bg-background/90 shadow-soft backdrop-blur-xl"
+          ? "border-b border-border bg-background/92 shadow-soft backdrop-blur-xl"
           : "bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-[68px] max-w-[1200px] items-center justify-between gap-4 px-5 sm:px-6 lg:h-[78px] lg:px-8">
+      <div className="mx-auto flex h-[68px] max-w-[1200px] items-center justify-between gap-4 px-5 sm:px-6 lg:h-[76px] lg:px-8">
         <Logo inverted={!solid} />
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main">
           {nav.map((item) => {
             const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
             if (!item.children) {
@@ -108,14 +117,14 @@ export function Header() {
                   key={item.label}
                   to={item.to}
                   className={cn(
-                    "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                    "rounded-md px-3 py-2 text-[13px] font-medium tracking-wide transition-colors",
                     !solid
                       ? active
                         ? "text-brand"
-                        : "text-white/85 hover:text-white"
+                        : "text-white/80 hover:text-white"
                       : active
-                        ? "text-primary"
-                        : "text-foreground/80 hover:bg-accent hover:text-primary",
+                        ? "text-teal"
+                        : "text-foreground/75 hover:bg-accent hover:text-foreground",
                   )}
                 >
                   {item.label}
@@ -135,14 +144,14 @@ export function Header() {
                   aria-expanded={open}
                   onClick={() => setOpenMenu(open ? null : item.label)}
                   className={cn(
-                    "flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                    "flex items-center gap-1 rounded-md px-3 py-2 text-[13px] font-medium tracking-wide transition-colors",
                     !solid
                       ? active
                         ? "text-brand"
-                        : "text-white/85 hover:text-white"
+                        : "text-white/80 hover:text-white"
                       : active
-                        ? "text-primary"
-                        : "text-foreground/80 hover:bg-accent hover:text-primary",
+                        ? "text-teal"
+                        : "text-foreground/75 hover:bg-accent hover:text-foreground",
                   )}
                 >
                   {item.label}
@@ -159,12 +168,12 @@ export function Header() {
                       transition={{ duration: 0.18 }}
                       className="absolute left-0 top-full w-64 pt-3"
                     >
-                      <div className="overflow-hidden rounded-2xl border border-border bg-card p-2 shadow-lift">
+                      <div className="overflow-hidden rounded-lg border border-border bg-card p-1.5 shadow-lift">
                         {item.children.map((child) => (
                           <Link
                             key={child.to}
                             to={child.to}
-                            className="block rounded-xl px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-primary"
+                            className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground"
                           >
                             {child.label}
                           </Link>
@@ -181,7 +190,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Button
             asChild
-            className="hidden h-11 rounded-md bg-brand px-5 text-sm font-semibold text-brand-foreground shadow-md hover:bg-brand/90 sm:inline-flex"
+            className="hidden h-10 rounded-sm bg-brand px-4 text-[13px] font-semibold text-brand-foreground hover:bg-brand/90 sm:inline-flex"
           >
             <Link to="/get-quote">
               Get a quote <ArrowRight className="h-4 w-4" />
@@ -193,7 +202,7 @@ export function Header() {
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             className={cn(
-              "grid h-11 w-11 place-items-center rounded-xl border lg:hidden",
+              "grid h-11 w-11 place-items-center rounded-md border lg:hidden",
               solid
                 ? "border-border bg-card text-foreground"
                 : "border-white/20 bg-white/10 text-white",
@@ -257,7 +266,7 @@ export function Header() {
               )}
               <Button
                 asChild
-                className="mt-5 h-12 w-full rounded-md bg-brand text-base font-semibold text-brand-foreground"
+                className="mt-5 h-12 w-full rounded-sm bg-brand text-base font-semibold text-brand-foreground"
               >
                 <Link to="/get-quote">
                   Get a quote <ArrowRight className="h-4 w-4" />

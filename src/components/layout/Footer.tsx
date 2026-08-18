@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUp, Mail, Phone, MapPin } from "lucide-react";
-import { company, certifications, naicsCodes } from "@/data/site";
+import { company } from "@/data/site";
 import { Logo } from "./Header";
 
 const columns = [
@@ -41,18 +41,18 @@ export function Footer() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-navy text-navy-foreground">
-      <div className="pointer-events-none absolute inset-0 opacity-40 [background:radial-gradient(50%_60%_at_8%_0%,rgba(14,116,144,0.4),transparent_62%),radial-gradient(45%_60%_at_92%_100%,rgba(255,184,28,0.12),transparent_62%)]" />
-      <div className="pointer-events-none absolute inset-0 plus-pattern" />
+    <footer className="relative overflow-hidden bg-navy text-navy-foreground">
+      <div className="pointer-events-none absolute inset-0 grid-pattern opacity-70" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-brand/40" />
       <div className="relative mx-auto max-w-[1200px] px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
           <div>
             <Logo inverted className="text-white" />
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/60">
               {company.tagline}
             </p>
 
-            <ul className="mt-6 space-y-3 text-sm text-white/75">
+            <ul className="mt-6 space-y-3 text-sm text-white/70">
               <li className="flex items-center gap-2.5">
                 <Mail className="h-4 w-4 shrink-0 text-brand" />
                 <a href={`mailto:${company.email}`} className="transition-colors hover:text-white">
@@ -75,7 +75,7 @@ export function Footer() {
 
           {columns.map((col) => (
             <div key={col.heading}>
-              <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-white">
+              <h3 className="font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
                 {col.heading}
               </h3>
               <ul className="mt-5 space-y-3">
@@ -83,7 +83,7 @@ export function Footer() {
                   <li key={`${col.heading}-${link.label}`}>
                     <Link
                       to={link.to}
-                      className="text-sm text-white/65 transition-colors hover:text-brand"
+                      className="text-sm text-white/60 transition-colors hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -94,17 +94,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 grid gap-6 border-t border-white/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
-          {certifications.map((c) => (
-            <div key={c.label}>
-              <p className="text-sm font-semibold text-white">{c.label}</p>
-              <p className="mt-1 text-xs text-brand">{c.detail}</p>
-            </div>
-          ))}
-        </div>
-        <p className="mt-4 text-xs text-white/55">NAICS {naicsCodes.join(" · ")}</p>
-
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/55 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row">
           <p>© {new Date().getFullYear()} CyberCloud Infra LLC. All Rights Reserved.</p>
           <div className="flex items-center gap-6">
             <Link to="/contact" className="transition-colors hover:text-white">
@@ -115,7 +105,7 @@ export function Footer() {
             </Link>
             <button
               onClick={scrollTop}
-              className="inline-flex items-center gap-1.5 font-medium text-white/75 transition-colors hover:text-white"
+              className="inline-flex items-center gap-1.5 font-medium text-white/70 transition-colors hover:text-white"
               aria-label="Back to top"
             >
               <ArrowUp className="h-3.5 w-3.5" /> Top

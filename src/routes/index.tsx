@@ -9,9 +9,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
+import { Reveal, Eyebrow, SectionHeading, HudCorners } from "@/components/sections/Primitives";
 import { pillars, whoWeServe, company, trustChips, contractingQuals, faqs } from "@/data/site";
 import { jsonLdScript, pageHead, SITE_URL } from "@/lib/seo";
+import heroPhoto from "@/assets/soc-hero.jpg";
 import itImage from "@/assets/dashboard-laptop.jpg";
 import nonItImage from "@/assets/hero-team.jpg";
 import infraImage from "@/assets/infrastructure-datacenter.jpg";
@@ -101,81 +102,93 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-hero pt-[96px] pb-14 sm:pt-[120px] sm:pb-16 lg:pt-[132px] lg:pb-20">
-      <div className="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-teal/25 blur-3xl" />
-      <div className="pointer-events-none absolute -right-20 bottom-[-4rem] h-96 w-96 rounded-full bg-brand/15 blur-3xl" />
-      <div className="hero-dots pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_32%,transparent_18%,black_78%)]" />
-      <div className={`relative ${CONTAINER} px-5 sm:px-6 lg:px-8`}>
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto max-w-3xl text-center"
-        >
-          <Eyebrow tone="light">SDVOSB · {company.locationShort}</Eyebrow>
-          <h1 className="mt-5 text-[2.15rem] font-extrabold leading-[1.12] tracking-tight text-white sm:text-[3rem] lg:text-[3.35rem]">
-            IT, Non-IT, Infrastructure & Healthcare services for mission-critical work
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-[1.05rem] leading-[1.7] text-white/78 sm:text-lg">
-            An SDVOSB partner for government and enterprise: IT, non-IT professional services,
-            infrastructure, and healthcare — one delivery lead, not four vendors.
-          </p>
-        </motion.div>
+    <section className="relative overflow-hidden bg-navy pt-[68px] lg:pt-[76px]">
+      <div className="pointer-events-none absolute inset-0 grid-pattern opacity-80" />
+      <div className="pointer-events-none absolute inset-0 scanlines" />
+      <div className="relative mx-auto grid max-w-[1280px] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+        <div className="flex flex-col justify-center px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Eyebrow tone="light">
+              CyberCloud Infra · SDVOSB · {company.locationShort}
+            </Eyebrow>
+            <h1 className="mt-6 max-w-xl text-[2.05rem] font-semibold leading-[1.1] tracking-tight text-white sm:text-[2.75rem] lg:text-[3.05rem]">
+              IT, Non-IT, Infrastructure &amp; Healthcare for mission-critical work
+            </h1>
+            <p className="mt-5 max-w-lg text-[1.05rem] leading-[1.7] text-white/68 sm:text-lg">
+              IT, non-IT professional services, infrastructure, and healthcare — delivered for
+              government and enterprise without a stack of vendors.
+            </p>
+          </motion.div>
 
-        <motion.ul
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mt-9 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4"
-        >
-          {pillars.map((pillar) => (
-            <li key={pillar.slug}>
-              <Link
-                to={pillar.href}
-                className="flex min-h-[72px] flex-col items-center justify-center rounded-xl border border-white/15 bg-white/[0.06] px-3 py-3 text-center transition-colors hover:border-brand/50 hover:bg-white/[0.1]"
-              >
-                <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
-                  {pillar.number}
-                </span>
-                <span className="mt-1 text-sm font-semibold leading-snug text-white">
-                  {pillar.title.replace(" Services", "")}
-                </span>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mt-8 flex flex-col gap-3 sm:flex-row"
+          >
+            <Button
+              asChild
+              className="h-12 min-w-[188px] rounded-sm bg-brand px-7 text-base font-semibold text-brand-foreground hover:bg-brand/90"
+            >
+              <Link to="/get-quote">
+                Get a quote <ArrowRight className="h-4 w-4" />
               </Link>
-            </li>
-          ))}
-        </motion.ul>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="h-12 min-w-[168px] rounded-sm border-white/25 bg-transparent px-6 text-base font-medium text-white/90 hover:bg-white/10 hover:text-white"
+            >
+              <Link to="/contact">Talk to an expert</Link>
+            </Button>
+          </motion.div>
+
+          <p className="mt-8 max-w-lg text-xs leading-relaxed text-white/50 sm:text-[13px]">
+            {trustChips.map((chip, i) => (
+              <span key={chip.lead}>
+                {i > 0 && <span className="mx-2 text-brand/40">·</span>}
+                <span className="font-semibold text-white/75">{chip.lead}</span> {chip.rest}
+              </span>
+            ))}
+          </p>
+        </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.14 }}
-          className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.08 }}
+          className="relative min-h-[320px] sm:min-h-[420px] lg:min-h-full"
         >
-          <Button
-            asChild
-            className="h-12 min-w-[200px] rounded-md bg-brand px-8 text-base font-semibold text-brand-foreground shadow-[0_10px_30px_rgba(255,184,28,0.28)] hover:bg-brand/90"
-          >
-            <Link to="/get-quote">
-              Get a quote <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="h-12 min-w-[180px] rounded-md border-white/30 bg-transparent px-7 text-base font-medium text-white/90 hover:bg-white/10 hover:text-white"
-          >
-            <Link to="/contact">Talk to an expert</Link>
-          </Button>
+          <img
+            src={heroPhoto}
+            alt="Operations team monitoring infrastructure and security systems"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/25 to-transparent lg:bg-gradient-to-l" />
+          <HudCorners />
+          <ul className="absolute inset-x-4 bottom-4 grid grid-cols-2 gap-2 sm:inset-x-6 sm:bottom-6 lg:grid-cols-1 lg:gap-1.5">
+            {pillars.map((pillar) => (
+              <li key={pillar.slug}>
+                <Link
+                  to={pillar.href}
+                  className="flex items-center justify-between gap-3 border border-white/15 bg-navy/70 px-3 py-2.5 backdrop-blur-md transition-colors hover:border-brand/50 hover:bg-navy/85"
+                >
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand">
+                    {pillar.number}
+                  </span>
+                  <span className="flex-1 text-sm font-medium text-white">
+                    {pillar.title.replace(" Services", "")}
+                  </span>
+                  <ArrowRight className="h-3.5 w-3.5 text-white/50" />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </motion.div>
-
-        <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-white/60 sm:text-[13px]">
-          {trustChips.map((chip, i) => (
-            <span key={chip.lead}>
-              {i > 0 && <span className="mx-2 text-white/25">·</span>}
-              <span className="font-semibold text-white/80">{chip.lead}</span> {chip.rest}
-            </span>
-          ))}
-        </p>
       </div>
     </section>
   );
@@ -183,7 +196,7 @@ function Hero() {
 
 function Services() {
   return (
-    <section id="services" className={`bg-surface ${SECTION}`}>
+    <section id="services" className={`bg-background ${SECTION}`}>
       <div className={CONTAINER}>
         <Reveal>
           <SectionHeading
@@ -193,28 +206,29 @@ function Services() {
             description="Every engagement maps to one of these four lanes — so you always know who owns the work."
           />
         </Reveal>
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:gap-8">
+        <div className="mt-14 space-y-10 lg:mt-16 lg:space-y-16">
           {pillars.map((pillar, i) => (
-            <Reveal key={pillar.slug} delay={i * 0.05}>
-              <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card">
-                <div className="relative aspect-[16/9] overflow-hidden">
+            <Reveal key={pillar.slug} delay={i * 0.04}>
+              <article
+                className={`group grid items-stretch overflow-hidden border border-border bg-card lg:grid-cols-2 ${
+                  i % 2 === 1 ? "lg:[&>div:first-child]:order-2" : ""
+                }`}
+              >
+                <div className="relative aspect-[16/10] overflow-hidden lg:aspect-auto lg:min-h-[280px]">
                   <img
                     src={pillarImages[pillar.slug]}
                     alt={`${pillar.title} — CyberCloud Infra LLC`}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c2340] via-[#0c2340]/35 to-transparent" />
-                  <span className="absolute left-5 top-5 grid h-11 w-11 place-items-center rounded-lg bg-brand text-brand-foreground shadow-md">
-                    <pillar.icon className="h-5 w-5" />
-                  </span>
-                  <span className="absolute bottom-4 left-5 font-display text-sm font-bold tracking-[0.16em] text-white/80">
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
+                  <span className="absolute left-5 top-5 font-display text-xs font-semibold tracking-[0.2em] text-brand">
                     {pillar.number}
                   </span>
                 </div>
-                <div className="flex flex-1 flex-col p-6 sm:p-7">
-                  <h3 className="text-xl font-bold text-foreground">
-                    <Link to={pillar.href} className="hover:text-primary">
+                <div className="flex flex-col justify-center border-t border-border p-6 sm:p-8 lg:border-t-0 lg:border-l lg:p-10">
+                  <h3 className="text-2xl font-semibold text-foreground">
+                    <Link to={pillar.href} className="hover:text-teal">
                       {pillar.title}
                     </Link>
                   </h3>
@@ -227,7 +241,7 @@ function Services() {
                         <Link
                           to="/services/$slug"
                           params={{ slug: s.slug }}
-                          className="inline-flex min-h-10 items-center rounded-full border border-border bg-muted/60 px-3 py-1.5 text-xs font-medium text-foreground/85 transition-colors hover:border-primary/30 hover:text-primary"
+                          className="inline-flex min-h-10 items-center rounded-sm border border-border bg-muted/50 px-3 py-1.5 text-xs font-medium text-foreground/85 transition-colors hover:border-teal/40 hover:text-teal"
                         >
                           {s.title}
                         </Link>
@@ -236,10 +250,10 @@ function Services() {
                   </ul>
                   <Link
                     to={pillar.href}
-                    className="mt-6 inline-flex min-h-12 items-center gap-2 text-sm font-semibold text-primary"
+                    className="mt-6 inline-flex min-h-12 items-center gap-2 text-sm font-semibold text-foreground"
                   >
                     Explore {pillar.title}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 text-teal transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               </article>
@@ -281,7 +295,7 @@ function Proof() {
 
         <Reveal delay={0.08} className="mt-14">
           <div className="rounded-2xl border border-border bg-card p-8 sm:p-12">
-            <Quote className="h-8 w-8 text-brand" />
+            <Quote className="h-8 w-8 text-teal" />
             <motion.blockquote
               key={index}
               initial={{ opacity: 0, y: 10 }}
@@ -390,7 +404,7 @@ function Qualifications() {
           <h2 className="mt-5 max-w-xl text-[1.85rem] font-bold leading-[1.2] tracking-tight text-foreground sm:text-[2.25rem]">
             SDVOSB capacity, task-order ready
           </h2>
-          <div className="mt-10 overflow-x-auto rounded-2xl border border-border bg-card">
+          <div className="mt-10 overflow-x-auto rounded-lg border border-border bg-card">
             <table className="w-full min-w-[480px] text-left text-sm">
               <tbody>
                 {contractingQuals.map((row) => (
@@ -464,23 +478,22 @@ function FinalCTA() {
   return (
     <section className="px-5 pb-24 sm:px-6 lg:px-8 lg:pb-32">
       <div
-        className={`${CONTAINER} relative overflow-hidden rounded-3xl bg-gradient-hero px-6 py-16 text-center sm:px-12 lg:py-20`}
+        className={`${CONTAINER} relative overflow-hidden rounded-lg bg-navy px-6 py-16 sm:px-12 lg:py-20`}
       >
-        <div className="relative mx-auto max-w-2xl">
+        <div className="pointer-events-none absolute inset-0 grid-pattern" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-brand/50" />
+        <div className="relative mx-auto max-w-2xl text-center">
           <Eyebrow tone="light">Next step</Eyebrow>
-          <h2 className="mt-5 text-[1.85rem] font-bold leading-[1.2] tracking-tight text-white sm:text-[2.4rem]">
+          <h2 className="mt-5 text-[1.85rem] font-semibold leading-[1.2] tracking-tight text-white sm:text-[2.4rem]">
             Need IT, staffing, infrastructure, or healthcare support?
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-[1.75] text-white/75 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-xl text-base leading-[1.75] text-white/68 sm:text-lg">
             Tell us the mission. We return a scoped quote with approach, timeline, and staffing plan.
           </p>
-          <blockquote className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-white/65">
-            “{quotes[0].quote}”
-          </blockquote>
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <Button
               asChild
-              className="h-12 min-w-[200px] rounded-md bg-brand px-8 text-base font-semibold text-brand-foreground hover:bg-brand/90"
+              className="h-12 min-w-[200px] rounded-sm bg-brand px-8 text-base font-semibold text-brand-foreground hover:bg-brand/90"
             >
               <Link to="/get-quote">
                 Get a quote <ArrowRight className="h-4 w-4" />
@@ -489,7 +502,7 @@ function FinalCTA() {
             <Button
               asChild
               variant="outline"
-              className="h-12 rounded-md border-white/30 bg-transparent px-7 text-base font-medium text-white hover:bg-white/10 hover:text-white"
+              className="h-12 rounded-sm border-white/25 bg-transparent px-7 text-base font-medium text-white hover:bg-white/10 hover:text-white"
             >
               <Link to="/services">View all services</Link>
             </Button>

@@ -14,7 +14,7 @@ export function MobileCTABar() {
 
         <Link
           to="/get-quote"
-          className="flex min-h-12 flex-[1.4] items-center justify-center gap-2 rounded-md bg-brand px-4 py-3 text-sm font-semibold text-brand-foreground"
+          className="flex min-h-12 flex-[1.4] items-center justify-center gap-2 rounded-sm bg-brand px-4 py-3 text-sm font-semibold text-brand-foreground"
         >
           Get a Free Quote <ArrowRight className="h-4 w-4" />
         </Link>

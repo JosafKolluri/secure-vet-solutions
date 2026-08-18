@@ -27,6 +27,17 @@ export function Reveal({
   );
 }
 
+export function HudCorners({ className }: { className?: string }) {
+  return (
+    <div className={cn("pointer-events-none absolute inset-3 sm:inset-4", className)} aria-hidden>
+      <span className="absolute left-0 top-0 h-8 w-8 border-l-2 border-t-2 border-brand" />
+      <span className="absolute right-0 top-0 h-8 w-8 border-r-2 border-t-2 border-brand" />
+      <span className="absolute bottom-0 left-0 h-8 w-8 border-b-2 border-l-2 border-brand" />
+      <span className="absolute bottom-0 right-0 h-8 w-8 border-b-2 border-r-2 border-brand" />
+    </div>
+  );
+}
+
 export function Eyebrow({
   children,
   tone = "primary",
@@ -37,18 +48,13 @@ export function Eyebrow({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-sm px-0 text-xs font-semibold uppercase tracking-[0.18em]",
+        "inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.22em]",
         tone === "primary" && "text-teal",
-        tone === "brand" && "text-brand",
+        tone === "brand" && "text-teal",
         tone === "light" && "text-brand",
       )}
     >
-      <span
-        className={cn(
-          "h-1.5 w-1.5 rounded-full",
-          tone === "light" || tone === "brand" ? "bg-brand" : "bg-teal",
-        )}
-      />
+      <span className={cn("h-px w-6", tone === "light" ? "bg-brand" : "bg-teal")} />
       {children}
     </span>
   );
@@ -80,7 +86,7 @@ export function SectionHeading({
       {eyebrow && <Eyebrow tone={tone}>{eyebrow}</Eyebrow>}
       <h2
         className={cn(
-          "mt-4 text-[1.75rem] font-bold leading-[1.2] sm:text-[2.15rem] lg:text-[2.35rem]",
+          "mt-4 text-[1.75rem] font-semibold leading-[1.2] sm:text-[2.15rem] lg:text-[2.35rem]",
           tone === "light" ? "text-white" : "text-foreground",
         )}
       >
@@ -113,9 +119,10 @@ export function PageHero({
   breadcrumb?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-hero pt-36 pb-20 lg:pt-44 lg:pb-24">
-      <div className="pointer-events-none absolute inset-0 plus-pattern" />
-      <div className="pointer-events-none absolute inset-0 opacity-50 [background:radial-gradient(60%_70%_at_85%_0%,rgba(14,116,144,0.35),transparent_65%),radial-gradient(45%_60%_at_5%_100%,rgba(255,184,28,0.12),transparent_70%)]" />
+    <section className="relative overflow-hidden bg-navy pt-36 pb-20 lg:pt-44 lg:pb-24">
+      <div className="pointer-events-none absolute inset-0 grid-pattern" />
+      <div className="pointer-events-none absolute inset-0 scanlines" />
+      <div className="pointer-events-none absolute inset-0 opacity-70 [background:radial-gradient(50%_60%_at_90%_0%,rgba(30,200,184,0.16),transparent_62%)]" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
@@ -127,13 +134,13 @@ export function PageHero({
           <h1 className="mt-6 text-4xl leading-[1.1] text-white sm:text-5xl lg:text-6xl">
             {title}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75">{description}</p>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">{description}</p>
           {breadcrumb && (
-            <nav aria-label="Breadcrumb" className="mt-8 text-sm text-white/60">
+            <nav aria-label="Breadcrumb" className="mt-8 text-sm text-white/55">
               <Link to="/" className="transition-colors hover:text-white">
                 Home
               </Link>
-              <span className="px-2">/</span>
+              <span className="px-2 text-brand/70">/</span>
               <span className="text-white">{breadcrumb}</span>
             </nav>
           )}
@@ -160,17 +167,17 @@ export function CTASection({
 }) {
   return (
     <section className="px-4 pb-24 sm:px-6 lg:px-8">
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-navy px-6 py-16 text-center sm:px-12 lg:py-20">
-        <div className="pointer-events-none absolute inset-0 plus-pattern opacity-80" />
-        <div className="pointer-events-none absolute inset-0 opacity-50 [background:radial-gradient(50%_80%_at_20%_0%,rgba(14,116,144,0.4),transparent_60%),radial-gradient(50%_80%_at_85%_100%,rgba(255,184,28,0.18),transparent_60%)]" />
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-lg bg-navy px-6 py-16 text-center sm:px-12 lg:py-20">
+        <div className="pointer-events-none absolute inset-0 grid-pattern" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-brand/50" />
         <div className="relative mx-auto max-w-3xl">
-          <h2 className="text-[1.85rem] font-bold text-white sm:text-[2.25rem]">{title}</h2>
-          <p className="mt-5 text-base leading-[1.75] text-white/75">{description}</p>
+          <h2 className="text-[1.85rem] font-semibold text-white sm:text-[2.25rem]">{title}</h2>
+          <p className="mt-5 text-base leading-[1.75] text-white/70">{description}</p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <Button
               asChild
               size="lg"
-              className="h-12 bg-brand font-semibold text-brand-foreground hover:bg-brand/90"
+              className="h-12 rounded-sm bg-brand font-semibold text-brand-foreground hover:bg-brand/90"
             >
               <Link to={primaryTo}>
                 {primaryLabel} <ArrowRight className="h-4 w-4" />
@@ -180,7 +187,7 @@ export function CTASection({
               asChild
               size="lg"
               variant="outline"
-              className="border-white/30 bg-white/5 text-white hover:bg-white/15 hover:text-white"
+              className="rounded-sm border-white/25 bg-transparent text-white hover:bg-white/10 hover:text-white"
             >
               <Link to={secondaryTo}>{secondaryLabel}</Link>
             </Button>
