@@ -93,11 +93,16 @@ export function Header() {
     setMobileSub(null);
   }, [pathname]);
 
+  const onHome = pathname === "/";
+  const overlay = onHome && !scrolled && !mobileOpen;
+
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b bg-background/95 backdrop-blur-xl transition-shadow duration-300",
-        scrolled || mobileOpen ? "border-border shadow-soft" : "border-transparent",
+        "fixed inset-x-0 top-0 z-50 border-b transition-all duration-300",
+        overlay
+          ? "border-transparent bg-transparent"
+          : "border-border bg-background/95 shadow-soft backdrop-blur-xl",
       )}
     >
       <div className="hidden border-b border-border/70 bg-navy text-navy-foreground md:block">
@@ -125,7 +130,7 @@ export function Header() {
       </div>
 
       <div className="mx-auto flex h-[68px] max-w-[1200px] items-center justify-between gap-4 px-5 sm:px-6 lg:h-[72px] lg:px-8">
-        <Logo />
+        <Logo inverted={overlay} />
 
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main">
           {nav.map((item) => {
@@ -137,7 +142,13 @@ export function Header() {
                   to={item.to}
                   className={cn(
                     "rounded-md px-3 py-2 text-[13px] font-medium tracking-wide transition-colors",
-                    active ? "text-teal" : "text-foreground/75 hover:bg-accent hover:text-foreground",
+                    overlay
+                      ? active
+                        ? "text-brand"
+                        : "text-white/80 hover:text-white"
+                      : active
+                        ? "text-teal"
+                        : "text-foreground/75 hover:bg-accent hover:text-foreground",
                   )}
                 >
                   {item.label}
@@ -158,7 +169,13 @@ export function Header() {
                   onClick={() => setOpenMenu(open ? null : item.label)}
                   className={cn(
                     "flex items-center gap-1 rounded-md px-3 py-2 text-[13px] font-medium tracking-wide transition-colors",
-                    active ? "text-teal" : "text-foreground/75 hover:bg-accent hover:text-foreground",
+                    overlay
+                      ? active
+                        ? "text-brand"
+                        : "text-white/80 hover:text-white"
+                      : active
+                        ? "text-teal"
+                        : "text-foreground/75 hover:bg-accent hover:text-foreground",
                   )}
                 >
                   {item.label}
@@ -208,7 +225,12 @@ export function Header() {
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
-            className="grid h-11 w-11 place-items-center rounded-md border border-border bg-card text-foreground lg:hidden"
+            className={cn(
+              "grid h-11 w-11 place-items-center rounded-md border lg:hidden",
+              overlay
+                ? "border-white/20 bg-white/10 text-white"
+                : "border-border bg-card text-foreground",
+            )}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>

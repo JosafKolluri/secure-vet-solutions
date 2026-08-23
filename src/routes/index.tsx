@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Phone } from "lucide-react";
+import { ArrowRight, Check, Phone, Cloud, Shield, Server, HeartPulse } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/accordion";
 import { Reveal, Eyebrow, SectionHeading, HudCorners } from "@/components/sections/Primitives";
 import {
-  pillars,
   company,
   trustChips,
   faqs,
@@ -21,8 +20,12 @@ import {
   certifications,
 } from "@/data/site";
 import { jsonLdScript, pageHead, SITE_URL } from "@/lib/seo";
-import heroPhoto from "@/assets/about-discuss.jpg";
+import heroPhoto from "@/assets/soc-hero.jpg";
 import handshakePhoto from "@/assets/about-handshake.jpg";
+import cloudPhoto from "@/assets/dashboard-laptop.jpg";
+import cyberPhoto from "@/assets/security-analyst.jpg";
+import infraPhoto from "@/assets/infrastructure-datacenter.jpg";
+import healthPhoto from "@/assets/healthcare-staff.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -54,6 +57,41 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
+const missionLanes = [
+  {
+    label: "Cloud",
+    title: "Cloud platforms",
+    copy: "Landing zones, identity, and day-2 operations on Azure, AWS, and Google Cloud.",
+    href: "/it-services",
+    image: cloudPhoto,
+    icon: Cloud,
+  },
+  {
+    label: "Cyber + AI",
+    title: "Cybersecurity with AI-assisted ops",
+    copy: "Zero-trust, SIEM, and monitoring — with AI used to speed detection, not to replace control owners.",
+    href: "/it-services",
+    image: cyberPhoto,
+    icon: Shield,
+  },
+  {
+    label: "Infrastructure",
+    title: "Infrastructure operations",
+    copy: "Data center, network, end-user computing, and 24/7 NOC coverage.",
+    href: "/infrastructure-services",
+    image: infraPhoto,
+    icon: Server,
+  },
+  {
+    label: "Healthcare",
+    title: "Healthcare services",
+    copy: "Clinical and non-clinical staffing, healthcare IT, and medical operations support.",
+    href: "/healthcare-services",
+    image: healthPhoto,
+    icon: HeartPulse,
+  },
+] as const;
+
 const SECTION = "px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24";
 const CONTAINER = "mx-auto max-w-[1120px]";
 
@@ -76,20 +114,40 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-background pt-[68px] md:pt-[108px] lg:pt-[108px]">
-      <div className="pointer-events-none absolute inset-0 grid-pattern opacity-40" />
-      <div className={`${CONTAINER} grid items-center gap-10 px-5 py-12 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:px-8 lg:py-16`}>
+    <section className="relative overflow-hidden bg-navy pt-[68px] md:pt-[108px]">
+      <div className="pointer-events-none absolute inset-0">
+        <img
+          src={heroPhoto}
+          alt=""
+          className="h-full w-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/88 to-navy/55" />
+        <div className="absolute inset-0 mesh-circuit" />
+        <div className="absolute inset-0 scanlines" />
+      </div>
+      <div className={`relative ${CONTAINER} px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24`}>
         <Reveal>
-          <Eyebrow>Service-Disabled Veteran-Owned Small Business</Eyebrow>
-          <h1 className="mt-5 max-w-xl text-[2.05rem] font-semibold leading-[1.12] tracking-tight text-foreground sm:text-[2.7rem] lg:text-[3.05rem]">
-            Technology and talent for{" "}
-            <span className="text-teal">mission-critical</span> organizations
+          <Eyebrow tone="light">SDVOSB · Cloud · Cyber · Infrastructure · Healthcare</Eyebrow>
+          <h1 className="mt-5 max-w-3xl text-[2.1rem] font-semibold leading-[1.1] tracking-tight text-white sm:text-[2.85rem] lg:text-[3.2rem]">
+            Cloud, cybersecurity with AI, infrastructure, and healthcare — one mission stack
           </h1>
-          <p className="mt-5 max-w-lg text-[1.05rem] leading-[1.7] text-muted-foreground sm:text-lg">
-            IT, non-IT professional services, infrastructure, and healthcare — one accountable
-            SDVOSB partner for government and enterprise in Arlington, TX.
+          <p className="mt-5 max-w-2xl text-[1.05rem] leading-[1.7] text-white/70 sm:text-lg">
+            We design and run the platforms, security operations, facilities, and care-support
+            teams that keep government and enterprise programs online. AI is used inside
+            cybersecurity and analytics to accelerate detection — not as a black-box product.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <ul className="mt-7 flex flex-wrap gap-2">
+            {missionLanes.map((lane) => (
+              <li
+                key={lane.label}
+                className="inline-flex items-center gap-2 rounded-sm border border-brand/30 bg-white/5 px-3 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-brand"
+              >
+                <lane.icon className="h-3.5 w-3.5" />
+                {lane.label}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button
               asChild
               className="h-12 min-w-[188px] rounded-sm bg-brand px-7 text-base font-semibold text-brand-foreground hover:bg-brand/90"
@@ -101,7 +159,7 @@ function Hero() {
             <Button
               asChild
               variant="outline"
-              className="h-12 min-w-[168px] rounded-sm border-border px-6 text-base font-medium"
+              className="h-12 min-w-[168px] rounded-sm border-white/25 bg-transparent px-6 text-base font-medium text-white hover:bg-white/10 hover:text-white"
             >
               <Link to="/contact">
                 <Phone className="h-4 w-4" /> Talk to an expert
@@ -111,31 +169,13 @@ function Hero() {
           <ul className="mt-8 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-x-6">
             {["Government & enterprise", "24/7 operations support", "Credentialed specialists"].map(
               (item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-foreground/80">
-                  <Check className="h-4 w-4 text-teal" />
+                <li key={item} className="flex items-center gap-2 text-sm text-white/75">
+                  <Check className="h-4 w-4 text-brand" />
                   {item}
                 </li>
               ),
             )}
           </ul>
-        </Reveal>
-
-        <Reveal delay={0.08} className="relative">
-          <div className="relative overflow-hidden rounded-lg">
-            <img
-              src={heroPhoto}
-              alt="CyberCloud Infra team in a working session with a client"
-              className="aspect-[5/4] w-full object-cover sm:aspect-[4/3]"
-            />
-            <HudCorners />
-            <p className="absolute right-4 top-4 rounded-sm bg-brand px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-foreground">
-              Veteran-owned
-            </p>
-            <div className="absolute bottom-4 left-4 rounded-md border border-white/20 bg-navy/85 px-4 py-3 text-white backdrop-blur-md">
-              <p className="font-display text-2xl font-semibold tracking-tight">24/7</p>
-              <p className="text-xs text-white/70">Operations coverage</p>
-            </div>
-          </div>
         </Reveal>
       </div>
     </section>
@@ -167,36 +207,48 @@ function Services() {
         <Reveal>
           <SectionHeading
             align="left"
-            eyebrow="What we do"
-            title="Four practices. One accountable partner."
-            description="Every engagement maps to a named lane — so you always know who owns the work."
+            eyebrow="Mission stack"
+            title="Cloud. Cyber. Infrastructure. Healthcare."
+            description="Four visual lanes a contracting officer or CIO can scan in seconds. Non-IT professional services still sit under the same contract when the mission needs them."
           />
         </Reveal>
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
-          {pillars.map((pillar, i) => (
-            <Reveal key={pillar.slug} delay={i * 0.05}>
-              <article className="group flex h-full flex-col border border-border bg-card p-6 shadow-soft sm:p-7">
-                <span className="grid h-11 w-11 place-items-center rounded-md bg-accent text-teal">
-                  <pillar.icon className="h-5 w-5" />
-                </span>
-                <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal">
-                  {pillar.number}
-                </p>
-                <h3 className="mt-2 text-xl font-semibold text-foreground">{pillar.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {pillar.summary}
-                </p>
-                <Link
-                  to={pillar.href}
-                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground"
-                >
-                  Explore {pillar.title.replace(" Services", "")}
-                  <ArrowRight className="h-4 w-4 text-teal transition-transform group-hover:translate-x-1" />
-                </Link>
-              </article>
+          {missionLanes.map((lane, i) => (
+            <Reveal key={lane.label} delay={i * 0.05}>
+              <Link
+                to={lane.href}
+                className="group relative flex min-h-[280px] overflow-hidden border border-border"
+              >
+                <img
+                  src={lane.image}
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/55 to-navy/15" />
+                <HudCorners />
+                <div className="relative mt-auto flex w-full flex-col p-6 sm:p-7">
+                  <p className="inline-flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-brand">
+                    <lane.icon className="h-3.5 w-3.5" />
+                    {lane.label}
+                  </p>
+                  <h3 className="mt-2 text-xl font-semibold text-white">{lane.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/70">{lane.copy}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-white">
+                    Explore
+                    <ArrowRight className="h-4 w-4 text-brand transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </Link>
             </Reveal>
           ))}
         </div>
+        <p className="mt-6 text-sm text-muted-foreground">
+          Also delivering{" "}
+          <Link to="/non-it-services" className="font-semibold text-foreground underline-offset-4 hover:underline">
+            non-IT professional services and staffing
+          </Link>{" "}
+          on the same accountable model.
+        </p>
       </div>
     </section>
   );
@@ -432,7 +484,7 @@ function FinalCTA() {
         <div className="relative mx-auto max-w-2xl text-center">
           <Eyebrow tone="light">Next step</Eyebrow>
           <h2 className="mt-5 text-[1.85rem] font-semibold leading-[1.2] tracking-tight text-white sm:text-[2.35rem]">
-            Ready to scope IT, staffing, infrastructure, or healthcare support?
+            Ready to scope cloud, cyber, infrastructure, or healthcare support?
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base leading-[1.75] text-white/68 sm:text-lg">
             Tell us the mission. We return a scoped quote with approach, timeline, and staffing plan.

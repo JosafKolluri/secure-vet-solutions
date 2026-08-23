@@ -16,7 +16,7 @@ export const Route = createFileRoute("/it-services")({
     <ServiceCatalogPage
       eyebrow="IT Services"
       title="IT services for government and enterprise missions"
-      description="From cloud migration to managed operations, we design and run the technology your program depends on — with security and governance built in from the start."
+      description="From cloud platforms and AI-assisted cybersecurity to managed operations, we design and run the technology your program depends on — with security and governance built in from the start."
       image={dashboardLaptop}
       imageAlt="Engineer reviewing cloud operations dashboards on a laptop"
       intro={{
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/it-services")({
       highlights={[
         "Azure, AWS, and Google Cloud",
         "NIST 800-53 and CMMC 2.0 alignment",
-        "DevSecOps and automated pipelines",
+        "AI-assisted detection inside security operations",
         "SLA-backed managed operations",
       ]}
       items={itServices}

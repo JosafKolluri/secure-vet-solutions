@@ -120,7 +120,7 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden bg-navy pt-32 pb-20 md:pt-40 lg:pt-44 lg:pb-24">
-      <div className="pointer-events-none absolute inset-0 grid-pattern" />
+      <div className="pointer-events-none absolute inset-0 mesh-circuit" />
       <div className="pointer-events-none absolute inset-0 scanlines" />
       <div className="pointer-events-none absolute inset-0 opacity-70 [background:radial-gradient(50%_60%_at_90%_0%,rgba(30,200,184,0.16),transparent_62%)]" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
