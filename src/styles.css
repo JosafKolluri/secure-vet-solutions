@@ -68,7 +68,7 @@
 :root {
   --radius: 1rem;
 
-  /* CyberCloudInfra LLC — SDVOSB navy + gold clearance-card design system */
+  /* CyberCloud Infra LLC — SDVOSB navy + gold clearance-card design system */
   --background: #f3f5f7;
   --foreground: #101826;
   --card: #ffffff;
@@ -183,8 +183,8 @@
   }
 
   ::selection {
-    background: rgba(255, 184, 28, 0.35);
-    color: #0c2340;
+    background: rgba(176, 141, 87, 0.35);
+    color: #0b1f3a;
   }
 
   :focus-visible {

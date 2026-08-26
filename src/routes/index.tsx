@@ -46,9 +46,9 @@ import bannerHealthcareServices from "@/assets/illustrations/banner-healthcare-s
 export const Route = createFileRoute("/")({
   head: () => ({
     ...pageHead({
-      title: "CyberCloudInfra LLC | SDVOSB Cybersecurity, Azure Cloud & Staffing",
+      title: "CyberCloud Infra LLC | SDVOSB Cybersecurity, Azure Cloud & Staffing",
       description:
-        "CyberCloudInfra LLC is a Service-Disabled Veteran-Owned Small Business delivering cybersecurity, Microsoft Azure cloud, healthcare staffing, and non-IT professional staffing to federal agencies, DoD contractors, and enterprises.",
+        "CyberCloud Infra LLC is a Service-Disabled Veteran-Owned Small Business delivering cybersecurity, Microsoft Azure cloud, healthcare staffing, and non-IT professional staffing to federal agencies, DoD contractors, and enterprises.",
       path: "/",
     }),
     scripts: [
@@ -171,9 +171,10 @@ function Hero() {
               on veteran discipline
             </h1>
             <p className="mt-6 max-w-xl text-[1.05rem] leading-[1.7] text-white/78 sm:text-lg">
-              CyberCloudInfra LLC delivers cybersecurity, Microsoft Azure cloud services, healthcare
-              staffing, and non-IT professional staffing to federal agencies, DoD contractors, and
-              commercial enterprises — under one accountable, veteran-owned contract vehicle.
+              CyberCloud Infra LLC delivers cybersecurity, Microsoft Azure cloud services,
+              healthcare staffing, and non-IT professional staffing to federal agencies, DoD
+              contractors, and commercial enterprises — under one accountable, veteran-owned
+              contract vehicle.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button
