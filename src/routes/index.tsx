@@ -17,6 +17,8 @@ import {
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
 import { IdCard } from "@/components/sections/IdCard";
 import { CircuitAccent } from "@/components/sections/CircuitAccent";
+import { GaugeRing } from "@/components/sections/GaugeRing";
+import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
 import {
   ItServicesIcon,
   StaffingNetworkIcon,
@@ -388,41 +390,72 @@ const statCaptions: Record<string, string> = {
   "Operations support": "SLA-backed monitoring and response",
 };
 
+const gaugeStats = [
+  { big: "SDVOSB", label: "Ownership status", color: "#c9a468" },
+  { big: "SAM", label: "Federal registration", color: "#7fd99a" },
+  { big: "4", label: "Service pillars", color: "#3a6ea5" },
+  { big: "Azure", label: "Cloud platform focus", color: "#c9a468" },
+];
+
 function CredentialsBand() {
   return (
     <section className="relative overflow-hidden bg-navy px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="pointer-events-none absolute inset-0 grid-line-texture opacity-30" />
       <div className={`relative ${CONTAINER}`}>
-        <Eyebrow tone="light" icon>
-          Credentials
-        </Eyebrow>
-        <h2 className="mt-4 max-w-xl text-2xl font-bold text-white sm:text-3xl">
-          Verified standing, not marketing claims
-        </h2>
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { big: "SDVOSB", label: "Ownership status" },
-            { big: "SAM", label: "Federal registration" },
-            { big: "4", label: "Service pillars" },
-            { big: "Azure", label: "Cloud platform focus" },
-          ].map((s) => (
-            <div key={s.label} className="border-t border-white/15 pt-5">
-              <p className="font-display text-3xl font-bold tracking-tight text-gold-bright sm:text-4xl">
-                {s.big}
-              </p>
-              <p className="mt-2 text-sm text-white/65">{s.label}</p>
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <Eyebrow tone="light" icon>
+              Credentials
+            </Eyebrow>
+            <h2 className="mt-4 max-w-xl text-2xl font-bold text-white sm:text-3xl">
+              Verified standing, not marketing claims
+            </h2>
+          </div>
+          <div className="flex items-center gap-2.5 rounded-full border border-success/30 bg-success/10 px-4 py-2">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-status-pulse rounded-full bg-success" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
+            </span>
+            <span className="font-mono-label text-[11px] font-semibold text-success">
+              Credentials verified
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {gaugeStats.map((s) => (
+            <div key={s.label} className="flex items-center gap-5">
+              <GaugeRing color={s.color}>
+                <span
+                  className="font-display text-sm font-bold tracking-tight text-white"
+                  style={{ color: s.color }}
+                >
+                  {s.big}
+                </span>
+              </GaugeRing>
+              <div>
+                <p className="font-mono-label text-[10px] text-white/40">Status</p>
+                <p className="mt-0.5 text-sm font-medium text-white/80">{s.label}</p>
+              </div>
             </div>
           ))}
         </div>
-        <div className="mt-12 grid gap-8 border-t border-white/10 pt-10 sm:grid-cols-2 lg:grid-cols-4">
+
+        <div className="mt-14 grid gap-8 border-t border-white/10 pt-10 sm:grid-cols-2 lg:grid-cols-4">
           {homeStats.map((s) => (
             <div key={s.label}>
               <p className="font-mono text-2xl font-semibold text-white">
-                {s.prefix}
-                {s.value}
-                {s.suffix}
+                <AnimatedCounter
+                  value={s.value}
+                  prefix={s.prefix}
+                  suffix={s.suffix}
+                  decimals={s.decimals}
+                />
               </p>
-              <p className="mt-1.5 text-xs text-white/50">{statCaptions[s.label] ?? s.label}</p>
+              <div className="mt-2.5 h-1 w-full overflow-hidden rounded-full bg-white/10">
+                <div className="h-full w-full rounded-full bg-gradient-to-r from-steel to-gold-bright" />
+              </div>
+              <p className="mt-2 text-xs text-white/50">{statCaptions[s.label] ?? s.label}</p>
             </div>
           ))}
         </div>
