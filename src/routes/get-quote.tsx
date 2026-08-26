@@ -80,7 +80,10 @@ function QuotePage() {
                 "A practice lead schedules a short discovery call at your convenience.",
                 "You receive a written quote with approach, milestones, and pricing.",
               ].map((s, i) => (
-                <li key={s} className="flex gap-4 rounded-2xl border border-border bg-card p-5 shadow-soft">
+                <li
+                  key={s}
+                  className="flex gap-4 rounded-2xl border border-border bg-card p-5 shadow-soft"
+                >
                   <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-gradient-primary text-sm font-bold text-primary-foreground">
                     {i + 1}
                   </span>
@@ -89,11 +92,16 @@ function QuotePage() {
               ))}
             </ol>
             <ul className="mt-8 space-y-2.5">
-              {["No obligation", "Confidential review", "Response within one business day"].map((t) => (
-                <li key={t} className="flex items-center gap-2 text-sm font-medium text-foreground">
-                  <Check className="h-4 w-4 text-brand" /> {t}
-                </li>
-              ))}
+              {["No obligation", "Confidential review", "Response within one business day"].map(
+                (t) => (
+                  <li
+                    key={t}
+                    className="flex items-center gap-2 text-sm font-medium text-foreground"
+                  >
+                    <Check className="h-4 w-4 text-brand" /> {t}
+                  </li>
+                ),
+              )}
             </ul>
           </Reveal>
 
@@ -112,12 +120,25 @@ function QuotePage() {
                 </div>
                 <div>
                   <Label htmlFor="q-email">Work email</Label>
-                  <Input id="q-email" name="email" type="email" className="mt-2" placeholder="jane@agency.gov" />
-                  {errors.email && <p className="mt-1.5 text-xs text-destructive">{errors.email}</p>}
+                  <Input
+                    id="q-email"
+                    name="email"
+                    type="email"
+                    className="mt-2"
+                    placeholder="jane@agency.gov"
+                  />
+                  {errors.email && (
+                    <p className="mt-1.5 text-xs text-destructive">{errors.email}</p>
+                  )}
                 </div>
                 <div>
                   <Label htmlFor="q-org">Organization</Label>
-                  <Input id="q-org" name="organization" className="mt-2" placeholder="Agency or company" />
+                  <Input
+                    id="q-org"
+                    name="organization"
+                    className="mt-2"
+                    placeholder="Agency or company"
+                  />
                 </div>
                 <div>
                   <Label htmlFor="q-service">Service needed</Label>
@@ -155,7 +176,11 @@ function QuotePage() {
                   )}
                 </div>
               </div>
-              <Button type="submit" size="lg" className="mt-7 w-full bg-brand text-brand-foreground hover:bg-brand/90">
+              <Button
+                type="submit"
+                size="lg"
+                className="mt-7 w-full bg-brand text-brand-foreground hover:bg-brand/90"
+              >
                 Request my quote
               </Button>
             </form>

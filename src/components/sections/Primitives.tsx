@@ -1,10 +1,9 @@
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { pageHeroImage } from "@/data/media";
 
 export function Reveal({
   children,
@@ -15,6 +14,10 @@ export function Reveal({
   delay?: number;
   className?: string;
 }) {
+  const reduceMotion = useReducedMotion();
+  if (reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
   return (
     <motion.div
       initial={{ opacity: 0, y: 26 }}
@@ -31,25 +34,31 @@ export function Reveal({
 export function Eyebrow({
   children,
   tone = "primary",
+  icon = false,
 }: {
   children: ReactNode;
   tone?: "primary" | "brand" | "light";
+  icon?: boolean;
 }) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-sm px-0 text-xs font-semibold uppercase tracking-[0.18em]",
-        tone === "primary" && "text-teal",
+        "inline-flex items-center gap-2 rounded-sm px-0 font-mono text-xs font-medium uppercase tracking-[0.18em]",
+        tone === "primary" && "text-steel",
         tone === "brand" && "text-brand",
         tone === "light" && "text-brand",
       )}
     >
-      <span
-        className={cn(
-          "h-1.5 w-1.5 rounded-full",
-          tone === "light" || tone === "brand" ? "bg-brand" : "bg-teal",
-        )}
-      />
+      {icon ? (
+        <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2} />
+      ) : (
+        <span
+          className={cn(
+            "h-1.5 w-1.5 rounded-full",
+            tone === "light" || tone === "brand" ? "bg-brand" : "bg-steel",
+          )}
+        />
+      )}
       {children}
     </span>
   );
@@ -107,25 +116,16 @@ export function PageHero({
   title,
   description,
   breadcrumb,
-  image = pageHeroImage,
 }: {
   eyebrow: string;
   title: string;
   description: string;
   breadcrumb?: string;
-  image?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-[#0c2340] pt-36 pb-20 lg:pt-44 lg:pb-24">
-      <img
-        src={image}
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0c2340] via-[#0c2340]/88 to-[#0c2340]/70" />
-      <div className="pointer-events-none absolute inset-0 plus-pattern" />
-      <div className="pointer-events-none absolute inset-0 opacity-50 [background:radial-gradient(60%_70%_at_85%_0%,rgba(14,116,144,0.35),transparent_65%),radial-gradient(45%_60%_at_5%_100%,rgba(255,184,28,0.12),transparent_70%)]" />
+    <section className="relative overflow-hidden bg-navy pt-36 pb-20 lg:pt-44 lg:pb-24">
+      <div className="pointer-events-none absolute inset-0 grid-line-texture [mask-image:radial-gradient(ellipse_70%_70%_at_50%_0%,black_35%,transparent_85%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-50 [background:radial-gradient(60%_70%_at_85%_0%,rgba(58,110,165,0.35),transparent_65%),radial-gradient(45%_60%_at_5%_100%,rgba(176,141,87,0.14),transparent_70%)]" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 22 }}

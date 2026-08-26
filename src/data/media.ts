@@ -10,9 +10,6 @@ import industryFinance from "@/assets/industry-finance.jpg";
 import industryManufacturing from "@/assets/industry-manufacturing.jpg";
 import industryEducation from "@/assets/industry-education.jpg";
 import industryEnterprise from "@/assets/industry-enterprise.jpg";
-import pageHeroAtmosphere from "@/assets/page-hero-atmosphere.jpg";
-
-export const pageHeroImage = pageHeroAtmosphere;
 
 export const pillarPhotos: Record<string, { src: string; alt: string }> = {
   "it-services": {

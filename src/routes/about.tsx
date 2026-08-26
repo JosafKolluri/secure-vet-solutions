@@ -58,8 +58,8 @@ function AboutPage() {
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               Today we support federal, state, and commercial clients across cloud and
-              infrastructure engineering, cybersecurity, managed IT, and specialized IT, non-IT,
-              and healthcare staffing.
+              infrastructure engineering, cybersecurity, managed IT, and specialized IT, non-IT, and
+              healthcare staffing.
             </p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {[

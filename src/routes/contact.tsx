@@ -77,7 +77,12 @@ function ContactPage() {
             />
             <ul className="mt-9 space-y-4">
               {[
-                { icon: Mail, label: "Email", value: company.email, href: `mailto:${company.email}` },
+                {
+                  icon: Mail,
+                  label: "Email",
+                  value: company.email,
+                  href: `mailto:${company.email}`,
+                },
                 { icon: Phone, label: "Phone", value: company.phone },
                 {
                   icon: MapPin,
@@ -97,7 +102,10 @@ function ContactPage() {
                       {item.label}
                     </span>
                     {item.href ? (
-                      <a href={item.href} className="mt-1 block font-semibold text-foreground hover:text-primary">
+                      <a
+                        href={item.href}
+                        className="mt-1 block font-semibold text-foreground hover:text-primary"
+                      >
                         {item.value}
                       </a>
                     ) : (
@@ -124,12 +132,25 @@ function ContactPage() {
                 </div>
                 <div className="sm:col-span-1">
                   <Label htmlFor="email">Work email</Label>
-                  <Input id="email" name="email" type="email" className="mt-2" placeholder="jane@agency.gov" />
-                  {errors.email && <p className="mt-1.5 text-xs text-destructive">{errors.email}</p>}
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    className="mt-2"
+                    placeholder="jane@agency.gov"
+                  />
+                  {errors.email && (
+                    <p className="mt-1.5 text-xs text-destructive">{errors.email}</p>
+                  )}
                 </div>
                 <div className="sm:col-span-2">
                   <Label htmlFor="company">Organization</Label>
-                  <Input id="company" name="company" className="mt-2" placeholder="Agency or company" />
+                  <Input
+                    id="company"
+                    name="company"
+                    className="mt-2"
+                    placeholder="Agency or company"
+                  />
                 </div>
                 <div className="sm:col-span-2">
                   <Label htmlFor="message">How can we help?</Label>
@@ -145,7 +166,11 @@ function ContactPage() {
                   )}
                 </div>
               </div>
-              <Button type="submit" size="lg" className="mt-7 w-full bg-brand text-brand-foreground hover:bg-brand/90">
+              <Button
+                type="submit"
+                size="lg"
+                className="mt-7 w-full bg-brand text-brand-foreground hover:bg-brand/90"
+              >
                 Send message
               </Button>
             </form>
