@@ -35,10 +35,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import blogZeroTrust from "@/assets/blog-zero-trust.jpg";
-import blogCloudMigration from "@/assets/blog-cloud-migration.jpg";
-import blogClinicalStaffing from "@/assets/blog-clinical-staffing.jpg";
-import caseNocOperations from "@/assets/case-noc-operations.jpg";
+import blogZeroTrust from "@/assets/blog-zero-trust.svg";
+import blogCloudMigration from "@/assets/blog-cloud-migration.svg";
+import blogClinicalStaffing from "@/assets/blog-clinical-staffing.svg";
+import caseNocOperations from "@/assets/case-noc-operations.svg";
 import { offeringsForPillar } from "@/data/offerings";
 
 export type { Offering } from "@/data/offerings";
@@ -457,6 +457,16 @@ export const coreCompetencies = [
 ];
 
 export const naicsCodes = ["541512", "541519", "541611", "561320", "621399", "518210"];
+
+/** Verification data for the security-clearance-style credential card. */
+export const credentialing = {
+  cageCode: "[XXXXX]",
+  dunsUei: "[XXXXXXXXXXXX]",
+  ownershipType: "SDVOSB — Service-Disabled Veteran-Owned",
+  naics: naicsCodes.slice(0, 4),
+  samStatus: "Active",
+  statusLabel: "ACTIVE — VERIFIED VENDOR",
+};
 
 export const trustChips = [
   { lead: "SDVOSB", rest: "Veteran-owned" },

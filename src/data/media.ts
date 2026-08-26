@@ -1,72 +1,69 @@
-import itServices from "@/assets/dashboard-laptop.jpg";
-import nonItServices from "@/assets/non-it-professionals.jpg";
-import infrastructureServices from "@/assets/infrastructure-datacenter.jpg";
-import healthcareServices from "@/assets/healthcare-staff.jpg";
-import privateSector from "@/assets/who-serve-enterprise.jpg";
-import governmentSector from "@/assets/who-serve-government.jpg";
-import industryGovernment from "@/assets/industry-government.jpg";
-import industryHealthcare from "@/assets/industry-healthcare.jpg";
-import industryFinance from "@/assets/industry-finance.jpg";
-import industryManufacturing from "@/assets/industry-manufacturing.jpg";
-import industryEducation from "@/assets/industry-education.jpg";
-import industryEnterprise from "@/assets/industry-enterprise.jpg";
-import pageHeroAtmosphere from "@/assets/page-hero-atmosphere.jpg";
-
-export const pageHeroImage = pageHeroAtmosphere;
+import itServices from "@/assets/dashboard-laptop.svg";
+import nonItServices from "@/assets/non-it-professionals.svg";
+import infrastructureServices from "@/assets/infrastructure-datacenter.svg";
+import healthcareServices from "@/assets/healthcare-staff.svg";
+import privateSector from "@/assets/who-serve-enterprise.svg";
+import governmentSector from "@/assets/who-serve-government.svg";
+import industryGovernment from "@/assets/industry-government.svg";
+import industryHealthcare from "@/assets/industry-healthcare.svg";
+import industryFinance from "@/assets/industry-finance.svg";
+import industryManufacturing from "@/assets/industry-manufacturing.svg";
+import industryEducation from "@/assets/industry-education.svg";
+import industryEnterprise from "@/assets/industry-enterprise.svg";
 
 export const pillarPhotos: Record<string, { src: string; alt: string }> = {
   "it-services": {
     src: itServices,
-    alt: "Engineer reviewing cybersecurity and cloud operations dashboards on a laptop",
+    alt: "",
   },
   "non-it-services": {
     src: nonItServices,
-    alt: "Administrative and professional staff working in a modern operations office",
+    alt: "",
   },
   "infrastructure-services": {
     src: infrastructureServices,
-    alt: "Infrastructure engineer working between server racks in a data center",
+    alt: "",
   },
   "healthcare-services": {
     src: healthcareServices,
-    alt: "Healthcare professionals collaborating in a hospital corridor",
+    alt: "",
   },
 };
 
 export const marketPhotos: Record<string, { src: string; alt: string }> = {
   "private-sector": {
     src: privateSector,
-    alt: "Enterprise team collaborating in a modern glass office",
+    alt: "",
   },
   "government-public-sector": {
     src: governmentSector,
-    alt: "Public-sector professionals in a briefing meeting",
+    alt: "",
   },
 };
 
 export const industryPhotos: Record<string, { src: string; alt: string }> = {
   "Government & Public Sector": {
     src: industryGovernment,
-    alt: "Civic office building at dusk",
+    alt: "",
   },
   Healthcare: {
     src: industryHealthcare,
-    alt: "Clinician approaching a modern hospital entrance",
+    alt: "",
   },
   "Financial Services": {
     src: industryFinance,
-    alt: "Financial operations professionals at dual monitors",
+    alt: "",
   },
   Manufacturing: {
     src: industryManufacturing,
-    alt: "Technician reviewing a tablet on a manufacturing floor",
+    alt: "",
   },
   Education: {
     src: industryEducation,
-    alt: "University computer lab with students and an IT specialist",
+    alt: "",
   },
   "Commercial Enterprise": {
     src: industryEnterprise,
-    alt: "Glass headquarters campus at dusk",
+    alt: "",
   },
 };

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1f3a"/>
+      <stop offset="100%" stop-color="#0f2a4d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="46%" r="55%">
+      <stop offset="0%" stop-color="#b08d57" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#b08d57" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#bg)"/>
+  <rect width="640" height="400" fill="url(#glow)"/>
+  <path d="M68.2 349.1 L121.5 349.1 L121.5 376.5 L535.9 376.5" stroke="#3a6ea5" stroke-opacity="0.09" stroke-width="1.5" fill="none"/>
+<circle cx="121.5" cy="376.5" r="2.5" fill="#3a6ea5" fill-opacity="0.24"/>
+<path d="M157.3 267.2 L219.5 267.2 L219.5 214.1 L531.7 214.1" stroke="#c9a468" stroke-opacity="0.15" stroke-width="1.5" fill="none"/>
+<circle cx="219.5" cy="214.1" r="2.5" fill="#c9a468" fill-opacity="0.30"/>
+<path d="M190.6 283.0 L289.4 283.0 L289.4 315.0 L478.6 315.0" stroke="#3a6ea5" stroke-opacity="0.11" stroke-width="1.5" fill="none"/>
+<circle cx="289.4" cy="315.0" r="2.5" fill="#3a6ea5" fill-opacity="0.26"/>
+<path d="M93.4 144.7 L134.0 144.7 L134.0 184.3 L483.6 184.3" stroke="#3a6ea5" stroke-opacity="0.09" stroke-width="1.5" fill="none"/>
+<circle cx="134.0" cy="184.3" r="2.5" fill="#3a6ea5" fill-opacity="0.24"/>
+<path d="M112.1 140.1 L155.7 140.1 L155.7 110.9 L526.0 110.9" stroke="#3a6ea5" stroke-opacity="0.09" stroke-width="1.5" fill="none"/>
+<circle cx="155.7" cy="110.9" r="2.5" fill="#3a6ea5" fill-opacity="0.24"/>
+<path d="M71.7 348.3 L122.9 348.3 L122.9 310.3 L626.2 310.3" stroke="#3a6ea5" stroke-opacity="0.16" stroke-width="1.5" fill="none"/>
+<path d="M185.4 193.5 L266.6 193.5 L266.6 136.2 L580.8 136.2" stroke="#c9a468" stroke-opacity="0.16" stroke-width="1.5" fill="none"/>
+<circle cx="266.6" cy="136.2" r="2.5" fill="#c9a468" fill-opacity="0.31"/>
+
+  <g transform="translate(320 200)">
+    
+    <path d="M-16 -56 h32 v40 h40 v32 h-40 v40 h-32 v-40 h-40 v-32 h40Z" fill="none" stroke="#c9a468" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M-90 78 h30 l10 -22 l14 40 l12 -58 l10 40 l8 -18 h30" fill="none" stroke="#7fd99a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  </g>
+</svg>

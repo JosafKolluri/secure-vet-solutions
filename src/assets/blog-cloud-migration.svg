@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1f3a"/>
+      <stop offset="100%" stop-color="#0f2a4d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="46%" r="55%">
+      <stop offset="0%" stop-color="#b08d57" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#b08d57" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#bg)"/>
+  <rect width="640" height="400" fill="url(#glow)"/>
+  <path d="M123.6 164.2 L195.2 164.2 L195.2 214.3 L531.0 214.3" stroke="#c9a468" stroke-opacity="0.15" stroke-width="1.5" fill="none"/>
+<path d="M80.1 216.7 L150.6 216.7 L150.6 253.6 L511.5 253.6" stroke="#3a6ea5" stroke-opacity="0.09" stroke-width="1.5" fill="none"/>
+<circle cx="150.6" cy="253.6" r="2.5" fill="#3a6ea5" fill-opacity="0.24"/>
+<path d="M99.8 332.4 L146.5 332.4 L146.5 304.5 L457.3 304.5" stroke="#3a6ea5" stroke-opacity="0.10" stroke-width="1.5" fill="none"/>
+<path d="M165.4 96.0 L222.1 96.0 L222.1 129.9 L445.4 129.9" stroke="#3a6ea5" stroke-opacity="0.10" stroke-width="1.5" fill="none"/>
+<circle cx="222.1" cy="129.9" r="2.5" fill="#3a6ea5" fill-opacity="0.25"/>
+<path d="M182.7 236.7 L244.5 236.7 L244.5 198.0 L618.8 198.0" stroke="#3a6ea5" stroke-opacity="0.13" stroke-width="1.5" fill="none"/>
+<circle cx="244.5" cy="198.0" r="2.5" fill="#3a6ea5" fill-opacity="0.28"/>
+<path d="M61.4 165.1 L152.9 165.1 L152.9 142.6 L447.0 142.6" stroke="#c9a468" stroke-opacity="0.14" stroke-width="1.5" fill="none"/>
+<path d="M26.0 95.4 L107.6 95.4 L107.6 116.8 L495.7 116.8" stroke="#c9a468" stroke-opacity="0.12" stroke-width="1.5" fill="none"/>
+<circle cx="107.6" cy="116.8" r="2.5" fill="#c9a468" fill-opacity="0.27"/>
+
+  <g transform="translate(320 200)">
+    
+    <path d="M-70 -8 Q-70 -32 -44 -34 Q-38 -56 -8 -54 Q20 -56 26 -32 Q52 -30 52 -6 Q52 16 26 18 H-46 Q-70 16 -70 -8Z" fill="none" stroke="#3a6ea5" stroke-width="3.5"/>
+    <path d="M-6 30 v40 M-6 70 l-16 -16 M-6 70 l16 -16" stroke="#c9a468" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="-40" y="76" width="68" height="18" rx="2" fill="none" stroke="#c9a468" stroke-width="3"/>
+  
+  </g>
+</svg>

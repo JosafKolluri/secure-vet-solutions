@@ -4,7 +4,7 @@ import { PageHero, Reveal, SectionHeading, CTASection } from "@/components/secti
 import { Button } from "@/components/ui/button";
 import { jobs, benefits, company } from "@/data/site";
 import { pageHead } from "@/lib/seo";
-import careersPhoto from "@/assets/careers-collaboration.jpg";
+import careersPhoto from "@/assets/careers-collaboration.svg";
 
 export const Route = createFileRoute("/careers")({
   head: () =>

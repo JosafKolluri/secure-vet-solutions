@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ServiceCatalogPage } from "@/components/sections/ServiceCatalogPage";
 import { nonItStaffing } from "@/data/site";
 import { pageHead } from "@/lib/seo";
-import nonItProfessionals from "@/assets/non-it-professionals.jpg";
+import nonItProfessionals from "@/assets/non-it-professionals.svg";
 
 export const Route = createFileRoute("/non-it-services")({
   head: () =>

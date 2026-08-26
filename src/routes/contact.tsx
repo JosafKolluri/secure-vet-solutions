@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { company } from "@/data/site";
 import { pageHead } from "@/lib/seo";
-import contactOffice from "@/assets/contact-office.jpg";
+import contactOffice from "@/assets/contact-office.svg";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),

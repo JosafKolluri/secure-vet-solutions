@@ -90,7 +90,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "author", content: company.name },
       { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "CyberCloud Infra LLC | IT, Non-IT, Infrastructure & Healthcare" },
+      {
+        property: "og:title",
+        content: "CyberCloud Infra LLC | IT, Non-IT, Infrastructure & Healthcare",
+      },
       {
         property: "og:description",
         content: company.tagline,
@@ -99,7 +102,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: company.name },
       { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "CyberCloud Infra LLC | IT, Non-IT, Infrastructure & Healthcare" },
+      {
+        name: "twitter:title",
+        content: "CyberCloud Infra LLC | IT, Non-IT, Infrastructure & Healthcare",
+      },
       {
         name: "twitter:description",
         content: company.tagline,
@@ -114,7 +120,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap",
       },
     ],
     scripts: [

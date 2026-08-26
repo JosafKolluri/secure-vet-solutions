@@ -4,8 +4,8 @@ import { PageHero, Reveal, SectionHeading, CTASection } from "@/components/secti
 import { StatBlock } from "@/components/sections/AnimatedCounter";
 import { coreValues, milestones, homeStats, certifications, company } from "@/data/site";
 import { pageHead } from "@/lib/seo";
-import aboutHandshake from "@/assets/about-handshake.jpg";
-import aboutTeam from "@/assets/about-team.jpg";
+import aboutHandshake from "@/assets/about-handshake.svg";
+import aboutTeam from "@/assets/about-team.svg";
 
 export const Route = createFileRoute("/about")({
   head: () =>

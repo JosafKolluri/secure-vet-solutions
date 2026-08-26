@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { pillars } from "@/data/site";
 import { pageHead } from "@/lib/seo";
-import handshake from "@/assets/about-handshake.jpg";
+import handshake from "@/assets/about-handshake.svg";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),

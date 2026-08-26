@@ -38,8 +38,8 @@ export function Logo({ className, inverted }: { className?: string; inverted?: b
     >
       <span
         className={cn(
-          "grid h-10 w-10 shrink-0 place-items-center rounded-xl text-primary-foreground shadow-soft",
-          inverted ? "bg-brand text-navy" : "bg-gradient-primary",
+          "corner-notch-sm grid h-10 w-10 shrink-0 place-items-center text-primary-foreground shadow-soft",
+          inverted ? "bg-gradient-brand text-navy" : "bg-gradient-primary",
         )}
       >
         <Cloud className="h-5 w-5" />
@@ -181,11 +181,11 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Button
             asChild
-            className="hidden h-11 rounded-md bg-brand px-5 text-sm font-semibold text-brand-foreground shadow-md hover:bg-brand/90 sm:inline-flex"
+            className="hidden h-11 rounded-md bg-brand px-5 text-sm font-semibold text-brand-foreground shadow-md hover:bg-brand/90 lg:inline-flex"
           >
-            <Link to="/get-quote">
-              Get a quote <ArrowRight className="h-4 w-4" />
-            </Link>
+            <a href="/capability-statement.pdf" target="_blank" rel="noopener noreferrer">
+              Request Capability Statement <ArrowRight className="h-4 w-4" />
+            </a>
           </Button>
           <button
             type="button"
@@ -259,9 +259,9 @@ export function Header() {
                 asChild
                 className="mt-5 h-12 w-full rounded-md bg-brand text-base font-semibold text-brand-foreground"
               >
-                <Link to="/get-quote">
-                  Get a quote <ArrowRight className="h-4 w-4" />
-                </Link>
+                <a href="/capability-statement.pdf" target="_blank" rel="noopener noreferrer">
+                  Request Capability Statement <ArrowRight className="h-4 w-4" />
+                </a>
               </Button>
             </nav>
           </motion.div>
