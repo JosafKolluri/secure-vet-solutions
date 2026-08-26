@@ -4,8 +4,8 @@ import { PageHero, Reveal, SectionHeading, CTASection } from "@/components/secti
 import { StatBlock } from "@/components/sections/AnimatedCounter";
 import { coreValues, milestones, homeStats, certifications, company } from "@/data/site";
 import { pageHead } from "@/lib/seo";
-import aboutHandshake from "@/assets/about-handshake.svg";
-import aboutTeam from "@/assets/about-team.svg";
+import aboutHandshake from "@/assets/about-handshake.jpg";
+import aboutTeam from "@/assets/about-team.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () =>
@@ -58,8 +58,8 @@ function AboutPage() {
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               Today we support federal, state, and commercial clients across cloud and
-              infrastructure engineering, cybersecurity, managed IT, and specialized IT, non-IT,
-              and healthcare staffing.
+              infrastructure engineering, cybersecurity, managed IT, and specialized IT, non-IT, and
+              healthcare staffing.
             </p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {[

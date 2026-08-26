@@ -4,7 +4,7 @@ import { PageHero, Reveal, SectionHeading, CTASection } from "@/components/secti
 import { Button } from "@/components/ui/button";
 import { jobs, benefits, company } from "@/data/site";
 import { pageHead } from "@/lib/seo";
-import careersPhoto from "@/assets/careers-collaboration.svg";
+import careersPhoto from "@/assets/careers-collaboration.jpg";
 
 export const Route = createFileRoute("/careers")({
   head: () =>
@@ -39,48 +39,47 @@ function CareersPage() {
             />
           </Reveal>
           <div>
-          <SectionHeading
-            eyebrow="Open positions"
-            title="Current opportunities"
-            description="Do not see your role? Send your resume and we will keep you in mind for upcoming programs."
-          />
-          <div className="mt-14 space-y-4">
-            {jobs.map((job, i) => (
-              <Reveal key={job.title} delay={i * 0.05}>
-                <div className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <h2 className="text-lg">{job.title}</h2>
-                    <div className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1.5">
-                        <MapPin className="h-4 w-4 text-primary" /> {job.location}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <Briefcase className="h-4 w-4 text-primary" /> {job.type}
-                      </span>
-                      <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs font-semibold text-accent-foreground">
-                        {job.department}
-                      </span>
+            <SectionHeading
+              eyebrow="Open positions"
+              title="Current opportunities"
+              description="Do not see your role? Send your resume and we will keep you in mind for upcoming programs."
+            />
+            <div className="mt-14 space-y-4">
+              {jobs.map((job, i) => (
+                <Reveal key={job.title} delay={i * 0.05}>
+                  <div className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <h2 className="text-lg">{job.title}</h2>
+                      <div className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-sm text-muted-foreground">
+                        <span className="flex items-center gap-1.5">
+                          <MapPin className="h-4 w-4 text-primary" /> {job.location}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <Briefcase className="h-4 w-4 text-primary" /> {job.type}
+                        </span>
+                        <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs font-semibold text-accent-foreground">
+                          {job.department}
+                        </span>
+                      </div>
                     </div>
+                    <Button asChild className="shrink-0">
+                      <a
+                        href={`mailto:${company.email}?subject=${encodeURIComponent(`Application: ${job.title}`)}`}
+                      >
+                        Apply now
+                      </a>
+                    </Button>
                   </div>
-                  <Button asChild className="shrink-0">
-                    <a href={`mailto:${company.email}?subject=${encodeURIComponent(`Application: ${job.title}`)}`}>
-                      Apply now
-                    </a>
-                  </Button>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section className="section-py bg-surface px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="Benefits"
-            title="What we offer our team"
-          />
+          <SectionHeading eyebrow="Benefits" title="What we offer our team" />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map((b, i) => (
               <Reveal key={b} delay={i * 0.05}>

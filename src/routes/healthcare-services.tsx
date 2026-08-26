@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ServiceCatalogPage } from "@/components/sections/ServiceCatalogPage";
 import { healthcareStaffing } from "@/data/site";
 import { pageHead } from "@/lib/seo";
-import healthcareStaff from "@/assets/healthcare-staff.svg";
+import healthcareStaff from "@/assets/healthcare-staff.jpg";
 
 export const Route = createFileRoute("/healthcare-services")({
   head: () =>

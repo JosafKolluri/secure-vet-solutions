@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ServiceCatalogPage } from "@/components/sections/ServiceCatalogPage";
 import { itServices } from "@/data/site";
 import { pageHead } from "@/lib/seo";
-import dashboardLaptop from "@/assets/dashboard-laptop.svg";
+import dashboardLaptop from "@/assets/dashboard-laptop.jpg";
 
 export const Route = createFileRoute("/it-services")({
   head: () =>
