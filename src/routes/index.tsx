@@ -3,7 +3,17 @@ import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { motion } from "motion/react";
-import { ArrowRight, Quote, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import {
+  ArrowRight,
+  Quote,
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
+  ShieldCheck,
+  Cloud as CloudIcon,
+  Network,
+  Headset,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -35,6 +45,8 @@ import {
   processSteps,
   naicsCodes,
   getOffering,
+  coreValues,
+  clientLogos,
 } from "@/data/site";
 import { jsonLdScript, pageHead, SITE_URL } from "@/lib/seo";
 import { marketPhotos } from "@/data/media";
@@ -42,6 +54,7 @@ import bannerItServices from "@/assets/illustrations/banner-it-services.svg";
 import bannerNonItServices from "@/assets/illustrations/banner-non-it-services.svg";
 import bannerInfrastructureServices from "@/assets/illustrations/banner-infrastructure-services.svg";
 import bannerHealthcareServices from "@/assets/illustrations/banner-healthcare-services.svg";
+import aboutTeamPhoto from "@/assets/about-team.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -131,9 +144,12 @@ function HomePage() {
   return (
     <>
       <Hero />
+      <FeatureHighlights />
       <TrustStrip />
+      <AboutPreview />
       <CapabilityPillars />
       <VisualBannerRow />
+      <ClientLogos />
       <CapabilityDetailList />
       <CredentialsBand />
       <Qualifications />
@@ -141,8 +157,189 @@ function HomePage() {
       <Process />
       <Proof />
       <Faq />
+      <ReadyBanner />
       <ContactCTA />
     </>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* 2 — Feature highlights strip                                        */
+/* ------------------------------------------------------------------ */
+
+const featureHighlights = [
+  {
+    icon: ShieldCheck,
+    title: "Advanced Security",
+    description: "Multi-layered security solutions to protect what matters most.",
+  },
+  {
+    icon: CloudIcon,
+    title: "Cloud Excellence",
+    description: "Scalable, reliable, and cost-effective cloud infrastructure.",
+  },
+  {
+    icon: Network,
+    title: "Integrated Solutions",
+    description: "End-to-end solutions designed for federal and enterprise needs.",
+  },
+  {
+    icon: Headset,
+    title: "24/7 Support",
+    description: "Round-the-clock support and monitoring from our expert team.",
+  },
+];
+
+function FeatureHighlights() {
+  return (
+    <section className="relative bg-background px-5 pb-4 pt-14 sm:px-6 lg:px-8">
+      <div className={CONTAINER}>
+        <Reveal className="grid gap-8 rounded-2xl border border-border bg-card p-8 shadow-card sm:grid-cols-2 sm:p-10 lg:grid-cols-4">
+          {featureHighlights.map((item) => (
+            <div key={item.title} className="flex items-start gap-4">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-navy text-gold-bright">
+                <item.icon className="h-5 w-5" />
+              </span>
+              <div>
+                <h3 className="text-base font-bold text-foreground">{item.title}</h3>
+                <p className="mt-1.5 text-sm leading-[1.6] text-muted-foreground">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* About preview                                                       */
+/* ------------------------------------------------------------------ */
+
+function AboutPreview() {
+  return (
+    <section className={`bg-surface ${SECTION}`}>
+      <div className={`${CONTAINER} grid items-center gap-12 lg:grid-cols-2 lg:gap-16`}>
+        <Reveal className="relative">
+          <img
+            src={aboutTeamPhoto}
+            alt="CyberCloud Infra LLC team in a strategy discussion"
+            loading="lazy"
+            className="aspect-[4/3] w-full rounded-2xl object-cover shadow-card"
+          />
+          <div className="absolute -bottom-6 left-6 flex items-center gap-3 rounded-xl bg-navy px-5 py-4 shadow-lift sm:left-8">
+            <span className="font-display text-2xl font-extrabold text-gold-bright">10+</span>
+            <span className="max-w-[7rem] text-xs font-medium leading-tight text-white/80">
+              Years of Experience
+            </span>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.08}>
+          <Eyebrow>About Us</Eyebrow>
+          <h2 className="mt-4 text-[1.85rem] font-bold leading-[1.2] tracking-tight text-foreground sm:text-[2.25rem]">
+            Your Trusted Partner for Mission-Critical Delivery
+          </h2>
+          <p className="mt-5 text-base leading-[1.75] text-muted-foreground">
+            {company.shortDescription}
+          </p>
+          <p className="mt-4 text-base leading-[1.75] text-muted-foreground">
+            Our team combines veteran discipline with deep technical and clinical expertise to
+            design, implement, and manage solutions that keep agencies and enterprises secure,
+            staffed, and running.
+          </p>
+          <div className="mt-8 grid grid-cols-2 gap-6">
+            {coreValues.map((v) => (
+              <div key={v.title} className="flex items-start gap-3">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent text-primary">
+                  <v.icon className="h-4 w-4" />
+                </span>
+                <div>
+                  <p className="text-sm font-bold text-foreground">{v.title}</p>
+                  <p className="text-xs text-muted-foreground">{v.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <Button
+            asChild
+            className="mt-9 h-12 rounded-md bg-primary px-7 font-semibold text-primary-foreground hover:bg-primary/90"
+          >
+            <Link to="/about">
+              Learn More About Us <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Client / technology partner logos                                   */
+/* ------------------------------------------------------------------ */
+
+function ClientLogos() {
+  return (
+    <section className={`bg-background ${SECTION}`}>
+      <div className={CONTAINER}>
+        <Reveal>
+          <SectionHeading
+            eyebrow="Our Clients"
+            title="Trusted by Leading Organizations"
+            description="We build on the platforms federal agencies and enterprises already standardize on."
+          />
+        </Reveal>
+        <Reveal delay={0.08} className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          {clientLogos.map((name) => (
+            <div
+              key={name}
+              className="flex h-20 items-center justify-center rounded-xl border border-border bg-card px-4 text-center text-sm font-bold text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
+            >
+              {name}
+            </div>
+          ))}
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Slim ready banner                                                   */
+/* ------------------------------------------------------------------ */
+
+function ReadyBanner() {
+  return (
+    <section className="px-5 sm:px-6 lg:px-8">
+      <div className={CONTAINER}>
+        <Reveal className="flex flex-col items-center justify-between gap-6 rounded-2xl bg-navy px-7 py-8 sm:flex-row sm:px-10">
+          <div className="flex items-center gap-5">
+            <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white/10 text-gold-bright">
+              <Headset className="h-6 w-6" />
+            </span>
+            <div>
+              <h3 className="text-lg font-bold text-white sm:text-xl">
+                Ready to Secure and Scale Your Operations?
+              </h3>
+              <p className="mt-1 text-sm text-white/70">
+                Let's build a secure and resilient future together.
+              </p>
+            </div>
+          </div>
+          <Button
+            asChild
+            className="h-12 shrink-0 rounded-md bg-brand px-7 font-semibold text-brand-foreground hover:bg-brand/90"
+          >
+            <Link to="/contact">
+              Get In Touch <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </Reveal>
+      </div>
+    </section>
   );
 }
 
