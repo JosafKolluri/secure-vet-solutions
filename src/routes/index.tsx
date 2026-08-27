@@ -36,6 +36,9 @@ import {
   processSteps,
   naicsCodes,
   getOffering,
+  whyChooseUs,
+  techPartners,
+  caseStudies,
 } from "@/data/site";
 import { jsonLdScript, pageHead, SITE_URL } from "@/lib/seo";
 import { marketPhotos } from "@/data/media";
@@ -136,10 +139,13 @@ function HomePage() {
       <CapabilityPillars />
       <VisualBannerRow />
       <CapabilityDetailList />
+      <WhyChooseUs />
       <CredentialsBand />
+      <TechnologyStrip />
       <Qualifications />
       <WhoWeServe />
       <Process />
+      <CaseStudiesTeaser />
       <Proof />
       <Faq />
       <ContactCTA />
@@ -299,6 +305,73 @@ function CapabilityDetailList() {
             );
           })}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Why choose us — differentiators                                      */
+/* ------------------------------------------------------------------ */
+
+function WhyChooseUs() {
+  return (
+    <section className={`bg-surface ${SECTION}`}>
+      <div className={CONTAINER}>
+        <Reveal>
+          <SectionHeading
+            align="left"
+            eyebrow="Why CyberCloud Infra"
+            title="What a contracting officer gets with us"
+            description="The operating commitments behind every task order — the things you can hold us to after award, not just during the proposal."
+          />
+        </Reveal>
+        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {whyChooseUs.map((reason, i) => (
+            <Reveal key={reason.title} delay={i * 0.04} className="h-full">
+              <div className="flex h-full flex-col bg-card p-7">
+                <span className="corner-notch-sm grid h-11 w-11 place-items-center bg-navy text-gold-bright">
+                  <reason.icon className="h-5 w-5" />
+                </span>
+                <h3 className="mt-5 text-base font-bold text-foreground">{reason.title}</h3>
+                <p className="mt-2.5 text-sm leading-[1.7] text-muted-foreground">
+                  {reason.description}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Technology strip — platforms we deliver on                           */
+/* ------------------------------------------------------------------ */
+
+function TechnologyStrip() {
+  return (
+    <section className="border-b border-border bg-background px-5 py-14 sm:px-6 lg:px-8">
+      <div className={`${CONTAINER} flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-14`}>
+        <div className="lg:w-[280px] lg:shrink-0">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-steel">
+            Platforms
+          </p>
+          <p className="mt-3 text-sm leading-[1.7] text-muted-foreground">
+            Environments our engineers build, secure, and operate in every day.
+          </p>
+        </div>
+        <ul className="flex flex-1 flex-wrap items-center gap-x-3 gap-y-3">
+          {techPartners.map((tech) => (
+            <li
+              key={tech}
+              className="rounded-full border border-border bg-card px-4 py-2 font-mono text-xs uppercase tracking-[0.1em] text-foreground/75"
+            >
+              {tech}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -551,6 +624,72 @@ function Process() {
             </li>
           ))}
         </ol>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Case studies teaser — past performance                               */
+/* ------------------------------------------------------------------ */
+
+function CaseStudiesTeaser() {
+  return (
+    <section className={`bg-background ${SECTION}`}>
+      <div className={CONTAINER}>
+        <Reveal>
+          <SectionHeading
+            align="left"
+            eyebrow="Past performance"
+            title="Representative engagements"
+            description="Challenge, approach, and measurable result. Client names are withheld where contracts require it."
+          />
+        </Reveal>
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {caseStudies.slice(0, 3).map((cs, i) => (
+            <Reveal key={cs.slug} delay={i * 0.06} className="h-full">
+              <Link
+                to="/case-studies"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-shadow hover:shadow-lift"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img
+                    src={cs.image}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/25 to-transparent" />
+                  <span className="absolute bottom-4 left-5 font-mono text-[11px] uppercase tracking-[0.14em] text-gold-bright">
+                    {cs.service}
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground">
+                    {cs.industry}
+                  </p>
+                  <h3 className="mt-2.5 text-base font-bold leading-snug text-foreground">
+                    {cs.title}
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-[1.7] text-muted-foreground">
+                    {cs.results[0]}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                    Read the engagement
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+        <Link
+          to="/case-studies"
+          className="mt-10 inline-flex min-h-12 items-center gap-2 text-sm font-semibold text-primary"
+        >
+          View all case studies <ArrowRight className="h-4 w-4" />
+        </Link>
       </div>
     </section>
   );
