@@ -631,6 +631,114 @@ export const benefits = [
 ];
 
 /* ------------------------------------------------------------------ */
+/* Leadership                                                          */
+/* ------------------------------------------------------------------ */
+
+/**
+ * PLACEHOLDER DATA — names are bracketed on purpose so nothing ships as a
+ * real person. Replace each `name` (and add real headshots) before launch.
+ */
+export interface Leader {
+  name: string;
+  role: string;
+  focus: string;
+  credential: string;
+}
+
+export const leadership: Leader[] = [
+  {
+    name: "[Full Name]",
+    role: "Founder & Managing Principal",
+    focus:
+      "Service-disabled veteran owner. Sets delivery standards, signs contracts, and stays accountable on every task order.",
+    credential: "SDVOSB owner",
+  },
+  {
+    name: "[Full Name]",
+    role: "Director, Cyber & Cloud",
+    focus:
+      "Owns zero-trust architecture, Azure landing zones, and the control mappings behind NIST 800-171 and CMMC 2.0 work.",
+    credential: "[CISSP / AZ-305]",
+  },
+  {
+    name: "[Full Name]",
+    role: "Director, Infrastructure Operations",
+    focus:
+      "Runs data center, network, and 24/7 NOC delivery — including escalation paths and SLA reporting after go-live.",
+    credential: "[ITIL / CCNP]",
+  },
+  {
+    name: "[Full Name]",
+    role: "Director, Workforce Solutions",
+    focus:
+      "Leads clinical and non-clinical recruiting, credentialing pipelines, and time-to-submit performance.",
+    credential: "[PHR / CHCR]",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* Engagement models                                                   */
+/* ------------------------------------------------------------------ */
+
+/**
+ * PLACEHOLDER DATA — indicative ranges only. Federal work is priced per task
+ * order (FFP, T&M, IDIQ), so replace or remove these before launch rather
+ * than publishing them as a rate card.
+ */
+export interface EngagementModel {
+  name: string;
+  contractType: string;
+  rate: string;
+  rateNote: string;
+  bestFor: string;
+  includes: string[];
+  featured?: boolean;
+}
+
+export const engagementModels: EngagementModel[] = [
+  {
+    name: "Assessment",
+    contractType: "Firm-fixed-price",
+    rate: "[$XX,XXX]",
+    rateNote: "per assessment",
+    bestFor: "Agencies scoping a modernization or compliance gap before funding it.",
+    includes: [
+      "Current-state architecture review",
+      "Control-gap analysis (NIST 800-171 / CMMC 2.0)",
+      "Prioritized remediation roadmap",
+      "Written findings a CO can defend",
+    ],
+  },
+  {
+    name: "Managed Delivery",
+    contractType: "T&M or FFP",
+    rate: "[$XX,XXX]",
+    rateNote: "per month",
+    bestFor: "Programs that need engineering and operations run against a written SLA.",
+    includes: [
+      "Named delivery lead and staffing plan",
+      "24/7 monitoring and tiered escalation",
+      "Monthly reporting and quarterly reviews",
+      "Continuous compliance evidence",
+    ],
+    featured: true,
+  },
+  {
+    name: "Staff Augmentation",
+    contractType: "T&M / IDIQ task order",
+    rate: "[$XXX]",
+    rateNote: "per hour, per role",
+    bestFor: "Filling cleared IT, non-IT, or clinical roles against an existing vehicle.",
+    includes: [
+      "Pre-verified credentialing packets",
+      "Qualified slates in days",
+      "Contract-to-permanent conversion",
+      "Surge and seasonal coverage",
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
 /* Blog                                                                */
 /* ------------------------------------------------------------------ */
 

@@ -3,7 +3,16 @@ import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { motion } from "motion/react";
-import { ArrowRight, Quote, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import {
+  ArrowRight,
+  Quote,
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
+  Check,
+  UserRound,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -39,6 +48,8 @@ import {
   whyChooseUs,
   techPartners,
   caseStudies,
+  leadership,
+  engagementModels,
 } from "@/data/site";
 import { jsonLdScript, pageHead, SITE_URL } from "@/lib/seo";
 import { marketPhotos } from "@/data/media";
@@ -145,7 +156,9 @@ function HomePage() {
       <Qualifications />
       <WhoWeServe />
       <Process />
+      <EngagementModels />
       <CaseStudiesTeaser />
+      <Leadership />
       <Proof />
       <Faq />
       <ContactCTA />
@@ -624,6 +637,184 @@ function Process() {
             </li>
           ))}
         </ol>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Engagement models — PLACEHOLDER pricing, see data/site.ts             */
+/* ------------------------------------------------------------------ */
+
+function EngagementModels() {
+  return (
+    <section className={`bg-background ${SECTION}`}>
+      <div className={CONTAINER}>
+        <Reveal>
+          <SectionHeading
+            align="left"
+            eyebrow="Engagement models"
+            title="How work is scoped and priced"
+            description="Three ways agencies and primes buy from us. Final pricing is always scoped to the requirement and the vehicle — these ranges are indicative."
+          />
+        </Reveal>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {engagementModels.map((model, i) => (
+            <Reveal key={model.name} delay={i * 0.06} className="h-full">
+              <div
+                className={cn(
+                  "flex h-full flex-col rounded-2xl border p-7 sm:p-8",
+                  model.featured
+                    ? "border-gold/50 bg-navy text-white shadow-lift"
+                    : "border-border bg-card",
+                )}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span
+                    className={cn(
+                      "font-mono text-[11px] uppercase tracking-[0.14em]",
+                      model.featured ? "text-gold-bright" : "text-steel",
+                    )}
+                  >
+                    {model.contractType}
+                  </span>
+                  {model.featured && (
+                    <span className="rounded-full border border-gold/40 bg-gold/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-gold-bright">
+                      Most requested
+                    </span>
+                  )}
+                </div>
+
+                <h3
+                  className={cn(
+                    "mt-4 text-xl font-bold",
+                    model.featured ? "text-white" : "text-foreground",
+                  )}
+                >
+                  {model.name}
+                </h3>
+
+                <div className="mt-5 flex items-baseline gap-2">
+                  <span
+                    className={cn(
+                      "font-display text-3xl font-bold tracking-tight",
+                      model.featured ? "text-gold-bright" : "text-primary",
+                    )}
+                  >
+                    {model.rate}
+                  </span>
+                  <span
+                    className={cn(
+                      "font-mono text-[11px] uppercase tracking-[0.1em]",
+                      model.featured ? "text-white/50" : "text-muted-foreground",
+                    )}
+                  >
+                    {model.rateNote}
+                  </span>
+                </div>
+
+                <p
+                  className={cn(
+                    "mt-5 text-sm leading-[1.7]",
+                    model.featured ? "text-white/70" : "text-muted-foreground",
+                  )}
+                >
+                  {model.bestFor}
+                </p>
+
+                <ul
+                  className={cn(
+                    "mt-6 space-y-2.5 border-t pt-6",
+                    model.featured ? "border-white/15" : "border-border",
+                  )}
+                >
+                  {model.includes.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-sm">
+                      <Check
+                        className={cn(
+                          "mt-0.5 h-4 w-4 shrink-0",
+                          model.featured ? "text-success" : "text-brand",
+                        )}
+                      />
+                      <span className={model.featured ? "text-white/85" : "text-foreground/85"}>
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Button
+                  asChild
+                  className={cn(
+                    "mt-8 h-12 w-full rounded-md font-semibold",
+                    model.featured
+                      ? "bg-brand text-brand-foreground hover:bg-brand/90"
+                      : "border border-primary/25 bg-transparent text-primary hover:bg-accent",
+                  )}
+                >
+                  <Link to="/get-quote">Scope this engagement</Link>
+                </Button>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <p className="mt-8 max-w-3xl text-xs leading-relaxed text-muted-foreground">
+          Ranges shown are indicative placeholders for planning conversations only. Federal work is
+          priced per task order against the applicable vehicle (FFP, T&amp;M, or IDIQ), and every
+          quote is scoped to the actual requirement.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Leadership — PLACEHOLDER names, see data/site.ts                     */
+/* ------------------------------------------------------------------ */
+
+function Leadership() {
+  return (
+    <section className="relative overflow-hidden bg-navy px-5 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+      <div className="pointer-events-none absolute inset-0 grid-line-texture opacity-25" />
+      <div className={`relative ${CONTAINER}`}>
+        <Reveal>
+          <Eyebrow tone="light" icon>
+            Leadership
+          </Eyebrow>
+          <h2 className="mt-4 max-w-2xl text-[1.75rem] font-bold leading-[1.2] tracking-tight text-white sm:text-[2.15rem]">
+            The people accountable for delivery
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-[1.75] text-white/70">
+            A single accountable lead per engagement — not a rotating bench. Each director owns
+            scope, staffing, and reporting for their lane.
+          </p>
+        </Reveal>
+
+        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+          {leadership.map((leader, i) => (
+            <Reveal key={leader.role} delay={i * 0.05} className="h-full">
+              <div className="flex h-full flex-col bg-navy p-7">
+                <span className="corner-notch-sm grid h-14 w-14 place-items-center bg-gradient-brand text-navy">
+                  <UserRound className="h-7 w-7" strokeWidth={1.6} />
+                </span>
+                <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.16em] text-white/40">
+                  {leader.credential}
+                </p>
+                <h3 className="mt-2 text-lg font-bold text-white">{leader.name}</h3>
+                <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.12em] text-gold-bright">
+                  {leader.role}
+                </p>
+                <p className="mt-4 text-sm leading-[1.7] text-white/65">{leader.focus}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.14em] text-white/35">
+          Names and credentials pending final confirmation
+        </p>
       </div>
     </section>
   );

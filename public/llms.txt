@@ -23,3 +23,6 @@
 
 - Do not invent UEI, CAGE, or phone numbers. Phone is unpublished until confirmed.
 - Client names in testimonials and case studies may be withheld by contract.
+- Leadership names and engagement-model pricing on the home page are PLACEHOLDERS
+  (see `leadership` and `engagementModels` in src/data/site.ts). They are not real
+  people or real rates and must be replaced or removed before launch.
