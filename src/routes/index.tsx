@@ -15,6 +15,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
+import { HeroSlider } from "@/components/sections/HeroSlider";
 import { IdCard } from "@/components/sections/IdCard";
 import { CircuitAccent } from "@/components/sections/CircuitAccent";
 import { GaugeRing } from "@/components/sections/GaugeRing";
@@ -130,7 +131,7 @@ const quotes = [
 function HomePage() {
   return (
     <>
-      <Hero />
+      <HeroSlider />
       <TrustStrip />
       <CapabilityPillars />
       <VisualBannerRow />
@@ -147,84 +148,7 @@ function HomePage() {
 }
 
 /* ------------------------------------------------------------------ */
-/* 1 — Hero                                                            */
-/* ------------------------------------------------------------------ */
-
-function Hero() {
-  return (
-    <section className="relative overflow-hidden bg-navy pt-[112px] pb-16 sm:pt-[132px] sm:pb-20 lg:pt-[148px] lg:pb-28">
-      <div className="pointer-events-none absolute inset-0 grid-line-texture [mask-image:radial-gradient(ellipse_75%_65%_at_50%_28%,black_18%,transparent_78%)]" />
-      <div className="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-steel/20 blur-3xl" />
-      <div className="pointer-events-none absolute -right-20 bottom-[-4rem] h-96 w-96 rounded-full bg-brand/15 blur-3xl" />
-      <div className={`relative ${CONTAINER} px-5 sm:px-6 lg:px-8`}>
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <Eyebrow tone="light" icon>
-              Service-Disabled Veteran-Owned Small Business
-            </Eyebrow>
-            <h1 className="mt-6 text-[2.15rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-[3rem] lg:text-[3.35rem]">
-              Mission-ready <span className="text-gold-bright">cybersecurity and cloud</span>, built
-              on veteran discipline
-            </h1>
-            <p className="mt-6 max-w-xl text-[1.05rem] leading-[1.7] text-white/78 sm:text-lg">
-              CyberCloud Infra LLC delivers cybersecurity, Microsoft Azure cloud services,
-              healthcare staffing, and non-IT professional staffing to federal agencies, DoD
-              contractors, and commercial enterprises — under one accountable, veteran-owned
-              contract vehicle.
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button
-                asChild
-                className="h-12 min-w-[240px] rounded-md bg-brand px-8 text-base font-semibold text-brand-foreground shadow-[0_10px_30px_rgba(176,141,87,0.32)] hover:bg-brand/90"
-              >
-                <a href="/capability-statement.pdf" target="_blank" rel="noopener noreferrer">
-                  Request Capability Statement <ArrowRight className="h-4 w-4" />
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="h-12 min-w-[180px] rounded-md border-white/30 bg-transparent px-7 text-base font-medium text-white/90 hover:bg-white/10 hover:text-white"
-              >
-                <Link to="/contact">Talk to an expert</Link>
-              </Button>
-            </div>
-            <ul className="mt-10 flex flex-wrap gap-2">
-              {pillars.map((pillar) => (
-                <li key={pillar.slug}>
-                  <Link
-                    to={pillar.href}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-2 text-xs font-medium text-white/85 transition-colors hover:border-gold/50 hover:bg-white/[0.1]"
-                  >
-                    <span className="font-mono text-gold-bright">{pillar.number}</span>
-                    {pillar.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mx-auto w-full max-w-sm"
-          >
-            <CircuitAccent className="pointer-events-none absolute -inset-16 -z-10 opacity-80" />
-            <IdCard />
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* 3 — Trust strip                                                     */
+/* 2 — Trust strip                                                     */
 /* ------------------------------------------------------------------ */
 
 function TrustStrip() {
@@ -423,42 +347,51 @@ function CredentialsBand() {
           </div>
         </div>
 
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {gaugeStats.map((s) => (
-            <div key={s.label} className="flex items-center gap-5">
-              <GaugeRing color={s.color}>
-                <span
-                  className="font-display text-sm font-bold tracking-tight text-white"
-                  style={{ color: s.color }}
-                >
-                  {s.big}
-                </span>
-              </GaugeRing>
-              <div>
-                <p className="font-mono-label text-[10px] text-white/40">Status</p>
-                <p className="mt-0.5 text-sm font-medium text-white/80">{s.label}</p>
-              </div>
+        <div className="mt-14 grid items-start gap-14 lg:grid-cols-[1fr_auto] lg:gap-16">
+          <div>
+            <div className="grid gap-8 sm:grid-cols-2">
+              {gaugeStats.map((s) => (
+                <div key={s.label} className="flex items-center gap-5">
+                  <GaugeRing color={s.color}>
+                    <span
+                      className="font-display text-sm font-bold tracking-tight"
+                      style={{ color: s.color }}
+                    >
+                      {s.big}
+                    </span>
+                  </GaugeRing>
+                  <div>
+                    <p className="font-mono-label text-[10px] text-white/40">Status</p>
+                    <p className="mt-0.5 text-sm font-medium text-white/80">{s.label}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <div className="mt-14 grid gap-8 border-t border-white/10 pt-10 sm:grid-cols-2 lg:grid-cols-4">
-          {homeStats.map((s) => (
-            <div key={s.label}>
-              <p className="font-mono text-2xl font-semibold text-white">
-                <AnimatedCounter
-                  value={s.value}
-                  prefix={s.prefix}
-                  suffix={s.suffix}
-                  decimals={s.decimals}
-                />
-              </p>
-              <div className="mt-2.5 h-1 w-full overflow-hidden rounded-full bg-white/10">
-                <div className="h-full w-full rounded-full bg-gradient-to-r from-steel to-gold-bright" />
-              </div>
-              <p className="mt-2 text-xs text-white/50">{statCaptions[s.label] ?? s.label}</p>
+            <div className="mt-12 grid gap-8 border-t border-white/10 pt-10 sm:grid-cols-2">
+              {homeStats.map((s) => (
+                <div key={s.label}>
+                  <p className="font-mono text-2xl font-semibold text-white">
+                    <AnimatedCounter
+                      value={s.value}
+                      prefix={s.prefix}
+                      suffix={s.suffix}
+                      decimals={s.decimals}
+                    />
+                  </p>
+                  <div className="mt-2.5 h-1 w-full overflow-hidden rounded-full bg-white/10">
+                    <div className="h-full w-full rounded-full bg-gradient-to-r from-steel to-gold-bright" />
+                  </div>
+                  <p className="mt-2 text-xs text-white/50">{statCaptions[s.label] ?? s.label}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          <div className="relative mx-auto w-full max-w-sm lg:mx-0">
+            <CircuitAccent className="pointer-events-none absolute -inset-14 -z-10 opacity-70" />
+            <IdCard />
+          </div>
         </div>
       </div>
     </section>
