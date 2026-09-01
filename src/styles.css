@@ -68,79 +68,79 @@
 :root {
   --radius: 1rem;
 
-  /* CyberCloud Infra LLC — SDVOSB navy + gold clearance-card design system */
-  --background: #f3f5f7;
-  --foreground: #101826;
+  /* CyberCloud Infra LLC — Enterprise Navy Grid design system */
+  --background: #e8edf3;
+  --foreground: #0f1b3d;
   --card: #ffffff;
-  --card-foreground: #101826;
+  --card-foreground: #0f1b3d;
   --popover: #ffffff;
-  --popover-foreground: #101826;
+  --popover-foreground: #0f1b3d;
 
-  --primary: #0b1f3a;
+  --primary: #1e3a5f;
   --primary-foreground: #ffffff;
 
-  --brand: #b08d57;
-  --brand-foreground: #0b1f3a;
+  --brand: #3b6fa0;
+  --brand-foreground: #ffffff;
 
-  --navy: #0b1f3a;
+  --navy: #0f1b3d;
   --navy-foreground: #ffffff;
 
-  --secondary: #e7edf5;
-  --secondary-foreground: #0b1f3a;
+  --secondary: #dde5ee;
+  --secondary-foreground: #0f1b3d;
 
-  --muted: #e9ecf0;
-  --muted-foreground: #4a5568;
+  --muted: #dfe6ee;
+  --muted-foreground: #566378;
 
-  --accent: #e9ecf0;
-  --accent-foreground: #0b1f3a;
+  --accent: #dfe6ee;
+  --accent-foreground: #0f1b3d;
 
-  --warning: #b08d57;
-  --success: #7fd99a;
-  --success-foreground: #0b1f3a;
+  --warning: #b8813a;
+  --success: #2f9e68;
+  --success-foreground: #ffffff;
 
-  --destructive: #dc2626;
+  --destructive: #c02626;
   --destructive-foreground: #ffffff;
-  --border: #d8dee4;
-  --input: #d8dee4;
-  --ring: #b08d57;
+  --border: #cfd9e5;
+  --input: #cfd9e5;
+  --ring: #3b6fa0;
 
-  --chart-1: #0b1f3a;
-  --chart-2: #3a6ea5;
-  --chart-3: #0f2a4d;
-  --chart-4: #7fd99a;
-  --chart-5: #b08d57;
+  --chart-1: #0f1b3d;
+  --chart-2: #1e3a5f;
+  --chart-3: #3b6fa0;
+  --chart-4: #6f9fce;
+  --chart-5: #2f9e68;
 
   --sidebar: #ffffff;
-  --sidebar-foreground: #101826;
-  --sidebar-primary: #0b1f3a;
+  --sidebar-foreground: #0f1b3d;
+  --sidebar-primary: #1e3a5f;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e9ecf0;
-  --sidebar-accent-foreground: #101826;
-  --sidebar-border: #d8dee4;
-  --sidebar-ring: #b08d57;
+  --sidebar-accent: #dfe6ee;
+  --sidebar-accent-foreground: #0f1b3d;
+  --sidebar-border: #cfd9e5;
+  --sidebar-ring: #3b6fa0;
 
-  --surface: #e9ecf0;
-  --surface-2: #dde3ea;
-  --teal: #3a6ea5;
+  --surface: #dfe6ee;
+  --surface-2: #d3dde9;
+  --teal: #3b6fa0;
 
-  --steel: #3a6ea5;
-  --steel-2: #2e5f8a;
-  --gold: #b08d57;
-  --gold-bright: #c9a468;
-  --ink: #101826;
-  --ink-soft: #4a5568;
+  --steel: #3b6fa0;
+  --steel-2: #1e3a5f;
+  --gold: #3b6fa0;
+  --gold-bright: #8fb6dc;
+  --ink: #0f1b3d;
+  --ink-soft: #566378;
 
-  --gradient-hero: linear-gradient(135deg, #081930 0%, #0b1f3a 55%, #0f2a4d 100%);
-  --gradient-primary: linear-gradient(135deg, #0b1f3a 0%, #0f2a4d 100%);
-  --gradient-brand: linear-gradient(135deg, #b08d57 0%, #c9a468 100%);
-  --gradient-mix: linear-gradient(120deg, #3a6ea5 0%, #0f2a4d 55%, #0b1f3a 100%);
-  --gradient-subtle: linear-gradient(180deg, #ffffff 0%, #e9ecf0 100%);
-  --gradient-navy: linear-gradient(135deg, #081930 0%, #0b1f3a 100%);
+  --gradient-hero: linear-gradient(135deg, #0b1531 0%, #0f1b3d 55%, #1e3a5f 100%);
+  --gradient-primary: linear-gradient(135deg, #0f1b3d 0%, #1e3a5f 100%);
+  --gradient-brand: linear-gradient(135deg, #3b6fa0 0%, #6f9fce 100%);
+  --gradient-mix: linear-gradient(120deg, #3b6fa0 0%, #1e3a5f 55%, #0f1b3d 100%);
+  --gradient-subtle: linear-gradient(180deg, #ffffff 0%, #e8edf3 100%);
+  --gradient-navy: linear-gradient(135deg, #0b1531 0%, #0f1b3d 100%);
 
-  --shadow-soft: 0 1px 2px rgba(11, 31, 58, 0.06), 0 10px 30px rgba(11, 31, 58, 0.06);
-  --shadow-card: 0 10px 30px rgba(11, 31, 58, 0.07);
-  --shadow-lift: 0 20px 50px rgba(11, 31, 58, 0.12);
-  --shadow-glow: 0 0 0 1px rgba(176, 141, 87, 0.35), 0 24px 60px -24px rgba(176, 141, 87, 0.55);
+  --shadow-soft: 0 1px 2px rgba(15, 27, 61, 0.06), 0 10px 30px rgba(15, 27, 61, 0.06);
+  --shadow-card: 0 10px 30px rgba(15, 27, 61, 0.08);
+  --shadow-lift: 0 22px 50px rgba(15, 27, 61, 0.16);
+  --shadow-glow: 0 0 0 1px rgba(59, 111, 160, 0.35), 0 24px 60px -24px rgba(59, 111, 160, 0.55);
 }
 
 .dark {
