@@ -347,74 +347,104 @@ function ReadyBanner() {
 /* 1 — Hero                                                            */
 /* ------------------------------------------------------------------ */
 
+const heroCredentials = [
+  { label: "Certification", value: "SDVOSB" },
+  { label: "SAM.gov", value: "Active" },
+  { label: "Primary NAICS", value: naicsCodes[0] },
+  { label: "Frameworks", value: "NIST 800-171" },
+];
+
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-navy pt-[112px] pb-16 sm:pt-[132px] sm:pb-20 lg:pt-[148px] lg:pb-28">
-      <div className="pointer-events-none absolute inset-0 grid-line-texture [mask-image:radial-gradient(ellipse_75%_65%_at_50%_28%,black_18%,transparent_78%)]" />
-      <div className="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-steel/20 blur-3xl" />
-      <div className="pointer-events-none absolute -right-20 bottom-[-4rem] h-96 w-96 rounded-full bg-brand/15 blur-3xl" />
-      <div className={`relative ${CONTAINER} px-5 sm:px-6 lg:px-8`}>
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <Eyebrow tone="light" icon>
-              Service-Disabled Veteran-Owned Small Business
-            </Eyebrow>
-            <h1 className="mt-6 text-[2.15rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-[3rem] lg:text-[3.35rem]">
-              Mission-ready <span className="text-gold-bright">cybersecurity and cloud</span>, built
-              on veteran discipline
-            </h1>
-            <p className="mt-6 max-w-xl text-[1.05rem] leading-[1.7] text-white/78 sm:text-lg">
-              CyberCloud Infra LLC delivers cybersecurity, Microsoft Azure cloud services,
-              healthcare staffing, and non-IT professional staffing to federal agencies, DoD
-              contractors, and commercial enterprises — under one accountable, veteran-owned
-              contract vehicle.
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button
-                asChild
-                className="h-12 min-w-[240px] rounded-md bg-brand px-8 text-base font-semibold text-brand-foreground shadow-[0_10px_30px_rgba(176,141,87,0.32)] hover:bg-brand/90"
-              >
-                <a href="/capability-statement.pdf" target="_blank" rel="noopener noreferrer">
-                  Request Capability Statement <ArrowRight className="h-4 w-4" />
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="h-12 min-w-[180px] rounded-md border-white/30 bg-transparent px-7 text-base font-medium text-white/90 hover:bg-white/10 hover:text-white"
-              >
-                <Link to="/contact">Talk to an expert</Link>
-              </Button>
-            </div>
-            <ul className="mt-10 flex flex-wrap gap-2">
-              {pillars.map((pillar) => (
-                <li key={pillar.slug}>
-                  <Link
-                    to={pillar.href}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-2 text-xs font-medium text-white/85 transition-colors hover:border-gold/50 hover:bg-white/[0.1]"
-                  >
-                    <span className="font-mono text-gold-bright">{pillar.number}</span>
-                    {pillar.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+    <section className="relative overflow-hidden bg-navy pt-[120px] pb-16 sm:pt-[140px] sm:pb-20 lg:pt-[160px] lg:pb-24">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.16] [background-image:radial-gradient(#3b6fa0_1px,transparent_1px)] [background-size:40px_40px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/50 to-transparent" />
+      <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-steel/20 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-[-6rem] h-96 w-96 rounded-full bg-steel/15 blur-3xl" />
 
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mx-auto w-full max-w-sm"
-          >
-            <CircuitAccent className="pointer-events-none absolute -inset-16 -z-10 opacity-80" />
-            <IdCard />
-          </motion.div>
-        </div>
+      <div className={`relative ${CONTAINER} px-5 sm:px-6 lg:px-8`}>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto max-w-3xl text-center"
+        >
+          <span className="inline-flex items-center gap-2 rounded-full border border-brand/70 px-3.5 py-1.5">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-brand" />
+            <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85">
+              Service-Disabled Veteran-Owned Small Business
+            </span>
+          </span>
+
+          <h1 className="mt-8 font-display text-[2.1rem] font-bold leading-[1.18] tracking-tight text-white sm:text-[2.9rem] lg:text-[3.25rem]">
+            Precision Infrastructure for
+            <br />
+            <span className="text-[#8fb6dc]">Federal &amp; Private Missions.</span>
+          </h1>
+
+          <p className="mx-auto mt-7 max-w-2xl text-[1.05rem] leading-[1.75] text-white/72">
+            CyberCloud Infra LLC delivers cybersecurity, Microsoft Azure cloud, infrastructure
+            engineering, and specialized staffing to federal agencies, DoD contractors, and
+            commercial enterprises — under one accountable, veteran-owned contract vehicle.
+          </p>
+
+          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button
+              asChild
+              className="h-12 min-w-[230px] rounded-sm bg-brand px-8 text-base font-semibold text-brand-foreground hover:bg-steel-2"
+            >
+              <a href="/capability-statement.pdf" target="_blank" rel="noopener noreferrer">
+                Capability Statement <ArrowRight className="h-4 w-4" />
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="h-12 min-w-[180px] rounded-sm border-white/35 bg-transparent px-7 text-base font-medium text-white/90 hover:border-white hover:bg-white/10 hover:text-white"
+            >
+              <Link to="/contact">Contact Our Team</Link>
+            </Button>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
+          className="relative z-10 mx-auto mt-16 max-w-4xl"
+        >
+          <div className="grid grid-cols-2 gap-8 rounded-lg border border-white/10 bg-white/[0.05] p-6 shadow-lift backdrop-blur-md md:grid-cols-4">
+            {heroCredentials.map((item, i) => (
+              <div
+                key={item.label}
+                className={
+                  i < heroCredentials.length - 1
+                    ? "text-center md:border-r md:border-white/10"
+                    : "text-center"
+                }
+              >
+                <p className="text-[10px] uppercase tracking-[0.18em] text-white/45">
+                  {item.label}
+                </p>
+                <p className="mt-1 font-mono text-sm font-bold text-[#e8edf3]">{item.value}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <ul className="mt-10 flex flex-wrap justify-center gap-2">
+          {pillars.map((pillar) => (
+            <li key={pillar.slug}>
+              <Link
+                to={pillar.href}
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-2 text-xs font-medium text-white/85 transition-colors hover:border-brand/70 hover:bg-white/[0.1]"
+              >
+                <span className="font-mono text-[#8fb6dc]">{pillar.number}</span>
+                {pillar.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
