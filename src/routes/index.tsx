@@ -25,8 +25,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
-import { IdCard } from "@/components/sections/IdCard";
-import { CircuitAccent } from "@/components/sections/CircuitAccent";
 import { GaugeRing } from "@/components/sections/GaugeRing";
 import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
 import {
@@ -489,20 +487,20 @@ function CapabilityPillars() {
             description="Every engagement maps to one of these four lanes — so an agency or prime always knows who owns the work."
           />
         </Reveal>
-        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map((pillar, i) => {
             const Icon = iconBySlug[pillar.slug];
             return (
               <Reveal key={pillar.slug} delay={i * 0.05} className="h-full">
                 <Link
                   to={pillar.href}
-                  className="group flex h-full flex-col bg-card p-7 transition-colors hover:bg-accent/60"
+                  className="group flex h-full flex-col border-b-4 border-transparent bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-brand hover:shadow-lift"
                 >
                   <span className="font-mono text-xs font-semibold tracking-[0.16em] text-brand">
                     {pillar.number} / {pillar.slug.replace("-services", "").toUpperCase()}
                   </span>
-                  <span className="mt-5 grid h-14 w-14 place-items-center rounded-xl bg-navy text-gold-bright transition-transform duration-300 group-hover:scale-105">
-                    <Icon className="h-7 w-7" />
+                  <span className="mt-5 grid h-12 w-12 place-items-center bg-accent text-primary transition-colors duration-300 group-hover:bg-navy group-hover:text-white">
+                    <Icon className="h-6 w-6" />
                   </span>
                   <h3 className="mt-6 text-lg font-bold text-foreground">{pillar.title}</h3>
                   <p className="mt-3 flex-1 text-sm leading-[1.7] text-muted-foreground">
