@@ -18,12 +18,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
 import { GaugeRing } from "@/components/sections/GaugeRing";
 import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
@@ -38,7 +32,6 @@ import {
   whoWeServe,
   company,
   contractingQuals,
-  faqs,
   homeStats,
   processSteps,
   naicsCodes,
@@ -63,15 +56,6 @@ export const Route = createFileRoute("/")({
       path: "/",
     }),
     scripts: [
-      jsonLdScript({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: faqs.map((item) => ({
-          "@type": "Question",
-          name: item.q,
-          acceptedAnswer: { "@type": "Answer", text: item.a },
-        })),
-      }),
       jsonLdScript({
         "@context": "https://schema.org",
         "@type": "WebSite",
@@ -154,7 +138,6 @@ function HomePage() {
       <WhoWeServe />
       <Process />
       <Proof />
-      <Faq />
       <ReadyBanner />
       <ContactCTA />
     </>
