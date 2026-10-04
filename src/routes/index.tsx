@@ -895,40 +895,6 @@ function Proof() {
 }
 
 /* ------------------------------------------------------------------ */
-/* FAQ (bonus — kept from prior build)                                  */
-/* ------------------------------------------------------------------ */
-
-function Faq() {
-  return (
-    <section className={`bg-surface ${SECTION}`}>
-      <div className={`${CONTAINER} mx-auto max-w-2xl`}>
-        <Reveal>
-          <SectionHeading
-            eyebrow="FAQ"
-            title="Questions agencies and enterprises ask"
-            description="SDVOSB status, service coverage, staffing speed, and what happens after go-live."
-          />
-        </Reveal>
-        <Reveal delay={0.06} className="mt-12">
-          <Accordion type="single" collapsible className="border-t border-border">
-            {faqs.map((item) => (
-              <AccordionItem key={item.q} value={item.q} className="border-border">
-                <AccordionTrigger className="py-5 text-left text-base font-semibold text-foreground hover:no-underline">
-                  {item.q}
-                </AccordionTrigger>
-                <AccordionContent className="pb-5 text-[0.975rem] leading-[1.75] text-muted-foreground">
-                  {item.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
 /* 9 — Contact / CTA                                                   */
 /* ------------------------------------------------------------------ */
 
