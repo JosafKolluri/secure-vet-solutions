@@ -18,12 +18,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Reveal, Eyebrow, SectionHeading } from "@/components/sections/Primitives";
 import { GaugeRing } from "@/components/sections/GaugeRing";
 import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
@@ -38,7 +32,6 @@ import {
   whoWeServe,
   company,
   contractingQuals,
-  faqs,
   homeStats,
   processSteps,
   naicsCodes,
@@ -63,15 +56,6 @@ export const Route = createFileRoute("/")({
       path: "/",
     }),
     scripts: [
-      jsonLdScript({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: faqs.map((item) => ({
-          "@type": "Question",
-          name: item.q,
-          acceptedAnswer: { "@type": "Answer", text: item.a },
-        })),
-      }),
       jsonLdScript({
         "@context": "https://schema.org",
         "@type": "WebSite",
@@ -154,7 +138,6 @@ function HomePage() {
       <WhoWeServe />
       <Process />
       <Proof />
-      <Faq />
       <ReadyBanner />
       <ContactCTA />
     </>
@@ -905,40 +888,6 @@ function Proof() {
               </div>
             </div>
           </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* FAQ (bonus — kept from prior build)                                  */
-/* ------------------------------------------------------------------ */
-
-function Faq() {
-  return (
-    <section className={`bg-surface ${SECTION}`}>
-      <div className={`${CONTAINER} mx-auto max-w-2xl`}>
-        <Reveal>
-          <SectionHeading
-            eyebrow="FAQ"
-            title="Questions agencies and enterprises ask"
-            description="SDVOSB status, service coverage, staffing speed, and what happens after go-live."
-          />
-        </Reveal>
-        <Reveal delay={0.06} className="mt-12">
-          <Accordion type="single" collapsible className="border-t border-border">
-            {faqs.map((item) => (
-              <AccordionItem key={item.q} value={item.q} className="border-border">
-                <AccordionTrigger className="py-5 text-left text-base font-semibold text-foreground hover:no-underline">
-                  {item.q}
-                </AccordionTrigger>
-                <AccordionContent className="pb-5 text-[0.975rem] leading-[1.75] text-muted-foreground">
-                  {item.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
         </Reveal>
       </div>
     </section>
